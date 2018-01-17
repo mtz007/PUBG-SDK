@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,53 @@ namespace Classes
 //---------------------------------------------------------------------------
 //Functions
 //---------------------------------------------------------------------------
+
+// Function SoundSettingWidget.SoundSettingWidget_C.GetGamePadHelpWidgetClass
+// (Public, HasOutParms, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class UClass*                  GuideClass                     (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+
+void USoundSettingWidget_C::GetGamePadHelpWidgetClass(class UClass** GuideClass)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function SoundSettingWidget.SoundSettingWidget_C.GetGamePadHelpWidgetClass");
+
+	USoundSettingWidget_C_GetGamePadHelpWidgetClass_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (GuideClass != nullptr)
+		*GuideClass = params.GuideClass;
+}
+
+
+// Function SoundSettingWidget.SoundSettingWidget_C.OnFocusReceived
+// (BlueprintCosmetic, Event, Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// struct FGeometry*              MyGeometry                     (Parm, IsPlainOldData)
+// struct FFocusEvent*            InFocusEvent                   (Parm)
+// struct FEventReply             ReturnValue                    (Parm, OutParm, ReturnParm)
+
+struct FEventReply USoundSettingWidget_C::OnFocusReceived(struct FGeometry* MyGeometry, struct FFocusEvent* InFocusEvent)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function SoundSettingWidget.SoundSettingWidget_C.OnFocusReceived");
+
+	USoundSettingWidget_C_OnFocusReceived_Params params;
+	params.MyGeometry = MyGeometry;
+	params.InFocusEvent = InFocusEvent;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
 
 // Function SoundSettingWidget.SoundSettingWidget_C.IsChanged
 // (Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure, Const)

@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -241,6 +241,7 @@ struct UItemListWidget_Gamepad_C_GetSlotItem_Params
 	TScriptInterface<class USlotInterface>             Item_SlotInterface;                                       // (Parm, ZeroConstructor, IsPlainOldData)
 	TScriptInterface<class USlotContainerInterface>    SlotContainer;                                            // (Parm, ZeroConstructor, IsPlainOldData)
 	class UItemSlotWidget_Gamepad_C*                   ItemSlotWidget;                                           // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               bIsNew;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.RefreshList_Visinity

@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -2838,6 +2838,16 @@ enum class EGraphType : uint8_t
 };
 
 
+// Enum Engine.EBackgroundTask
+enum class EBackgroundTask : uint8_t
+{
+	BT_ShaderCompile               = 0,
+	BT_RenderGrassMap              = 1,
+	BT_BuildLighting               = 2,
+	BT_MAX                         = 3
+};
+
+
 // Enum Engine.EConsoleType
 enum class EConsoleType : uint8_t
 {
@@ -3234,10 +3244,11 @@ enum class EMaterialExposedViewProperty : uint8_t
 enum class EWorldPositionIncludedOffsets : uint8_t
 {
 	WPT_Default                    = 0,
-	WPT_ExcludeAllShaderOffsets    = 1,
-	WPT_CameraRelative             = 2,
-	WPT_CameraRelativeNoOffsets    = 3,
-	WPT_MAX                        = 4
+	WPT_Full                       = 1,
+	WPT_ExcludeAllShaderOffsets    = 2,
+	WPT_CameraRelative             = 3,
+	WPT_CameraRelativeNoOffsets    = 4,
+	WPT_MAX                        = 5
 };
 
 

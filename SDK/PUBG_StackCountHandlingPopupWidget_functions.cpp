@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,23 @@ namespace Classes
 //---------------------------------------------------------------------------
 //Functions
 //---------------------------------------------------------------------------
+
+// Function StackCountHandlingPopupWidget.StackCountHandlingPopupWidget_C.NotifyToCapacityWidget
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void UStackCountHandlingPopupWidget_C::NotifyToCapacityWidget()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function StackCountHandlingPopupWidget.StackCountHandlingPopupWidget_C.NotifyToCapacityWidget");
+
+	UStackCountHandlingPopupWidget_C_NotifyToCapacityWidget_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function StackCountHandlingPopupWidget.StackCountHandlingPopupWidget_C.NotifyStackCountUpdated
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
@@ -602,6 +619,23 @@ void UStackCountHandlingPopupWidget_C::BndEvt__InputAmountText_K2Node_ComponentB
 
 	UStackCountHandlingPopupWidget_C_BndEvt__InputAmountText_K2Node_ComponentBoundEvent_0_OnEditableTextChangedEvent__DelegateSignature_Params params;
 	params.Text = Text;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function StackCountHandlingPopupWidget.StackCountHandlingPopupWidget_C.OnStackCountActionPerformed
+// (BlueprintCallable, BlueprintEvent)
+
+void UStackCountHandlingPopupWidget_C::OnStackCountActionPerformed()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function StackCountHandlingPopupWidget.StackCountHandlingPopupWidget_C.OnStackCountActionPerformed");
+
+	UStackCountHandlingPopupWidget_C_OnStackCountActionPerformed_Params params;
 
 	auto flags = fn->FunctionFlags;
 

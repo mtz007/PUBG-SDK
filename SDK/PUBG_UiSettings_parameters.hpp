@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -20,8 +20,8 @@ struct UUiSettings_C_GetSelectUseCharacterCapture_Params
 	bool                                               UseCharacterCapture;                                      // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function UiSettings.UiSettings_C.ApplybyCurrentSelectedSettings
-struct UUiSettings_C_ApplybyCurrentSelectedSettings_Params
+// Function UiSettings.UiSettings_C.ApplyByCurrentSelectedSettings
+struct UUiSettings_C_ApplyByCurrentSelectedSettings_Params
 {
 };
 

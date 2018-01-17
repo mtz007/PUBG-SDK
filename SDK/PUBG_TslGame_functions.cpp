@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -1510,6 +1510,45 @@ void UCoherentCommonBinder::BindDelegate()
 }
 
 
+// Function TslGame.TslBasePlayerController.Server_SetBPFactor
+// (Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
+// Parameters:
+// float                          factor                         (Parm, ZeroConstructor, IsPlainOldData)
+
+void ATslBasePlayerController::Server_SetBPFactor(float factor)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslBasePlayerController.Server_SetBPFactor");
+
+	ATslBasePlayerController_Server_SetBPFactor_Params params;
+	params.factor = factor;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function TslGame.TslBasePlayerController.HandleClipboard
+// (Native, Protected)
+
+void ATslBasePlayerController::HandleClipboard()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslBasePlayerController.HandleClipboard");
+
+	ATslBasePlayerController_HandleClipboard_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function TslGame.TslPlayerController.UnreliablePong
 // (Final, Net, Native, Event, Private, NetServer, NetValidate)
 // Parameters:
@@ -1929,6 +1968,29 @@ void ATslPlayerController::ServerStopHoldRotation(const struct FRotator& DeltaRo
 	ATslPlayerController_ServerStopHoldRotation_Params params;
 	params.DeltaRotation = DeltaRotation;
 	params.bUseInterp = bUseInterp;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function TslGame.TslPlayerController.ServerStat
+// (Final, Net, NetReliable, Native, Event, Private, NetServer, NetValidate)
+// Parameters:
+// TEnumAsByte<EServerStatType>   StatType                       (Parm, ZeroConstructor, IsPlainOldData)
+// struct FString                 Password                       (Parm, ZeroConstructor)
+
+void ATslPlayerController::ServerStat(TEnumAsByte<EServerStatType> StatType, const struct FString& Password)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslPlayerController.ServerStat");
+
+	ATslPlayerController_ServerStat_Params params;
+	params.StatType = StatType;
+	params.Password = Password;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2846,14 +2908,16 @@ void ATslPlayerController::OnExecuteExitCommand()
 // Parameters:
 // EReportCause                   ReportCause                    (Parm, ZeroConstructor, IsPlainOldData)
 // ESubjectToReport               SubjectToReport                (Parm, ZeroConstructor, IsPlainOldData)
+// TArray<EReportDetailCauseType> ReportDetailCauseTypeList      (Parm, ZeroConstructor)
 
-void ATslPlayerController::OnClickedReportButton(EReportCause ReportCause, ESubjectToReport SubjectToReport)
+void ATslPlayerController::OnClickedReportButton(EReportCause ReportCause, ESubjectToReport SubjectToReport, TArray<EReportDetailCauseType> ReportDetailCauseTypeList)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslPlayerController.OnClickedReportButton");
 
 	ATslPlayerController_OnClickedReportButton_Params params;
 	params.ReportCause = ReportCause;
 	params.SubjectToReport = SubjectToReport;
+	params.ReportDetailCauseTypeList = ReportDetailCauseTypeList;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6238,6 +6302,27 @@ void UHighlightSession::Die(bool bGroggy)
 }
 
 
+// Function TslGame.HighlightSession.DeathCamFinished
+// (Final, Native, Private)
+// Parameters:
+// float                          DeathCamRunningTime            (Parm, ZeroConstructor, IsPlainOldData)
+
+void UHighlightSession::DeathCamFinished(float DeathCamRunningTime)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.HighlightSession.DeathCamFinished");
+
+	UHighlightSession_DeathCamFinished_Params params;
+	params.DeathCamRunningTime = DeathCamRunningTime;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function TslGame.InteractionInterface.GetInteractiveObjectName
 // (Native, Event, Public, BlueprintCallable, BlueprintEvent, BlueprintPure, Const)
 // Parameters:
@@ -9169,6 +9254,24 @@ void ATslWeapon_Gun::OnRep_MyPawn()
 }
 
 
+// Function TslGame.TslWeapon_Gun.OnRep_FiringModeIndex
+// (Final, Native, Public)
+
+void ATslWeapon_Gun::OnRep_FiringModeIndex()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslWeapon_Gun.OnRep_FiringModeIndex");
+
+	ATslWeapon_Gun_OnRep_FiringModeIndex_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function TslGame.TslWeapon_Gun.OnRep_CurrentZeroLevel
 // (Final, Native, Protected)
 // Parameters:
@@ -10348,6 +10451,27 @@ void ATslWeapon_Gun::ClientSimulateWeaponFire(const struct FHitResult& ExceptTra
 
 	ATslWeapon_Gun_ClientSimulateWeaponFire_Params params;
 	params.ExceptTrajectoryHitResult = ExceptTrajectoryHitResult;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function TslGame.TslWeapon_Gun.ClientSetFiringMode
+// (Net, NetReliable, Native, Event, Public, NetClient)
+// Parameters:
+// EFiringMode                    FiringMode                     (Parm, ZeroConstructor, IsPlainOldData)
+
+void ATslWeapon_Gun::ClientSetFiringMode(EFiringMode FiringMode)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslWeapon_Gun.ClientSetFiringMode");
+
+	ATslWeapon_Gun_ClientSetFiringMode_Params params;
+	params.FiringMode = FiringMode;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -18913,6 +19037,46 @@ void ATslCharacter::AddBuffMoveSpeedFactor(float MoveSpeedFactor)
 }
 
 
+// Function TslGame.ObserverTagWidget.UpdateWeaponIcon_Imp
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class USizeBox*                weaponBox                      (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// class UImage*                  weaponImage                    (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+
+void UObserverTagWidget::UpdateWeaponIcon_Imp(class USizeBox* weaponBox, class UImage* weaponImage)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.ObserverTagWidget.UpdateWeaponIcon_Imp");
+
+	UObserverTagWidget_UpdateWeaponIcon_Imp_Params params;
+	params.weaponBox = weaponBox;
+	params.weaponImage = weaponImage;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function TslGame.ObserverTagWidget.UpdateWeaponIcon
+// (Event, Public, BlueprintEvent)
+
+void UObserverTagWidget::UpdateWeaponIcon()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.ObserverTagWidget.UpdateWeaponIcon");
+
+	UObserverTagWidget_UpdateWeaponIcon_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function TslGame.ObserverTagWidget.SetTeamNumber
 // (Event, Public, HasDefaults, BlueprintEvent)
 // Parameters:
@@ -19078,6 +19242,27 @@ void UObserverTagWidget::HandleWidgetPrepass(class UWidget* Widget)
 	static auto fn = UObject::FindObject<UFunction>("Function TslGame.ObserverTagWidget.HandleWidgetPrepass");
 
 	UObserverTagWidget_HandleWidgetPrepass_Params params;
+	params.Widget = Widget;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function TslGame.ObserverTagWidget.HandleWeaponImagePrepass
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UWidget*                 Widget                         (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+
+void UObserverTagWidget::HandleWeaponImagePrepass(class UWidget* Widget)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.ObserverTagWidget.HandleWeaponImagePrepass");
+
+	UObserverTagWidget_HandleWeaponImagePrepass_Params params;
 	params.Widget = Widget;
 
 	auto flags = fn->FunctionFlags;
@@ -26135,6 +26320,28 @@ void UTslSettings::SetCharacterStudioRenderTarget(class UTextureRenderTarget2D* 
 }
 
 
+// Function TslGame.TslSettings.IsUsingGappLobby
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                           ReturnValue                    (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UTslSettings::IsUsingGappLobby()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslSettings.IsUsingGappLobby");
+
+	UTslSettings_IsUsingGappLobby_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
 // Function TslGame.TslSettings.IsForKoreanRating
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
@@ -26247,6 +26454,28 @@ float UTslSettings::GetNotifyMaxDistanceByName(const struct FName& InName)
 }
 
 
+// Function TslGame.TslSettings.GetGappLobbyUrl
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// struct FString                 ReturnValue                    (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm)
+
+struct FString UTslSettings::GetGappLobbyUrl()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslSettings.GetGappLobbyUrl");
+
+	UTslSettings_GetGappLobbyUrl_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
 // Function TslGame.TslSettings.GetCharacterStudioRenderTarget
 // (Final, Native, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
@@ -26319,6 +26548,34 @@ bool UTslGameInstance::UpdateReplayShouldKeepBP(const struct FString& RegionOrLo
 }
 
 
+// Function TslGame.TslGameInstance.UpdateReplayAllDeadOrWinBP
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// struct FString                 RegionOrLocal                  (Parm, ZeroConstructor)
+// struct FString                 SessionName                    (Parm, ZeroConstructor)
+// bool                           bAllDeadOrWin                  (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UTslGameInstance::UpdateReplayAllDeadOrWinBP(const struct FString& RegionOrLocal, const struct FString& SessionName, bool bAllDeadOrWin)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslGameInstance.UpdateReplayAllDeadOrWinBP");
+
+	UTslGameInstance_UpdateReplayAllDeadOrWinBP_Params params;
+	params.RegionOrLocal = RegionOrLocal;
+	params.SessionName = SessionName;
+	params.bAllDeadOrWin = bAllDeadOrWin;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
 // Function TslGame.TslGameInstance.UnPause
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -26341,6 +26598,27 @@ bool UTslGameInstance::UnPause()
 }
 
 
+// Function TslGame.TslGameInstance.StopStat
+// (Final, Native, Private)
+// Parameters:
+// TEnumAsByte<EServerStatType>   StatType                       (Parm, ZeroConstructor, IsPlainOldData)
+
+void UTslGameInstance::StopStat(TEnumAsByte<EServerStatType> StatType)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslGameInstance.StopStat");
+
+	UTslGameInstance_StopStat_Params params;
+	params.StatType = StatType;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function TslGame.TslGameInstance.StopIfReplaying
 // (Final, Native, Public, BlueprintCallable)
 
@@ -26356,6 +26634,30 @@ void UTslGameInstance::StopIfReplaying()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+}
+
+
+// Function TslGame.TslGameInstance.StartStat
+// (Final, Native, Private)
+// Parameters:
+// TEnumAsByte<EServerStatType>   StatType                       (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UTslGameInstance::StartStat(TEnumAsByte<EServerStatType> StatType)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslGameInstance.StartStat");
+
+	UTslGameInstance_StartStat_Params params;
+	params.StatType = StatType;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -26583,6 +26885,44 @@ void UTslGameInstance::RequestReplayAGroggyEvent(const struct FString& EventID)
 
 	UTslGameInstance_RequestReplayAGroggyEvent_Params params;
 	params.EventID = EventID;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// DelegateFunction TslGame.TslGameInstance.ReplayProblemDelegate__DelegateSignature
+// (MulticastDelegate, Public, Delegate)
+
+void UTslGameInstance::ReplayProblemDelegate__DelegateSignature()
+{
+	static auto fn = UObject::FindObject<UFunction>("DelegateFunction TslGame.TslGameInstance.ReplayProblemDelegate__DelegateSignature");
+
+	UTslGameInstance_ReplayProblemDelegate__DelegateSignature_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function TslGame.TslGameInstance.ReplayJumpInt
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// int                            second                         (Parm, ZeroConstructor, IsPlainOldData)
+
+void UTslGameInstance::ReplayJumpInt(int second)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslGameInstance.ReplayJumpInt");
+
+	UTslGameInstance_ReplayJumpInt_Params params;
+	params.second = second;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -26888,6 +27228,28 @@ bool UTslGameInstance::IsReplaying()
 	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslGameInstance.IsReplaying");
 
 	UTslGameInstance_IsReplaying_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function TslGame.TslGameInstance.IsReplayError
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UTslGameInstance::IsReplayError()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslGameInstance.IsReplayError");
+
+	UTslGameInstance_IsReplayError_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -28666,24 +29028,6 @@ void ATslEntryPlayerController::HandleLobbySystemMenu()
 }
 
 
-// Function TslGame.TslEntryPlayerController.HandleClipboard
-// (Final, Native, Private)
-
-void ATslEntryPlayerController::HandleClipboard()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslEntryPlayerController.HandleClipboard");
-
-	ATslEntryPlayerController_HandleClipboard_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function TslGame.PerfBotPlayerController.ServerMoveToLocation
 // (Net, Native, Event, Public, NetServer, HasDefaults, NetValidate)
 // Parameters:
@@ -29085,6 +29429,27 @@ void UTslCheatManager::SetClientConnectionTimeout(float TimeoutSeconds)
 
 	UTslCheatManager_SetClientConnectionTimeout_Params params;
 	params.TimeoutSeconds = TimeoutSeconds;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function TslGame.TslCheatManager.SetBPFactor
+// (Final, Exec, Native, Public)
+// Parameters:
+// float                          factor                         (Parm, ZeroConstructor, IsPlainOldData)
+
+void UTslCheatManager::SetBPFactor(float factor)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslCheatManager.SetBPFactor");
+
+	UTslCheatManager_SetBPFactor_Params params;
+	params.factor = factor;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -35258,6 +35623,28 @@ void ATslPlayerState::InformAboutKill(EDamageReason DamageReason)
 }
 
 
+// Function TslGame.TslPlayerState.GetTotalScore
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+float ATslPlayerState::GetTotalScore()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslPlayerState.GetTotalScore");
+
+	ATslPlayerState_GetTotalScore_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
 // Function TslGame.TslPlayerState.GetTeamNum
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
@@ -35302,10 +35689,76 @@ struct FString ATslPlayerState::GetShortPlayerName()
 }
 
 
+// Function TslGame.TslPlayerState.GetScoreByRanking
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+float ATslPlayerState::GetScoreByRanking()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslPlayerState.GetScoreByRanking");
+
+	ATslPlayerState_GetScoreByRanking_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function TslGame.TslPlayerState.GetScoreByKill
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+float ATslPlayerState::GetScoreByKill()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslPlayerState.GetScoreByKill");
+
+	ATslPlayerState_GetScoreByKill_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function TslGame.TslPlayerState.GetScoreByDamage
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+float ATslPlayerState::GetScoreByDamage()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslPlayerState.GetScoreByDamage");
+
+	ATslPlayerState_GetScoreByDamage_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
 // Function TslGame.TslPlayerState.GetPlayerScores
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
-// struct FTslPlayerScores        ReturnValue                    (Parm, OutParm, ReturnParm, IsPlainOldData)
+// struct FTslPlayerScores        ReturnValue                    (Parm, OutParm, ReturnParm)
 
 struct FTslPlayerScores ATslPlayerState::GetPlayerScores()
 {
@@ -37169,7 +37622,7 @@ void UTslStatics::STATIC_SetWorldOrigin(class APlayerController* Controller)
 
 
 // Function TslGame.TslStatics.SetReportUserInfo
-// (Final, Native, Static, Public, HasOutParms, BlueprintCallable, BlueprintPure)
+// (Final, Native, Static, Public, HasOutParms, BlueprintCallable)
 // Parameters:
 // class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
 // ESubjectToReport               Key                            (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
@@ -37470,6 +37923,30 @@ bool UTslStatics::STATIC_PredictProjectilePathBox(class UObject* WorldContextObj
 }
 
 
+// Function TslGame.TslStatics.PlayerStateToReportReportUserInfo
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class ATslPlayerState*         TslPlayerState                 (Parm, ZeroConstructor, IsPlainOldData)
+// struct FTslReportUserInfo      ReturnValue                    (Parm, OutParm, ReturnParm)
+
+struct FTslReportUserInfo UTslStatics::STATIC_PlayerStateToReportReportUserInfo(class ATslPlayerState* TslPlayerState)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslStatics.PlayerStateToReportReportUserInfo");
+
+	UTslStatics_PlayerStateToReportReportUserInfo_Params params;
+	params.TslPlayerState = TslPlayerState;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
 // Function TslGame.TslStatics.PhysicalSurfaceToString
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
@@ -37605,6 +38082,28 @@ bool UTslStatics::STATIC_LineSphereIntersection(const struct FVector& Center, co
 }
 
 
+// Function TslGame.TslStatics.IsUsingGappLobby
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UTslStatics::STATIC_IsUsingGappLobby()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslStatics.IsUsingGappLobby");
+
+	UTslStatics_IsUsingGappLobby_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
 // Function TslGame.TslStatics.IsShipping
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
@@ -37691,6 +38190,30 @@ bool UTslStatics::STATIC_IsReportUserApplied(class UObject* WorldContextObject, 
 	UTslStatics_IsReportUserApplied_Params params;
 	params.WorldContextObject = WorldContextObject;
 	params.Key = Key;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function TslGame.TslStatics.IsPIE
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UTslStatics::STATIC_IsPIE(class UObject* WorldContextObject)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslStatics.IsPIE");
+
+	UTslStatics_IsPIE_Params params;
+	params.WorldContextObject = WorldContextObject;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -38303,6 +38826,28 @@ float UTslStatics::STATIC_GetMOAScale()
 	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslStatics.GetMOAScale");
 
 	UTslStatics_GetMOAScale_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function TslGame.TslStatics.GetGappLobbyUrl
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// struct FString                 ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm)
+
+struct FString UTslStatics::STATIC_GetGappLobbyUrl()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslStatics.GetGappLobbyUrl");
+
+	UTslStatics_GetGappLobbyUrl_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -38983,6 +39528,30 @@ bool UTslUserWidget::IsReplaying()
 	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslUserWidget.IsReplaying");
 
 	UTslUserWidget_IsReplaying_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function TslGame.TslUserWidget.GetRawKeyValue
+// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// struct FKey                    InKey                          (Parm)
+// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+float UTslUserWidget::GetRawKeyValue(const struct FKey& InKey)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslUserWidget.GetRawKeyValue");
+
+	UTslUserWidget_GetRawKeyValue_Params params;
+	params.InKey = InKey;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -44035,6 +44604,29 @@ void ATslWeapon_Trajectory::ServerNotifyAmmoSpawned(const struct FVector& Server
 }
 
 
+// Function TslGame.TslWeapon_Trajectory.ServerChecksumTest
+// (Final, Net, NetReliable, Native, Event, Private, NetServer, HasDefaults, NetValidate)
+// Parameters:
+// struct FVector                 Location                       (ConstParm, Parm, ReferenceParm, IsPlainOldData)
+// TArray<uint32_t>               ClientChecksums                (ConstParm, Parm, ZeroConstructor, ReferenceParm)
+
+void ATslWeapon_Trajectory::ServerChecksumTest(const struct FVector& Location, TArray<uint32_t> ClientChecksums)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslWeapon_Trajectory.ServerChecksumTest");
+
+	ATslWeapon_Trajectory_ServerChecksumTest_Params params;
+	params.Location = Location;
+	params.ClientChecksums = ClientChecksums;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function TslGame.TslWeapon_Trajectory.OnRep_WeaponSpread
 // (Final, Native, Protected)
 // Parameters:
@@ -44789,6 +45381,33 @@ float ATslMotorbikeVehicle::GetCOMSteerOffset()
 	fn->FunctionFlags = flags;
 
 	return params.ReturnValue;
+}
+
+
+// Function TslGame.UiHelperFunctions.WidgetShow
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UUserWidget*             Widget                         (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// struct FString                 WidgetName                     (Parm, ZeroConstructor)
+// EWidgetShowType                WidgetShowType                 (Parm, ZeroConstructor, IsPlainOldData)
+// class UObject*                 OptionalParam                  (Parm, ZeroConstructor, IsPlainOldData)
+
+void UUiHelperFunctions::STATIC_WidgetShow(class UUserWidget* Widget, const struct FString& WidgetName, EWidgetShowType WidgetShowType, class UObject* OptionalParam)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.UiHelperFunctions.WidgetShow");
+
+	UUiHelperFunctions_WidgetShow_Params params;
+	params.Widget = Widget;
+	params.WidgetName = WidgetName;
+	params.WidgetShowType = WidgetShowType;
+	params.OptionalParam = OptionalParam;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
 }
 
 
@@ -45864,13 +46483,15 @@ class UWidget* UUiHelperFunctions::STATIC_GetRightWidgetByTslFocusableWidget(cla
 // Function TslGame.UiHelperFunctions.GetReportCauses
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
+// class UUserWidget*             Widget                         (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 // TArray<struct FReportCauseData> ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm)
 
-TArray<struct FReportCauseData> UUiHelperFunctions::STATIC_GetReportCauses()
+TArray<struct FReportCauseData> UUiHelperFunctions::STATIC_GetReportCauses(class UUserWidget* Widget)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function TslGame.UiHelperFunctions.GetReportCauses");
 
 	UUiHelperFunctions_GetReportCauses_Params params;
+	params.Widget = Widget;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -46039,6 +46660,32 @@ struct FVector UUiHelperFunctions::STATIC_GetNextPlayzonePosition_BluezoneGPS(cl
 
 	UUiHelperFunctions_GetNextPlayzonePosition_BluezoneGPS_Params params;
 	params.Widget = Widget;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function TslGame.UiHelperFunctions.GetNetIdByControllerId
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
+// int                            ControllerId                   (Parm, ZeroConstructor, IsPlainOldData)
+// struct FString                 ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm)
+
+struct FString UUiHelperFunctions::STATIC_GetNetIdByControllerId(class UObject* WorldContextObject, int ControllerId)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.UiHelperFunctions.GetNetIdByControllerId");
+
+	UUiHelperFunctions_GetNetIdByControllerId_Params params;
+	params.WorldContextObject = WorldContextObject;
+	params.ControllerId = ControllerId;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -46401,6 +47048,30 @@ float UUiHelperFunctions::STATIC_GetDistanceFromSpectatorPawn(class UUserWidget*
 	UUiHelperFunctions_GetDistanceFromSpectatorPawn_Params params;
 	params.Widget = Widget;
 	params.Character = Character;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function TslGame.UiHelperFunctions.GetDetailCauseTypeDescriptionList
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// EReportCause                   ReportCause                    (Parm, ZeroConstructor, IsPlainOldData)
+// TArray<struct FReportDetailCauseTypeDescription> ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm)
+
+TArray<struct FReportDetailCauseTypeDescription> UUiHelperFunctions::STATIC_GetDetailCauseTypeDescriptionList(EReportCause ReportCause)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.UiHelperFunctions.GetDetailCauseTypeDescriptionList");
+
+	UUiHelperFunctions_GetDetailCauseTypeDescriptionList_Params params;
+	params.ReportCause = ReportCause;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -46779,6 +47450,32 @@ void UUiHelperFunctions::STATIC_CalculateWeightGaugeUpParamsByItem(float TotalMa
 		*OutFeedbackStart = params.OutFeedbackStart;
 	if (OutIsPositive != nullptr)
 		*OutIsPositive = params.OutIsPositive;
+}
+
+
+// Function TslGame.UiHelperFunctions.BuildFocusableWidgetList
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UPanelWidget*            Panel                          (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// TArray<class UWidget*>         FocusableWidgetList            (Parm, ZeroConstructor)
+// TArray<class UWidget*>         ReturnValue                    (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm)
+
+TArray<class UWidget*> UUiHelperFunctions::STATIC_BuildFocusableWidgetList(class UPanelWidget* Panel, TArray<class UWidget*> FocusableWidgetList)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.UiHelperFunctions.BuildFocusableWidgetList");
+
+	UUiHelperFunctions_BuildFocusableWidgetList_Params params;
+	params.Panel = Panel;
+	params.FocusableWidgetList = FocusableWidgetList;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 

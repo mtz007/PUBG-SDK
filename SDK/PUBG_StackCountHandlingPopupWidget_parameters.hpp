@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,11 @@ namespace Classes
 //---------------------------------------------------------------------------
 //Parameters
 //---------------------------------------------------------------------------
+
+// Function StackCountHandlingPopupWidget.StackCountHandlingPopupWidget_C.NotifyToCapacityWidget
+struct UStackCountHandlingPopupWidget_C_NotifyToCapacityWidget_Params
+{
+};
 
 // Function StackCountHandlingPopupWidget.StackCountHandlingPopupWidget_C.NotifyStackCountUpdated
 struct UStackCountHandlingPopupWidget_C_NotifyStackCountUpdated_Params
@@ -191,6 +196,11 @@ struct UStackCountHandlingPopupWidget_C_CustomEvent_5_Params
 struct UStackCountHandlingPopupWidget_C_BndEvt__InputAmountText_K2Node_ComponentBoundEvent_0_OnEditableTextChangedEvent__DelegateSignature_Params
 {
 	struct FText                                       Text;                                                     // (ConstParm, Parm, OutParm, ReferenceParm)
+};
+
+// Function StackCountHandlingPopupWidget.StackCountHandlingPopupWidget_C.OnStackCountActionPerformed
+struct UStackCountHandlingPopupWidget_C_OnStackCountActionPerformed_Params
+{
 };
 
 // Function StackCountHandlingPopupWidget.StackCountHandlingPopupWidget_C.ExecuteUbergraph_StackCountHandlingPopupWidget

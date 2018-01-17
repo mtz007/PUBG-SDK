@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -3655,10 +3655,22 @@ struct ACharacter_IsJumpProvidingForce_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function Engine.Character.GetMesh
+struct ACharacter_GetMesh_Params
+{
+	class USkeletalMeshComponent*                      ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+};
+
 // Function Engine.Character.GetCurrentMontage
 struct ACharacter_GetCurrentMontage_Params
 {
 	class UAnimMontage*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.Character.GetCapsuleComponent
+struct ACharacter_GetCapsuleComponent_Params
+{
+	class UCapsuleComponent*                           ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
 };
 
 // Function Engine.Character.GetBaseTranslationOffset
@@ -15525,7 +15537,7 @@ struct UKismetMathLibrary_MakeDateTime_Params
 	int                                                Day;                                                      // (Parm, ZeroConstructor, IsPlainOldData)
 	int                                                Hour;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
 	int                                                Minute;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Second;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                second;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 	int                                                Millisecond;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FDateTime                                   ReturnValue;                                              // (Parm, OutParm, ReturnParm)
 };
@@ -16989,7 +17001,7 @@ struct UKismetMathLibrary_BreakDateTime_Params
 	int                                                Day;                                                      // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 	int                                                Hour;                                                     // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 	int                                                Minute;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                Second;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                second;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 	int                                                Millisecond;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 

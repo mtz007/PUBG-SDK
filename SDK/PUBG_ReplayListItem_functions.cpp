@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,26 @@ namespace Classes
 //---------------------------------------------------------------------------
 //Functions
 //---------------------------------------------------------------------------
+
+// Function ReplayListItem.ReplayListItem_C.SetAllDeadOrWin
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// bool                           bAllDeadOrWin                  (Parm, ZeroConstructor, IsPlainOldData)
+
+void UReplayListItem_C::SetAllDeadOrWin(bool bAllDeadOrWin)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ReplayListItem.ReplayListItem_C.SetAllDeadOrWin");
+
+	UReplayListItem_C_SetAllDeadOrWin_Params params;
+	params.bAllDeadOrWin = bAllDeadOrWin;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function ReplayListItem.ReplayListItem_C.SetSeverRecording
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)

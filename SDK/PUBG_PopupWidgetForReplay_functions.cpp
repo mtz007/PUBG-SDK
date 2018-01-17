@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,27 @@ namespace Classes
 //---------------------------------------------------------------------------
 //Functions
 //---------------------------------------------------------------------------
+
+// Function PopupWidgetForReplay.PopupWidgetForReplay_C.Get_TextCancel_Text_1
+// (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)
+// Parameters:
+// struct FText                   ReturnValue                    (Parm, OutParm, ReturnParm)
+
+struct FText UPopupWidgetForReplay_C::Get_TextCancel_Text_1()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function PopupWidgetForReplay.PopupWidgetForReplay_C.Get_TextCancel_Text_1");
+
+	UPopupWidgetForReplay_C_Get_TextCancel_Text_1_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
 
 // Function PopupWidgetForReplay.PopupWidgetForReplay_C.SetPopup
 // (Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent)

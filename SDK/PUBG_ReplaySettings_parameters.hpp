@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -32,8 +32,8 @@ struct UReplaySettings_C_Get_ReplayOption_Editable_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function ReplaySettings.ReplaySettings_C.ApplybyCurrentSelectedSettings
-struct UReplaySettings_C_ApplybyCurrentSelectedSettings_Params
+// Function ReplaySettings.ReplaySettings_C.ApplyByCurrentSelectedSettings
+struct UReplaySettings_C_ApplyByCurrentSelectedSettings_Params
 {
 };
 

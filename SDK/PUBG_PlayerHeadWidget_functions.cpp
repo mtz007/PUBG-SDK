@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -171,6 +171,67 @@ void UPlayerHeadWidget_C::UpdateHealthGauge()
 }
 
 
+// Function PlayerHeadWidget.PlayerHeadWidget_C.Construct
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+
+void UPlayerHeadWidget_C::Construct()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function PlayerHeadWidget.PlayerHeadWidget_C.Construct");
+
+	UPlayerHeadWidget_C_Construct_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function PlayerHeadWidget.PlayerHeadWidget_C.Tick
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+// Parameters:
+// struct FGeometry*              MyGeometry                     (Parm, IsPlainOldData)
+// float*                         InDeltaTime                    (Parm, ZeroConstructor, IsPlainOldData)
+
+void UPlayerHeadWidget_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function PlayerHeadWidget.PlayerHeadWidget_C.Tick");
+
+	UPlayerHeadWidget_C_Tick_Params params;
+	params.MyGeometry = MyGeometry;
+	params.InDeltaTime = InDeltaTime;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function PlayerHeadWidget.PlayerHeadWidget_C.SetCharacterIconPosition_UC
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// struct FVector2D*              Pos_UC                         (Parm, IsPlainOldData)
+// bool*                          IsHidden                       (Parm, ZeroConstructor, IsPlainOldData)
+
+void UPlayerHeadWidget_C::SetCharacterIconPosition_UC(struct FVector2D* Pos_UC, bool* IsHidden)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function PlayerHeadWidget.PlayerHeadWidget_C.SetCharacterIconPosition_UC");
+
+	UPlayerHeadWidget_C_SetCharacterIconPosition_UC_Params params;
+	params.Pos_UC = Pos_UC;
+	params.IsHidden = IsHidden;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function PlayerHeadWidget.PlayerHeadWidget_C.CustomTick
 // (BlueprintCallable, BlueprintEvent)
 
@@ -225,67 +286,6 @@ void UPlayerHeadWidget_C::SetPlayerNameTag(struct FName* PlayerName)
 }
 
 
-// Function PlayerHeadWidget.PlayerHeadWidget_C.Tick
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-// Parameters:
-// struct FGeometry*              MyGeometry                     (Parm, IsPlainOldData)
-// float*                         InDeltaTime                    (Parm, ZeroConstructor, IsPlainOldData)
-
-void UPlayerHeadWidget_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function PlayerHeadWidget.PlayerHeadWidget_C.Tick");
-
-	UPlayerHeadWidget_C_Tick_Params params;
-	params.MyGeometry = MyGeometry;
-	params.InDeltaTime = InDeltaTime;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function PlayerHeadWidget.PlayerHeadWidget_C.Construct
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-
-void UPlayerHeadWidget_C::Construct()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function PlayerHeadWidget.PlayerHeadWidget_C.Construct");
-
-	UPlayerHeadWidget_C_Construct_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function PlayerHeadWidget.PlayerHeadWidget_C.SetCharacterIconPosition_UC
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// struct FVector2D*              Pos_UC                         (Parm, IsPlainOldData)
-// bool*                          IsHidden                       (Parm, ZeroConstructor, IsPlainOldData)
-
-void UPlayerHeadWidget_C::SetCharacterIconPosition_UC(struct FVector2D* Pos_UC, bool* IsHidden)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function PlayerHeadWidget.PlayerHeadWidget_C.SetCharacterIconPosition_UC");
-
-	UPlayerHeadWidget_C_SetCharacterIconPosition_UC_Params params;
-	params.Pos_UC = Pos_UC;
-	params.IsHidden = IsHidden;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function PlayerHeadWidget.PlayerHeadWidget_C.SetTeamNumber
 // (Event, Public, BlueprintEvent)
 // Parameters:
@@ -319,6 +319,23 @@ void UPlayerHeadWidget_C::SetIndicatorColor(struct FLinearColor* teamColor)
 
 	UPlayerHeadWidget_C_SetIndicatorColor_Params params;
 	params.teamColor = teamColor;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function PlayerHeadWidget.PlayerHeadWidget_C.UpdateWeaponIcon
+// (Event, Public, BlueprintEvent)
+
+void UPlayerHeadWidget_C::UpdateWeaponIcon()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function PlayerHeadWidget.PlayerHeadWidget_C.UpdateWeaponIcon");
+
+	UPlayerHeadWidget_C_UpdateWeaponIcon_Params params;
 
 	auto flags = fn->FunctionFlags;
 

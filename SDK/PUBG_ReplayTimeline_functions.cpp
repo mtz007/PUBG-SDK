@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,102 @@ namespace Classes
 //---------------------------------------------------------------------------
 //Functions
 //---------------------------------------------------------------------------
+
+// Function ReplayTimeline.ReplayTimeline_C.On_ReportButtonSizeBox_Prepass_1
+// (Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class UWidget*                 BoundWidget                    (Parm, ZeroConstructor, IsPlainOldData)
+
+void UReplayTimeline_C::On_ReportButtonSizeBox_Prepass_1(class UWidget* BoundWidget)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ReplayTimeline.ReplayTimeline_C.On_ReportButtonSizeBox_Prepass_1");
+
+	UReplayTimeline_C_On_ReportButtonSizeBox_Prepass_1_Params params;
+	params.BoundWidget = BoundWidget;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ReplayTimeline.ReplayTimeline_C.OnMouseMoveTimeline
+// (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// struct FGeometry               MyGeometry                     (Parm, IsPlainOldData)
+// struct FPointerEvent           MouseEvent                     (ConstParm, Parm, OutParm, ReferenceParm)
+// struct FEventReply             ReturnValue                    (Parm, OutParm, ReturnParm)
+
+struct FEventReply UReplayTimeline_C::OnMouseMoveTimeline(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ReplayTimeline.ReplayTimeline_C.OnMouseMoveTimeline");
+
+	UReplayTimeline_C_OnMouseMoveTimeline_Params params;
+	params.MyGeometry = MyGeometry;
+	params.MouseEvent = MouseEvent;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function ReplayTimeline.ReplayTimeline_C.HideJumpingTimeline
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void UReplayTimeline_C::HideJumpingTimeline()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ReplayTimeline.ReplayTimeline_C.HideJumpingTimeline");
+
+	UReplayTimeline_C_HideJumpingTimeline_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ReplayTimeline.ReplayTimeline_C.ShowJumpingTimeline
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void UReplayTimeline_C::ShowJumpingTimeline()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ReplayTimeline.ReplayTimeline_C.ShowJumpingTimeline");
+
+	UReplayTimeline_C_ShowJumpingTimeline_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ReplayTimeline.ReplayTimeline_C.SetMouseCursor
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void UReplayTimeline_C::SetMouseCursor()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ReplayTimeline.ReplayTimeline_C.SetMouseCursor");
+
+	UReplayTimeline_C_SetMouseCursor_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function ReplayTimeline.ReplayTimeline_C.UnBindOnGotoTimelineDoneToFindCharacter
 // (Public, BlueprintCallable, BlueprintEvent)
@@ -804,6 +900,57 @@ void UReplayTimeline_C::OnGoToTimelineDoneToFindCharacter()
 	static auto fn = UObject::FindObject<UFunction>("Function ReplayTimeline.ReplayTimeline_C.OnGoToTimelineDoneToFindCharacter");
 
 	UReplayTimeline_C_OnGoToTimelineDoneToFindCharacter_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ReplayTimeline.ReplayTimeline_C.O_1
+// (BlueprintCallable, BlueprintEvent)
+
+void UReplayTimeline_C::O_1()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ReplayTimeline.ReplayTimeline_C.O_1");
+
+	UReplayTimeline_C_O_1_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ReplayTimeline.ReplayTimeline_C.OnGoToTimelineDoneToBlockJump
+// (BlueprintCallable, BlueprintEvent)
+
+void UReplayTimeline_C::OnGoToTimelineDoneToBlockJump()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ReplayTimeline.ReplayTimeline_C.OnGoToTimelineDoneToBlockJump");
+
+	UReplayTimeline_C_OnGoToTimelineDoneToBlockJump_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ReplayTimeline.ReplayTimeline_C.BndEvt__ButtonReport_K2Node_ComponentBoundEvent_117_OnButtonClickedEvent__DelegateSignature
+// (BlueprintEvent)
+
+void UReplayTimeline_C::BndEvt__ButtonReport_K2Node_ComponentBoundEvent_117_OnButtonClickedEvent__DelegateSignature()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ReplayTimeline.ReplayTimeline_C.BndEvt__ButtonReport_K2Node_ComponentBoundEvent_117_OnButtonClickedEvent__DelegateSignature");
+
+	UReplayTimeline_C_BndEvt__ButtonReport_K2Node_ComponentBoundEvent_117_OnButtonClickedEvent__DelegateSignature_Params params;
 
 	auto flags = fn->FunctionFlags;
 

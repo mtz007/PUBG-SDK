@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -34,7 +34,7 @@ public:
 
 
 	void GetSelectUseCharacterCapture(bool* UseCharacterCapture);
-	void ApplybyCurrentSelectedSettings();
+	void ApplyByCurrentSelectedSettings();
 	bool IsChanged();
 	bool IsEnableApply();
 	void SetToDefault();

@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -96,14 +96,14 @@ bool UGameplayOptionWidget_BP_C::IsChanged()
 }
 
 
-// Function GameplayOptionWidget_BP.GameplayOptionWidget_BP_C.ApplybyCurrentSelectedSettings
+// Function GameplayOptionWidget_BP.GameplayOptionWidget_BP_C.ApplyByCurrentSelectedSettings
 // (Public, BlueprintCallable, BlueprintEvent)
 
-void UGameplayOptionWidget_BP_C::ApplybyCurrentSelectedSettings()
+void UGameplayOptionWidget_BP_C::ApplyByCurrentSelectedSettings()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function GameplayOptionWidget_BP.GameplayOptionWidget_BP_C.ApplybyCurrentSelectedSettings");
+	static auto fn = UObject::FindObject<UFunction>("Function GameplayOptionWidget_BP.GameplayOptionWidget_BP_C.ApplyByCurrentSelectedSettings");
 
-	UGameplayOptionWidget_BP_C_ApplybyCurrentSelectedSettings_Params params;
+	UGameplayOptionWidget_BP_C_ApplyByCurrentSelectedSettings_Params params;
 
 	auto flags = fn->FunctionFlags;
 

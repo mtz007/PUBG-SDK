@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -34,14 +34,14 @@ void UUiSettings_C::GetSelectUseCharacterCapture(bool* UseCharacterCapture)
 }
 
 
-// Function UiSettings.UiSettings_C.ApplybyCurrentSelectedSettings
+// Function UiSettings.UiSettings_C.ApplyByCurrentSelectedSettings
 // (Public, BlueprintCallable, BlueprintEvent)
 
-void UUiSettings_C::ApplybyCurrentSelectedSettings()
+void UUiSettings_C::ApplyByCurrentSelectedSettings()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function UiSettings.UiSettings_C.ApplybyCurrentSelectedSettings");
+	static auto fn = UObject::FindObject<UFunction>("Function UiSettings.UiSettings_C.ApplyByCurrentSelectedSettings");
 
-	UUiSettings_C_ApplybyCurrentSelectedSettings_Params params;
+	UUiSettings_C_ApplyByCurrentSelectedSettings_Params params;
 
 	auto flags = fn->FunctionFlags;
 

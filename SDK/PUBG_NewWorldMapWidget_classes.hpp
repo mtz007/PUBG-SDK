@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace Classes
 //---------------------------------------------------------------------------
 
 // WidgetBlueprintGeneratedClass NewWorldMapWidget.NewWorldMapWidget_C
-// 0x0189 (0x0419 - 0x0290)
+// 0x0198 (0x0428 - 0x0290)
 class UNewWorldMapWidget_C : public UInputHookingWidget_C
 {
 public:
@@ -77,6 +77,8 @@ public:
 	struct FScriptMulticastDelegate                    OnHideMyself;                                             // 0x0400(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable)
 	class UCurveFloat*                                 ZoomMultiplierCurve;                                      // 0x0410(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               bIsObserving;                                             // 0x0418(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData07[0x7];                                       // 0x0419(0x0007) MISSED OFFSET
+	class UCurveFloat*                                 MovePadGuideCurve;                                        // 0x0420(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{

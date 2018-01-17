@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,12 @@ namespace Classes
 //---------------------------------------------------------------------------
 //Parameters
 //---------------------------------------------------------------------------
+
+// Function ReplayListItem.ReplayListItem_C.SetAllDeadOrWin
+struct UReplayListItem_C_SetAllDeadOrWin_Params
+{
+	bool                                               bAllDeadOrWin;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
 
 // Function ReplayListItem.ReplayListItem_C.SetSeverRecording
 struct UReplayListItem_C_SetSeverRecording_Params

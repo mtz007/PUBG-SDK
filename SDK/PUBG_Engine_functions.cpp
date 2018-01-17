@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12265,6 +12265,28 @@ bool ACharacter::IsJumpProvidingForce()
 }
 
 
+// Function Engine.Character.GetMesh
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class USkeletalMeshComponent*  ReturnValue                    (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+
+class USkeletalMeshComponent* ACharacter::GetMesh()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.GetMesh");
+
+	ACharacter_GetMesh_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
 // Function Engine.Character.GetCurrentMontage
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -12275,6 +12297,28 @@ class UAnimMontage* ACharacter::GetCurrentMontage()
 	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.GetCurrentMontage");
 
 	ACharacter_GetCurrentMontage_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.Character.GetCapsuleComponent
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class UCapsuleComponent*       ReturnValue                    (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+
+class UCapsuleComponent* ACharacter::GetCapsuleComponent()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.GetCapsuleComponent");
+
+	ACharacter_GetCapsuleComponent_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -51465,11 +51509,11 @@ struct FPlane UKismetMathLibrary::STATIC_MakePlaneFromPointAndNormal(const struc
 // int                            Day                            (Parm, ZeroConstructor, IsPlainOldData)
 // int                            Hour                           (Parm, ZeroConstructor, IsPlainOldData)
 // int                            Minute                         (Parm, ZeroConstructor, IsPlainOldData)
-// int                            Second                         (Parm, ZeroConstructor, IsPlainOldData)
+// int                            second                         (Parm, ZeroConstructor, IsPlainOldData)
 // int                            Millisecond                    (Parm, ZeroConstructor, IsPlainOldData)
 // struct FDateTime               ReturnValue                    (Parm, OutParm, ReturnParm)
 
-struct FDateTime UKismetMathLibrary::STATIC_MakeDateTime(int Year, int Month, int Day, int Hour, int Minute, int Second, int Millisecond)
+struct FDateTime UKismetMathLibrary::STATIC_MakeDateTime(int Year, int Month, int Day, int Hour, int Minute, int second, int Millisecond)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Engine.KismetMathLibrary.MakeDateTime");
 
@@ -51479,7 +51523,7 @@ struct FDateTime UKismetMathLibrary::STATIC_MakeDateTime(int Year, int Month, in
 	params.Day = Day;
 	params.Hour = Hour;
 	params.Minute = Minute;
-	params.Second = Second;
+	params.second = second;
 	params.Millisecond = Millisecond;
 
 	auto flags = fn->FunctionFlags;
@@ -56284,10 +56328,10 @@ void UKismetMathLibrary::STATIC_BreakRandomStream(const struct FRandomStream& In
 // int                            Day                            (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 // int                            Hour                           (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 // int                            Minute                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-// int                            Second                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// int                            second                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 // int                            Millisecond                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void UKismetMathLibrary::STATIC_BreakDateTime(const struct FDateTime& InDateTime, int* Year, int* Month, int* Day, int* Hour, int* Minute, int* Second, int* Millisecond)
+void UKismetMathLibrary::STATIC_BreakDateTime(const struct FDateTime& InDateTime, int* Year, int* Month, int* Day, int* Hour, int* Minute, int* second, int* Millisecond)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Engine.KismetMathLibrary.BreakDateTime");
 
@@ -56311,8 +56355,8 @@ void UKismetMathLibrary::STATIC_BreakDateTime(const struct FDateTime& InDateTime
 		*Hour = params.Hour;
 	if (Minute != nullptr)
 		*Minute = params.Minute;
-	if (Second != nullptr)
-		*Second = params.Second;
+	if (second != nullptr)
+		*second = params.second;
 	if (Millisecond != nullptr)
 		*Millisecond = params.Millisecond;
 }

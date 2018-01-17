@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -1200,7 +1200,9 @@ public:
 	bool IsPlayingRootMotion();
 	bool IsPlayingNetworkedRootMotionMontage();
 	bool IsJumpProvidingForce();
+	class USkeletalMeshComponent* GetMesh();
 	class UAnimMontage* GetCurrentMontage();
+	class UCapsuleComponent* GetCapsuleComponent();
 	struct FVector GetBaseTranslationOffset();
 	struct FRotator GetBaseRotationOffsetRotator();
 	float GetAnimRootMotionTranslationScale();
@@ -4748,13 +4750,14 @@ public:
 	bool                                               bMovementTimeDiscrepancyDetection;                        // 0x0414(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
 	bool                                               bMovementTimeDiscrepancyResolution;                       // 0x0415(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
 	unsigned char                                      UnknownData02[0x2];                                       // 0x0416(0x0002) MISSED OFFSET
-	float                                              MovementTimeDiscrepancyMaxTimeMargin;                     // 0x0418(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	float                                              MovementTimeDiscrepancyMinTimeMargin;                     // 0x041C(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	float                                              MovementTimeDiscrepancyResolutionRate;                    // 0x0420(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	float                                              MovementTimeDiscrepancyDriftAllowance;                    // 0x0424(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	bool                                               bMovementTimeDiscrepancyForceCorrectionsDuringResolution; // 0x0428(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	bool                                               bUseDistanceBasedRelevancy;                               // 0x0429(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	unsigned char                                      UnknownData03[0xE];                                       // 0x042A(0x000E) MISSED OFFSET
+	float                                              MovementTimeDiscrepancyResolutionMinFPS;                  // 0x0418(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	float                                              MovementTimeDiscrepancyMaxTimeMargin;                     // 0x041C(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	float                                              MovementTimeDiscrepancyMinTimeMargin;                     // 0x0420(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	float                                              MovementTimeDiscrepancyResolutionRate;                    // 0x0424(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	float                                              MovementTimeDiscrepancyDriftAllowance;                    // 0x0428(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	bool                                               bMovementTimeDiscrepancyForceCorrectionsDuringResolution; // 0x042C(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	bool                                               bUseDistanceBasedRelevancy;                               // 0x042D(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	unsigned char                                      UnknownData03[0xA];                                       // 0x042E(0x000A) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -9757,7 +9760,7 @@ public:
 	struct FRandomStream STATIC_MakeRandomStream(int InitialSeed);
 	float STATIC_MakePulsatingValue(float InCurrentTime, float InPulsesPerSecond, float InPhase);
 	struct FPlane STATIC_MakePlaneFromPointAndNormal(const struct FVector& Point, const struct FVector& Normal);
-	struct FDateTime STATIC_MakeDateTime(int Year, int Month, int Day, int Hour, int Minute, int Second, int Millisecond);
+	struct FDateTime STATIC_MakeDateTime(int Year, int Month, int Day, int Hour, int Minute, int second, int Millisecond);
 	struct FLinearColor STATIC_MakeColor(float R, float G, float B, float A);
 	struct FBox2D STATIC_MakeBox2D(const struct FVector2D& Min, const struct FVector2D& Max);
 	struct FBox STATIC_MakeBox(const struct FVector& Min, const struct FVector& Max);
@@ -9942,7 +9945,7 @@ public:
 	void STATIC_BreakRotIntoAxes(const struct FRotator& InRot, struct FVector* X, struct FVector* Y, struct FVector* Z);
 	void STATIC_BreakRotator(const struct FRotator& InRot, float* Roll, float* Pitch, float* Yaw);
 	void STATIC_BreakRandomStream(const struct FRandomStream& InRandomStream, int* InitialSeed);
-	void STATIC_BreakDateTime(const struct FDateTime& InDateTime, int* Year, int* Month, int* Day, int* Hour, int* Minute, int* Second, int* Millisecond);
+	void STATIC_BreakDateTime(const struct FDateTime& InDateTime, int* Year, int* Month, int* Day, int* Hour, int* Minute, int* second, int* Millisecond);
 	void STATIC_BreakColor(const struct FLinearColor& InColor, float* R, float* G, float* B, float* A);
 	bool STATIC_BooleanXOR(bool A, bool B);
 	bool STATIC_BooleanOR(bool A, bool B);

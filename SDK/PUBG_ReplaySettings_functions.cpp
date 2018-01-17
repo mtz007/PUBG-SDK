@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -75,14 +75,14 @@ bool UReplaySettings_C::Get_ReplayOption_Editable()
 }
 
 
-// Function ReplaySettings.ReplaySettings_C.ApplybyCurrentSelectedSettings
+// Function ReplaySettings.ReplaySettings_C.ApplyByCurrentSelectedSettings
 // (Public, BlueprintCallable, BlueprintEvent)
 
-void UReplaySettings_C::ApplybyCurrentSelectedSettings()
+void UReplaySettings_C::ApplyByCurrentSelectedSettings()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function ReplaySettings.ReplaySettings_C.ApplybyCurrentSelectedSettings");
+	static auto fn = UObject::FindObject<UFunction>("Function ReplaySettings.ReplaySettings_C.ApplyByCurrentSelectedSettings");
 
-	UReplaySettings_C_ApplybyCurrentSelectedSettings_Params params;
+	UReplaySettings_C_ApplyByCurrentSelectedSettings_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -93,7 +93,7 @@ void UReplaySettings_C::ApplybyCurrentSelectedSettings()
 
 
 // Function ReplaySettings.ReplaySettings_C.InitReplaySettings
-// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+// (Public, BlueprintCallable, BlueprintEvent)
 
 void UReplaySettings_C::InitReplaySettings()
 {

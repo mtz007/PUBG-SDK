@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -14,15 +14,12 @@ namespace Classes
 
 // Function CustomizableObject.CustomizableSkeletalComponent.UpdateSkeletalMeshAsync
 // (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                           bForceReuseResources           (Parm, ZeroConstructor, IsPlainOldData)
 
-void UCustomizableSkeletalComponent::UpdateSkeletalMeshAsync(bool bForceReuseResources)
+void UCustomizableSkeletalComponent::UpdateSkeletalMeshAsync()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function CustomizableObject.CustomizableSkeletalComponent.UpdateSkeletalMeshAsync");
 
 	UCustomizableSkeletalComponent_UpdateSkeletalMeshAsync_Params params;
-	params.bForceReuseResources = bForceReuseResources;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -35,15 +32,12 @@ void UCustomizableSkeletalComponent::UpdateSkeletalMeshAsync(bool bForceReuseRes
 
 // Function CustomizableObject.CustomizableSkeletalComponent.UpdateSkeletalMesh
 // (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                           bForceReuseResources           (Parm, ZeroConstructor, IsPlainOldData)
 
-void UCustomizableSkeletalComponent::UpdateSkeletalMesh(bool bForceReuseResources)
+void UCustomizableSkeletalComponent::UpdateSkeletalMesh()
 {
 	static auto fn = UObject::FindObject<UFunction>("Function CustomizableObject.CustomizableSkeletalComponent.UpdateSkeletalMesh");
 
 	UCustomizableSkeletalComponent_UpdateSkeletalMesh_Params params;
-	params.bForceReuseResources = bForceReuseResources;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;

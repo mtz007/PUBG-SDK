@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,14 +12,37 @@ namespace Classes
 //Functions
 //---------------------------------------------------------------------------
 
-// Function ReportPlayerWidget.ReportPlayerWidget_C.InitPlayerNameSetting
+// Function ReportPlayerWidget.ReportPlayerWidget_C.OnChangeCauser
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// struct FString                 SelectCauser                   (Parm, ZeroConstructor)
 
-void UReportPlayerWidget_C::InitPlayerNameSetting()
+void UReportPlayerWidget_C::OnChangeCauser(const struct FString& SelectCauser)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ReportPlayerWidget.ReportPlayerWidget_C.OnChangeCauser");
+
+	UReportPlayerWidget_C_OnChangeCauser_Params params;
+	params.SelectCauser = SelectCauser;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ReportPlayerWidget.ReportPlayerWidget_C.InitPlayerNameSetting
+// (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// ESubjectToReport               Key                            (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+
+void UReportPlayerWidget_C::InitPlayerNameSetting(ESubjectToReport Key)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function ReportPlayerWidget.ReportPlayerWidget_C.InitPlayerNameSetting");
 
 	UReportPlayerWidget_C_InitPlayerNameSetting_Params params;
+	params.Key = Key;
 
 	auto flags = fn->FunctionFlags;
 
@@ -48,12 +71,15 @@ void UReportPlayerWidget_C::InitComboboxSetting()
 
 // Function ReportPlayerWidget.ReportPlayerWidget_C.InitSubjectToReport
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// ESubjectToReport               SubjectToReportType            (Parm, ZeroConstructor, IsPlainOldData)
 
-void UReportPlayerWidget_C::InitSubjectToReport()
+void UReportPlayerWidget_C::InitSubjectToReport(ESubjectToReport SubjectToReportType)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function ReportPlayerWidget.ReportPlayerWidget_C.InitSubjectToReport");
 
 	UReportPlayerWidget_C_InitSubjectToReport_Params params;
+	params.SubjectToReportType = SubjectToReportType;
 
 	auto flags = fn->FunctionFlags;
 
@@ -157,8 +183,28 @@ void UReportPlayerWidget_C::BndEvt__Button_0_K2Node_ComponentBoundEvent_21_OnBut
 }
 
 
+// Function ReportPlayerWidget.ReportPlayerWidget_C.UpdateSubjectToReportType
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// ESubjectToReport               SubjectToReportType            (Parm, ZeroConstructor, IsPlainOldData)
+
+void UReportPlayerWidget_C::UpdateSubjectToReportType(ESubjectToReport SubjectToReportType)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ReportPlayerWidget.ReportPlayerWidget_C.UpdateSubjectToReportType");
+
+	UReportPlayerWidget_C_UpdateSubjectToReportType_Params params;
+	params.SubjectToReportType = SubjectToReportType;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function ReportPlayerWidget.ReportPlayerWidget_C.ExecuteUbergraph_ReportPlayerWidget
-// (HasDefaults)
+// ()
 // Parameters:
 // int                            EntryPoint                     (Parm, ZeroConstructor, IsPlainOldData)
 

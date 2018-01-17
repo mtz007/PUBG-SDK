@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -59,6 +59,25 @@ struct UPlayerHeadWidget_C_UpdateHealthGauge_Params
 {
 };
 
+// Function PlayerHeadWidget.PlayerHeadWidget_C.Construct
+struct UPlayerHeadWidget_C_Construct_Params
+{
+};
+
+// Function PlayerHeadWidget.PlayerHeadWidget_C.Tick
+struct UPlayerHeadWidget_C_Tick_Params
+{
+	struct FGeometry*                                  MyGeometry;                                               // (Parm, IsPlainOldData)
+	float*                                             InDeltaTime;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function PlayerHeadWidget.PlayerHeadWidget_C.SetCharacterIconPosition_UC
+struct UPlayerHeadWidget_C_SetCharacterIconPosition_UC_Params
+{
+	struct FVector2D*                                  Pos_UC;                                                   // (Parm, IsPlainOldData)
+	bool*                                              IsHidden;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function PlayerHeadWidget.PlayerHeadWidget_C.CustomTick
 struct UPlayerHeadWidget_C_CustomTick_Params
 {
@@ -75,25 +94,6 @@ struct UPlayerHeadWidget_C_SetPlayerNameTag_Params
 	struct FName*                                      PlayerName;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function PlayerHeadWidget.PlayerHeadWidget_C.Tick
-struct UPlayerHeadWidget_C_Tick_Params
-{
-	struct FGeometry*                                  MyGeometry;                                               // (Parm, IsPlainOldData)
-	float*                                             InDeltaTime;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function PlayerHeadWidget.PlayerHeadWidget_C.Construct
-struct UPlayerHeadWidget_C_Construct_Params
-{
-};
-
-// Function PlayerHeadWidget.PlayerHeadWidget_C.SetCharacterIconPosition_UC
-struct UPlayerHeadWidget_C_SetCharacterIconPosition_UC_Params
-{
-	struct FVector2D*                                  Pos_UC;                                                   // (Parm, IsPlainOldData)
-	bool*                                              IsHidden;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function PlayerHeadWidget.PlayerHeadWidget_C.SetTeamNumber
 struct UPlayerHeadWidget_C_SetTeamNumber_Params
 {
@@ -105,6 +105,11 @@ struct UPlayerHeadWidget_C_SetTeamNumber_Params
 struct UPlayerHeadWidget_C_SetIndicatorColor_Params
 {
 	struct FLinearColor*                               teamColor;                                                // (Parm, IsPlainOldData)
+};
+
+// Function PlayerHeadWidget.PlayerHeadWidget_C.UpdateWeaponIcon
+struct UPlayerHeadWidget_C_UpdateWeaponIcon_Params
+{
 };
 
 // Function PlayerHeadWidget.PlayerHeadWidget_C.ExecuteUbergraph_PlayerHeadWidget

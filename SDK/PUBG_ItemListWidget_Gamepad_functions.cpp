@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -779,8 +779,9 @@ void UItemListWidget_Gamepad_C::RefreshList_Inventory()
 // TScriptInterface<class USlotInterface> Item_SlotInterface             (Parm, ZeroConstructor, IsPlainOldData)
 // TScriptInterface<class USlotContainerInterface> SlotContainer                  (Parm, ZeroConstructor, IsPlainOldData)
 // class UItemSlotWidget_Gamepad_C* ItemSlotWidget                 (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           bIsNew                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void UItemListWidget_Gamepad_C::GetSlotItem(int Index, const TScriptInterface<class USlotInterface>& Item_SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainer, class UItemSlotWidget_Gamepad_C** ItemSlotWidget)
+void UItemListWidget_Gamepad_C::GetSlotItem(int Index, const TScriptInterface<class USlotInterface>& Item_SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainer, class UItemSlotWidget_Gamepad_C** ItemSlotWidget, bool* bIsNew)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.GetSlotItem");
 
@@ -797,6 +798,8 @@ void UItemListWidget_Gamepad_C::GetSlotItem(int Index, const TScriptInterface<cl
 
 	if (ItemSlotWidget != nullptr)
 		*ItemSlotWidget = params.ItemSlotWidget;
+	if (bIsNew != nullptr)
+		*bIsNew = params.bIsNew;
 }
 
 

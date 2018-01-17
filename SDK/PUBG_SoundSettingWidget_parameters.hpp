@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,20 @@ namespace Classes
 //---------------------------------------------------------------------------
 //Parameters
 //---------------------------------------------------------------------------
+
+// Function SoundSettingWidget.SoundSettingWidget_C.GetGamePadHelpWidgetClass
+struct USoundSettingWidget_C_GetGamePadHelpWidgetClass_Params
+{
+	class UClass*                                      GuideClass;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function SoundSettingWidget.SoundSettingWidget_C.OnFocusReceived
+struct USoundSettingWidget_C_OnFocusReceived_Params
+{
+	struct FGeometry*                                  MyGeometry;                                               // (Parm, IsPlainOldData)
+	struct FFocusEvent*                                InFocusEvent;                                             // (Parm)
+	struct FEventReply                                 ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
 
 // Function SoundSettingWidget.SoundSettingWidget_C.IsChanged
 struct USoundSettingWidget_C_IsChanged_Params

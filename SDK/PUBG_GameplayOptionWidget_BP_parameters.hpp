@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.5.5.6) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -38,8 +38,8 @@ struct UGameplayOptionWidget_BP_C_IsChanged_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function GameplayOptionWidget_BP.GameplayOptionWidget_BP_C.ApplybyCurrentSelectedSettings
-struct UGameplayOptionWidget_BP_C_ApplybyCurrentSelectedSettings_Params
+// Function GameplayOptionWidget_BP.GameplayOptionWidget_BP_C.ApplyByCurrentSelectedSettings
+struct UGameplayOptionWidget_BP_C_ApplyByCurrentSelectedSettings_Params
 {
 };
 
