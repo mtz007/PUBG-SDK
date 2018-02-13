@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.10.1) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)

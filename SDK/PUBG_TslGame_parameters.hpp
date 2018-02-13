@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.10.1) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -5908,6 +5908,7 @@ struct UStanceComponent_ServerChangeStance_Params
 // Function TslGame.StanceComponent.OnRep_CurrentStance
 struct UStanceComponent_OnRep_CurrentStance_Params
 {
+	TEnumAsByte<EStanceMode>                           OldCurrentStand;                                          // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.StanceComponent.ClientInitByReconnection
@@ -7523,6 +7524,18 @@ struct UTslSettings_IsUsingGappLobby_Params
 
 // Function TslGame.TslSettings.IsForKoreanRating
 struct UTslSettings_IsForKoreanRating_Params
+{
+	bool                                               ReturnValue;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslSettings.IsForKakaoTest
+struct UTslSettings_IsForKakaoTest_Params
+{
+	bool                                               ReturnValue;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslSettings.IsForKakao
+struct UTslSettings_IsForKakao_Params
 {
 	bool                                               ReturnValue;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };

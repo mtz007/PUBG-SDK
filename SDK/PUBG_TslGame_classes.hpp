@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.10.1) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -1463,11 +1463,11 @@ public:
 
 
 // Class TslGame.HackReporterComponent
-// 0x0240 (0x0420 - 0x01E0)
+// 0x0230 (0x0410 - 0x01E0)
 class UHackReporterComponent : public UActorComponent
 {
 public:
-	unsigned char                                      UnknownData00[0x240];                                     // 0x01E0(0x0240) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x230];                                     // 0x01E0(0x0230) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -2219,6 +2219,22 @@ public:
 	void UpdateToolTipBySlotInterface(const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& Container);
 	void UpdateSlotInfo(const TScriptInterface<class USlotInterface>& SlotInterface);
 	void UpdateEquipmentSlotItemToolTip(class UEquipableItem* EquipableItem);
+};
+
+
+// Class TslGame.KakaoSessionClientChecker
+// 0x0028 (0x0050 - 0x0028)
+class UKakaoSessionClientChecker : public UObject
+{
+public:
+	unsigned char                                      UnknownData00[0x28];                                      // 0x0028(0x0028) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class TslGame.KakaoSessionClientChecker");
+		return ptr;
+	}
+
 };
 
 
@@ -4305,13 +4321,13 @@ public:
 
 	void ServerForceInitStance();
 	void ServerChangeStance(TEnumAsByte<EStanceMode> ToStance);
-	void OnRep_CurrentStance();
+	void OnRep_CurrentStance(TEnumAsByte<EStanceMode> OldCurrentStand);
 	void ClientInitByReconnection(TEnumAsByte<EStanceMode> InitStance);
 };
 
 
 // Class TslGame.TslPlayerStart
-// 0x0028 (0x0408 - 0x03E0)
+// 0x0030 (0x0410 - 0x03E0)
 class ATslPlayerStart : public APlayerStart
 {
 public:
@@ -4321,7 +4337,10 @@ public:
 	bool                                               bRandomRotation;                                          // 0x03E8(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x7];                                       // 0x03E9(0x0007) MISSED OFFSET
 	TArray<class AStartActivationVolume*>              ActivationVolumes;                                        // 0x03F0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	unsigned char                                      UnknownData02[0x8];                                       // 0x0400(0x0008) MISSED OFFSET
+	bool                                               bForceSelect;                                             // 0x0400(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x3];                                       // 0x0401(0x0003) MISSED OFFSET
+	int                                                Weight;                                                   // 0x0404(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x8];                                       // 0x0408(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -4932,7 +4951,7 @@ public:
 
 
 // Class TslGame.TslWheeledVehicle
-// 0x03C0 (0x07E0 - 0x0420)
+// 0x03B0 (0x07D0 - 0x0420)
 class ATslWheeledVehicle : public AWheeledVehicle
 {
 public:
@@ -5014,7 +5033,7 @@ public:
 	float                                              StabilizeInitialTimer;                                    // 0x0790(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 	float                                              StablizeCurrentTimer;                                     // 0x0794(0x0004) (ZeroConstructor, Transient, IsPlainOldData)
 	float                                              SteeringYawBias;                                          // 0x0798(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData10[0x44];                                      // 0x079C(0x0044) MISSED OFFSET
+	unsigned char                                      UnknownData10[0x34];                                      // 0x079C(0x0034) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -5908,49 +5927,52 @@ public:
 
 
 // Class TslGame.TslSettings
-// 0x04F8 (0x0520 - 0x0028)
+// 0x0500 (0x0528 - 0x0028)
 class UTslSettings : public UObject
 {
 public:
-	bool                                               SupportedClientReplay;                                    // 0x0028(0x0001) (ZeroConstructor, Config, IsPlainOldData)
-	bool                                               SupportedKillcam;                                         // 0x0029(0x0001) (ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x2];                                       // 0x002A(0x0002) MISSED OFFSET
-	int                                                MaxReplaysForNullStreamer;                                // 0x002C(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Config, IsPlainOldData)
-	float                                              RepDistance_Item;                                         // 0x0030(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              RepDistance_Character;                                    // 0x0034(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              RepDistance_Weapon;                                       // 0x0038(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              RepDistance_Vehicle;                                      // 0x003C(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              RepDistance_Parachute;                                    // 0x0040(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              RepDistance_Door;                                         // 0x0044(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              RepDistance_Window;                                       // 0x0048(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              RepFrequency_Character;                                   // 0x004C(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              RepFrequency_WheeledVehicle;                              // 0x0050(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              RepFrequency_FloatingVehicle;                             // 0x0054(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              RepFrequency_Parachute;                                   // 0x0058(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              RepFrequency_Aircraft;                                    // 0x005C(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              RepFrequency_CarePackage;                                 // 0x0060(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              RepVehicle_SpawnDistance;                                 // 0x0064(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              RepVehicle_UnspawnDistance;                               // 0x0068(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	struct FRigidBodyErrorCorrection                   RepVehicle_PhysicErrorCorrection;                         // 0x006C(0x001C) (Edit, Config)
-	float                                              CharacterCorrection_MaxSpeed;                             // 0x0088(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              CharacterCorrection_MaxSpeedPositionError;                // 0x008C(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              CharacterCorrection_ZeroSpeedPositionError;               // 0x0090(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	bool                                               bBattlEyeEnabled;                                         // 0x0094(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	bool                                               bBattlEyeEnabledInPIE;                                    // 0x0095(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x2];                                       // 0x0096(0x0002) MISSED OFFSET
-	float                                              BattlEyeReliablePacketIntervalOnClient;                   // 0x0098(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              BattlEyeReliablePacketIntervalOnServer;                   // 0x009C(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	bool                                               bTPEnabled;                                               // 0x00A0(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	bool                                               bTPEnabledInPIE;                                          // 0x00A1(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	bool                                               bTPLaFPSUpdateStatus;                                     // 0x00A2(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x1];                                       // 0x00A3(0x0001) MISSED OFFSET
-	float                                              TPLaFPSUpdateStatusPeriodInMs;                            // 0x00A4(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	bool                                               bChineseLicensing;                                        // 0x00A8(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	bool                                               bUseGappLobby;                                            // 0x00A9(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x6];                                       // 0x00AA(0x0006) MISSED OFFSET
+	int                                                ObserverNetSpeed;                                         // 0x0028(0x0004) (ZeroConstructor, Config, IsPlainOldData)
+	bool                                               SupportedClientReplay;                                    // 0x002C(0x0001) (ZeroConstructor, Config, IsPlainOldData)
+	bool                                               SupportedKillcam;                                         // 0x002D(0x0001) (ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x002E(0x0002) MISSED OFFSET
+	int                                                MaxReplaysForNullStreamer;                                // 0x0030(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Config, IsPlainOldData)
+	float                                              RepDistance_Item;                                         // 0x0034(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              RepDistance_Character;                                    // 0x0038(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              RepDistance_Weapon;                                       // 0x003C(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              RepDistance_Vehicle;                                      // 0x0040(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              RepDistance_Parachute;                                    // 0x0044(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              RepDistance_Door;                                         // 0x0048(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              RepDistance_Window;                                       // 0x004C(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              RepFrequency_Character;                                   // 0x0050(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              RepFrequency_WheeledVehicle;                              // 0x0054(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              RepFrequency_FloatingVehicle;                             // 0x0058(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              RepFrequency_Parachute;                                   // 0x005C(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              RepFrequency_Aircraft;                                    // 0x0060(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              RepFrequency_CarePackage;                                 // 0x0064(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              RepVehicle_SpawnDistance;                                 // 0x0068(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              RepVehicle_UnspawnDistance;                               // 0x006C(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	struct FRigidBodyErrorCorrection                   RepVehicle_PhysicErrorCorrection;                         // 0x0070(0x001C) (Edit, Config)
+	float                                              CharacterCorrection_MaxSpeed;                             // 0x008C(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              CharacterCorrection_MaxSpeedPositionError;                // 0x0090(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              CharacterCorrection_ZeroSpeedPositionError;               // 0x0094(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	bool                                               bBattlEyeEnabled;                                         // 0x0098(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	bool                                               bBattlEyeEnabledInPIE;                                    // 0x0099(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x2];                                       // 0x009A(0x0002) MISSED OFFSET
+	float                                              BattlEyeReliablePacketIntervalOnClient;                   // 0x009C(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              BattlEyeReliablePacketIntervalOnServer;                   // 0x00A0(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	bool                                               bTPEnabled;                                               // 0x00A4(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	bool                                               bTPEnabledInPIE;                                          // 0x00A5(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	bool                                               bTPLaFPSUpdateStatus;                                     // 0x00A6(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x1];                                       // 0x00A7(0x0001) MISSED OFFSET
+	float                                              TPLaFPSUpdateStatusPeriodInMs;                            // 0x00A8(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	bool                                               bChineseLicensing;                                        // 0x00AC(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	bool                                               bUseGappLobby;                                            // 0x00AD(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x2];                                       // 0x00AE(0x0002) MISSED OFFSET
 	struct FString                                     GappLobbyUrl;                                             // 0x00B0(0x0010) (Edit, ZeroConstructor, Config)
 	bool                                               bKoreanRating;                                            // 0x00C0(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData04[0x3];                                       // 0x00C1(0x0003) MISSED OFFSET
+	bool                                               bKakao;                                                   // 0x00C1(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	bool                                               bKakaoTest;                                               // 0x00C2(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData04[0x1];                                       // 0x00C3(0x0001) MISSED OFFSET
 	float                                              GameStateLogInterval;                                     // 0x00C4(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
 	float                                              ServerStatLogInterval;                                    // 0x00C8(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
 	float                                              CharacterPositionLogInterval;                             // 0x00CC(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
@@ -6027,41 +6049,43 @@ public:
 	float                                              AllowedHitLag;                                            // 0x0310(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
 	float                                              LogMinHitLag;                                             // 0x0314(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
 	float                                              HackDetectionSpeed;                                       // 0x0318(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData11[0x4];                                       // 0x031C(0x0004) MISSED OFFSET
-	TArray<struct FOverrideScalability>                OverrideScalabilities;                                    // 0x0320(0x0010) (Edit, ZeroConstructor, Config)
-	float                                              FakeDoorBlockMaxY;                                        // 0x0330(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData12[0x4];                                       // 0x0334(0x0004) MISSED OFFSET
-	TArray<struct FReportCauseData>                    ReportCauses;                                             // 0x0338(0x0010) (Edit, ZeroConstructor, Config)
-	TArray<struct FSubjectToReport>                    SubjectToReport;                                          // 0x0348(0x0010) (Edit, ZeroConstructor, Config)
-	TArray<struct FReportDetailCauseTypeDescription>   ReportDetailCauseTypeDescriptions;                        // 0x0358(0x0010) (Edit, ZeroConstructor, Config)
-	float                                              FreelookRecoveryInterpSpeed;                              // 0x0368(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData13[0x4];                                       // 0x036C(0x0004) MISSED OFFSET
-	TMap<struct FName, float>                          GamepadSensitiveMultiplier;                               // 0x0370(0x0050) (Edit, ZeroConstructor, Config)
-	float                                              GamePadInnerDeadZone;                                     // 0x03C0(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              GamePadOutDeadZoneAcceleration;                           // 0x03C4(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              GamePadOutMaxAxisValue;                                   // 0x03C8(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              GamePadAccelerationStandardFps;                           // 0x03CC(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              AimAssistDecisionRadius;                                  // 0x03D0(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	bool                                               bApplyInputValue;                                         // 0x03D4(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	bool                                               bIgnorePadSensitive;                                      // 0x03D5(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData14[0x2];                                       // 0x03D6(0x0002) MISSED OFFSET
-	float                                              InsensitiveZone;                                          // 0x03D8(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData15[0x4];                                       // 0x03DC(0x0004) MISSED OFFSET
-	TArray<struct FAimAssistData>                      AimCameraAssists;                                         // 0x03E0(0x0010) (Edit, ZeroConstructor, Config)
-	TArray<struct FAimAssistData>                      ADSCameraAssists;                                         // 0x03F0(0x0010) (Edit, ZeroConstructor, Config)
-	TArray<struct FAimAssistData>                      Scope2XCameraAssists;                                     // 0x0400(0x0010) (Edit, ZeroConstructor, Config)
-	TArray<struct FAimAssistData>                      Scope4XCameraAssists;                                     // 0x0410(0x0010) (Edit, ZeroConstructor, Config)
-	TArray<struct FAimAssistData>                      Scope8XCameraAssists;                                     // 0x0420(0x0010) (Edit, ZeroConstructor, Config)
-	TArray<struct FAimAssistData>                      Scope15XCameraAssists;                                    // 0x0430(0x0010) (Edit, ZeroConstructor, Config)
-	bool                                               bIsESports;                                               // 0x0440(0x0001) (ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData16[0x7];                                       // 0x0441(0x0007) MISSED OFFSET
-	struct FStringAssetReference                       DialogUMGWidgetClassStringAssetReference;                 // 0x0448(0x0010) (Edit, Config)
-	unsigned char                                      UnknownData17[0x50];                                      // 0x0458(0x0050) MISSED OFFSET
-	class UCurveFloat*                                 LoadedMouseSensitivityCurve;                              // 0x04A8(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	class UCurveFloat*                                 LoadedGammaCurve;                                         // 0x04B0(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	class UTextureRenderTarget2D*                      CharacterStudioRenderTarget;                              // 0x04B8(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	TArray<struct FAnimatableCustomizableObjectData>   AnimatableCustomizableDatas;                              // 0x04C0(0x0010) (Edit, ZeroConstructor, Config)
-	TMap<struct FName, float>                          NotifyDistanceLimitMap;                                   // 0x04D0(0x0050) (Edit, ZeroConstructor)
+	float                                              HackDetectionSpeed_Crouch;                                // 0x031C(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              HackDetectionSpeed_Prone;                                 // 0x0320(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              InvalidRevivingMaxTime;                                   // 0x0324(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	TArray<struct FOverrideScalability>                OverrideScalabilities;                                    // 0x0328(0x0010) (Edit, ZeroConstructor, Config)
+	float                                              FakeDoorBlockMaxY;                                        // 0x0338(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData11[0x4];                                       // 0x033C(0x0004) MISSED OFFSET
+	TArray<struct FReportCauseData>                    ReportCauses;                                             // 0x0340(0x0010) (Edit, ZeroConstructor, Config)
+	TArray<struct FSubjectToReport>                    SubjectToReport;                                          // 0x0350(0x0010) (Edit, ZeroConstructor, Config)
+	TArray<struct FReportDetailCauseTypeDescription>   ReportDetailCauseTypeDescriptions;                        // 0x0360(0x0010) (Edit, ZeroConstructor, Config)
+	float                                              FreelookRecoveryInterpSpeed;                              // 0x0370(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData12[0x4];                                       // 0x0374(0x0004) MISSED OFFSET
+	TMap<struct FName, float>                          GamepadSensitiveMultiplier;                               // 0x0378(0x0050) (Edit, ZeroConstructor, Config)
+	float                                              GamePadInnerDeadZone;                                     // 0x03C8(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              GamePadOutDeadZoneAcceleration;                           // 0x03CC(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              GamePadOutMaxAxisValue;                                   // 0x03D0(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              GamePadAccelerationStandardFps;                           // 0x03D4(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              AimAssistDecisionRadius;                                  // 0x03D8(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	bool                                               bApplyInputValue;                                         // 0x03DC(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	bool                                               bIgnorePadSensitive;                                      // 0x03DD(0x0001) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData13[0x2];                                       // 0x03DE(0x0002) MISSED OFFSET
+	float                                              InsensitiveZone;                                          // 0x03E0(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData14[0x4];                                       // 0x03E4(0x0004) MISSED OFFSET
+	TArray<struct FAimAssistData>                      AimCameraAssists;                                         // 0x03E8(0x0010) (Edit, ZeroConstructor, Config)
+	TArray<struct FAimAssistData>                      ADSCameraAssists;                                         // 0x03F8(0x0010) (Edit, ZeroConstructor, Config)
+	TArray<struct FAimAssistData>                      Scope2XCameraAssists;                                     // 0x0408(0x0010) (Edit, ZeroConstructor, Config)
+	TArray<struct FAimAssistData>                      Scope4XCameraAssists;                                     // 0x0418(0x0010) (Edit, ZeroConstructor, Config)
+	TArray<struct FAimAssistData>                      Scope8XCameraAssists;                                     // 0x0428(0x0010) (Edit, ZeroConstructor, Config)
+	TArray<struct FAimAssistData>                      Scope15XCameraAssists;                                    // 0x0438(0x0010) (Edit, ZeroConstructor, Config)
+	bool                                               bIsESports;                                               // 0x0448(0x0001) (ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData15[0x7];                                       // 0x0449(0x0007) MISSED OFFSET
+	struct FStringAssetReference                       DialogUMGWidgetClassStringAssetReference;                 // 0x0450(0x0010) (Edit, Config)
+	unsigned char                                      UnknownData16[0x50];                                      // 0x0460(0x0050) MISSED OFFSET
+	class UCurveFloat*                                 LoadedMouseSensitivityCurve;                              // 0x04B0(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	class UCurveFloat*                                 LoadedGammaCurve;                                         // 0x04B8(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	class UTextureRenderTarget2D*                      CharacterStudioRenderTarget;                              // 0x04C0(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	TArray<struct FAnimatableCustomizableObjectData>   AnimatableCustomizableDatas;                              // 0x04C8(0x0010) (Edit, ZeroConstructor, Config)
+	TMap<struct FName, float>                          NotifyDistanceLimitMap;                                   // 0x04D8(0x0050) (Edit, ZeroConstructor)
 
 	static UClass* StaticClass()
 	{
@@ -6073,6 +6097,8 @@ public:
 	void SetCharacterStudioRenderTarget(class UTextureRenderTarget2D* rt);
 	bool IsUsingGappLobby();
 	bool IsForKoreanRating();
+	bool IsForKakaoTest();
+	bool IsForKakao();
 	bool IsForChineseLicensing();
 	bool IsESports();
 	class UTslSettings* STATIC_GetTslSettings();
@@ -6131,7 +6157,8 @@ public:
 	class ATslPlayerState*                             CachedDemoPlayerState;                                    // 0x0858(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
 	unsigned char                                      UnknownData11[0x148];                                     // 0x0860(0x0148) MISSED OFFSET
 	class UHighlightSession*                           HighlightSession;                                         // 0x09A8(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData12[0x100];                                     // 0x09B0(0x0100) MISSED OFFSET
+	unsigned char                                      UnknownData12[0xF8];                                      // 0x09B0(0x00F8) MISSED OFFSET
+	class UKakaoSessionClientChecker*                  KakaoSessionClientProcessChecker;                         // 0x0AA8(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -7169,7 +7196,7 @@ public:
 
 
 // Class TslGame.TslGameMode
-// 0x0340 (0x07C0 - 0x0480)
+// 0x0400 (0x0880 - 0x0480)
 class ATslGameMode : public AGameMode
 {
 public:
@@ -7219,18 +7246,23 @@ public:
 	class UClass*                                      ItemSpawnProcessorClass;                                  // 0x05B8(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	class UClass*                                      ThingSpawnProcessorClass;                                 // 0x05C0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	class UClass*                                      BasicBeltItemClassForNoBelt;                              // 0x05C8(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData04[0x8];                                       // 0x05D0(0x0008) MISSED OFFSET
-	class UItemSpawnProcessor*                         ItemSpawnProcessor;                                       // 0x05D8(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	class UThingSpawnProcessor*                        ThingSpawnProcessor;                                      // 0x05E0(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	class UGeneralItemSpawner*                         InitialItemDonator;                                       // 0x05E8(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	class UMatchPreparer*                              MatchPreparer;                                            // 0x05F0(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	class AModeController*                             ModeController;                                           // 0x05F8(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	class ADroppedItemGridManager*                     DroppedItemGridManager;                                   // 0x0600(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	TArray<class AModeController*>                     AdditinalModeControllers;                                 // 0x0608(0x0010) (ZeroConstructor, Transient)
-	unsigned char                                      UnknownData05[0x98];                                      // 0x0618(0x0098) MISSED OFFSET
-	TMap<struct FString, class APlayerState*>          JoinedUserPlayerStateMap;                                 // 0x06B0(0x0050) (ZeroConstructor, Transient)
-	TArray<struct FTeams>                              Teams;                                                    // 0x0700(0x0010) (ZeroConstructor, Transient)
-	unsigned char                                      UnknownData06[0xB0];                                      // 0x0710(0x00B0) MISSED OFFSET
+	TMap<int, class ATslPlayerStart*>                  TeamPlayerStarts;                                         // 0x05D0(0x0050) (ZeroConstructor)
+	TArray<class AActor*>                              PlayerStarts;                                             // 0x0620(0x0010) (ZeroConstructor)
+	TArray<struct FPlayerStartsUserCount>              PlayerStartsUserCount;                                    // 0x0630(0x0010) (ZeroConstructor)
+	TMap<struct FString, class ATslPlayerStart*>       PlayerStartsUniqueIdMap;                                  // 0x0640(0x0050) (ZeroConstructor)
+	int                                                PlayerStartCount;                                         // 0x0690(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData04[0x4];                                       // 0x0694(0x0004) MISSED OFFSET
+	class UItemSpawnProcessor*                         ItemSpawnProcessor;                                       // 0x0698(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	class UThingSpawnProcessor*                        ThingSpawnProcessor;                                      // 0x06A0(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	class UGeneralItemSpawner*                         InitialItemDonator;                                       // 0x06A8(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	class UMatchPreparer*                              MatchPreparer;                                            // 0x06B0(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	class AModeController*                             ModeController;                                           // 0x06B8(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	class ADroppedItemGridManager*                     DroppedItemGridManager;                                   // 0x06C0(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	TArray<class AModeController*>                     AdditinalModeControllers;                                 // 0x06C8(0x0010) (ZeroConstructor, Transient)
+	unsigned char                                      UnknownData05[0x98];                                      // 0x06D8(0x0098) MISSED OFFSET
+	TMap<struct FString, class APlayerState*>          JoinedUserPlayerStateMap;                                 // 0x0770(0x0050) (ZeroConstructor, Transient)
+	TArray<struct FTeams>                              Teams;                                                    // 0x07C0(0x0010) (ZeroConstructor, Transient)
+	unsigned char                                      UnknownData06[0xB0];                                      // 0x07D0(0x00B0) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -11345,93 +11377,96 @@ public:
 
 
 // Class TslGame.TslMotorbikeVehicle
-// 0x0200 (0x09E0 - 0x07E0)
+// 0x0210 (0x09E0 - 0x07D0)
 class ATslMotorbikeVehicle : public ATslWheeledVehicle
 {
 public:
-	bool                                               bStabilizeOnServer;                                       // 0x07E0(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	bool                                               bStabilizeOnRemoteClient;                                 // 0x07E1(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x2];                                       // 0x07E2(0x0002) MISSED OFFSET
-	float                                              KickstandStabAngularDamp;                                 // 0x07E4(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              KickstandMAV;                                             // 0x07E8(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              DefaultAngularDamping_Client;                             // 0x07EC(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              DefaultAngularDamping_Server;                             // 0x07F0(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              NoDriverAngularDamping_Client;                            // 0x07F4(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              NoDriverAngularDamping_Server;                            // 0x07F8(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              KickstandStabilizeTorqueScalar;                           // 0x07FC(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              KickstandStabilizeRollScalar;                             // 0x0800(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              KickstandStabilizeRollMinRange;                           // 0x0804(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              MinVelocityForStabilizeOverride;                          // 0x0808(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              KickstandStabLinearDamp;                                  // 0x080C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	struct FName                                       StabilizeBone_Low;                                        // 0x0810(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	struct FName                                       StabilizeBone_High;                                       // 0x0818(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UCurveFloat*                                 Curve_Roll;                                               // 0x0820(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UCurveFloat*                                 Curve_RollReturn;                                         // 0x0828(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UCurveFloat*                                 Curve_Steer;                                              // 0x0830(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UCurveFloat*                                 Curve_Yaw;                                                // 0x0838(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	class UCurveFloat*                                 Curve_Torque;                                             // 0x0840(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	struct FVector                                     StabStaticVector;                                         // 0x0848(0x000C) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector                                     StabStaticVectorKickstand;                                // 0x0854(0x000C) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector                                     StabNoDriverVector;                                       // 0x0860(0x000C) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   StabX_Velocity_In;                                        // 0x086C(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   StabX_Velocity_Out;                                       // 0x0874(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   StabX_Pitch_In;                                           // 0x087C(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   StabX_Pitch_Out;                                          // 0x0884(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   StabZ_Velocity_In;                                        // 0x088C(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   StabZ_Velocity_Out;                                       // 0x0894(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   StabZ_Roll_In;                                            // 0x089C(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   StabZ_Roll_Out;                                           // 0x08A4(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   StabZ_Pitch_In;                                           // 0x08AC(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   StabZ_Pitch_Out;                                          // 0x08B4(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   StabTorque_In;                                            // 0x08BC(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   StabTorque_Out;                                           // 0x08C4(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	float                                              StabTorque_ForceScalar;                                   // 0x08CC(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   StabTorque_Pitch_In;                                      // 0x08D0(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   StabTorque_Pitch_Out;                                     // 0x08D8(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	bool                                               bUseFlipping;                                             // 0x08E0(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x08E1(0x0003) MISSED OFFSET
-	float                                              FlippingForce;                                            // 0x08E4(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              InitialFlipTimer;                                         // 0x08E8(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              MinVelocityForFlipping;                                   // 0x08EC(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x4];                                       // 0x08F0(0x0004) MISSED OFFSET
-	float                                              DefaultLinearDamp;                                        // 0x08F4(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              DefaultAngularDamp;                                       // 0x08F8(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              DefaultMAV;                                               // 0x08FC(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              ContactAlpha_RiseRate;                                    // 0x0900(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              ContactAlpha_FallRate;                                    // 0x0904(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              ContactAlpha_LowerClamp;                                  // 0x0908(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   ContactAlpha_MapPitchIn;                                  // 0x090C(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   ContactAlpha_MapRollIn;                                   // 0x0914(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	float                                              ContactAlphaRemoteMultiplier;                             // 0x091C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   AirControlF_VelMap;                                       // 0x0920(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   AirControlB_VelMap;                                       // 0x0928(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   AirControlL_VelMap;                                       // 0x0930(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   AirControlR_VelMap;                                       // 0x0938(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   AirControlQ_VelMap;                                       // 0x0940(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   AirControlE_VelMap;                                       // 0x0948(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	float                                              AirControl_FB_Torque;                                     // 0x0950(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              AirControl_LR_Torque;                                     // 0x0954(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              AirControl_QE_Torque;                                     // 0x0958(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	bool                                               bStabilizeInAir;                                          // 0x095C(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x3];                                       // 0x095D(0x0003) MISSED OFFSET
-	float                                              StabilizeAirPercentage;                                   // 0x0960(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              FC_PitchUp;                                               // 0x0964(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              FC_PitchDown;                                             // 0x0968(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	bool                                               bUseAnchoring;                                            // 0x096C(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData04[0x3];                                       // 0x096D(0x0003) MISSED OFFSET
-	float                                              MinImpulseForAnchorRelease;                               // 0x0970(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   DriverVelocityAngularDampingInMap;                        // 0x0974(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	struct FVector2D                                   DriverVelocityAngularDampingOutMap;                       // 0x097C(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
-	bool                                               bProcessCounterSteering;                                  // 0x0984(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	bool                                               bProcessCounterSteerOnRemote;                             // 0x0985(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData05[0x2];                                       // 0x0986(0x0002) MISSED OFFSET
-	float                                              CounterSteerAngularSpeedScalar;                           // 0x0988(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              CounterSteerScalar_Default;                               // 0x098C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              CounterSteerScalar_NoThrottle;                            // 0x0990(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              CounterSteerScalar_Brake;                                 // 0x0994(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData06[0x40];                                      // 0x0998(0x0040) MISSED OFFSET
-	bool                                               bKickstandStabilizeActive;                                // 0x09D8(0x0001) (Net, ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData07[0x7];                                       // 0x09D9(0x0007) MISSED OFFSET
+	bool                                               bUseKickstandStabilize;                                   // 0x07D0(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x07D1(0x0003) MISSED OFFSET
+	float                                              MinSuspensionOffsetForContact;                            // 0x07D4(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bStabilizeOnServer;                                       // 0x07D8(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bStabilizeOnRemoteClient;                                 // 0x07D9(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x2];                                       // 0x07DA(0x0002) MISSED OFFSET
+	float                                              KickstandStabAngularDamp;                                 // 0x07DC(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              KickstandMAV;                                             // 0x07E0(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              DefaultAngularDamping_Client;                             // 0x07E4(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              DefaultAngularDamping_Server;                             // 0x07E8(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              NoDriverAngularDamping_Client;                            // 0x07EC(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              NoDriverAngularDamping_Server;                            // 0x07F0(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              KickstandStabilizeTorqueScalar;                           // 0x07F4(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              KickstandStabilizeRollScalar;                             // 0x07F8(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              KickstandStabilizeRollMinRange;                           // 0x07FC(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              MinVelocityForStabilizeOverride;                          // 0x0800(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              KickstandStabLinearDamp;                                  // 0x0804(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FName                                       StabilizeBone_Low;                                        // 0x0808(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FName                                       StabilizeBone_High;                                       // 0x0810(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UCurveFloat*                                 Curve_Roll;                                               // 0x0818(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UCurveFloat*                                 Curve_RollReturn;                                         // 0x0820(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UCurveFloat*                                 Curve_Steer;                                              // 0x0828(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UCurveFloat*                                 Curve_Yaw;                                                // 0x0830(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UCurveFloat*                                 Curve_Torque;                                             // 0x0838(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FVector                                     StabStaticVector;                                         // 0x0840(0x000C) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector                                     StabStaticVectorKickstand;                                // 0x084C(0x000C) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector                                     StabNoDriverVector;                                       // 0x0858(0x000C) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   StabX_Velocity_In;                                        // 0x0864(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   StabX_Velocity_Out;                                       // 0x086C(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   StabX_Pitch_In;                                           // 0x0874(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   StabX_Pitch_Out;                                          // 0x087C(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   StabZ_Velocity_In;                                        // 0x0884(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   StabZ_Velocity_Out;                                       // 0x088C(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   StabZ_Roll_In;                                            // 0x0894(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   StabZ_Roll_Out;                                           // 0x089C(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   StabZ_Pitch_In;                                           // 0x08A4(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   StabZ_Pitch_Out;                                          // 0x08AC(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   StabTorque_In;                                            // 0x08B4(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   StabTorque_Out;                                           // 0x08BC(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	float                                              StabTorque_ForceScalar;                                   // 0x08C4(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   StabTorque_Pitch_In;                                      // 0x08C8(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   StabTorque_Pitch_Out;                                     // 0x08D0(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bUseFlipping;                                             // 0x08D8(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x3];                                       // 0x08D9(0x0003) MISSED OFFSET
+	float                                              FlippingForce;                                            // 0x08DC(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              InitialFlipTimer;                                         // 0x08E0(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              MinVelocityForFlipping;                                   // 0x08E4(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x4];                                       // 0x08E8(0x0004) MISSED OFFSET
+	float                                              DefaultLinearDamp;                                        // 0x08EC(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              DefaultAngularDamp;                                       // 0x08F0(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              DefaultMAV;                                               // 0x08F4(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              ContactAlpha_RiseRate;                                    // 0x08F8(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              ContactAlpha_FallRate;                                    // 0x08FC(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              ContactAlpha_LowerClamp;                                  // 0x0900(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   ContactAlpha_MapPitchIn;                                  // 0x0904(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   ContactAlpha_MapRollIn;                                   // 0x090C(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	float                                              ContactAlphaRemoteMultiplier;                             // 0x0914(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   AirControlF_VelMap;                                       // 0x0918(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   AirControlB_VelMap;                                       // 0x0920(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   AirControlL_VelMap;                                       // 0x0928(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   AirControlR_VelMap;                                       // 0x0930(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   AirControlQ_VelMap;                                       // 0x0938(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   AirControlE_VelMap;                                       // 0x0940(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	float                                              AirControl_FB_Torque;                                     // 0x0948(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              AirControl_LR_Torque;                                     // 0x094C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              AirControl_QE_Torque;                                     // 0x0950(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bStabilizeInAir;                                          // 0x0954(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData04[0x3];                                       // 0x0955(0x0003) MISSED OFFSET
+	float                                              StabilizeAirPercentage;                                   // 0x0958(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              FC_PitchUp;                                               // 0x095C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              FC_PitchDown;                                             // 0x0960(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bUseAnchoring;                                            // 0x0964(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData05[0x3];                                       // 0x0965(0x0003) MISSED OFFSET
+	float                                              MinImpulseForAnchorRelease;                               // 0x0968(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   DriverVelocityAngularDampingInMap;                        // 0x096C(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   DriverVelocityAngularDampingOutMap;                       // 0x0974(0x0008) (Edit, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bProcessCounterSteering;                                  // 0x097C(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bProcessCounterSteerOnRemote;                             // 0x097D(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData06[0x2];                                       // 0x097E(0x0002) MISSED OFFSET
+	float                                              CounterSteerAngularSpeedScalar;                           // 0x0980(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              CounterSteerScalar_Default;                               // 0x0984(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              CounterSteerScalar_NoThrottle;                            // 0x0988(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              CounterSteerScalar_Brake;                                 // 0x098C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData07[0x40];                                      // 0x0990(0x0040) MISSED OFFSET
+	bool                                               bKickstandStabilizeActive;                                // 0x09D0(0x0001) (Net, ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData08[0xF];                                       // 0x09D1(0x000F) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -11461,14 +11496,12 @@ public:
 
 
 // Class TslGame.TslMotorbikeVehicle_Sidecar
-// 0x0020 (0x0A00 - 0x09E0)
+// 0x0010 (0x09F0 - 0x09E0)
 class ATslMotorbikeVehicle_Sidecar : public ATslMotorbikeVehicle
 {
 public:
-	float                                              Sidecar_COM_Y_Left;                                       // 0x09E0(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              Sidecar_COM_Y_Right;                                      // 0x09E4(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	struct FVector                                     Sidecar_StabilizerHigh_StaticCOM;                         // 0x09E8(0x000C) (Edit, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x09F4(0x000C) MISSED OFFSET
+	struct FVector                                     Sidecar_StabilizerHigh_StaticCOM;                         // 0x09E0(0x000C) (Edit, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x09EC(0x0004) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{

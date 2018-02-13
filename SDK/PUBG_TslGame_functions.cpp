@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.10.1) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -20806,12 +20806,15 @@ void UStanceComponent::ServerChangeStance(TEnumAsByte<EStanceMode> ToStance)
 
 // Function TslGame.StanceComponent.OnRep_CurrentStance
 // (Native, Public)
+// Parameters:
+// TEnumAsByte<EStanceMode>       OldCurrentStand                (Parm, ZeroConstructor, IsPlainOldData)
 
-void UStanceComponent::OnRep_CurrentStance()
+void UStanceComponent::OnRep_CurrentStance(TEnumAsByte<EStanceMode> OldCurrentStand)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function TslGame.StanceComponent.OnRep_CurrentStance");
 
 	UStanceComponent_OnRep_CurrentStance_Params params;
+	params.OldCurrentStand = OldCurrentStand;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -26352,6 +26355,50 @@ bool UTslSettings::IsForKoreanRating()
 	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslSettings.IsForKoreanRating");
 
 	UTslSettings_IsForKoreanRating_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function TslGame.TslSettings.IsForKakaoTest
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                           ReturnValue                    (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UTslSettings::IsForKakaoTest()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslSettings.IsForKakaoTest");
+
+	UTslSettings_IsForKakaoTest_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function TslGame.TslSettings.IsForKakao
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                           ReturnValue                    (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UTslSettings::IsForKakao()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TslGame.TslSettings.IsForKakao");
+
+	UTslSettings_IsForKakao_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;

@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.4.10) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.10.1) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -535,6 +535,15 @@ enum class ECameraViewBehaviour : uint8_t
 };
 
 
+// Enum TslGame.EPlayerStartType
+enum class EPlayerStartType : uint8_t
+{
+	EPlayerStartType__OnePlace     = 0,
+	EPlayerStartType__SeveralPlace = 1,
+	EPlayerStartType__EPlayerStartType_MAX = 2
+};
+
+
 // Enum TslGame.EMatchStartType
 enum class EMatchStartType : uint8_t
 {
@@ -769,36 +778,19 @@ enum class ECheatType : uint8_t
 	IgnoreWall_Hit                 = 2,
 	IgnoreWall_Sight               = 3,
 	ItemPackage                    = 4,
-	HitLag                         = 5,
-	InvalidImpact                  = 6,
-	InvalidOrigin                  = 7,
-	InvalidRange                   = 8,
-	InvalidSequence                = 9,
-	InvalidAmmo                    = 10,
-	InvalidChecksum                = 11,
-	SimilarHit                     = 12,
-	DoubleKill                     = 13,
-	ECheatType_MAX                 = 14
-};
-
-
-// Enum TslGame.EHackDetectionType
-enum class EHackDetectionType : uint8_t
-{
-	WEAPON_INVALID_IMPACT          = 0,
-	WEAPON_INVALID_ORIGIN          = 1,
-	WEAPON_INVALID_RANGE           = 2,
-	WEAPON_INVALID_SEQUENCE        = 3,
-	WEAPON_INVALID_HITLAG          = 4,
-	WEAPON_INVALID_AMMO            = 5,
-	WEAPON_INVALID_CHKSUM          = 6,
-	WEAPON_WALL_CHECK              = 7,
-	IGNORE_WALL                    = 8,
-	SPEED_HACK_TIME                = 9,
-	SPEED_HACK                     = 10,
-	ITEM_PACKAGE                   = 11,
-	WEAPON_HIT                     = 12,
-	EHackDetectionType_MAX         = 13
+	CarePackageMount               = 5,
+	HitLag                         = 6,
+	InvalidImpact                  = 7,
+	InvalidOrigin                  = 8,
+	InvalidRange                   = 9,
+	InvalidSequence                = 10,
+	InvalidAmmo                    = 11,
+	InvalidChecksum                = 12,
+	InvalidReviving                = 13,
+	InvalidKick                    = 14,
+	SimilarHit                     = 15,
+	DoubleKill                     = 16,
+	ECheatType_MAX                 = 17
 };
 
 
@@ -2905,6 +2897,15 @@ struct FBlueZoneCustomOption
 	float                                              ReleaseDuration;                                          // 0x0008(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	float                                              PoisonGasDamagePerSecond;                                 // 0x000C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	float                                              RadiusRate;                                               // 0x0010(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+};
+
+// ScriptStruct TslGame.PlayerStartsUserCount
+// 0x0010
+struct FPlayerStartsUserCount
+{
+	int                                                PlayerCount;                                              // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	class ATslPlayerStart*                             PlayerStart;                                              // 0x0008(0x0008) (ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct TslGame.Teams
