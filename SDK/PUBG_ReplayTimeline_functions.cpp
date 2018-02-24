@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.10.1) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,40 @@ namespace Classes
 //---------------------------------------------------------------------------
 //Functions
 //---------------------------------------------------------------------------
+
+// Function ReplayTimeline.ReplayTimeline_C.CheckReportButton
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void UReplayTimeline_C::CheckReportButton()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ReplayTimeline.ReplayTimeline_C.CheckReportButton");
+
+	UReplayTimeline_C_CheckReportButton_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ReplayTimeline.ReplayTimeline_C.SetReplayClipCover
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void UReplayTimeline_C::SetReplayClipCover()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ReplayTimeline.ReplayTimeline_C.SetReplayClipCover");
+
+	UReplayTimeline_C_SetReplayClipCover_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function ReplayTimeline.ReplayTimeline_C.On_ReportButtonSizeBox_Prepass_1
 // (Public, BlueprintCallable, BlueprintEvent)
@@ -951,6 +985,40 @@ void UReplayTimeline_C::BndEvt__ButtonReport_K2Node_ComponentBoundEvent_117_OnBu
 	static auto fn = UObject::FindObject<UFunction>("Function ReplayTimeline.ReplayTimeline_C.BndEvt__ButtonReport_K2Node_ComponentBoundEvent_117_OnButtonClickedEvent__DelegateSignature");
 
 	UReplayTimeline_C_BndEvt__ButtonReport_K2Node_ComponentBoundEvent_117_OnButtonClickedEvent__DelegateSignature_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ReplayTimeline.ReplayTimeline_C.OnReplayClipInfo
+// (BlueprintCallable, BlueprintEvent)
+
+void UReplayTimeline_C::OnReplayClipInfo()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ReplayTimeline.ReplayTimeline_C.OnReplayClipInfo");
+
+	UReplayTimeline_C_OnReplayClipInfo_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ReplayTimeline.ReplayTimeline_C.OnReplayInfo
+// (BlueprintCallable, BlueprintEvent)
+
+void UReplayTimeline_C::OnReplayInfo()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ReplayTimeline.ReplayTimeline_C.OnReplayInfo");
+
+	UReplayTimeline_C_OnReplayInfo_Params params;
 
 	auto flags = fn->FunctionFlags;
 

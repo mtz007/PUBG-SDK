@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.10.1) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -792,6 +792,23 @@ public:
 	void SetForcedLodModel(int NewForcedLodModel);
 	void OnRep_StaticMesh(class UStaticMesh* OldStaticMesh);
 	void GetLocalBounds(struct FVector* Min, struct FVector* Max);
+};
+
+
+// Class Engine.BlueprintFunctionLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UBlueprintFunctionLibrary : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.BlueprintFunctionLibrary");
+		return ptr;
+	}
+
+
+	struct FStringAssetReference STATIC_MakeStringAssetReference(const struct FString& AssetLongPathname);
 };
 
 
@@ -2592,23 +2609,6 @@ public:
 	void ApplyResolutionSettings(bool bCheckForCommandLineOverrides);
 	void ApplyNonResolutionSettings();
 	void ApplyHardwareBenchmarkResults();
-};
-
-
-// Class Engine.BlueprintFunctionLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UBlueprintFunctionLibrary : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.BlueprintFunctionLibrary");
-		return ptr;
-	}
-
-
-	struct FStringAssetReference STATIC_MakeStringAssetReference(const struct FString& AssetLongPathname);
 };
 
 

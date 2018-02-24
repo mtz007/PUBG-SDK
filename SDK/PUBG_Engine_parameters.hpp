@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.10.1) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -2360,6 +2360,13 @@ struct UStaticMeshComponent_GetLocalBounds_Params
 {
 	struct FVector                                     Min;                                                      // (Parm, OutParm, IsPlainOldData)
 	struct FVector                                     Max;                                                      // (Parm, OutParm, IsPlainOldData)
+};
+
+// Function Engine.BlueprintFunctionLibrary.MakeStringAssetReference
+struct UBlueprintFunctionLibrary_MakeStringAssetReference_Params
+{
+	struct FString                                     AssetLongPathname;                                        // (Parm, ZeroConstructor)
+	struct FStringAssetReference                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
 };
 
 // Function Engine.Controller.UnPossess
@@ -6007,13 +6014,6 @@ struct UGameUserSettings_ApplyNonResolutionSettings_Params
 // Function Engine.GameUserSettings.ApplyHardwareBenchmarkResults
 struct UGameUserSettings_ApplyHardwareBenchmarkResults_Params
 {
-};
-
-// Function Engine.BlueprintFunctionLibrary.MakeStringAssetReference
-struct UBlueprintFunctionLibrary_MakeStringAssetReference_Params
-{
-	struct FString                                     AssetLongPathname;                                        // (Parm, ZeroConstructor)
-	struct FStringAssetReference                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
 };
 
 // Function Engine.GameStateBase.OnRep_SpectatorClass

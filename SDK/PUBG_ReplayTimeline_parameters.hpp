@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.10.1) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,16 @@ namespace Classes
 //---------------------------------------------------------------------------
 //Parameters
 //---------------------------------------------------------------------------
+
+// Function ReplayTimeline.ReplayTimeline_C.CheckReportButton
+struct UReplayTimeline_C_CheckReportButton_Params
+{
+};
+
+// Function ReplayTimeline.ReplayTimeline_C.SetReplayClipCover
+struct UReplayTimeline_C_SetReplayClipCover_Params
+{
+};
 
 // Function ReplayTimeline.ReplayTimeline_C.On_ReportButtonSizeBox_Prepass_1
 struct UReplayTimeline_C_On_ReportButtonSizeBox_Prepass_1_Params
@@ -293,6 +303,16 @@ struct UReplayTimeline_C_OnGoToTimelineDoneToBlockJump_Params
 
 // Function ReplayTimeline.ReplayTimeline_C.BndEvt__ButtonReport_K2Node_ComponentBoundEvent_117_OnButtonClickedEvent__DelegateSignature
 struct UReplayTimeline_C_BndEvt__ButtonReport_K2Node_ComponentBoundEvent_117_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function ReplayTimeline.ReplayTimeline_C.OnReplayClipInfo
+struct UReplayTimeline_C_OnReplayClipInfo_Params
+{
+};
+
+// Function ReplayTimeline.ReplayTimeline_C.OnReplayInfo
+struct UReplayTimeline_C_OnReplayInfo_Params
 {
 };
 

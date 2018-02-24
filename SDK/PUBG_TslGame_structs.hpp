@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.10.1) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -135,6 +135,18 @@ enum class EPopupStyle : uint8_t
 	EPopupStyle__Ok                = 1,
 	EPopupStyle__Yes_No            = 2,
 	EPopupStyle__EPopupStyle_MAX   = 3
+};
+
+
+// Enum TslGame.EDamageZoneType
+enum class EDamageZoneType : uint8_t
+{
+	EDamageZoneType__Head          = 0,
+	EDamageZoneType__Torso         = 1,
+	EDamageZoneType__Arm           = 2,
+	EDamageZoneType__Pelvis        = 3,
+	EDamageZoneType__Leg           = 4,
+	EDamageZoneType__EDamageZoneType_MAX = 5
 };
 
 
@@ -781,16 +793,17 @@ enum class ECheatType : uint8_t
 	CarePackageMount               = 5,
 	HitLag                         = 6,
 	InvalidImpact                  = 7,
-	InvalidOrigin                  = 8,
-	InvalidRange                   = 9,
-	InvalidSequence                = 10,
-	InvalidAmmo                    = 11,
-	InvalidChecksum                = 12,
-	InvalidReviving                = 13,
-	InvalidKick                    = 14,
-	SimilarHit                     = 15,
-	DoubleKill                     = 16,
-	ECheatType_MAX                 = 17
+	InvalidImpactZ                 = 8,
+	InvalidOrigin                  = 9,
+	InvalidRange                   = 10,
+	InvalidSequence                = 11,
+	InvalidAmmo                    = 12,
+	InvalidChecksum                = 13,
+	InvalidReviving                = 14,
+	InvalidKick                    = 15,
+	SimilarHit                     = 16,
+	DoubleKill                     = 17,
+	ECheatType_MAX                 = 18
 };
 
 
@@ -1256,18 +1269,6 @@ enum class EAttachParent : uint8_t
 };
 
 
-// Enum TslGame.EDamageZoneType
-enum class EDamageZoneType : uint8_t
-{
-	EDamageZoneType__Head          = 0,
-	EDamageZoneType__Torso         = 1,
-	EDamageZoneType__Arm           = 2,
-	EDamageZoneType__Pelvis        = 3,
-	EDamageZoneType__Leg           = 4,
-	EDamageZoneType__EDamageZoneType_MAX = 5
-};
-
-
 // Enum TslGame.EThrowableState
 enum class EThrowableState : uint8_t
 {
@@ -1563,6 +1564,17 @@ struct FCastConfig
 	unsigned char                                      UnknownData02[0x2];                                       // 0x0036(0x0002) MISSED OFFSET
 };
 
+// ScriptStruct TslGame.TslReportUserInfo
+// 0x0038
+struct FTslReportUserInfo
+{
+	struct FString                                     PlayerName;                                               // 0x0000(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	struct FString                                     NetId;                                                    // 0x0010(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	struct FString                                     AccountId;                                                // 0x0020(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	int                                                TeamId;                                                   // 0x0030(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0034(0x0004) MISSED OFFSET
+};
+
 // ScriptStruct TslGame.NearClippingLevelOverZ
 // 0x0008
 struct FNearClippingLevelOverZ
@@ -1583,17 +1595,6 @@ struct FTslPlayerMatchResultInfo
 	int                                                NumStartTeamMember;                                       // 0x001C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	bool                                               bIsZombie;                                                // 0x0020(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x7];                                       // 0x0021(0x0007) MISSED OFFSET
-};
-
-// ScriptStruct TslGame.TslReportUserInfo
-// 0x0038
-struct FTslReportUserInfo
-{
-	struct FString                                     PlayerName;                                               // 0x0000(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	struct FString                                     NetId;                                                    // 0x0010(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	struct FString                                     AccountId;                                                // 0x0020(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	int                                                TeamId;                                                   // 0x0030(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0034(0x0004) MISSED OFFSET
 };
 
 // ScriptStruct TslGame.TslPlayerStatistics
@@ -2683,7 +2684,7 @@ struct FReplayGroggyEventItem
 };
 
 // ScriptStruct TslGame.ReplayItem
-// 0x0090
+// 0x00E0
 struct FReplayItem
 {
 	struct FString                                     FriendlyName;                                             // 0x0000(0x0010) (BlueprintVisible, ZeroConstructor)
@@ -2708,6 +2709,15 @@ struct FReplayItem
 	bool                                               bAllDeadOrWin;                                            // 0x0088(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData02[0x3];                                       // 0x0089(0x0003) MISSED OFFSET
 	int                                                ArchiveSizeInBytes;                                       // 0x008C(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	bool                                               bIsClip;                                                  // 0x0090(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x3];                                       // 0x0091(0x0003) MISSED OFFSET
+	int                                                ClipTime;                                                 // 0x0094(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	int                                                ClipStartTime;                                            // 0x0098(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	int                                                ClipEndTime;                                              // 0x009C(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ClipTargetUserId;                                         // 0x00A0(0x0010) (BlueprintVisible, ZeroConstructor)
+	struct FString                                     ClipTargetUserNickName;                                   // 0x00B0(0x0010) (BlueprintVisible, ZeroConstructor)
+	struct FString                                     ReportToken;                                              // 0x00C0(0x0010) (BlueprintVisible, ZeroConstructor)
+	struct FString                                     RecordAccountId;                                          // 0x00D0(0x0010) (BlueprintVisible, ZeroConstructor)
 };
 
 // ScriptStruct TslGame.TslPlayerStateSummary
@@ -2727,20 +2737,21 @@ struct FTslPlayerStateSummary
 };
 
 // ScriptStruct TslGame.TslReplaySummary
-// 0x0080
+// 0x0090
 struct FTslReplaySummary
 {
 	struct FString                                     MatchId;                                                  // 0x0000(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
 	bool                                               bIsServerRecording;                                       // 0x0010(0x0001) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x7];                                       // 0x0011(0x0007) MISSED OFFSET
 	struct FString                                     RecordUserId;                                             // 0x0018(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	struct FString                                     RecordUserNickName;                                       // 0x0028(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	struct FString                                     MapName;                                                  // 0x0038(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	struct FString                                     WeatherName;                                              // 0x0048(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	struct FString                                     RegionName;                                               // 0x0058(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	int                                                NumPlayers;                                               // 0x0068(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	int                                                NumTeams;                                                 // 0x006C(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	TArray<struct FTslPlayerStateSummary>              PlayerStateSummaries;                                     // 0x0070(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	struct FString                                     RecordAccountId;                                          // 0x0028(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	struct FString                                     RecordUserNickName;                                       // 0x0038(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	struct FString                                     MapName;                                                  // 0x0048(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	struct FString                                     WeatherName;                                              // 0x0058(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	struct FString                                     RegionName;                                               // 0x0068(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	int                                                NumPlayers;                                               // 0x0078(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	int                                                NumTeams;                                                 // 0x007C(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	TArray<struct FTslPlayerStateSummary>              PlayerStateSummaries;                                     // 0x0080(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
 };
 
 // ScriptStruct TslGame.TslChatStyle
@@ -2853,7 +2864,7 @@ struct FMatchPreparerClass
 };
 
 // ScriptStruct TslGame.CustomGameUpdateCharacterInfo
-// 0x0014
+// 0x0028
 struct FCustomGameUpdateCharacterInfo
 {
 	bool                                               bIsZombie;                                                // 0x0000(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
@@ -2863,6 +2874,8 @@ struct FCustomGameUpdateCharacterInfo
 	float                                              MultiplierGroggyDamagePerSecond;                          // 0x0008(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 	float                                              MultiplierPunchDamage;                                    // 0x000C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 	float                                              MultiplierZombieToZombieDamage;                           // 0x0010(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x0014(0x0004) MISSED OFFSET
+	struct FString                                     ReportToken;                                              // 0x0018(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
 };
 
 // ScriptStruct TslGame.LimitCustomStringParameter
@@ -3849,6 +3862,18 @@ struct FWuLogCharacter
 	struct FString                                     AccountId;                                                // 0x0038(0x0010) (ZeroConstructor)
 };
 
+// ScriptStruct TslGame.WuLogBodyPenetrationDamageInfo
+// 0x0068 (0x0098 - 0x0030)
+struct FWuLogBodyPenetrationDamageInfo : public FLogBase
+{
+	int                                                AttackId;                                                 // 0x0030(0x0004) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0034(0x0004) MISSED OFFSET
+	struct FWuLogCharacter                             Attacker;                                                 // 0x0038(0x0048)
+	float                                              DamageDiff;                                               // 0x0080(0x0004) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x0084(0x0004) MISSED OFFSET
+	struct FString                                     DamageZone;                                               // 0x0088(0x0010) (ZeroConstructor)
+};
+
 // ScriptStruct TslGame.WuLogCheat
 // 0x0090 (0x00C0 - 0x0030)
 struct FWuLogCheat : public FLogBase
@@ -4776,7 +4801,7 @@ struct FWuUdpEncryptionKey
 };
 
 // ScriptStruct TslGame.WuUserAuthInfo
-// 0x00C8
+// 0x00D8
 struct FWuUserAuthInfo
 {
 	struct FString                                     PlayerNetId;                                              // 0x0000(0x0010) (ZeroConstructor)
@@ -4791,6 +4816,7 @@ struct FWuUserAuthInfo
 	unsigned char                                      UnknownData01[0x2];                                       // 0x0086(0x0002) MISSED OFFSET
 	struct FString                                     AccountId;                                                // 0x0088(0x0010) (ZeroConstructor)
 	struct FWuUdpEncryptionKey                         UdpEncryptionKey;                                         // 0x0098(0x0030)
+	TArray<struct FWuStringStringPair>                 CustomParameters;                                         // 0x00C8(0x0010) (ZeroConstructor)
 };
 
 // ScriptStruct TslGame.WuCustomizableObjectIdPair

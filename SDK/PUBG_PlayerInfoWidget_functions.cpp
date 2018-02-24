@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.10.1) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,23 @@ namespace Classes
 //---------------------------------------------------------------------------
 //Functions
 //---------------------------------------------------------------------------
+
+// Function PlayerInfoWidget.PlayerInfoWidget_C.CheckReportButton
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void UPlayerInfoWidget_C::CheckReportButton()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function PlayerInfoWidget.PlayerInfoWidget_C.CheckReportButton");
+
+	UPlayerInfoWidget_C_CheckReportButton_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function PlayerInfoWidget.PlayerInfoWidget_C.SetPlayerInfoData
 // (Public, BlueprintCallable, BlueprintEvent)
@@ -273,26 +290,6 @@ struct FEventReply UPlayerInfoWidget_C::OnMouseButtonDown_1(const struct FGeomet
 }
 
 
-// Function PlayerInfoWidget.PlayerInfoWidget_C.On_KickButtonLayer_Prepass_1
-// (Public, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class UWidget*                 BoundWidget                    (Parm, ZeroConstructor, IsPlainOldData)
-
-void UPlayerInfoWidget_C::On_KickButtonLayer_Prepass_1(class UWidget* BoundWidget)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function PlayerInfoWidget.PlayerInfoWidget_C.On_KickButtonLayer_Prepass_1");
-
-	UPlayerInfoWidget_C_On_KickButtonLayer_Prepass_1_Params params;
-	params.BoundWidget = BoundWidget;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function PlayerInfoWidget.PlayerInfoWidget_C.OnPrepass_1
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -433,56 +430,14 @@ void UPlayerInfoWidget_C::UpdateHealthPrepass_Vert(class UWidget* BoundWidget)
 }
 
 
-// Function PlayerInfoWidget.PlayerInfoWidget_C.BndEvt__Button_1_K2Node_ComponentBoundEvent_32_OnButtonClickedEvent__DelegateSignature
-// (BlueprintEvent)
+// Function PlayerInfoWidget.PlayerInfoWidget_C.Construct
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
 
-void UPlayerInfoWidget_C::BndEvt__Button_1_K2Node_ComponentBoundEvent_32_OnButtonClickedEvent__DelegateSignature()
+void UPlayerInfoWidget_C::Construct()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function PlayerInfoWidget.PlayerInfoWidget_C.BndEvt__Button_1_K2Node_ComponentBoundEvent_32_OnButtonClickedEvent__DelegateSignature");
+	static auto fn = UObject::FindObject<UFunction>("Function PlayerInfoWidget.PlayerInfoWidget_C.Construct");
 
-	UPlayerInfoWidget_C_BndEvt__Button_1_K2Node_ComponentBoundEvent_32_OnButtonClickedEvent__DelegateSignature_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function PlayerInfoWidget.PlayerInfoWidget_C.OnMouseEnter
-// (BlueprintCosmetic, Event, Public, HasOutParms, BlueprintEvent)
-// Parameters:
-// struct FGeometry*              MyGeometry                     (Parm, IsPlainOldData)
-// struct FPointerEvent*          MouseEvent                     (ConstParm, Parm, OutParm, ReferenceParm)
-
-void UPlayerInfoWidget_C::OnMouseEnter(struct FGeometry* MyGeometry, struct FPointerEvent* MouseEvent)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function PlayerInfoWidget.PlayerInfoWidget_C.OnMouseEnter");
-
-	UPlayerInfoWidget_C_OnMouseEnter_Params params;
-	params.MyGeometry = MyGeometry;
-	params.MouseEvent = MouseEvent;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function PlayerInfoWidget.PlayerInfoWidget_C.OnMouseLeave
-// (BlueprintCosmetic, Event, Public, HasOutParms, BlueprintEvent)
-// Parameters:
-// struct FPointerEvent*          MouseEvent                     (ConstParm, Parm, OutParm, ReferenceParm)
-
-void UPlayerInfoWidget_C::OnMouseLeave(struct FPointerEvent* MouseEvent)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function PlayerInfoWidget.PlayerInfoWidget_C.OnMouseLeave");
-
-	UPlayerInfoWidget_C_OnMouseLeave_Params params;
-	params.MouseEvent = MouseEvent;
+	UPlayerInfoWidget_C_Construct_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -514,6 +469,40 @@ void UPlayerInfoWidget_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
 }
 
 
+// Function PlayerInfoWidget.PlayerInfoWidget_C.BndEvt__Button_0_K2Node_ComponentBoundEvent_20_OnButtonClickedEvent__DelegateSignature
+// (BlueprintEvent)
+
+void UPlayerInfoWidget_C::BndEvt__Button_0_K2Node_ComponentBoundEvent_20_OnButtonClickedEvent__DelegateSignature()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function PlayerInfoWidget.PlayerInfoWidget_C.BndEvt__Button_0_K2Node_ComponentBoundEvent_20_OnButtonClickedEvent__DelegateSignature");
+
+	UPlayerInfoWidget_C_BndEvt__Button_0_K2Node_ComponentBoundEvent_20_OnButtonClickedEvent__DelegateSignature_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function PlayerInfoWidget.PlayerInfoWidget_C.BndEvt__Button_1_K2Node_ComponentBoundEvent_32_OnButtonClickedEvent__DelegateSignature
+// (BlueprintEvent)
+
+void UPlayerInfoWidget_C::BndEvt__Button_1_K2Node_ComponentBoundEvent_32_OnButtonClickedEvent__DelegateSignature()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function PlayerInfoWidget.PlayerInfoWidget_C.BndEvt__Button_1_K2Node_ComponentBoundEvent_32_OnButtonClickedEvent__DelegateSignature");
+
+	UPlayerInfoWidget_C_BndEvt__Button_1_K2Node_ComponentBoundEvent_32_OnButtonClickedEvent__DelegateSignature_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function PlayerInfoWidget.PlayerInfoWidget_C.CustomEvent_1
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -525,57 +514,6 @@ void UPlayerInfoWidget_C::CustomEvent_1(EPopupButtonID ButtonID)
 
 	UPlayerInfoWidget_C_CustomEvent_1_Params params;
 	params.ButtonID = ButtonID;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function PlayerInfoWidget.PlayerInfoWidget_C.Construct
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-
-void UPlayerInfoWidget_C::Construct()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function PlayerInfoWidget.PlayerInfoWidget_C.Construct");
-
-	UPlayerInfoWidget_C_Construct_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function PlayerInfoWidget.PlayerInfoWidget_C.CustomEvent_3
-// (BlueprintCallable, BlueprintEvent)
-
-void UPlayerInfoWidget_C::CustomEvent_3()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function PlayerInfoWidget.PlayerInfoWidget_C.CustomEvent_3");
-
-	UPlayerInfoWidget_C_CustomEvent_3_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function PlayerInfoWidget.PlayerInfoWidget_C.CustomEvent_2
-// (BlueprintCallable, BlueprintEvent)
-
-void UPlayerInfoWidget_C::CustomEvent_2()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function PlayerInfoWidget.PlayerInfoWidget_C.CustomEvent_2");
-
-	UPlayerInfoWidget_C_CustomEvent_2_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -627,23 +565,6 @@ void UPlayerInfoWidget_C::BndEvt__Button_0_K2Node_ComponentBoundEvent_57_OnButto
 	static auto fn = UObject::FindObject<UFunction>("Function PlayerInfoWidget.PlayerInfoWidget_C.BndEvt__Button_0_K2Node_ComponentBoundEvent_57_OnButtonHoverEvent__DelegateSignature");
 
 	UPlayerInfoWidget_C_BndEvt__Button_0_K2Node_ComponentBoundEvent_57_OnButtonHoverEvent__DelegateSignature_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function PlayerInfoWidget.PlayerInfoWidget_C.BndEvt__Button_0_K2Node_ComponentBoundEvent_20_OnButtonClickedEvent__DelegateSignature
-// (BlueprintEvent)
-
-void UPlayerInfoWidget_C::BndEvt__Button_0_K2Node_ComponentBoundEvent_20_OnButtonClickedEvent__DelegateSignature()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function PlayerInfoWidget.PlayerInfoWidget_C.BndEvt__Button_0_K2Node_ComponentBoundEvent_20_OnButtonClickedEvent__DelegateSignature");
-
-	UPlayerInfoWidget_C_BndEvt__Button_0_K2Node_ComponentBoundEvent_20_OnButtonClickedEvent__DelegateSignature_Params params;
 
 	auto flags = fn->FunctionFlags;
 

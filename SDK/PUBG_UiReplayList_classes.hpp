@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.10.1) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace Classes
 //---------------------------------------------------------------------------
 
 // WidgetBlueprintGeneratedClass UiReplayList.UiReplayList_C
-// 0x021A (0x045A - 0x0240)
+// 0x026A (0x04AA - 0x0240)
 class UUiReplayList_C : public UUserWidget
 {
 public:
@@ -59,9 +59,9 @@ public:
 	struct FString                                     SessionName;                                              // 0x03A0(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	struct FScriptMulticastDelegate                    DeleteReplayEvent;                                        // 0x03B0(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable)
 	class UTslGameInstance*                            TslGameInstance;                                          // 0x03C0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	struct FReplayItem                                 myReplayItem;                                             // 0x03C8(0x0090) (Edit, BlueprintVisible, DisableEditOnInstance)
-	bool                                               bIsExit;                                                  // 0x0458(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	bool                                               bIsVersionCompatible;                                     // 0x0459(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FReplayItem                                 myReplayItem;                                             // 0x03C8(0x00E0) (Edit, BlueprintVisible, DisableEditOnInstance)
+	bool                                               bIsExit;                                                  // 0x04A8(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bIsVersionCompatible;                                     // 0x04A9(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{

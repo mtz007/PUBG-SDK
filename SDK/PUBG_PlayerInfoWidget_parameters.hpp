@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.10.1) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,11 @@ namespace Classes
 //---------------------------------------------------------------------------
 //Parameters
 //---------------------------------------------------------------------------
+
+// Function PlayerInfoWidget.PlayerInfoWidget_C.CheckReportButton
+struct UPlayerInfoWidget_C_CheckReportButton_Params
+{
+};
 
 // Function PlayerInfoWidget.PlayerInfoWidget_C.SetPlayerInfoData
 struct UPlayerInfoWidget_C_SetPlayerInfoData_Params
@@ -93,12 +98,6 @@ struct UPlayerInfoWidget_C_OnMouseButtonDown_1_Params
 	struct FEventReply                                 ReturnValue;                                              // (Parm, OutParm, ReturnParm)
 };
 
-// Function PlayerInfoWidget.PlayerInfoWidget_C.On_KickButtonLayer_Prepass_1
-struct UPlayerInfoWidget_C_On_KickButtonLayer_Prepass_1_Params
-{
-	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function PlayerInfoWidget.PlayerInfoWidget_C.OnPrepass_1
 struct UPlayerInfoWidget_C_OnPrepass_1_Params
 {
@@ -141,22 +140,9 @@ struct UPlayerInfoWidget_C_UpdateHealthPrepass_Vert_Params
 	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function PlayerInfoWidget.PlayerInfoWidget_C.BndEvt__Button_1_K2Node_ComponentBoundEvent_32_OnButtonClickedEvent__DelegateSignature
-struct UPlayerInfoWidget_C_BndEvt__Button_1_K2Node_ComponentBoundEvent_32_OnButtonClickedEvent__DelegateSignature_Params
+// Function PlayerInfoWidget.PlayerInfoWidget_C.Construct
+struct UPlayerInfoWidget_C_Construct_Params
 {
-};
-
-// Function PlayerInfoWidget.PlayerInfoWidget_C.OnMouseEnter
-struct UPlayerInfoWidget_C_OnMouseEnter_Params
-{
-	struct FGeometry*                                  MyGeometry;                                               // (Parm, IsPlainOldData)
-	struct FPointerEvent*                              MouseEvent;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
-};
-
-// Function PlayerInfoWidget.PlayerInfoWidget_C.OnMouseLeave
-struct UPlayerInfoWidget_C_OnMouseLeave_Params
-{
-	struct FPointerEvent*                              MouseEvent;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
 };
 
 // Function PlayerInfoWidget.PlayerInfoWidget_C.Tick
@@ -166,25 +152,20 @@ struct UPlayerInfoWidget_C_Tick_Params
 	float*                                             InDeltaTime;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function PlayerInfoWidget.PlayerInfoWidget_C.BndEvt__Button_0_K2Node_ComponentBoundEvent_20_OnButtonClickedEvent__DelegateSignature
+struct UPlayerInfoWidget_C_BndEvt__Button_0_K2Node_ComponentBoundEvent_20_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function PlayerInfoWidget.PlayerInfoWidget_C.BndEvt__Button_1_K2Node_ComponentBoundEvent_32_OnButtonClickedEvent__DelegateSignature
+struct UPlayerInfoWidget_C_BndEvt__Button_1_K2Node_ComponentBoundEvent_32_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
 // Function PlayerInfoWidget.PlayerInfoWidget_C.CustomEvent_1
 struct UPlayerInfoWidget_C_CustomEvent_1_Params
 {
 	EPopupButtonID                                     ButtonID;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function PlayerInfoWidget.PlayerInfoWidget_C.Construct
-struct UPlayerInfoWidget_C_Construct_Params
-{
-};
-
-// Function PlayerInfoWidget.PlayerInfoWidget_C.CustomEvent_3
-struct UPlayerInfoWidget_C_CustomEvent_3_Params
-{
-};
-
-// Function PlayerInfoWidget.PlayerInfoWidget_C.CustomEvent_2
-struct UPlayerInfoWidget_C_CustomEvent_2_Params
-{
 };
 
 // Function PlayerInfoWidget.PlayerInfoWidget_C.Destruct
@@ -199,11 +180,6 @@ struct UPlayerInfoWidget_C_BndEvt__Button_0_K2Node_ComponentBoundEvent_26_OnButt
 
 // Function PlayerInfoWidget.PlayerInfoWidget_C.BndEvt__Button_0_K2Node_ComponentBoundEvent_57_OnButtonHoverEvent__DelegateSignature
 struct UPlayerInfoWidget_C_BndEvt__Button_0_K2Node_ComponentBoundEvent_57_OnButtonHoverEvent__DelegateSignature_Params
-{
-};
-
-// Function PlayerInfoWidget.PlayerInfoWidget_C.BndEvt__Button_0_K2Node_ComponentBoundEvent_20_OnButtonClickedEvent__DelegateSignature
-struct UPlayerInfoWidget_C_BndEvt__Button_0_K2Node_ComponentBoundEvent_20_OnButtonClickedEvent__DelegateSignature_Params
 {
 };
 

@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.10.1) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -7882,6 +7882,30 @@ void UStaticMeshComponent::GetLocalBounds(struct FVector* Min, struct FVector* M
 		*Min = params.Min;
 	if (Max != nullptr)
 		*Max = params.Max;
+}
+
+
+// Function Engine.BlueprintFunctionLibrary.MakeStringAssetReference
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable, BlueprintPure)
+// Parameters:
+// struct FString                 AssetLongPathname              (Parm, ZeroConstructor)
+// struct FStringAssetReference   ReturnValue                    (Parm, OutParm, ReturnParm)
+
+struct FStringAssetReference UBlueprintFunctionLibrary::STATIC_MakeStringAssetReference(const struct FString& AssetLongPathname)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.BlueprintFunctionLibrary.MakeStringAssetReference");
+
+	UBlueprintFunctionLibrary_MakeStringAssetReference_Params params;
+	params.AssetLongPathname = AssetLongPathname;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -20315,30 +20339,6 @@ void UGameUserSettings::ApplyHardwareBenchmarkResults()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.BlueprintFunctionLibrary.MakeStringAssetReference
-// (Final, Native, Static, Public, HasDefaults, BlueprintCallable, BlueprintPure)
-// Parameters:
-// struct FString                 AssetLongPathname              (Parm, ZeroConstructor)
-// struct FStringAssetReference   ReturnValue                    (Parm, OutParm, ReturnParm)
-
-struct FStringAssetReference UBlueprintFunctionLibrary::STATIC_MakeStringAssetReference(const struct FString& AssetLongPathname)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.BlueprintFunctionLibrary.MakeStringAssetReference");
-
-	UBlueprintFunctionLibrary_MakeStringAssetReference_Params params;
-	params.AssetLongPathname = AssetLongPathname;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
 }
 
 
