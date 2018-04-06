@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -431,6 +431,28 @@ bool UInventorySlotBaseWidget_C::Up()
 	fn->FunctionFlags = flags;
 
 	return params.ReturnValue;
+}
+
+
+// Function InventorySlotBaseWidget.InventorySlotBaseWidget_C.IsSlotSelected_Bp
+// (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)
+// Parameters:
+// bool                           res                            (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+
+void UInventorySlotBaseWidget_C::IsSlotSelected_Bp(bool* res)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function InventorySlotBaseWidget.InventorySlotBaseWidget_C.IsSlotSelected_Bp");
+
+	UInventorySlotBaseWidget_C_IsSlotSelected_Bp_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (res != nullptr)
+		*res = params.res;
 }
 
 

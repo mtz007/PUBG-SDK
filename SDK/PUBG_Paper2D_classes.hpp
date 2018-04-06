@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -32,12 +32,12 @@ public:
 
 
 // Class Paper2D.PaperCharacter
-// 0x0010 (0x07F0 - 0x07E0)
+// 0x0010 (0x0810 - 0x0800)
 class APaperCharacter : public ACharacter
 {
 public:
-	class UPaperFlipbookComponent*                     Sprite;                                                   // 0x07E0(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x07E8(0x0008) MISSED OFFSET
+	class UPaperFlipbookComponent*                     Sprite;                                                   // 0x0800(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0808(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -78,11 +78,12 @@ public:
 
 
 // Class Paper2D.PaperFlipbookActor
-// 0x0008 (0x03B8 - 0x03B0)
+// 0x0010 (0x03D0 - 0x03C0)
 class APaperFlipbookActor : public AActor
 {
 public:
-	class UPaperFlipbookComponent*                     RenderComponent;                                          // 0x03B0(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	class UPaperFlipbookComponent*                     RenderComponent;                                          // 0x03C0(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x03C8(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -147,11 +148,12 @@ public:
 
 
 // Class Paper2D.PaperGroupedSpriteActor
-// 0x0008 (0x03B8 - 0x03B0)
+// 0x0010 (0x03D0 - 0x03C0)
 class APaperGroupedSpriteActor : public AActor
 {
 public:
-	class UPaperGroupedSpriteComponent*                RenderComponent;                                          // 0x03B0(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	class UPaperGroupedSpriteComponent*                RenderComponent;                                          // 0x03C0(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x03C8(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -242,11 +244,12 @@ public:
 
 
 // Class Paper2D.PaperSpriteActor
-// 0x0008 (0x03B8 - 0x03B0)
+// 0x0010 (0x03D0 - 0x03C0)
 class APaperSpriteActor : public AActor
 {
 public:
-	class UPaperSpriteComponent*                       RenderComponent;                                          // 0x03B0(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	class UPaperSpriteComponent*                       RenderComponent;                                          // 0x03C0(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x03C8(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -312,13 +315,14 @@ public:
 
 
 // Class Paper2D.PaperTerrainActor
-// 0x0018 (0x03C8 - 0x03B0)
+// 0x0020 (0x03E0 - 0x03C0)
 class APaperTerrainActor : public AActor
 {
 public:
-	class USceneComponent*                             DummyRoot;                                                // 0x03B0(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class UPaperTerrainSplineComponent*                SplineComponent;                                          // 0x03B8(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class UPaperTerrainComponent*                      RenderComponent;                                          // 0x03C0(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	class USceneComponent*                             DummyRoot;                                                // 0x03C0(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UPaperTerrainSplineComponent*                SplineComponent;                                          // 0x03C8(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UPaperTerrainComponent*                      RenderComponent;                                          // 0x03D0(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x03D8(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -461,11 +465,12 @@ public:
 
 
 // Class Paper2D.PaperTileMapActor
-// 0x0008 (0x03B8 - 0x03B0)
+// 0x0010 (0x03D0 - 0x03C0)
 class APaperTileMapActor : public AActor
 {
 public:
-	class UPaperTileMapComponent*                      RenderComponent;                                          // 0x03B0(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	class UPaperTileMapComponent*                      RenderComponent;                                          // 0x03C0(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x03C8(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{

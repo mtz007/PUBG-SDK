@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -135,6 +135,12 @@ struct UWeaponEquipmentWidget_Gamepad_C_Up_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.OnPrepass_1
+struct UWeaponEquipmentWidget_Gamepad_C_OnPrepass_1_Params
+{
+	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.GetInventoryGamePad
 struct UWeaponEquipmentWidget_Gamepad_C_GetInventoryGamePad_Params
 {
@@ -155,27 +161,6 @@ struct UWeaponEquipmentWidget_Gamepad_C_OnMoveDownPressed_Params
 // Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.OnMoveUpPressed
 struct UWeaponEquipmentWidget_Gamepad_C_OnMoveUpPressed_Params
 {
-};
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.SelfUpAttachmentIndexUp
-struct UWeaponEquipmentWidget_Gamepad_C_SelfUpAttachmentIndexUp_Params
-{
-};
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.PutAttachment
-struct UWeaponEquipmentWidget_Gamepad_C_PutAttachment_Params
-{
-};
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.StopSelftattachmentPut
-struct UWeaponEquipmentWidget_Gamepad_C_StopSelftattachmentPut_Params
-{
-};
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.StartSelfAttachmentPut
-struct UWeaponEquipmentWidget_Gamepad_C_StartSelfAttachmentPut_Params
-{
-	bool                                               bResult;                                                  // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.OnChildSlotRefreshFocus
@@ -219,24 +204,9 @@ struct UWeaponEquipmentWidget_Gamepad_C_GetEquipment_Params
 	class AEquipment*                                  Equipment;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.MainPrepass
-struct UWeaponEquipmentWidget_Gamepad_C_MainPrepass_Params
-{
-	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.InitializeWeaponEquipment
 struct UWeaponEquipmentWidget_Gamepad_C_InitializeWeaponEquipment_Params
 {
-};
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.OnDrop
-struct UWeaponEquipmentWidget_Gamepad_C_OnDrop_Params
-{
-	struct FGeometry*                                  MyGeometry;                                               // (Parm, IsPlainOldData)
-	struct FPointerEvent*                              PointerEvent;                                             // (Parm)
-	class UDragDropOperation**                         Operation;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.GetWeaponItemByTabIndex
@@ -251,135 +221,113 @@ struct UWeaponEquipmentWidget_Gamepad_C_Construct_Params
 {
 };
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.OnDragEnter
-struct UWeaponEquipmentWidget_Gamepad_C_OnDragEnter_Params
-{
-	struct FGeometry*                                  MyGeometry;                                               // (Parm, IsPlainOldData)
-	struct FPointerEvent*                              PointerEvent;                                             // (Parm)
-	class UDragDropOperation**                         Operation;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.OnDragLeave
-struct UWeaponEquipmentWidget_Gamepad_C_OnDragLeave_Params
-{
-	struct FPointerEvent*                              PointerEvent;                                             // (Parm)
-	class UDragDropOperation**                         Operation;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.Tick
-struct UWeaponEquipmentWidget_Gamepad_C_Tick_Params
-{
-	struct FGeometry*                                  MyGeometry;                                               // (Parm, IsPlainOldData)
-	float*                                             InDeltaTime;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.SetInventoryWidget
 struct UWeaponEquipmentWidget_Gamepad_C_SetInventoryWidget_Params
 {
 	class UInventoryWidget_C**                         Inventory;                                                // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_01_K2Node_ComponentBoundEvent_19_RefreshFocus__DelegateSignature
-struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_01_K2Node_ComponentBoundEvent_19_RefreshFocus__DelegateSignature_Params
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_001_K2Node_ComponentBoundEvent_0_RefreshFocus__DelegateSignature
+struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_001_K2Node_ComponentBoundEvent_0_RefreshFocus__DelegateSignature_Params
 {
 };
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_02_K2Node_ComponentBoundEvent_75_RefreshFocus__DelegateSignature
-struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_02_K2Node_ComponentBoundEvent_75_RefreshFocus__DelegateSignature_Params
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_002_K2Node_ComponentBoundEvent_1_RefreshFocus__DelegateSignature
+struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_002_K2Node_ComponentBoundEvent_1_RefreshFocus__DelegateSignature_Params
 {
 };
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_03_K2Node_ComponentBoundEvent_90_RefreshFocus__DelegateSignature
-struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_03_K2Node_ComponentBoundEvent_90_RefreshFocus__DelegateSignature_Params
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_003_K2Node_ComponentBoundEvent_2_RefreshFocus__DelegateSignature
+struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_003_K2Node_ComponentBoundEvent_2_RefreshFocus__DelegateSignature_Params
 {
 };
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_04_K2Node_ComponentBoundEvent_106_RefreshFocus__DelegateSignature
-struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_04_K2Node_ComponentBoundEvent_106_RefreshFocus__DelegateSignature_Params
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_004_K2Node_ComponentBoundEvent_3_RefreshFocus__DelegateSignature
+struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_004_K2Node_ComponentBoundEvent_3_RefreshFocus__DelegateSignature_Params
 {
 };
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_05_K2Node_ComponentBoundEvent_123_RefreshFocus__DelegateSignature
-struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_05_K2Node_ComponentBoundEvent_123_RefreshFocus__DelegateSignature_Params
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_005_K2Node_ComponentBoundEvent_4_RefreshFocus__DelegateSignature
+struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_005_K2Node_ComponentBoundEvent_4_RefreshFocus__DelegateSignature_Params
 {
 };
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_01_K2Node_ComponentBoundEvent_56_OnAttachmentFocused__DelegateSignature
-struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_01_K2Node_ComponentBoundEvent_56_OnAttachmentFocused__DelegateSignature_Params
-{
-	EWeaponAttachmentSlotID                            AttachmentSlotID;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	TScriptInterface<class USlotContainerInterface>    SlotContainerInterface;                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_02_K2Node_ComponentBoundEvent_77_OnAttachmentFocused__DelegateSignature
-struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_02_K2Node_ComponentBoundEvent_77_OnAttachmentFocused__DelegateSignature_Params
-{
-	EWeaponAttachmentSlotID                            AttachmentSlotID;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	TScriptInterface<class USlotContainerInterface>    SlotContainerInterface;                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_03_K2Node_ComponentBoundEvent_104_OnAttachmentFocused__DelegateSignature
-struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_03_K2Node_ComponentBoundEvent_104_OnAttachmentFocused__DelegateSignature_Params
-{
-	EWeaponAttachmentSlotID                            AttachmentSlotID;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	TScriptInterface<class USlotContainerInterface>    SlotContainerInterface;                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_04_K2Node_ComponentBoundEvent_133_OnAttachmentFocused__DelegateSignature
-struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_04_K2Node_ComponentBoundEvent_133_OnAttachmentFocused__DelegateSignature_Params
-{
-	EWeaponAttachmentSlotID                            AttachmentSlotID;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	TScriptInterface<class USlotContainerInterface>    SlotContainerInterface;                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_05_K2Node_ComponentBoundEvent_162_OnAttachmentFocused__DelegateSignature
-struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_05_K2Node_ComponentBoundEvent_162_OnAttachmentFocused__DelegateSignature_Params
-{
-	EWeaponAttachmentSlotID                            AttachmentSlotID;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	TScriptInterface<class USlotContainerInterface>    SlotContainerInterface;                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_01_K2Node_ComponentBoundEvent_412_OnWeaponEquipmentFocused__DelegateSignature
-struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_01_K2Node_ComponentBoundEvent_412_OnWeaponEquipmentFocused__DelegateSignature_Params
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_001_K2Node_ComponentBoundEvent_5_OnWeaponEquipmentFocused__DelegateSignature
+struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_001_K2Node_ComponentBoundEvent_5_OnWeaponEquipmentFocused__DelegateSignature_Params
 {
 	EEquipSlotID                                       EquipSlotID;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
 	TScriptInterface<class USlotContainerInterface>    SlotContainerInterface;                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_02_K2Node_ComponentBoundEvent_433_OnWeaponEquipmentFocused__DelegateSignature
-struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_02_K2Node_ComponentBoundEvent_433_OnWeaponEquipmentFocused__DelegateSignature_Params
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_002_K2Node_ComponentBoundEvent_6_OnWeaponEquipmentFocused__DelegateSignature
+struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_002_K2Node_ComponentBoundEvent_6_OnWeaponEquipmentFocused__DelegateSignature_Params
 {
 	EEquipSlotID                                       EquipSlotID;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
 	TScriptInterface<class USlotContainerInterface>    SlotContainerInterface;                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_03_K2Node_ComponentBoundEvent_465_OnWeaponEquipmentFocused__DelegateSignature
-struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_03_K2Node_ComponentBoundEvent_465_OnWeaponEquipmentFocused__DelegateSignature_Params
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_003_K2Node_ComponentBoundEvent_7_OnWeaponEquipmentFocused__DelegateSignature
+struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_003_K2Node_ComponentBoundEvent_7_OnWeaponEquipmentFocused__DelegateSignature_Params
 {
 	EEquipSlotID                                       EquipSlotID;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
 	TScriptInterface<class USlotContainerInterface>    SlotContainerInterface;                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_04_K2Node_ComponentBoundEvent_498_OnWeaponEquipmentFocused__DelegateSignature
-struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_04_K2Node_ComponentBoundEvent_498_OnWeaponEquipmentFocused__DelegateSignature_Params
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_004_K2Node_ComponentBoundEvent_8_OnWeaponEquipmentFocused__DelegateSignature
+struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_004_K2Node_ComponentBoundEvent_8_OnWeaponEquipmentFocused__DelegateSignature_Params
 {
 	EEquipSlotID                                       EquipSlotID;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
 	TScriptInterface<class USlotContainerInterface>    SlotContainerInterface;                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_05_K2Node_ComponentBoundEvent_532_OnWeaponEquipmentFocused__DelegateSignature
-struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_05_K2Node_ComponentBoundEvent_532_OnWeaponEquipmentFocused__DelegateSignature_Params
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_005_K2Node_ComponentBoundEvent_9_OnWeaponEquipmentFocused__DelegateSignature
+struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_005_K2Node_ComponentBoundEvent_9_OnWeaponEquipmentFocused__DelegateSignature_Params
 {
 	EEquipSlotID                                       EquipSlotID;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	TScriptInterface<class USlotContainerInterface>    SlotContainerInterface;                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_001_K2Node_ComponentBoundEvent_10_OnAttachmentFocused__DelegateSignature
+struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_001_K2Node_ComponentBoundEvent_10_OnAttachmentFocused__DelegateSignature_Params
+{
+	EWeaponAttachmentSlotID                            AttachmentSlotID;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	TScriptInterface<class USlotContainerInterface>    SlotContainerInterface;                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_002_K2Node_ComponentBoundEvent_11_OnAttachmentFocused__DelegateSignature
+struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_002_K2Node_ComponentBoundEvent_11_OnAttachmentFocused__DelegateSignature_Params
+{
+	EWeaponAttachmentSlotID                            AttachmentSlotID;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	TScriptInterface<class USlotContainerInterface>    SlotContainerInterface;                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_003_K2Node_ComponentBoundEvent_12_OnAttachmentFocused__DelegateSignature
+struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_003_K2Node_ComponentBoundEvent_12_OnAttachmentFocused__DelegateSignature_Params
+{
+	EWeaponAttachmentSlotID                            AttachmentSlotID;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	TScriptInterface<class USlotContainerInterface>    SlotContainerInterface;                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_004_K2Node_ComponentBoundEvent_13_OnAttachmentFocused__DelegateSignature
+struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_004_K2Node_ComponentBoundEvent_13_OnAttachmentFocused__DelegateSignature_Params
+{
+	EWeaponAttachmentSlotID                            AttachmentSlotID;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	TScriptInterface<class USlotContainerInterface>    SlotContainerInterface;                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_005_K2Node_ComponentBoundEvent_14_OnAttachmentFocused__DelegateSignature
+struct UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_005_K2Node_ComponentBoundEvent_14_OnAttachmentFocused__DelegateSignature_Params
+{
+	EWeaponAttachmentSlotID                            AttachmentSlotID;                                         // (Parm, ZeroConstructor, IsPlainOldData)
 	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
 	TScriptInterface<class USlotContainerInterface>    SlotContainerInterface;                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };

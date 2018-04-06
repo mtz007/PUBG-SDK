@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -1154,26 +1154,6 @@ void UNewWorldMapWidget_C::Destruct()
 	static auto fn = UObject::FindObject<UFunction>("Function NewWorldMapWidget.NewWorldMapWidget_C.Destruct");
 
 	UNewWorldMapWidget_C_Destruct_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function NewWorldMapWidget.NewWorldMapWidget_C.OnInputAxis
-// (Public, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// float*                         Scale                          (Parm, ZeroConstructor, IsPlainOldData)
-
-void UNewWorldMapWidget_C::OnInputAxis(float* Scale)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function NewWorldMapWidget.NewWorldMapWidget_C.OnInputAxis");
-
-	UNewWorldMapWidget_C_OnInputAxis_Params params;
-	params.Scale = Scale;
 
 	auto flags = fn->FunctionFlags;
 

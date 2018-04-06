@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -31,6 +31,28 @@ void UGamePadSettingsWidget_C::GetGamePadHelpWidgetClass(class UClass** GuideCla
 
 	if (GuideClass != nullptr)
 		*GuideClass = params.GuideClass;
+}
+
+
+// Function GamePadSettingsWidget.GamePadSettingsWidget_C.IsProviderAvailable
+// (Public, HasOutParms, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// bool                           NewParam                       (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+
+void UGamePadSettingsWidget_C::IsProviderAvailable(bool* NewParam)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function GamePadSettingsWidget.GamePadSettingsWidget_C.IsProviderAvailable");
+
+	UGamePadSettingsWidget_C_IsProviderAvailable_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (NewParam != nullptr)
+		*NewParam = params.NewParam;
 }
 
 

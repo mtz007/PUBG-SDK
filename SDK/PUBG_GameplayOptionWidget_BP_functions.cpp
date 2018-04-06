@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,27 @@ namespace Classes
 //---------------------------------------------------------------------------
 //Functions
 //---------------------------------------------------------------------------
+
+// Function GameplayOptionWidget_BP.GameplayOptionWidget_BP_C.Get_PrelodingMap_bIsEnabled_1
+// (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UGameplayOptionWidget_BP_C::Get_PrelodingMap_bIsEnabled_1()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function GameplayOptionWidget_BP.GameplayOptionWidget_BP_C.Get_PrelodingMap_bIsEnabled_1");
+
+	UGameplayOptionWidget_BP_C_Get_PrelodingMap_bIsEnabled_1_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
 
 // Function GameplayOptionWidget_BP.GameplayOptionWidget_BP_C.Get_ClientReplay_Visibility
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)

@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -330,7 +330,7 @@ void UKismetProceduralMeshLibrary::STATIC_SliceProceduralMesh(class UProceduralM
 // (Final, Native, Static, Public, HasOutParms, BlueprintCallable)
 // Parameters:
 // class UStaticMesh*             InMesh                         (Parm, ZeroConstructor, IsPlainOldData)
-// int                            LodIndex                       (Parm, ZeroConstructor, IsPlainOldData)
+// int                            LODIndex                       (Parm, ZeroConstructor, IsPlainOldData)
 // int                            SectionIndex                   (Parm, ZeroConstructor, IsPlainOldData)
 // TArray<struct FVector>         Vertices                       (Parm, OutParm, ZeroConstructor)
 // TArray<int>                    Triangles                      (Parm, OutParm, ZeroConstructor)
@@ -338,13 +338,13 @@ void UKismetProceduralMeshLibrary::STATIC_SliceProceduralMesh(class UProceduralM
 // TArray<struct FVector2D>       UVs                            (Parm, OutParm, ZeroConstructor)
 // TArray<struct FProcMeshTangent> Tangents                       (Parm, OutParm, ZeroConstructor)
 
-void UKismetProceduralMeshLibrary::STATIC_GetSectionFromStaticMesh(class UStaticMesh* InMesh, int LodIndex, int SectionIndex, TArray<struct FVector>* Vertices, TArray<int>* Triangles, TArray<struct FVector>* Normals, TArray<struct FVector2D>* UVs, TArray<struct FProcMeshTangent>* Tangents)
+void UKismetProceduralMeshLibrary::STATIC_GetSectionFromStaticMesh(class UStaticMesh* InMesh, int LODIndex, int SectionIndex, TArray<struct FVector>* Vertices, TArray<int>* Triangles, TArray<struct FVector>* Normals, TArray<struct FVector2D>* UVs, TArray<struct FProcMeshTangent>* Tangents)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function ProceduralMeshComponent.KismetProceduralMeshLibrary.GetSectionFromStaticMesh");
 
 	UKismetProceduralMeshLibrary_GetSectionFromStaticMesh_Params params;
 	params.InMesh = InMesh;
-	params.LodIndex = LodIndex;
+	params.LODIndex = LODIndex;
 	params.SectionIndex = SectionIndex;
 
 	auto flags = fn->FunctionFlags;
@@ -437,17 +437,17 @@ void UKismetProceduralMeshLibrary::STATIC_CreateGridMeshTriangles(int NumX, int 
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
 // class UStaticMeshComponent*    StaticMeshComponent            (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-// int                            LodIndex                       (Parm, ZeroConstructor, IsPlainOldData)
+// int                            LODIndex                       (Parm, ZeroConstructor, IsPlainOldData)
 // class UProceduralMeshComponent* ProcMeshComponent              (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 // bool                           bCreateCollision               (Parm, ZeroConstructor, IsPlainOldData)
 
-void UKismetProceduralMeshLibrary::STATIC_CopyProceduralMeshFromStaticMeshComponent(class UStaticMeshComponent* StaticMeshComponent, int LodIndex, class UProceduralMeshComponent* ProcMeshComponent, bool bCreateCollision)
+void UKismetProceduralMeshLibrary::STATIC_CopyProceduralMeshFromStaticMeshComponent(class UStaticMeshComponent* StaticMeshComponent, int LODIndex, class UProceduralMeshComponent* ProcMeshComponent, bool bCreateCollision)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function ProceduralMeshComponent.KismetProceduralMeshLibrary.CopyProceduralMeshFromStaticMeshComponent");
 
 	UKismetProceduralMeshLibrary_CopyProceduralMeshFromStaticMeshComponent_Params params;
 	params.StaticMeshComponent = StaticMeshComponent;
-	params.LodIndex = LodIndex;
+	params.LODIndex = LODIndex;
 	params.ProcMeshComponent = ProcMeshComponent;
 	params.bCreateCollision = bCreateCollision;
 

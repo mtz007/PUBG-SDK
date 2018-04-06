@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -478,14 +478,14 @@ void UItemSlotWidget_Gamepad_C::GetSlotContainer(TScriptInterface<class USlotCon
 }
 
 
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnEquipOrUse
+// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.EquipOrUse
 // (Public, BlueprintCallable, BlueprintEvent)
 
-void UItemSlotWidget_Gamepad_C::OnEquipOrUse()
+void UItemSlotWidget_Gamepad_C::EquipOrUse()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnEquipOrUse");
+	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.EquipOrUse");
 
-	UItemSlotWidget_Gamepad_C_OnEquipOrUse_Params params;
+	UItemSlotWidget_Gamepad_C_EquipOrUse_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -495,14 +495,14 @@ void UItemSlotWidget_Gamepad_C::OnEquipOrUse()
 }
 
 
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnEquipOrUseReleased
-// (Public, BlueprintCallable, BlueprintEvent)
+// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnInputAReleased
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 
-void UItemSlotWidget_Gamepad_C::OnEquipOrUseReleased()
+void UItemSlotWidget_Gamepad_C::OnInputAReleased()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnEquipOrUseReleased");
+	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnInputAReleased");
 
-	UItemSlotWidget_Gamepad_C_OnEquipOrUseReleased_Params params;
+	UItemSlotWidget_Gamepad_C_OnInputAReleased_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -512,14 +512,14 @@ void UItemSlotWidget_Gamepad_C::OnEquipOrUseReleased()
 }
 
 
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnEquipOrUsePressed
+// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnInputAPressed
 // (Public, BlueprintCallable, BlueprintEvent)
 
-void UItemSlotWidget_Gamepad_C::OnEquipOrUsePressed()
+void UItemSlotWidget_Gamepad_C::OnInputAPressed()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnEquipOrUsePressed");
+	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnInputAPressed");
 
-	UItemSlotWidget_Gamepad_C_OnEquipOrUsePressed_Params params;
+	UItemSlotWidget_Gamepad_C_OnInputAPressed_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -529,14 +529,14 @@ void UItemSlotWidget_Gamepad_C::OnEquipOrUsePressed()
 }
 
 
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.ProcessPressedEquipOrUse
+// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.ProcessPressedA
 // (Public, BlueprintCallable, BlueprintEvent)
 
-void UItemSlotWidget_Gamepad_C::ProcessPressedEquipOrUse()
+void UItemSlotWidget_Gamepad_C::ProcessPressedA()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.ProcessPressedEquipOrUse");
+	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.ProcessPressedA");
 
-	UItemSlotWidget_Gamepad_C_ProcessPressedEquipOrUse_Params params;
+	UItemSlotWidget_Gamepad_C_ProcessPressedA_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -546,14 +546,14 @@ void UItemSlotWidget_Gamepad_C::ProcessPressedEquipOrUse()
 }
 
 
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.PutSeltItem
+// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.PutSelfItem
 // (Public, BlueprintCallable, BlueprintEvent)
 
-void UItemSlotWidget_Gamepad_C::PutSeltItem()
+void UItemSlotWidget_Gamepad_C::PutSelfItem()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.PutSeltItem");
+	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.PutSelfItem");
 
-	UItemSlotWidget_Gamepad_C_PutSeltItem_Params params;
+	UItemSlotWidget_Gamepad_C_PutSelfItem_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -644,14 +644,14 @@ void UItemSlotWidget_Gamepad_C::ProcessPressedY()
 }
 
 
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.ProcessPickup
+// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.ProcessPressedX
 // (Public, BlueprintCallable, BlueprintEvent)
 
-void UItemSlotWidget_Gamepad_C::ProcessPickup()
+void UItemSlotWidget_Gamepad_C::ProcessPressedX()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.ProcessPickup");
+	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.ProcessPressedX");
 
-	UItemSlotWidget_Gamepad_C_ProcessPickup_Params params;
+	UItemSlotWidget_Gamepad_C_ProcessPressedX_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -729,14 +729,14 @@ void UItemSlotWidget_Gamepad_C::OnInputYPressed()
 }
 
 
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnPickupReleased
+// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnInputXReleased
 // (Public, BlueprintCallable, BlueprintEvent)
 
-void UItemSlotWidget_Gamepad_C::OnPickupReleased()
+void UItemSlotWidget_Gamepad_C::OnInputXReleased()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnPickupReleased");
+	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnInputXReleased");
 
-	UItemSlotWidget_Gamepad_C_OnPickupReleased_Params params;
+	UItemSlotWidget_Gamepad_C_OnInputXReleased_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -746,14 +746,14 @@ void UItemSlotWidget_Gamepad_C::OnPickupReleased()
 }
 
 
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnPickupPressed
+// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnInputXPressed
 // (Public, BlueprintCallable, BlueprintEvent)
 
-void UItemSlotWidget_Gamepad_C::OnPickupPressed()
+void UItemSlotWidget_Gamepad_C::OnInputXPressed()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnPickupPressed");
+	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnInputXPressed");
 
-	UItemSlotWidget_Gamepad_C_OnPickupPressed_Params params;
+	UItemSlotWidget_Gamepad_C_OnInputXPressed_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -2077,23 +2077,6 @@ void UItemSlotWidget_Gamepad_C::BndEvt__InnerItemSlotListWidget_K2Node_Component
 
 	UItemSlotWidget_Gamepad_C_BndEvt__InnerItemSlotListWidget_K2Node_ComponentBoundEvent_0_OnChildSlotFocus__DelegateSignature_Params params;
 	params.Slot = Slot;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.ShowToolTip
-// (BlueprintCallable, BlueprintEvent)
-
-void UItemSlotWidget_Gamepad_C::ShowToolTip()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.ShowToolTip");
-
-	UItemSlotWidget_Gamepad_C_ShowToolTip_Params params;
 
 	auto flags = fn->FunctionFlags;
 

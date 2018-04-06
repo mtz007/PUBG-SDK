@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -434,6 +434,26 @@ bool UWeaponEquipmentWidget_Gamepad_C::Up()
 }
 
 
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.OnPrepass_1
+// (Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class UWidget*                 BoundWidget                    (Parm, ZeroConstructor, IsPlainOldData)
+
+void UWeaponEquipmentWidget_Gamepad_C::OnPrepass_1(class UWidget* BoundWidget)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.OnPrepass_1");
+
+	UWeaponEquipmentWidget_Gamepad_C_OnPrepass_1_Params params;
+	params.BoundWidget = BoundWidget;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.GetInventoryGamePad
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
@@ -509,79 +529,6 @@ void UWeaponEquipmentWidget_Gamepad_C::OnMoveUpPressed()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
-}
-
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.SelfUpAttachmentIndexUp
-// (Public, BlueprintCallable, BlueprintEvent)
-
-void UWeaponEquipmentWidget_Gamepad_C::SelfUpAttachmentIndexUp()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.SelfUpAttachmentIndexUp");
-
-	UWeaponEquipmentWidget_Gamepad_C_SelfUpAttachmentIndexUp_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.PutAttachment
-// (Public, BlueprintCallable, BlueprintEvent)
-
-void UWeaponEquipmentWidget_Gamepad_C::PutAttachment()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.PutAttachment");
-
-	UWeaponEquipmentWidget_Gamepad_C_PutAttachment_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.StopSelftattachmentPut
-// (Public, BlueprintCallable, BlueprintEvent)
-
-void UWeaponEquipmentWidget_Gamepad_C::StopSelftattachmentPut()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.StopSelftattachmentPut");
-
-	UWeaponEquipmentWidget_Gamepad_C_StopSelftattachmentPut_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.StartSelfAttachmentPut
-// (Public, HasOutParms, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// bool                           bResult                        (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-
-void UWeaponEquipmentWidget_Gamepad_C::StartSelfAttachmentPut(bool* bResult)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.StartSelfAttachmentPut");
-
-	UWeaponEquipmentWidget_Gamepad_C_StartSelfAttachmentPut_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	if (bResult != nullptr)
-		*bResult = params.bResult;
 }
 
 
@@ -734,26 +681,6 @@ void UWeaponEquipmentWidget_Gamepad_C::GetEquipment(class AEquipment** Equipment
 }
 
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.MainPrepass
-// (Public, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class UWidget*                 BoundWidget                    (Parm, ZeroConstructor, IsPlainOldData)
-
-void UWeaponEquipmentWidget_Gamepad_C::MainPrepass(class UWidget* BoundWidget)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.MainPrepass");
-
-	UWeaponEquipmentWidget_Gamepad_C_MainPrepass_Params params;
-	params.BoundWidget = BoundWidget;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.InitializeWeaponEquipment
 // (Public, BlueprintCallable, BlueprintEvent)
 
@@ -768,33 +695,6 @@ void UWeaponEquipmentWidget_Gamepad_C::InitializeWeaponEquipment()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
-}
-
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.OnDrop
-// (BlueprintCosmetic, Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// struct FGeometry*              MyGeometry                     (Parm, IsPlainOldData)
-// struct FPointerEvent*          PointerEvent                   (Parm)
-// class UDragDropOperation**     Operation                      (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool UWeaponEquipmentWidget_Gamepad_C::OnDrop(struct FGeometry* MyGeometry, struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.OnDrop");
-
-	UWeaponEquipmentWidget_Gamepad_C_OnDrop_Params params;
-	params.MyGeometry = MyGeometry;
-	params.PointerEvent = PointerEvent;
-	params.Operation = Operation;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
 }
 
 
@@ -839,74 +739,6 @@ void UWeaponEquipmentWidget_Gamepad_C::Construct()
 }
 
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.OnDragEnter
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-// Parameters:
-// struct FGeometry*              MyGeometry                     (Parm, IsPlainOldData)
-// struct FPointerEvent*          PointerEvent                   (Parm)
-// class UDragDropOperation**     Operation                      (Parm, ZeroConstructor, IsPlainOldData)
-
-void UWeaponEquipmentWidget_Gamepad_C::OnDragEnter(struct FGeometry* MyGeometry, struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.OnDragEnter");
-
-	UWeaponEquipmentWidget_Gamepad_C_OnDragEnter_Params params;
-	params.MyGeometry = MyGeometry;
-	params.PointerEvent = PointerEvent;
-	params.Operation = Operation;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.OnDragLeave
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-// Parameters:
-// struct FPointerEvent*          PointerEvent                   (Parm)
-// class UDragDropOperation**     Operation                      (Parm, ZeroConstructor, IsPlainOldData)
-
-void UWeaponEquipmentWidget_Gamepad_C::OnDragLeave(struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.OnDragLeave");
-
-	UWeaponEquipmentWidget_Gamepad_C_OnDragLeave_Params params;
-	params.PointerEvent = PointerEvent;
-	params.Operation = Operation;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.Tick
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-// Parameters:
-// struct FGeometry*              MyGeometry                     (Parm, IsPlainOldData)
-// float*                         InDeltaTime                    (Parm, ZeroConstructor, IsPlainOldData)
-
-void UWeaponEquipmentWidget_Gamepad_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.Tick");
-
-	UWeaponEquipmentWidget_Gamepad_C_Tick_Params params;
-	params.MyGeometry = MyGeometry;
-	params.InDeltaTime = InDeltaTime;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.SetInventoryWidget
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
@@ -927,14 +759,14 @@ void UWeaponEquipmentWidget_Gamepad_C::SetInventoryWidget(class UInventoryWidget
 }
 
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_01_K2Node_ComponentBoundEvent_19_RefreshFocus__DelegateSignature
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_001_K2Node_ComponentBoundEvent_0_RefreshFocus__DelegateSignature
 // (BlueprintEvent)
 
-void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_01_K2Node_ComponentBoundEvent_19_RefreshFocus__DelegateSignature()
+void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_001_K2Node_ComponentBoundEvent_0_RefreshFocus__DelegateSignature()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_01_K2Node_ComponentBoundEvent_19_RefreshFocus__DelegateSignature");
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_001_K2Node_ComponentBoundEvent_0_RefreshFocus__DelegateSignature");
 
-	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_01_K2Node_ComponentBoundEvent_19_RefreshFocus__DelegateSignature_Params params;
+	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_001_K2Node_ComponentBoundEvent_0_RefreshFocus__DelegateSignature_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -944,14 +776,14 @@ void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_01_K2Node_ComponentBoundEv
 }
 
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_02_K2Node_ComponentBoundEvent_75_RefreshFocus__DelegateSignature
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_002_K2Node_ComponentBoundEvent_1_RefreshFocus__DelegateSignature
 // (BlueprintEvent)
 
-void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_02_K2Node_ComponentBoundEvent_75_RefreshFocus__DelegateSignature()
+void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_002_K2Node_ComponentBoundEvent_1_RefreshFocus__DelegateSignature()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_02_K2Node_ComponentBoundEvent_75_RefreshFocus__DelegateSignature");
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_002_K2Node_ComponentBoundEvent_1_RefreshFocus__DelegateSignature");
 
-	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_02_K2Node_ComponentBoundEvent_75_RefreshFocus__DelegateSignature_Params params;
+	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_002_K2Node_ComponentBoundEvent_1_RefreshFocus__DelegateSignature_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -961,14 +793,14 @@ void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_02_K2Node_ComponentBoundEv
 }
 
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_03_K2Node_ComponentBoundEvent_90_RefreshFocus__DelegateSignature
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_003_K2Node_ComponentBoundEvent_2_RefreshFocus__DelegateSignature
 // (BlueprintEvent)
 
-void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_03_K2Node_ComponentBoundEvent_90_RefreshFocus__DelegateSignature()
+void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_003_K2Node_ComponentBoundEvent_2_RefreshFocus__DelegateSignature()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_03_K2Node_ComponentBoundEvent_90_RefreshFocus__DelegateSignature");
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_003_K2Node_ComponentBoundEvent_2_RefreshFocus__DelegateSignature");
 
-	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_03_K2Node_ComponentBoundEvent_90_RefreshFocus__DelegateSignature_Params params;
+	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_003_K2Node_ComponentBoundEvent_2_RefreshFocus__DelegateSignature_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -978,14 +810,14 @@ void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_03_K2Node_ComponentBoundEv
 }
 
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_04_K2Node_ComponentBoundEvent_106_RefreshFocus__DelegateSignature
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_004_K2Node_ComponentBoundEvent_3_RefreshFocus__DelegateSignature
 // (BlueprintEvent)
 
-void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_04_K2Node_ComponentBoundEvent_106_RefreshFocus__DelegateSignature()
+void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_004_K2Node_ComponentBoundEvent_3_RefreshFocus__DelegateSignature()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_04_K2Node_ComponentBoundEvent_106_RefreshFocus__DelegateSignature");
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_004_K2Node_ComponentBoundEvent_3_RefreshFocus__DelegateSignature");
 
-	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_04_K2Node_ComponentBoundEvent_106_RefreshFocus__DelegateSignature_Params params;
+	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_004_K2Node_ComponentBoundEvent_3_RefreshFocus__DelegateSignature_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -995,14 +827,14 @@ void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_04_K2Node_ComponentBoundEv
 }
 
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_05_K2Node_ComponentBoundEvent_123_RefreshFocus__DelegateSignature
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_005_K2Node_ComponentBoundEvent_4_RefreshFocus__DelegateSignature
 // (BlueprintEvent)
 
-void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_05_K2Node_ComponentBoundEvent_123_RefreshFocus__DelegateSignature()
+void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_005_K2Node_ComponentBoundEvent_4_RefreshFocus__DelegateSignature()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_05_K2Node_ComponentBoundEvent_123_RefreshFocus__DelegateSignature");
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_005_K2Node_ComponentBoundEvent_4_RefreshFocus__DelegateSignature");
 
-	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_05_K2Node_ComponentBoundEvent_123_RefreshFocus__DelegateSignature_Params params;
+	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_005_K2Node_ComponentBoundEvent_4_RefreshFocus__DelegateSignature_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -1012,138 +844,18 @@ void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_05_K2Node_ComponentBoundEv
 }
 
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_01_K2Node_ComponentBoundEvent_56_OnAttachmentFocused__DelegateSignature
-// (BlueprintEvent)
-// Parameters:
-// EWeaponAttachmentSlotID        AttachmentSlotID               (Parm, ZeroConstructor, IsPlainOldData)
-// TScriptInterface<class USlotInterface> SlotInterface                  (Parm, ZeroConstructor, IsPlainOldData)
-// TScriptInterface<class USlotContainerInterface> SlotContainerInterface         (Parm, ZeroConstructor, IsPlainOldData)
-
-void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_01_K2Node_ComponentBoundEvent_56_OnAttachmentFocused__DelegateSignature(EWeaponAttachmentSlotID AttachmentSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_01_K2Node_ComponentBoundEvent_56_OnAttachmentFocused__DelegateSignature");
-
-	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_01_K2Node_ComponentBoundEvent_56_OnAttachmentFocused__DelegateSignature_Params params;
-	params.AttachmentSlotID = AttachmentSlotID;
-	params.SlotInterface = SlotInterface;
-	params.SlotContainerInterface = SlotContainerInterface;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_02_K2Node_ComponentBoundEvent_77_OnAttachmentFocused__DelegateSignature
-// (BlueprintEvent)
-// Parameters:
-// EWeaponAttachmentSlotID        AttachmentSlotID               (Parm, ZeroConstructor, IsPlainOldData)
-// TScriptInterface<class USlotInterface> SlotInterface                  (Parm, ZeroConstructor, IsPlainOldData)
-// TScriptInterface<class USlotContainerInterface> SlotContainerInterface         (Parm, ZeroConstructor, IsPlainOldData)
-
-void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_02_K2Node_ComponentBoundEvent_77_OnAttachmentFocused__DelegateSignature(EWeaponAttachmentSlotID AttachmentSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_02_K2Node_ComponentBoundEvent_77_OnAttachmentFocused__DelegateSignature");
-
-	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_02_K2Node_ComponentBoundEvent_77_OnAttachmentFocused__DelegateSignature_Params params;
-	params.AttachmentSlotID = AttachmentSlotID;
-	params.SlotInterface = SlotInterface;
-	params.SlotContainerInterface = SlotContainerInterface;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_03_K2Node_ComponentBoundEvent_104_OnAttachmentFocused__DelegateSignature
-// (BlueprintEvent)
-// Parameters:
-// EWeaponAttachmentSlotID        AttachmentSlotID               (Parm, ZeroConstructor, IsPlainOldData)
-// TScriptInterface<class USlotInterface> SlotInterface                  (Parm, ZeroConstructor, IsPlainOldData)
-// TScriptInterface<class USlotContainerInterface> SlotContainerInterface         (Parm, ZeroConstructor, IsPlainOldData)
-
-void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_03_K2Node_ComponentBoundEvent_104_OnAttachmentFocused__DelegateSignature(EWeaponAttachmentSlotID AttachmentSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_03_K2Node_ComponentBoundEvent_104_OnAttachmentFocused__DelegateSignature");
-
-	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_03_K2Node_ComponentBoundEvent_104_OnAttachmentFocused__DelegateSignature_Params params;
-	params.AttachmentSlotID = AttachmentSlotID;
-	params.SlotInterface = SlotInterface;
-	params.SlotContainerInterface = SlotContainerInterface;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_04_K2Node_ComponentBoundEvent_133_OnAttachmentFocused__DelegateSignature
-// (BlueprintEvent)
-// Parameters:
-// EWeaponAttachmentSlotID        AttachmentSlotID               (Parm, ZeroConstructor, IsPlainOldData)
-// TScriptInterface<class USlotInterface> SlotInterface                  (Parm, ZeroConstructor, IsPlainOldData)
-// TScriptInterface<class USlotContainerInterface> SlotContainerInterface         (Parm, ZeroConstructor, IsPlainOldData)
-
-void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_04_K2Node_ComponentBoundEvent_133_OnAttachmentFocused__DelegateSignature(EWeaponAttachmentSlotID AttachmentSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_04_K2Node_ComponentBoundEvent_133_OnAttachmentFocused__DelegateSignature");
-
-	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_04_K2Node_ComponentBoundEvent_133_OnAttachmentFocused__DelegateSignature_Params params;
-	params.AttachmentSlotID = AttachmentSlotID;
-	params.SlotInterface = SlotInterface;
-	params.SlotContainerInterface = SlotContainerInterface;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_05_K2Node_ComponentBoundEvent_162_OnAttachmentFocused__DelegateSignature
-// (BlueprintEvent)
-// Parameters:
-// EWeaponAttachmentSlotID        AttachmentSlotID               (Parm, ZeroConstructor, IsPlainOldData)
-// TScriptInterface<class USlotInterface> SlotInterface                  (Parm, ZeroConstructor, IsPlainOldData)
-// TScriptInterface<class USlotContainerInterface> SlotContainerInterface         (Parm, ZeroConstructor, IsPlainOldData)
-
-void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_05_K2Node_ComponentBoundEvent_162_OnAttachmentFocused__DelegateSignature(EWeaponAttachmentSlotID AttachmentSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_05_K2Node_ComponentBoundEvent_162_OnAttachmentFocused__DelegateSignature");
-
-	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_05_K2Node_ComponentBoundEvent_162_OnAttachmentFocused__DelegateSignature_Params params;
-	params.AttachmentSlotID = AttachmentSlotID;
-	params.SlotInterface = SlotInterface;
-	params.SlotContainerInterface = SlotContainerInterface;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_01_K2Node_ComponentBoundEvent_412_OnWeaponEquipmentFocused__DelegateSignature
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_001_K2Node_ComponentBoundEvent_5_OnWeaponEquipmentFocused__DelegateSignature
 // (BlueprintEvent)
 // Parameters:
 // EEquipSlotID                   EquipSlotID                    (Parm, ZeroConstructor, IsPlainOldData)
 // TScriptInterface<class USlotInterface> SlotInterface                  (Parm, ZeroConstructor, IsPlainOldData)
 // TScriptInterface<class USlotContainerInterface> SlotContainerInterface         (Parm, ZeroConstructor, IsPlainOldData)
 
-void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_01_K2Node_ComponentBoundEvent_412_OnWeaponEquipmentFocused__DelegateSignature(EEquipSlotID EquipSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
+void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_001_K2Node_ComponentBoundEvent_5_OnWeaponEquipmentFocused__DelegateSignature(EEquipSlotID EquipSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_01_K2Node_ComponentBoundEvent_412_OnWeaponEquipmentFocused__DelegateSignature");
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_001_K2Node_ComponentBoundEvent_5_OnWeaponEquipmentFocused__DelegateSignature");
 
-	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_01_K2Node_ComponentBoundEvent_412_OnWeaponEquipmentFocused__DelegateSignature_Params params;
+	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_001_K2Node_ComponentBoundEvent_5_OnWeaponEquipmentFocused__DelegateSignature_Params params;
 	params.EquipSlotID = EquipSlotID;
 	params.SlotInterface = SlotInterface;
 	params.SlotContainerInterface = SlotContainerInterface;
@@ -1156,18 +868,18 @@ void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_01_K2Node_ComponentBoundEv
 }
 
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_02_K2Node_ComponentBoundEvent_433_OnWeaponEquipmentFocused__DelegateSignature
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_002_K2Node_ComponentBoundEvent_6_OnWeaponEquipmentFocused__DelegateSignature
 // (BlueprintEvent)
 // Parameters:
 // EEquipSlotID                   EquipSlotID                    (Parm, ZeroConstructor, IsPlainOldData)
 // TScriptInterface<class USlotInterface> SlotInterface                  (Parm, ZeroConstructor, IsPlainOldData)
 // TScriptInterface<class USlotContainerInterface> SlotContainerInterface         (Parm, ZeroConstructor, IsPlainOldData)
 
-void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_02_K2Node_ComponentBoundEvent_433_OnWeaponEquipmentFocused__DelegateSignature(EEquipSlotID EquipSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
+void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_002_K2Node_ComponentBoundEvent_6_OnWeaponEquipmentFocused__DelegateSignature(EEquipSlotID EquipSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_02_K2Node_ComponentBoundEvent_433_OnWeaponEquipmentFocused__DelegateSignature");
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_002_K2Node_ComponentBoundEvent_6_OnWeaponEquipmentFocused__DelegateSignature");
 
-	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_02_K2Node_ComponentBoundEvent_433_OnWeaponEquipmentFocused__DelegateSignature_Params params;
+	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_002_K2Node_ComponentBoundEvent_6_OnWeaponEquipmentFocused__DelegateSignature_Params params;
 	params.EquipSlotID = EquipSlotID;
 	params.SlotInterface = SlotInterface;
 	params.SlotContainerInterface = SlotContainerInterface;
@@ -1180,18 +892,18 @@ void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_02_K2Node_ComponentBoundEv
 }
 
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_03_K2Node_ComponentBoundEvent_465_OnWeaponEquipmentFocused__DelegateSignature
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_003_K2Node_ComponentBoundEvent_7_OnWeaponEquipmentFocused__DelegateSignature
 // (BlueprintEvent)
 // Parameters:
 // EEquipSlotID                   EquipSlotID                    (Parm, ZeroConstructor, IsPlainOldData)
 // TScriptInterface<class USlotInterface> SlotInterface                  (Parm, ZeroConstructor, IsPlainOldData)
 // TScriptInterface<class USlotContainerInterface> SlotContainerInterface         (Parm, ZeroConstructor, IsPlainOldData)
 
-void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_03_K2Node_ComponentBoundEvent_465_OnWeaponEquipmentFocused__DelegateSignature(EEquipSlotID EquipSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
+void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_003_K2Node_ComponentBoundEvent_7_OnWeaponEquipmentFocused__DelegateSignature(EEquipSlotID EquipSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_03_K2Node_ComponentBoundEvent_465_OnWeaponEquipmentFocused__DelegateSignature");
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_003_K2Node_ComponentBoundEvent_7_OnWeaponEquipmentFocused__DelegateSignature");
 
-	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_03_K2Node_ComponentBoundEvent_465_OnWeaponEquipmentFocused__DelegateSignature_Params params;
+	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_003_K2Node_ComponentBoundEvent_7_OnWeaponEquipmentFocused__DelegateSignature_Params params;
 	params.EquipSlotID = EquipSlotID;
 	params.SlotInterface = SlotInterface;
 	params.SlotContainerInterface = SlotContainerInterface;
@@ -1204,18 +916,18 @@ void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_03_K2Node_ComponentBoundEv
 }
 
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_04_K2Node_ComponentBoundEvent_498_OnWeaponEquipmentFocused__DelegateSignature
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_004_K2Node_ComponentBoundEvent_8_OnWeaponEquipmentFocused__DelegateSignature
 // (BlueprintEvent)
 // Parameters:
 // EEquipSlotID                   EquipSlotID                    (Parm, ZeroConstructor, IsPlainOldData)
 // TScriptInterface<class USlotInterface> SlotInterface                  (Parm, ZeroConstructor, IsPlainOldData)
 // TScriptInterface<class USlotContainerInterface> SlotContainerInterface         (Parm, ZeroConstructor, IsPlainOldData)
 
-void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_04_K2Node_ComponentBoundEvent_498_OnWeaponEquipmentFocused__DelegateSignature(EEquipSlotID EquipSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
+void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_004_K2Node_ComponentBoundEvent_8_OnWeaponEquipmentFocused__DelegateSignature(EEquipSlotID EquipSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_04_K2Node_ComponentBoundEvent_498_OnWeaponEquipmentFocused__DelegateSignature");
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_004_K2Node_ComponentBoundEvent_8_OnWeaponEquipmentFocused__DelegateSignature");
 
-	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_04_K2Node_ComponentBoundEvent_498_OnWeaponEquipmentFocused__DelegateSignature_Params params;
+	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_004_K2Node_ComponentBoundEvent_8_OnWeaponEquipmentFocused__DelegateSignature_Params params;
 	params.EquipSlotID = EquipSlotID;
 	params.SlotInterface = SlotInterface;
 	params.SlotContainerInterface = SlotContainerInterface;
@@ -1228,19 +940,139 @@ void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_04_K2Node_ComponentBoundEv
 }
 
 
-// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_05_K2Node_ComponentBoundEvent_532_OnWeaponEquipmentFocused__DelegateSignature
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_005_K2Node_ComponentBoundEvent_9_OnWeaponEquipmentFocused__DelegateSignature
 // (BlueprintEvent)
 // Parameters:
 // EEquipSlotID                   EquipSlotID                    (Parm, ZeroConstructor, IsPlainOldData)
 // TScriptInterface<class USlotInterface> SlotInterface                  (Parm, ZeroConstructor, IsPlainOldData)
 // TScriptInterface<class USlotContainerInterface> SlotContainerInterface         (Parm, ZeroConstructor, IsPlainOldData)
 
-void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_05_K2Node_ComponentBoundEvent_532_OnWeaponEquipmentFocused__DelegateSignature(EEquipSlotID EquipSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
+void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_005_K2Node_ComponentBoundEvent_9_OnWeaponEquipmentFocused__DelegateSignature(EEquipSlotID EquipSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_05_K2Node_ComponentBoundEvent_532_OnWeaponEquipmentFocused__DelegateSignature");
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_005_K2Node_ComponentBoundEvent_9_OnWeaponEquipmentFocused__DelegateSignature");
 
-	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_05_K2Node_ComponentBoundEvent_532_OnWeaponEquipmentFocused__DelegateSignature_Params params;
+	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_005_K2Node_ComponentBoundEvent_9_OnWeaponEquipmentFocused__DelegateSignature_Params params;
 	params.EquipSlotID = EquipSlotID;
+	params.SlotInterface = SlotInterface;
+	params.SlotContainerInterface = SlotContainerInterface;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_001_K2Node_ComponentBoundEvent_10_OnAttachmentFocused__DelegateSignature
+// (BlueprintEvent)
+// Parameters:
+// EWeaponAttachmentSlotID        AttachmentSlotID               (Parm, ZeroConstructor, IsPlainOldData)
+// TScriptInterface<class USlotInterface> SlotInterface                  (Parm, ZeroConstructor, IsPlainOldData)
+// TScriptInterface<class USlotContainerInterface> SlotContainerInterface         (Parm, ZeroConstructor, IsPlainOldData)
+
+void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_001_K2Node_ComponentBoundEvent_10_OnAttachmentFocused__DelegateSignature(EWeaponAttachmentSlotID AttachmentSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_001_K2Node_ComponentBoundEvent_10_OnAttachmentFocused__DelegateSignature");
+
+	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_001_K2Node_ComponentBoundEvent_10_OnAttachmentFocused__DelegateSignature_Params params;
+	params.AttachmentSlotID = AttachmentSlotID;
+	params.SlotInterface = SlotInterface;
+	params.SlotContainerInterface = SlotContainerInterface;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_002_K2Node_ComponentBoundEvent_11_OnAttachmentFocused__DelegateSignature
+// (BlueprintEvent)
+// Parameters:
+// EWeaponAttachmentSlotID        AttachmentSlotID               (Parm, ZeroConstructor, IsPlainOldData)
+// TScriptInterface<class USlotInterface> SlotInterface                  (Parm, ZeroConstructor, IsPlainOldData)
+// TScriptInterface<class USlotContainerInterface> SlotContainerInterface         (Parm, ZeroConstructor, IsPlainOldData)
+
+void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_002_K2Node_ComponentBoundEvent_11_OnAttachmentFocused__DelegateSignature(EWeaponAttachmentSlotID AttachmentSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_002_K2Node_ComponentBoundEvent_11_OnAttachmentFocused__DelegateSignature");
+
+	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_002_K2Node_ComponentBoundEvent_11_OnAttachmentFocused__DelegateSignature_Params params;
+	params.AttachmentSlotID = AttachmentSlotID;
+	params.SlotInterface = SlotInterface;
+	params.SlotContainerInterface = SlotContainerInterface;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_003_K2Node_ComponentBoundEvent_12_OnAttachmentFocused__DelegateSignature
+// (BlueprintEvent)
+// Parameters:
+// EWeaponAttachmentSlotID        AttachmentSlotID               (Parm, ZeroConstructor, IsPlainOldData)
+// TScriptInterface<class USlotInterface> SlotInterface                  (Parm, ZeroConstructor, IsPlainOldData)
+// TScriptInterface<class USlotContainerInterface> SlotContainerInterface         (Parm, ZeroConstructor, IsPlainOldData)
+
+void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_003_K2Node_ComponentBoundEvent_12_OnAttachmentFocused__DelegateSignature(EWeaponAttachmentSlotID AttachmentSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_003_K2Node_ComponentBoundEvent_12_OnAttachmentFocused__DelegateSignature");
+
+	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_003_K2Node_ComponentBoundEvent_12_OnAttachmentFocused__DelegateSignature_Params params;
+	params.AttachmentSlotID = AttachmentSlotID;
+	params.SlotInterface = SlotInterface;
+	params.SlotContainerInterface = SlotContainerInterface;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_004_K2Node_ComponentBoundEvent_13_OnAttachmentFocused__DelegateSignature
+// (BlueprintEvent)
+// Parameters:
+// EWeaponAttachmentSlotID        AttachmentSlotID               (Parm, ZeroConstructor, IsPlainOldData)
+// TScriptInterface<class USlotInterface> SlotInterface                  (Parm, ZeroConstructor, IsPlainOldData)
+// TScriptInterface<class USlotContainerInterface> SlotContainerInterface         (Parm, ZeroConstructor, IsPlainOldData)
+
+void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_004_K2Node_ComponentBoundEvent_13_OnAttachmentFocused__DelegateSignature(EWeaponAttachmentSlotID AttachmentSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_004_K2Node_ComponentBoundEvent_13_OnAttachmentFocused__DelegateSignature");
+
+	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_004_K2Node_ComponentBoundEvent_13_OnAttachmentFocused__DelegateSignature_Params params;
+	params.AttachmentSlotID = AttachmentSlotID;
+	params.SlotInterface = SlotInterface;
+	params.SlotContainerInterface = SlotContainerInterface;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_005_K2Node_ComponentBoundEvent_14_OnAttachmentFocused__DelegateSignature
+// (BlueprintEvent)
+// Parameters:
+// EWeaponAttachmentSlotID        AttachmentSlotID               (Parm, ZeroConstructor, IsPlainOldData)
+// TScriptInterface<class USlotInterface> SlotInterface                  (Parm, ZeroConstructor, IsPlainOldData)
+// TScriptInterface<class USlotContainerInterface> SlotContainerInterface         (Parm, ZeroConstructor, IsPlainOldData)
+
+void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_005_K2Node_ComponentBoundEvent_14_OnAttachmentFocused__DelegateSignature(EWeaponAttachmentSlotID AttachmentSlotID, const TScriptInterface<class USlotInterface>& SlotInterface, const TScriptInterface<class USlotContainerInterface>& SlotContainerInterface)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.BndEvt__Weapon_005_K2Node_ComponentBoundEvent_14_OnAttachmentFocused__DelegateSignature");
+
+	UWeaponEquipmentWidget_Gamepad_C_BndEvt__Weapon_005_K2Node_ComponentBoundEvent_14_OnAttachmentFocused__DelegateSignature_Params params;
+	params.AttachmentSlotID = AttachmentSlotID;
 	params.SlotInterface = SlotInterface;
 	params.SlotContainerInterface = SlotContainerInterface;
 
@@ -1253,7 +1085,7 @@ void UWeaponEquipmentWidget_Gamepad_C::BndEvt__Weapon_05_K2Node_ComponentBoundEv
 
 
 // Function WeaponEquipmentWidget_Gamepad.WeaponEquipmentWidget_Gamepad_C.ExecuteUbergraph_WeaponEquipmentWidget_Gamepad
-// (HasDefaults)
+// ()
 // Parameters:
 // int                            EntryPoint                     (Parm, ZeroConstructor, IsPlainOldData)
 

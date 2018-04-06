@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace Classes
 //---------------------------------------------------------------------------
 
 // ScriptStruct ImmediatePhysics.AnimNode_RigidBody
-// 0x01B0 (0x0220 - 0x0070)
+// 0x01A0 (0x0210 - 0x0070)
 struct FAnimNode_RigidBody : public FAnimNode_SkeletalControlBase
 {
 	class UPhysicsAsset*                               OverridePhysicsAsset;                                     // 0x0070(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
@@ -23,7 +23,7 @@ struct FAnimNode_RigidBody : public FAnimNode_SkeletalControlBase
 	bool                                               bComponentSpaceSimulation;                                // 0x0086(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	bool                                               bOverrideWorldGravity;                                    // 0x0087(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	float                                              CachedBoundsScale;                                        // 0x0088(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x194];                                     // 0x008C(0x0194) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x184];                                     // 0x008C(0x0184) MISSED OFFSET
 };
 
 }

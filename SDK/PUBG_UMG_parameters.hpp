@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -2060,6 +2060,11 @@ struct URetainerBox_SetTextureParameter_Params
 struct URetainerBox_SetEffectMaterial_Params
 {
 	class UMaterialInterface*                          EffectMaterial;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.RetainerBox.RequestRender
+struct URetainerBox_RequestRender_Params
+{
 };
 
 // Function UMG.RetainerBox.GetEffectMaterial

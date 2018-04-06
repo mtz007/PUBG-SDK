@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace Classes
 //---------------------------------------------------------------------------
 
 // WidgetBlueprintGeneratedClass InventorySlotBaseWidget.InventorySlotBaseWidget_C
-// 0x00F8 (0x0348 - 0x0250)
+// 0x0100 (0x0350 - 0x0250)
 class UInventorySlotBaseWidget_C : public USlotBaseWidget_C
 {
 public:
@@ -48,6 +48,7 @@ public:
 	struct FScriptMulticastDelegate                    OnEnterSlot;                                              // 0x0318(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable)
 	struct FScriptMulticastDelegate                    OnLeaveSlot;                                              // 0x0328(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable)
 	struct FScriptMulticastDelegate                    OnDoSlotAction;                                           // 0x0338(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, BlueprintAssignable)
+	class ATslCharacter*                               SaveCharacter;                                            // 0x0348(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -76,6 +77,7 @@ public:
 	bool Right();
 	bool SetFocus(bool NewFocus);
 	bool Up();
+	void IsSlotSelected_Bp(bool* res);
 	void RaiseEnterEvent();
 	void RaiseLeaveEvent();
 	void GetBackgroundState(float* State);

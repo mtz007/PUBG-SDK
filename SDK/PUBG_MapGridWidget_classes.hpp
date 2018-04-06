@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,10 +13,13 @@ namespace Classes
 //---------------------------------------------------------------------------
 
 // WidgetBlueprintGeneratedClass MapGridWidget.MapGridWidget_C
-// 0x0000 (0x06F0 - 0x06F0)
+// 0x0018 (0x08C0 - 0x08A8)
 class UMapGridWidget_C : public UMapGridWidget
 {
 public:
+	struct FVector2D                                   StartPointUC;                                             // 0x08A8(0x0008) (Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   EndPointUC;                                               // 0x08B0(0x0008) (Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData)
+	struct FVector2D                                   StandardVector;                                           // 0x08B8(0x0008) (Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{

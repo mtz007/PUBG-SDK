@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -93,6 +93,23 @@ void UCharProxy_AnimBP_C::GetAnimWeaponType(EAnimWeaponType* AnimWeaponType)
 }
 
 
+// Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_03098CEB4560DEA557CDB4A432C2B741
+// (BlueprintEvent)
+
+void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_03098CEB4560DEA557CDB4A432C2B741()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_03098CEB4560DEA557CDB4A432C2B741");
+
+	UCharProxy_AnimBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_03098CEB4560DEA557CDB4A432C2B741_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_SequencePlayer_D493424D42CF2DC582D781A0C47C3BFC
 // (BlueprintEvent)
 
@@ -110,14 +127,14 @@ void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_
 }
 
 
-// Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_1B9B424241FB104B11A537B7349DA4C7
+// Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_3DA5C7214658D193C32CA1B3EDEC5B06
 // (BlueprintEvent)
 
-void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_1B9B424241FB104B11A537B7349DA4C7()
+void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_3DA5C7214658D193C32CA1B3EDEC5B06()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_1B9B424241FB104B11A537B7349DA4C7");
+	static auto fn = UObject::FindObject<UFunction>("Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_3DA5C7214658D193C32CA1B3EDEC5B06");
 
-	UCharProxy_AnimBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_1B9B424241FB104B11A537B7349DA4C7_Params params;
+	UCharProxy_AnimBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_3DA5C7214658D193C32CA1B3EDEC5B06_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -161,14 +178,14 @@ void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_
 }
 
 
-// Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_B4789EB84B94BAF324DEDE8E04D6F50B
+// Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_1B9B424241FB104B11A537B7349DA4C7
 // (BlueprintEvent)
 
-void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_B4789EB84B94BAF324DEDE8E04D6F50B()
+void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_1B9B424241FB104B11A537B7349DA4C7()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_B4789EB84B94BAF324DEDE8E04D6F50B");
+	static auto fn = UObject::FindObject<UFunction>("Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_1B9B424241FB104B11A537B7349DA4C7");
 
-	UCharProxy_AnimBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_B4789EB84B94BAF324DEDE8E04D6F50B_Params params;
+	UCharProxy_AnimBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_1B9B424241FB104B11A537B7349DA4C7_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -212,31 +229,14 @@ void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_
 }
 
 
-// Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_5C591DE54F0AB6A9C9ADEEB4FDDC4C62
+// Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_B4789EB84B94BAF324DEDE8E04D6F50B
 // (BlueprintEvent)
 
-void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_5C591DE54F0AB6A9C9ADEEB4FDDC4C62()
+void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_B4789EB84B94BAF324DEDE8E04D6F50B()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_5C591DE54F0AB6A9C9ADEEB4FDDC4C62");
+	static auto fn = UObject::FindObject<UFunction>("Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_B4789EB84B94BAF324DEDE8E04D6F50B");
 
-	UCharProxy_AnimBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_5C591DE54F0AB6A9C9ADEEB4FDDC4C62_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TwoWayBlend_F55B74BC41101BEBCB2E1FB32E00F62E
-// (BlueprintEvent)
-
-void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TwoWayBlend_F55B74BC41101BEBCB2E1FB32E00F62E()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TwoWayBlend_F55B74BC41101BEBCB2E1FB32E00F62E");
-
-	UCharProxy_AnimBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TwoWayBlend_F55B74BC41101BEBCB2E1FB32E00F62E_Params params;
+	UCharProxy_AnimBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_B4789EB84B94BAF324DEDE8E04D6F50B_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -365,6 +365,57 @@ void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_
 }
 
 
+// Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_ModifyBone_138D096848F6627DCB3C9496E0576FF0
+// (BlueprintEvent)
+
+void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_ModifyBone_138D096848F6627DCB3C9496E0576FF0()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_ModifyBone_138D096848F6627DCB3C9496E0576FF0");
+
+	UCharProxy_AnimBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_ModifyBone_138D096848F6627DCB3C9496E0576FF0_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_5C591DE54F0AB6A9C9ADEEB4FDDC4C62
+// (BlueprintEvent)
+
+void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_5C591DE54F0AB6A9C9ADEEB4FDDC4C62()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_5C591DE54F0AB6A9C9ADEEB4FDDC4C62");
+
+	UCharProxy_AnimBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_5C591DE54F0AB6A9C9ADEEB4FDDC4C62_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TwoWayBlend_F55B74BC41101BEBCB2E1FB32E00F62E
+// (BlueprintEvent)
+
+void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TwoWayBlend_F55B74BC41101BEBCB2E1FB32E00F62E()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TwoWayBlend_F55B74BC41101BEBCB2E1FB32E00F62E");
+
+	UCharProxy_AnimBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TwoWayBlend_F55B74BC41101BEBCB2E1FB32E00F62E_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendSpacePlayer_50CC758845EBAE09DFE0FFA151BC45A3
 // (BlueprintEvent)
 
@@ -390,23 +441,6 @@ void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_
 	static auto fn = UObject::FindObject<UFunction>("Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_341CAEF947395CE8613E1AA1A1B0CEB9");
 
 	UCharProxy_AnimBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_341CAEF947395CE8613E1AA1A1B0CEB9_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_3DA5C7214658D193C32CA1B3EDEC5B06
-// (BlueprintEvent)
-
-void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_3DA5C7214658D193C32CA1B3EDEC5B06()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_3DA5C7214658D193C32CA1B3EDEC5B06");
-
-	UCharProxy_AnimBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_3DA5C7214658D193C32CA1B3EDEC5B06_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -535,23 +569,6 @@ void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_
 }
 
 
-// Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_7DD4DF2E4EE51B857C8F8BBA6ADD08B0
-// (BlueprintEvent)
-
-void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_7DD4DF2E4EE51B857C8F8BBA6ADD08B0()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_7DD4DF2E4EE51B857C8F8BBA6ADD08B0");
-
-	UCharProxy_AnimBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_7DD4DF2E4EE51B857C8F8BBA6ADD08B0_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_SequencePlayer_7913876244FB5B565F3A1995825A2839
 // (BlueprintEvent)
 
@@ -586,6 +603,23 @@ void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_
 }
 
 
+// Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_7DD4DF2E4EE51B857C8F8BBA6ADD08B0
+// (BlueprintEvent)
+
+void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_7DD4DF2E4EE51B857C8F8BBA6ADD08B0()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_7DD4DF2E4EE51B857C8F8BBA6ADD08B0");
+
+	UCharProxy_AnimBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_7DD4DF2E4EE51B857C8F8BBA6ADD08B0_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function CharProxy_AnimBP.CharProxy_AnimBP_C.BlueprintUpdateAnimation
 // (Event, Public, BlueprintEvent)
 // Parameters:
@@ -597,23 +631,6 @@ void UCharProxy_AnimBP_C::BlueprintUpdateAnimation(float* DeltaTimeX)
 
 	UCharProxy_AnimBP_C_BlueprintUpdateAnimation_Params params;
 	params.DeltaTimeX = DeltaTimeX;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_03098CEB4560DEA557CDB4A432C2B741
-// (BlueprintEvent)
-
-void UCharProxy_AnimBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_03098CEB4560DEA557CDB4A432C2B741()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function CharProxy_AnimBP.CharProxy_AnimBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_03098CEB4560DEA557CDB4A432C2B741");
-
-	UCharProxy_AnimBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_03098CEB4560DEA557CDB4A432C2B741_Params params;
 
 	auto flags = fn->FunctionFlags;
 

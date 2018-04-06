@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace Classes
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass P_AR_AKM_BP.P_AR_AKM_BP_C
-// 0x0000 (0x0408 - 0x0408)
+// 0x0000 (0x0420 - 0x0420)
 class AP_AR_AKM_BP_C : public ATslParticle
 {
 public:

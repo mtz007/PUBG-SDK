@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,13 +13,13 @@ namespace Classes
 //---------------------------------------------------------------------------
 
 // WidgetBlueprintGeneratedClass BaseOptionWidget.BaseOptionWidget_C
-// 0x0024 (0x02EC - 0x02C8)
+// 0x0024 (0x030C - 0x02E8)
 class UBaseOptionWidget_C : public UTslBaseOptionWidget
 {
 public:
-	TArray<struct FKey>                                PrevOptionKeyList;                                        // 0x02C8(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	TArray<struct FKey>                                NextOptionKeyList;                                        // 0x02D8(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	float                                              KeyUpTime;                                                // 0x02E8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	TArray<struct FKey>                                PrevOptionKeyList;                                        // 0x02E8(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	TArray<struct FKey>                                NextOptionKeyList;                                        // 0x02F8(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	float                                              KeyUpTime;                                                // 0x0308(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{

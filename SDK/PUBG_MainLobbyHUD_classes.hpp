@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace Classes
 //---------------------------------------------------------------------------
 
 // WidgetBlueprintGeneratedClass MainLobbyHUD.MainLobbyHUD_C
-// 0x0078 (0x02B8 - 0x0240)
+// 0x01F8 (0x0438 - 0x0240)
 class UMainLobbyHUD_C : public UUserWidget
 {
 public:
@@ -33,6 +33,14 @@ public:
 	unsigned char                                      UnknownData01[0x4];                                       // 0x02A4(0x0004) MISSED OFFSET
 	class AReplayList_BP_C*                            refReplayListBp;                                          // 0x02A8(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
 	class ULobbyNameTagHUD_C*                          LobbyNameTagHUD;                                          // 0x02B0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FHudUiConfig                                Browser_Config;                                           // 0x02B8(0x0030) (Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FHudUiConfig                                LobbyNameTagHUD_Config;                                   // 0x02E8(0x0030) (Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FHudUiConfig                                OptionMenu_Config;                                        // 0x0318(0x0030) (Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FHudUiConfig                                PopupBox_Config;                                          // 0x0348(0x0030) (Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FHudUiConfig                                OptionMenu_Gamepad_Config;                                // 0x0378(0x0030) (Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FHudUiConfig                                NewLobbySystemMenu_Config;                                // 0x03A8(0x0030) (Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FHudUiConfig                                GameRatingWidget_Config;                                  // 0x03D8(0x0030) (Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FHudUiConfig                                ViewModeConfig;                                           // 0x0408(0x0030) (Edit, BlueprintVisible, DisableEditOnInstance)
 
 	static UClass* StaticClass()
 	{
@@ -63,6 +71,7 @@ public:
 	void BndEvt__Button_Reload_K2Node_ComponentBoundEvent_210_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__Button_Quit_K2Node_ComponentBoundEvent_229_OnButtonClickedEvent__DelegateSignature();
 	void ShowWebPopup(const struct FWebPopupParam& Param);
+	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
 	void Construct();
 	void BndEvt__Button_0_K2Node_ComponentBoundEvent_35_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__Button_NewSystemMenu_K2Node_ComponentBoundEvent_90_OnButtonClickedEvent__DelegateSignature();

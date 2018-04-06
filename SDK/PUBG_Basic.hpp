@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -130,7 +130,8 @@ public:
 	static const auto NAME_INDEX_SHIFT = 1;
 
 	int32_t Index;
-	char UnknownData00[0x04];
+	char UnknownData00[0x4];
+    char UnknownData01[0x8]; // 3.6.13.14
 	FNameEntry* HashNext;
 	union
 	{

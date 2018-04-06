@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -14,8 +14,19 @@ namespace Classes
 //Parameters
 //---------------------------------------------------------------------------
 
-// Function WeaponStudio.WeaponStudio_C.OnLoad_Test
-struct AWeaponStudio_C_OnLoad_Test_Params
+// Function WeaponStudio.WeaponStudio_C.OnUpdateSkinBp
+struct AWeaponStudio_C_OnUpdateSkinBp_Params
+{
+};
+
+// Function WeaponStudio.WeaponStudio_C.GetWeaonMesh
+struct AWeaponStudio_C_GetWeaonMesh_Params
+{
+	class UMeshComponent*                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function WeaponStudio.WeaponStudio_C.InitializeAttachmentMap
+struct AWeaponStudio_C_InitializeAttachmentMap_Params
 {
 };
 
@@ -24,8 +35,8 @@ struct AWeaponStudio_C_OnAttachmentLoad_Params
 {
 };
 
-// Function WeaponStudio.WeaponStudio_C.UpdateAttachment
-struct AWeaponStudio_C_UpdateAttachment_Params
+// Function WeaponStudio.WeaponStudio_C.OnUpdateAttachmentBp
+struct AWeaponStudio_C_OnUpdateAttachmentBp_Params
 {
 };
 
@@ -34,14 +45,23 @@ struct AWeaponStudio_C_UserConstructionScript_Params
 {
 };
 
-// Function WeaponStudio.WeaponStudio_C.SetItem
-struct AWeaponStudio_C_SetItem_Params
-{
-	class UItem**                                      Item;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function WeaponStudio.WeaponStudio_C.ReceiveBeginPlay
 struct AWeaponStudio_C_ReceiveBeginPlay_Params
+{
+};
+
+// Function WeaponStudio.WeaponStudio_C.UpdateWeaponMesh
+struct AWeaponStudio_C_UpdateWeaponMesh_Params
+{
+};
+
+// Function WeaponStudio.WeaponStudio_C.OnUpdateAttachment
+struct AWeaponStudio_C_OnUpdateAttachment_Params
+{
+};
+
+// Function WeaponStudio.WeaponStudio_C.OnUpdateSkin
+struct AWeaponStudio_C_OnUpdateSkin_Params
 {
 };
 

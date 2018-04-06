@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -147,28 +147,28 @@ struct UItemSlotWidget_Gamepad_C_GetSlotContainer_Params
 	TScriptInterface<class USlotContainerInterface>    SlotContainer;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnEquipOrUse
-struct UItemSlotWidget_Gamepad_C_OnEquipOrUse_Params
+// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.EquipOrUse
+struct UItemSlotWidget_Gamepad_C_EquipOrUse_Params
 {
 };
 
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnEquipOrUseReleased
-struct UItemSlotWidget_Gamepad_C_OnEquipOrUseReleased_Params
+// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnInputAReleased
+struct UItemSlotWidget_Gamepad_C_OnInputAReleased_Params
 {
 };
 
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnEquipOrUsePressed
-struct UItemSlotWidget_Gamepad_C_OnEquipOrUsePressed_Params
+// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnInputAPressed
+struct UItemSlotWidget_Gamepad_C_OnInputAPressed_Params
 {
 };
 
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.ProcessPressedEquipOrUse
-struct UItemSlotWidget_Gamepad_C_ProcessPressedEquipOrUse_Params
+// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.ProcessPressedA
+struct UItemSlotWidget_Gamepad_C_ProcessPressedA_Params
 {
 };
 
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.PutSeltItem
-struct UItemSlotWidget_Gamepad_C_PutSeltItem_Params
+// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.PutSelfItem
+struct UItemSlotWidget_Gamepad_C_PutSelfItem_Params
 {
 };
 
@@ -195,8 +195,8 @@ struct UItemSlotWidget_Gamepad_C_ProcessPressedY_Params
 {
 };
 
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.ProcessPickup
-struct UItemSlotWidget_Gamepad_C_ProcessPickup_Params
+// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.ProcessPressedX
+struct UItemSlotWidget_Gamepad_C_ProcessPressedX_Params
 {
 };
 
@@ -220,13 +220,13 @@ struct UItemSlotWidget_Gamepad_C_OnInputYPressed_Params
 {
 };
 
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnPickupReleased
-struct UItemSlotWidget_Gamepad_C_OnPickupReleased_Params
+// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnInputXReleased
+struct UItemSlotWidget_Gamepad_C_OnInputXReleased_Params
 {
 };
 
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnPickupPressed
-struct UItemSlotWidget_Gamepad_C_OnPickupPressed_Params
+// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.OnInputXPressed
+struct UItemSlotWidget_Gamepad_C_OnInputXPressed_Params
 {
 };
 
@@ -616,11 +616,6 @@ struct UItemSlotWidget_Gamepad_C_OnMouseLeave_Params
 struct UItemSlotWidget_Gamepad_C_BndEvt__InnerItemSlotListWidget_K2Node_ComponentBoundEvent_0_OnChildSlotFocus__DelegateSignature_Params
 {
 	TScriptInterface<class USlotInterface>             Slot;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.ShowToolTip
-struct UItemSlotWidget_Gamepad_C_ShowToolTip_Params
-{
 };
 
 // Function ItemSlotWidget_Gamepad.ItemSlotWidget_Gamepad_C.Construct

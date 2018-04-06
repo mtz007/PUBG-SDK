@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -135,6 +135,59 @@ struct UInventoryWidget_C_Up_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function InventoryWidget.InventoryWidget_C.RefreshSkinGuide
+struct UInventoryWidget_C_RefreshSkinGuide_Params
+{
+	TScriptInterface<class USlotInterface>             Item;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function InventoryWidget.InventoryWidget_C.OnStopItemStackCountHandling
+struct UInventoryWidget_C_OnStopItemStackCountHandling_Params
+{
+};
+
+// Function InventoryWidget.InventoryWidget_C.OnStartItemStackCountHandling
+struct UInventoryWidget_C_OnStartItemStackCountHandling_Params
+{
+};
+
+// Function InventoryWidget.InventoryWidget_C.SetupInput
+struct UInventoryWidget_C_SetupInput_Params
+{
+};
+
+// Function InventoryWidget.InventoryWidget_C.IsClearSkinMode
+struct UInventoryWidget_C_IsClearSkinMode_Params
+{
+	bool                                               bIsClearSkinMode;                                         // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function InventoryWidget.InventoryWidget_C.IsApplySkinMode
+struct UInventoryWidget_C_IsApplySkinMode_Params
+{
+	bool                                               bIsApplySkinMode;                                         // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function InventoryWidget.InventoryWidget_C.OnStopClearSkinMode
+struct UInventoryWidget_C_OnStopClearSkinMode_Params
+{
+};
+
+// Function InventoryWidget.InventoryWidget_C.OnStartClearSkinMode
+struct UInventoryWidget_C_OnStartClearSkinMode_Params
+{
+};
+
+// Function InventoryWidget.InventoryWidget_C.OnStopApplySkinMode
+struct UInventoryWidget_C_OnStopApplySkinMode_Params
+{
+};
+
+// Function InventoryWidget.InventoryWidget_C.OnStartApplySkinMode
+struct UInventoryWidget_C_OnStartApplySkinMode_Params
+{
+};
+
 // Function InventoryWidget.InventoryWidget_C.OnPrepass_2
 struct UInventoryWidget_C_OnPrepass_2_Params
 {
@@ -252,6 +305,31 @@ struct UInventoryWidget_C_InitializeWidget_Params
 	struct FScriptDelegate                             OnItemSlotFocus;                                          // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
 };
 
+// Function InventoryWidget.InventoryWidget_C.OnInventoryUpdated
+struct UInventoryWidget_C_OnInventoryUpdated_Params
+{
+};
+
+// Function InventoryWidget.InventoryWidget_C.OnEquipmentUpdated
+struct UInventoryWidget_C_OnEquipmentUpdated_Params
+{
+};
+
+// Function InventoryWidget.InventoryWidget_C.OnItemExplorerProxyUpdated
+struct UInventoryWidget_C_OnItemExplorerProxyUpdated_Params
+{
+};
+
+// Function InventoryWidget.InventoryWidget_C.Destruct
+struct UInventoryWidget_C_Destruct_Params
+{
+};
+
+// Function InventoryWidget.InventoryWidget_C.Construct
+struct UInventoryWidget_C_Construct_Params
+{
+};
+
 // Function InventoryWidget.InventoryWidget_C.Tick
 struct UInventoryWidget_C_Tick_Params
 {
@@ -281,16 +359,6 @@ struct UInventoryWidget_C_BndEvt__Backpack_K2Node_ComponentBoundEvent_40_OnChild
 {
 	TScriptInterface<class USlotInterface>             Slot;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
 	TScriptInterface<class USlotContainerInterface>    SlotContainer;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnPressed
-struct UInventoryWidget_C_OnPressed_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnReleased
-struct UInventoryWidget_C_OnReleased_Params
-{
 };
 
 // Function InventoryWidget.InventoryWidget_C.OnItemSlotFocus
@@ -325,66 +393,6 @@ struct UInventoryWidget_C_BndEvt__btn_type_K2Node_ComponentBoundEvent_34_OnButto
 {
 };
 
-// Function InventoryWidget.InventoryWidget_C.OnLeft
-struct UInventoryWidget_C_OnLeft_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnRight
-struct UInventoryWidget_C_OnRight_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnUp
-struct UInventoryWidget_C_OnUp_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnDown
-struct UInventoryWidget_C_OnDown_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.Destruct
-struct UInventoryWidget_C_Destruct_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnWidgetInputA
-struct UInventoryWidget_C_OnWidgetInputA_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.ONWidgetInputB
-struct UInventoryWidget_C_ONWidgetInputB_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnWidgetInputX
-struct UInventoryWidget_C_OnWidgetInputX_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnWidgetInputY
-struct UInventoryWidget_C_OnWidgetInputY_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnItemExplorerProxyUpdated
-struct UInventoryWidget_C_OnItemExplorerProxyUpdated_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnInputRB
-struct UInventoryWidget_C_OnInputRB_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnInputRT
-struct UInventoryWidget_C_OnInputRT_Params
-{
-};
-
 // Function InventoryWidget.InventoryWidget_C.BndEvt__Character_K2Node_ComponentBoundEvent_88_RefreshFocus__DelegateSignature
 struct UInventoryWidget_C_BndEvt__Character_K2Node_ComponentBoundEvent_88_RefreshFocus__DelegateSignature_Params
 {
@@ -402,62 +410,6 @@ struct UInventoryWidget_C_BndEvt__Weapon_K2Node_ComponentBoundEvent_105_RefreshF
 
 // Function InventoryWidget.InventoryWidget_C.BndEvt__Vicinity_K2Node_ComponentBoundEvent_115_RefreshFocus__DelegateSignature
 struct UInventoryWidget_C_BndEvt__Vicinity_K2Node_ComponentBoundEvent_115_RefreshFocus__DelegateSignature_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnLeftRelease
-struct UInventoryWidget_C_OnLeftRelease_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnRightRelease
-struct UInventoryWidget_C_OnRightRelease_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnUpRelease
-struct UInventoryWidget_C_OnUpRelease_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnDownRelease
-struct UInventoryWidget_C_OnDownRelease_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.MoveTick
-struct UInventoryWidget_C_MoveTick_Params
-{
-	float                                              DeltaTime;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function InventoryWidget.InventoryWidget_C.Construct
-struct UInventoryWidget_C_Construct_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnInteract
-struct UInventoryWidget_C_OnInteract_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnWidgetInputLT
-struct UInventoryWidget_C_OnWidgetInputLT_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnWidgetInputRT
-struct UInventoryWidget_C_OnWidgetInputRT_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnEquipmentUpdated
-struct UInventoryWidget_C_OnEquipmentUpdated_Params
-{
-};
-
-// Function InventoryWidget.InventoryWidget_C.CustomEvent_1
-struct UInventoryWidget_C_CustomEvent_1_Params
 {
 };
 
@@ -483,11 +435,6 @@ struct UInventoryWidget_C_BndEvt__Weapon_K2Node_ComponentBoundEvent_56_OnInvento
 struct UInventoryWidget_C_BndEvt__Character_K2Node_ComponentBoundEvent_69_OnInventoryDrop__DelegateSignature_Params
 {
 	class UDragDropOperation*                          Operation;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function InventoryWidget.InventoryWidget_C.OnInventoryUpdated
-struct UInventoryWidget_C_OnInventoryUpdated_Params
-{
 };
 
 // Function InventoryWidget.InventoryWidget_C.BndEvt__Character_K2Node_ComponentBoundEvent_487_OnEnterSlot__DelegateSignature

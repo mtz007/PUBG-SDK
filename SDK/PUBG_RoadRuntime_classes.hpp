@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,13 +13,13 @@ namespace Classes
 //---------------------------------------------------------------------------
 
 // Class RoadRuntime.CrossActor
-// 0x0030 (0x03F0 - 0x03C0)
+// 0x0030 (0x0400 - 0x03D0)
 class ACrossActor : public AStaticMeshActor
 {
 public:
-	struct FString                                     UniqueKey;                                                // 0x03C0(0x0010) (ZeroConstructor)
-	TArray<struct FCrossActorManager>                  SideActors;                                               // 0x03D0(0x0010) (ZeroConstructor)
-	TArray<struct FCrossMeshManager>                   SideMeshes;                                               // 0x03E0(0x0010) (ZeroConstructor)
+	struct FString                                     UniqueKey;                                                // 0x03D0(0x0010) (ZeroConstructor)
+	TArray<struct FCrossActorManager>                  SideActors;                                               // 0x03E0(0x0010) (ZeroConstructor)
+	TArray<struct FCrossMeshManager>                   SideMeshes;                                               // 0x03F0(0x0010) (ZeroConstructor)
 
 	static UClass* StaticClass()
 	{
@@ -37,25 +37,26 @@ public:
 
 
 // Class RoadRuntime.RoadActor
-// 0x0088 (0x0438 - 0x03B0)
+// 0x0090 (0x0450 - 0x03C0)
 class ARoadActor : public AActor
 {
 public:
-	TEnumAsByte<ESplineMeshAxis>                       SplineMeshAxis;                                           // 0x03B0(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x03B1(0x0003) MISSED OFFSET
-	struct FVector                                     LocalOffset;                                              // 0x03B4(0x000C) (IsPlainOldData)
-	class ARoadActor*                                  Father;                                                   // 0x03C0(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	struct FString                                     UniqueKey;                                                // 0x03C8(0x0010) (ZeroConstructor)
-	class USplineComponent*                            Spline;                                                   // 0x03D8(0x0008) (ExportObject, ZeroConstructor, Transient, InstancedReference, IsPlainOldData)
-	int                                                Index;                                                    // 0x03E0(0x0004) (ZeroConstructor, IsPlainOldData)
-	int                                                Segmentation;                                             // 0x03E4(0x0004) (ZeroConstructor, IsPlainOldData)
-	int                                                StepGeneration;                                           // 0x03E8(0x0004) (ZeroConstructor, IsPlainOldData)
-	float                                              Size;                                                     // 0x03EC(0x0004) (ZeroConstructor, IsPlainOldData)
-	class UStaticMesh*                                 RoadMesh;                                                 // 0x03F0(0x0008) (ZeroConstructor, IsPlainOldData)
-	TArray<class USplineMeshComponent*>                RoadMeshesComp;                                           // 0x03F8(0x0010) (ExportObject, ZeroConstructor)
-	TArray<struct FSideActorManager>                   SideActors;                                               // 0x0408(0x0010) (ZeroConstructor)
-	TArray<struct FSideMeshManager>                    SideMeshes;                                               // 0x0418(0x0010) (ZeroConstructor)
-	TArray<struct FCurbsManager>                       SideCurbs;                                                // 0x0428(0x0010) (ZeroConstructor)
+	TEnumAsByte<ESplineMeshAxis>                       SplineMeshAxis;                                           // 0x03C0(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x03C1(0x0003) MISSED OFFSET
+	struct FVector                                     LocalOffset;                                              // 0x03C4(0x000C) (IsPlainOldData)
+	class ARoadActor*                                  Father;                                                   // 0x03D0(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	struct FString                                     UniqueKey;                                                // 0x03D8(0x0010) (ZeroConstructor)
+	class USplineComponent*                            Spline;                                                   // 0x03E8(0x0008) (ExportObject, ZeroConstructor, Transient, InstancedReference, IsPlainOldData)
+	int                                                Index;                                                    // 0x03F0(0x0004) (ZeroConstructor, IsPlainOldData)
+	int                                                Segmentation;                                             // 0x03F4(0x0004) (ZeroConstructor, IsPlainOldData)
+	int                                                StepGeneration;                                           // 0x03F8(0x0004) (ZeroConstructor, IsPlainOldData)
+	float                                              Size;                                                     // 0x03FC(0x0004) (ZeroConstructor, IsPlainOldData)
+	class UStaticMesh*                                 RoadMesh;                                                 // 0x0400(0x0008) (ZeroConstructor, IsPlainOldData)
+	TArray<class USplineMeshComponent*>                RoadMeshesComp;                                           // 0x0408(0x0010) (ExportObject, ZeroConstructor)
+	TArray<struct FSideActorManager>                   SideActors;                                               // 0x0418(0x0010) (ZeroConstructor)
+	TArray<struct FSideMeshManager>                    SideMeshes;                                               // 0x0428(0x0010) (ZeroConstructor)
+	TArray<struct FCurbsManager>                       SideCurbs;                                                // 0x0438(0x0010) (ZeroConstructor)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0448(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{

@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -120,7 +120,7 @@ struct UKismetProceduralMeshLibrary_SliceProceduralMesh_Params
 struct UKismetProceduralMeshLibrary_GetSectionFromStaticMesh_Params
 {
 	class UStaticMesh*                                 InMesh;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                LodIndex;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                LODIndex;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 	int                                                SectionIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
 	TArray<struct FVector>                             Vertices;                                                 // (Parm, OutParm, ZeroConstructor)
 	TArray<int>                                        Triangles;                                                // (Parm, OutParm, ZeroConstructor)
@@ -153,7 +153,7 @@ struct UKismetProceduralMeshLibrary_CreateGridMeshTriangles_Params
 struct UKismetProceduralMeshLibrary_CopyProceduralMeshFromStaticMeshComponent_Params
 {
 	class UStaticMeshComponent*                        StaticMeshComponent;                                      // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	int                                                LodIndex;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                LODIndex;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 	class UProceduralMeshComponent*                    ProcMeshComponent;                                        // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 	bool                                               bCreateCollision;                                         // (Parm, ZeroConstructor, IsPlainOldData)
 };

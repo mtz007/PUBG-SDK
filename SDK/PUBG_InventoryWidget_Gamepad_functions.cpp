@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -431,6 +431,26 @@ bool UInventoryWidget_Gamepad_C::Up()
 	fn->FunctionFlags = flags;
 
 	return params.ReturnValue;
+}
+
+
+// Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.RefreshToolTip
+// (Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// TScriptInterface<class USlotInterface> Item                           (Parm, ZeroConstructor, IsPlainOldData)
+
+void UInventoryWidget_Gamepad_C::RefreshToolTip(const TScriptInterface<class USlotInterface>& Item)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.RefreshToolTip");
+
+	UInventoryWidget_Gamepad_C_RefreshToolTip_Params params;
+	params.Item = Item;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
 }
 
 
@@ -987,6 +1007,40 @@ void UInventoryWidget_Gamepad_C::BndEvt__Vicinity_K2Node_ComponentBoundEvent_36_
 }
 
 
+// Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Construct
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+
+void UInventoryWidget_Gamepad_C::Construct()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Construct");
+
+	UInventoryWidget_Gamepad_C_Construct_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Destruct
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+
+void UInventoryWidget_Gamepad_C::Destruct()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Destruct");
+
+	UInventoryWidget_Gamepad_C_Destruct_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.BndEvt__Weapon_K2Node_ComponentBoundEvent_15_OnAttachmentFocused__DelegateSignature
 // (BlueprintEvent)
 // Parameters:
@@ -1075,40 +1129,6 @@ void UInventoryWidget_Gamepad_C::BndEvt__SelfPutHelperWidget_K2Node_ComponentBou
 }
 
 
-// Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Construct
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-
-void UInventoryWidget_Gamepad_C::Construct()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Construct");
-
-	UInventoryWidget_Gamepad_C_Construct_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Destruct
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-
-void UInventoryWidget_Gamepad_C::Destruct()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Destruct");
-
-	UInventoryWidget_Gamepad_C_Destruct_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Custom Event_1
 // (BlueprintCallable, BlueprintEvent)
 
@@ -1151,6 +1171,23 @@ void UInventoryWidget_Gamepad_C::Custom_Event_3()
 	static auto fn = UObject::FindObject<UFunction>("Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Custom Event_3");
 
 	UInventoryWidget_Gamepad_C_Custom_Event_3_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Custom Event_4
+// (BlueprintCallable, BlueprintEvent)
+
+void UInventoryWidget_Gamepad_C::Custom_Event_4()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Custom Event_4");
+
+	UInventoryWidget_Gamepad_C_Custom_Event_4_Params params;
 
 	auto flags = fn->FunctionFlags;
 

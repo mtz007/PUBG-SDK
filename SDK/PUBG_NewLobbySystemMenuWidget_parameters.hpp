@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,12 @@ namespace Classes
 //---------------------------------------------------------------------------
 //Parameters
 //---------------------------------------------------------------------------
+
+// Function NewLobbySystemMenuWidget.NewLobbySystemMenuWidget_C.GetPlatformText
+struct UNewLobbySystemMenuWidget_C_GetPlatformText_Params
+{
+	struct FString                                     retString;                                                // (Parm, OutParm, ZeroConstructor)
+};
 
 // Function NewLobbySystemMenuWidget.NewLobbySystemMenuWidget_C.Get_PUBGVersionText_Text_1
 struct UNewLobbySystemMenuWidget_C_Get_PUBGVersionText_Text_1_Params

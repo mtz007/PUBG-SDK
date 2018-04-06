@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -133,6 +133,12 @@ struct UInventorySlotBaseWidget_C_SetFocus_Params
 struct UInventorySlotBaseWidget_C_Up_Params
 {
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function InventorySlotBaseWidget.InventorySlotBaseWidget_C.IsSlotSelected_Bp
+struct UInventorySlotBaseWidget_C_IsSlotSelected_Bp_Params
+{
+	bool                                               res;                                                      // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function InventorySlotBaseWidget.InventorySlotBaseWidget_C.RaiseEnterEvent

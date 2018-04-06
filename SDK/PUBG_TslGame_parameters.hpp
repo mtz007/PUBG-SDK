@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -49,11 +49,22 @@ struct ATslBaseHUD_UpdateKillcamDisplayCode_Params
 	EKillcamDisplayCode                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function TslGame.TslBaseHUD.UpdateHud
+struct ATslBaseHUD_UpdateHud_Params
+{
+};
+
 // Function TslGame.TslBaseHUD.UnbindActionKeyDelegateEvent
 struct ATslBaseHUD_UnbindActionKeyDelegateEvent_Params
 {
 	struct FName                                       ActionName;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 	TEnumAsByte<EInputEvent>                           InputEvent;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslBaseHUD.TestShowDialog
+struct ATslBaseHUD_TestShowDialog_Params
+{
+	struct FString                                     Message;                                                  // (Parm, ZeroConstructor)
 };
 
 // Function TslGame.TslBaseHUD.ShowPopupDialog
@@ -63,6 +74,21 @@ struct ATslBaseHUD_ShowPopupDialog_Params
 	EPopupStyle                                        PopupStyle;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FText                                       Message;                                                  // (Parm)
 	struct FScriptDelegate                             PressedDelegate;                                          // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+};
+
+// Function TslGame.TslBaseHUD.ShowDefaultHud
+struct ATslBaseHUD_ShowDefaultHud_Params
+{
+};
+
+// Function TslGame.TslBaseHUD.PrintShowWidgetList
+struct ATslBaseHUD_PrintShowWidgetList_Params
+{
+};
+
+// Function TslGame.TslBaseHUD.PrintCreatedWidgetList
+struct ATslBaseHUD_PrintCreatedWidgetList_Params
+{
 };
 
 // Function TslGame.TslBaseHUD.OnClickedKillcamPlay
@@ -121,6 +147,12 @@ struct ATslBaseHUD_GetKillcamCountingText_Params
 	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
 };
 
+// Function TslGame.TslBaseHUD.ForceHidePopupHandler
+struct ATslBaseHUD_ForceHidePopupHandler_Params
+{
+	EPopupButtonID                                     DummyID;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function TslGame.TslBaseHUD.DestroyAllWidgets
 struct ATslBaseHUD_DestroyAllWidgets_Params
 {
@@ -171,6 +203,18 @@ struct UAsyncStaticMeshComponent_SetStaticMeshAsset_Params
 struct UAsyncStaticMeshComponent_IsSameMesh_Params
 {
 	TAssetPtr<class UStaticMesh>                       Asset;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.AsyncStaticMeshComponent.IsLoading
+struct UAsyncStaticMeshComponent_IsLoading_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.AsyncStaticMeshComponent.IsLoaded
+struct UAsyncStaticMeshComponent_IsLoaded_Params
+{
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
@@ -277,6 +321,38 @@ struct UTslStatics_UnloadTextureByPtr_Params
 	TAssetPtr<class UTexture>                          TexturePtr;                                               // (Parm)
 };
 
+// Function TslGame.TslStatics.SwitchValueByIsConsole
+struct UTslStatics_SwitchValueByIsConsole_Params
+{
+	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ConsoleOverrideValue;                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslStatics.SpawnTslParticleAttached
+struct UTslStatics_SpawnTslParticleAttached_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      TslParticle;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	class USceneComponent*                             Parent;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FName                                       AttachSocketName;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       GroupName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bAutoReturnToPool;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+	class ATslParticle*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslStatics.SpawnTslParticleAtLocation
+struct UTslStatics_SpawnTslParticleAtLocation_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      TslParticle;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     SpawnLocation;                                            // (Parm, IsPlainOldData)
+	struct FRotator                                    SpawnRotation;                                            // (Parm, IsPlainOldData)
+	struct FName                                       GroupName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bAutoReturnToPool;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+	class ATslParticle*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslStatics.SetWorldOriginByDistance
 struct UTslStatics_SetWorldOriginByDistance_Params
 {
@@ -334,6 +410,20 @@ struct UTslStatics_ServerPositionToLocal_Params
 	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FVector                                     Server;                                                   // (Parm, IsPlainOldData)
 	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslStatics.SaveStringToFile
+struct UTslStatics_SaveStringToFile_Params
+{
+	struct FString                                     Str;                                                      // (Parm, ZeroConstructor)
+	struct FString                                     Filename;                                                 // (Parm, ZeroConstructor)
+};
+
+// Function TslGame.TslStatics.SaveImageToFile
+struct UTslStatics_SaveImageToFile_Params
+{
+	struct FString                                     Filename;                                                 // (Parm, ZeroConstructor)
+	TArray<struct FLinearColor>                        LinearColorArray;                                         // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
 };
 
 // Function TslGame.TslStatics.SafeDivide_IntInt
@@ -551,6 +641,12 @@ struct UTslStatics_IsEditor_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function TslGame.TslStatics.IsConsolePlatform
+struct UTslStatics_IsConsolePlatform_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslStatics.IsClientActor
 struct UTslStatics_IsClientActor_Params
 {
@@ -584,7 +680,7 @@ struct UTslStatics_GetVehicleSeatComponent_Params
 // Function TslGame.TslStatics.GetVehicleCommonComponent
 struct UTslStatics_GetVehicleCommonComponent_Params
 {
-	class AActor*                                      Actor;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      Actor;                                                    // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
 	class UTslVehicleCommonComponent*                  ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
 };
 
@@ -669,6 +765,12 @@ struct UTslStatics_GetMOAScale_Params
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function TslGame.TslStatics.GetMemoryInfo
+struct UTslStatics_GetMemoryInfo_Params
+{
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
 // Function TslGame.TslStatics.GetGappLobbyUrl
 struct UTslStatics_GetGappLobbyUrl_Params
 {
@@ -728,6 +830,24 @@ struct UTslStatics_GetBallisticDropScale_Params
 struct UTslStatics_GetBallisticDragScale_Params
 {
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslStatics.GetAngleFromX
+struct UTslStatics_GetAngleFromX_Params
+{
+	struct FVector2D                                   TargetVector;                                             // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+	bool                                               bClockwise;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslStatics.ConeVolumeLineTraceTest
+struct UTslStatics_ConeVolumeLineTraceTest_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     Origin;                                                   // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+	float                                              HalfConeAngle;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              RayLength;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.TslStatics.ConeVolumeLineTraceSingle
@@ -835,6 +955,19 @@ struct UTslStatics_ApplyDamage_Params
 	class AActor*                                      DamageCauser;                                             // (Parm, ZeroConstructor, IsPlainOldData)
 	class UClass*                                      DamageTypeClass;                                          // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FAttackId                                   AttackId;                                                 // (Parm)
+};
+
+// Function TslGame.TslStatics.AddTslParticleGroupInfo
+struct UTslStatics_AddTslParticleGroupInfo_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       GroupName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                MaxObjectCount;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bCullByDistance;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              MaxDistance;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bCullByFrustum;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bCullByLastRenderedTime;                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              MaxRenderDuration;                                        // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.CastComponent.StartCastOnClient
@@ -946,53 +1079,6 @@ struct UCharacterBreathComponent_AddBreath_Params
 	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function TslGame.CharacterStudio.Update
-struct ACharacterStudio_Update_Params
-{
-};
-
-// Function TslGame.CharacterStudio.SetSceneCaptureMaterial
-struct ACharacterStudio_SetSceneCaptureMaterial_Params
-{
-	class UMaterialInstanceDynamic*                    Mid;                                                      // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.CharacterStudio.SetCharacter
-struct ACharacterStudio_SetCharacter_Params
-{
-	class ATslCharacter*                               Character;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.CharacterStudio.IsUsingDynamicResolution
-struct ACharacterStudio_IsUsingDynamicResolution_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.CharacterStudio.IsCharacterValid
-struct ACharacterStudio_IsCharacterValid_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.CharacterStudio.GetSceneCaptureMaterial
-struct ACharacterStudio_GetSceneCaptureMaterial_Params
-{
-	class UMaterialInstanceDynamic*                    ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.CharacterStudio.GetCharacter
-struct ACharacterStudio_GetCharacter_Params
-{
-	class ATslCharacter*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.CharacterStudio.AddYaw
-struct ACharacterStudio_AddYaw_Params
-{
-	float                                              Yaw;                                                      // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function TslGame.CoherentCommonBinder.Test
 struct UCoherentCommonBinder_Test_Params
 {
@@ -1024,6 +1110,11 @@ struct ATslBasePlayerController_HandleClipboard_Params
 {
 };
 
+// Function TslGame.TslPlayerController.UpdateHud
+struct ATslPlayerController_UpdateHud_Params
+{
+};
+
 // Function TslGame.TslPlayerController.UnreliablePong
 struct ATslPlayerController_UnreliablePong_Params
 {
@@ -1038,14 +1129,32 @@ struct ATslPlayerController_UnreliablePing_Params
 	int64_t                                            DateTimeTick;                                             // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function TslGame.TslPlayerController.ToggleReport
+struct ATslPlayerController_ToggleReport_Params
+{
+};
+
 // Function TslGame.TslPlayerController.ToggleInventory
 struct ATslPlayerController_ToggleInventory_Params
+{
+};
+
+// Function TslGame.TslPlayerController.Test_SpawnVehicle
+struct ATslPlayerController_Test_SpawnVehicle_Params
 {
 };
 
 // Function TslGame.TslPlayerController.Suicide
 struct ATslPlayerController_Suicide_Params
 {
+};
+
+// Function TslGame.TslPlayerController.SpectateCharacterOnDeath
+struct ATslPlayerController_SpectateCharacterOnDeath_Params
+{
+	struct FString                                     InViewTargetKillerUniqueId;                               // (Parm, ZeroConstructor)
+	int                                                ViewTargetTeamId;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     InLastDeathLocation;                                      // (Parm, IsPlainOldData)
 };
 
 // Function TslGame.TslPlayerController.SimulateInputKey
@@ -1091,6 +1200,11 @@ struct ATslPlayerController_ShowGotoLobbyPopUp_Params
 	EPopupButtonID                                     ButtonID;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function TslGame.TslPlayerController.ShowEmoteWheel
+struct ATslPlayerController_ShowEmoteWheel_Params
+{
+};
+
 // Function TslGame.TslPlayerController.SetDefaultFOV
 struct ATslPlayerController_SetDefaultFOV_Params
 {
@@ -1123,6 +1237,9 @@ struct ATslPlayerController_ServerSystemInfo_Params
 	struct FString                                     CpuName;                                                  // (Parm, ZeroConstructor)
 	struct FString                                     GpuName;                                                  // (Parm, ZeroConstructor)
 	uint32_t                                           RamInGB;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     BaseBoardSerial;                                          // (Parm, ZeroConstructor)
+	TArray<struct FString>                             MemorySerials;                                            // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
+	int                                                ArpIpCount;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslPlayerController.ServerSuicide
@@ -1135,6 +1252,12 @@ struct ATslPlayerController_ServerStopHoldRotation_Params
 {
 	struct FRotator                                    DeltaRotation;                                            // (Parm, IsPlainOldData)
 	bool                                               bUseInterp;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslPlayerController.ServerSteamNetworkStatusLog
+struct ATslPlayerController_ServerSteamNetworkStatusLog_Params
+{
+	int                                                CountPerGame;                                             // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslPlayerController.ServerStat
@@ -1159,6 +1282,7 @@ struct ATslPlayerController_ServerSpawnVehicle_Params
 struct ATslPlayerController_ServerSetViewTarget_Params
 {
 	class AActor*                                      NewViewTarget;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	EObserverCameraMode                                ObserverCameraMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslPlayerController.ServerSetThirdPerson
@@ -1263,6 +1387,12 @@ struct ATslPlayerController_ServerMapLoadFinishedOnClient_Params
 {
 };
 
+// Function TslGame.TslPlayerController.ServerLogXboxUnautorizedDevice
+struct ATslPlayerController_ServerLogXboxUnautorizedDevice_Params
+{
+	int                                                DetectCount;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function TslGame.TslPlayerController.ServerLeaveMatchIntentionally
 struct ATslPlayerController_ServerLeaveMatchIntentionally_Params
 {
@@ -1318,6 +1448,13 @@ struct ATslPlayerController_ServerAdmin_Params
 	struct FString                                     AdminCommand;                                             // (Parm, ZeroConstructor)
 };
 
+// Function TslGame.TslPlayerController.SendUnderFpsToServer
+struct ATslPlayerController_SendUnderFpsToServer_Params
+{
+	int                                                UnderFps30;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                UnderFps60;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function TslGame.TslPlayerController.SendSystemMessage
 struct ATslPlayerController_SendSystemMessage_Params
 {
@@ -1353,6 +1490,41 @@ struct ATslPlayerController_ReliablePing_Params
 	int64_t                                            DateTimeTick;                                             // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function TslGame.TslPlayerController.OnToggleInventoryPad
+struct ATslPlayerController_OnToggleInventoryPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslPlayerController.OnToggleInGameMenuPad
+struct ATslPlayerController_OnToggleInGameMenuPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslPlayerController.OnToggleCameraPad
+struct ATslPlayerController_OnToggleCameraPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslPlayerController.OnToggleCamera
+struct ATslPlayerController_OnToggleCamera_Params
+{
+};
+
+// Function TslGame.TslPlayerController.OnStopHoldRotationPad
+struct ATslPlayerController_OnStopHoldRotationPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslPlayerController.OnStartHoldRotationPad
+struct ATslPlayerController_OnStartHoldRotationPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslPlayerController.OnShowCastingBarWidget
 struct ATslPlayerController_OnShowCastingBarWidget_Params
 {
@@ -1385,6 +1557,18 @@ struct ATslPlayerController_OnMoveToVehicleSeat_Params
 // Function TslGame.TslPlayerController.OnItemStackCountHandlingMode
 struct ATslPlayerController_OnItemStackCountHandlingMode_Params
 {
+};
+
+// Function TslGame.TslPlayerController.OnInteractInVehiclePad
+struct ATslPlayerController_OnInteractInVehiclePad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslPlayerController.OnInteractGamepad
+struct ATslPlayerController_OnInteractGamepad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.TslPlayerController.OnFinishInteractionCastOnServer
@@ -1434,6 +1618,11 @@ struct ATslPlayerController_NextSetViewTarget_Params
 {
 };
 
+// Function TslGame.TslPlayerController.MobileBodiesStatistics
+struct ATslPlayerController_MobileBodiesStatistics_Params
+{
+};
+
 // Function TslGame.TslPlayerController.KickCharacter
 struct ATslPlayerController_KickCharacter_Params
 {
@@ -1478,6 +1667,12 @@ struct ATslPlayerController_IsObserving_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function TslGame.TslPlayerController.IsKillerSpectating
+struct ATslPlayerController_IsKillerSpectating_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslPlayerController.IsItemStackCountHandlingMode
 struct ATslPlayerController_IsItemStackCountHandlingMode_Params
 {
@@ -1515,6 +1710,11 @@ struct ATslPlayerController_HideTslDebugInfomation_Params
 
 // Function TslGame.TslPlayerController.HideMatchResult
 struct ATslPlayerController_HideMatchResult_Params
+{
+};
+
+// Function TslGame.TslPlayerController.HideEmoteWheel
+struct ATslPlayerController_HideEmoteWheel_Params
 {
 };
 
@@ -1586,6 +1786,12 @@ struct ATslPlayerController_GetSpectatingPlayerName_Params
 
 // Function TslGame.TslPlayerController.GetReplicateTeamMembers
 struct ATslPlayerController_GetReplicateTeamMembers_Params
+{
+	TArray<class ATslCharacter*>                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function TslGame.TslPlayerController.GetReplicateKillerTeamMembers
+struct ATslPlayerController_GetReplicateKillerTeamMembers_Params
 {
 	TArray<class ATslCharacter*>                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
 };
@@ -1676,6 +1882,12 @@ struct ATslPlayerController_GetAliveTeamMemberCount_Params
 	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function TslGame.TslPlayerController.ForceGotoLobbyPopUpHandler
+struct ATslPlayerController_ForceGotoLobbyPopUpHandler_Params
+{
+	EPopupButtonID                                     ButtonID;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function TslGame.TslPlayerController.DumpActorDetailByRaycast
 struct ATslPlayerController_DumpActorDetailByRaycast_Params
 {
@@ -1693,14 +1905,32 @@ struct ATslPlayerController_CompleteReportKiller_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function TslGame.TslPlayerController.ClientWasWarnedTobeKicked
-struct ATslPlayerController_ClientWasWarnedTobeKicked_Params
+// Function TslGame.TslPlayerController.CloseKickPlayerWarningPopupAndTerminate
+struct ATslPlayerController_CloseKickPlayerWarningPopupAndTerminate_Params
+{
+	EPopupButtonID                                     ButtonID;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslPlayerController.CloseKickPlayerWarningPopup
+struct ATslPlayerController_CloseKickPlayerWarningPopup_Params
+{
+	EPopupButtonID                                     ButtonID;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslPlayerController.ClientWasWarnedTobeKickedTP
+struct ATslPlayerController_ClientWasWarnedTobeKickedTP_Params
 {
 	struct FText                                       KickReason;                                               // (ConstParm, Parm, ReferenceParm)
 };
 
-// Function TslGame.TslPlayerController.ClientWasKickedAndExit
-struct ATslPlayerController_ClientWasKickedAndExit_Params
+// Function TslGame.TslPlayerController.ClientWasKickedToLobbyTP
+struct ATslPlayerController_ClientWasKickedToLobbyTP_Params
+{
+	struct FText                                       KickReason;                                               // (ConstParm, Parm, ReferenceParm)
+};
+
+// Function TslGame.TslPlayerController.ClientWasKickedAndExitTP
+struct ATslPlayerController_ClientWasKickedAndExitTP_Params
 {
 	struct FText                                       KickReason;                                               // (ConstParm, Parm, ReferenceParm)
 };
@@ -1712,6 +1942,16 @@ struct ATslPlayerController_ClientUpdateSpectatorCameraMode_Params
 	bool                                               InbFirstPerson;                                           // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               InbIsInVehicle;                                           // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               InbIsScoping;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslPlayerController.ClientUpdateDropPackageAchievement
+struct ATslPlayerController_ClientUpdateDropPackageAchievement_Params
+{
+};
+
+// Function TslGame.TslPlayerController.ClientUpdateCarePackageAchievement
+struct ATslPlayerController_ClientUpdateCarePackageAchievement_Params
+{
 };
 
 // Function TslGame.TslPlayerController.ClientStartOnlineGame
@@ -1767,6 +2007,11 @@ struct ATslPlayerController_ClientSendPacketUnreliable_Params
 struct ATslPlayerController_ClientSendPacketReliable_Params
 {
 	TArray<unsigned char>                              Packet;                                                   // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
+};
+
+// Function TslGame.TslPlayerController.ClientRestoreSpectatorOnReconnection
+struct ATslPlayerController_ClientRestoreSpectatorOnReconnection_Params
+{
 };
 
 // Function TslGame.TslPlayerController.ClientOnCharacterRestart
@@ -2060,6 +2305,12 @@ struct USlotInterface_GetSlotCategory_Params
 	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
 };
 
+// Function TslGame.SlotInterface.GetSkin
+struct USlotInterface_GetSkin_Params
+{
+	class USkinItem*                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.SlotInterface.GetIconTexture
 struct USlotInterface_GetIconTexture_Params
 {
@@ -2261,6 +2512,82 @@ struct UItem_GetIconTexture_Params
 	class UTexture*                                    ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function TslGame.TslParticleInterface.WakeUp_BP
+struct UTslParticleInterface_WakeUp_BP_Params
+{
+	struct FTransform                                  InitialTransform;                                         // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+};
+
+// Function TslGame.TslParticleInterface.PutToSleep_BP
+struct UTslParticleInterface_PutToSleep_BP_Params
+{
+};
+
+// Function TslGame.TslParticle.SetParticleParameter
+struct ATslParticle_SetParticleParameter_Params
+{
+	struct FString                                     Name;                                                     // (Parm, ZeroConstructor)
+	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bEnableRTPC;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslParticle.OnParticleFinish
+struct ATslParticle_OnParticleFinish_Params
+{
+	class UParticleSystemComponent*                    PSystem;                                                  // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+};
+
+// Function TslGame.TslParticle.OnParticleCollide
+struct ATslParticle_OnParticleCollide_Params
+{
+	struct FName                                       EventName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              EmitterTime;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                ParticleTime;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     Location;                                                 // (Parm, IsPlainOldData)
+	struct FVector                                     Velocity;                                                 // (Parm, IsPlainOldData)
+	struct FVector                                     Direction;                                                // (Parm, IsPlainOldData)
+	struct FVector                                     Normal;                                                   // (Parm, IsPlainOldData)
+	struct FName                                       BoneName;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	class UPhysicalMaterial*                           PhysMat;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslParticle.OnParameterUpdated
+struct ATslParticle_OnParameterUpdated_Params
+{
+};
+
+// Function TslGame.TslParticle.GetParticleParamter
+struct ATslParticle_GetParticleParamter_Params
+{
+	struct FString                                     Name;                                                     // (Parm, ZeroConstructor)
+	float                                              DefaultValue;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslParticle.GetEmitterGlobalSpawnRateScale
+struct ATslParticle_GetEmitterGlobalSpawnRateScale_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslParticle.ForceSpawn
+struct ATslParticle_ForceSpawn_Params
+{
+	int                                                emitterIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     InLocation;                                               // (ConstParm, Parm, IsPlainOldData)
+};
+
+// Function TslGame.TslParticle.AttachToParent
+struct ATslParticle_AttachToParent_Params
+{
+};
+
+// Function TslGame.ItemPackage.OnDestroy
+struct AItemPackage_OnDestroy_Params
+{
+	class AActor*                                      Actor;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function TslGame.ItemPackage.Items_RepNotify
 struct AItemPackage_Items_RepNotify_Params
 {
@@ -2296,6 +2623,41 @@ struct UDoorFrameComponent_GetDoorStaticMesh_Params
 struct UDoorFrameComponent_DisableSubComponents_Params
 {
 	bool                                               bDisable;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.SkinItem.CheckSkin
+struct USkinItem_CheckSkin_Params
+{
+	TScriptInterface<class USkinnableInterface>        SkinnableInterface;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.SkinItem.ApplySkin
+struct USkinItem_ApplySkin_Params
+{
+	TScriptInterface<class USkinnableInterface>        SkinnableInterface;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.SkinnableInterface.HasSkin
+struct USkinnableInterface_HasSkin_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.SkinnableInterface.ClearSkin
+struct USkinnableInterface_ClearSkin_Params
+{
+};
+
+// Function TslGame.DroppedItem.OnStaticMeshLoaded
+struct ADroppedItem_OnStaticMeshLoaded_Params
+{
+};
+
+// Function TslGame.DroppedItem.OnRep_SkinData
+struct ADroppedItem_OnRep_SkinData_Params
+{
 };
 
 // Function TslGame.DroppedItem.Item_RepNotify
@@ -2355,206 +2717,32 @@ struct UGeneralItemSpawner_CreateItemInitiators_Params
 	TArray<struct FItemInitiator>                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
 };
 
-// Function TslGame.HackReporterComponent.ServerOnWallHackDetected
-struct UHackReporterComponent_ServerOnWallHackDetected_Params
+// Function TslGame.TslVaultingHelper.GetActorAttachScene
+struct ATslVaultingHelper_GetActorAttachScene_Params
 {
-	class ATslCharacter*                               Victim;                                                   // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	float                                              Distance;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
 };
 
-// Function TslGame.HighlightSession.RecordRemainEvents
-struct UHighlightSession_RecordRemainEvents_Params
-{
-};
-
-// Function TslGame.HighlightSession.MatchEnded
-struct UHighlightSession_MatchEnded_Params
+// Function TslGame.MutableCharacter.UpdateAppearence
+struct AMutableCharacter_UpdateAppearence_Params
 {
 };
 
-// Function TslGame.HighlightSession.KillOtherPlayer
-struct UHighlightSession_KillOtherPlayer_Params
+// Function TslGame.MutableCharacter.OnRep_InstanceDescriptor
+struct AMutableCharacter_OnRep_InstanceDescriptor_Params
 {
-	bool                                               bGroggy;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function TslGame.HighlightSession.Die
-struct UHighlightSession_Die_Params
+// Function TslGame.MutableCharacter.GetGender
+struct AMutableCharacter_GetGender_Params
 {
-	bool                                               bGroggy;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	EGender                                            ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function TslGame.HighlightSession.DeathCamFinished
-struct UHighlightSession_DeathCamFinished_Params
+// Function TslGame.ReticlePostprocessData.GetPostprocessData
+struct UReticlePostprocessData_GetPostprocessData_Params
 {
-	float                                              DeathCamRunningTime;                                      // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.InteractionInterface.GetInteractiveObjectName
-struct UInteractionInterface_GetInteractiveObjectName_Params
-{
-	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function TslGame.InteractionInterface.GetInteractionVerb
-struct UInteractionInterface_GetInteractionVerb_Params
-{
-	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function TslGame.InteractionInterface.AllowInteractBy
-struct UInteractionInterface_AllowInteractBy_Params
-{
-	class ATslCharacter*                               Character;                                                // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.InteractionComponent.GetInteractiveObjectName
-struct UInteractionComponent_GetInteractiveObjectName_Params
-{
-	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function TslGame.InteractionComponent.GetInteractionVerb
-struct UInteractionComponent_GetInteractionVerb_Params
-{
-	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function TslGame.InteractionComponent.AllowInteractBy
-struct UInteractionComponent_AllowInteractBy_Params
-{
-	class ATslCharacter*                               Character;                                                // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.DroppedItemActorComponent.OnInteractDelegate
-struct UDroppedItemActorComponent_OnInteractDelegate_Params
-{
-	class ATslCharacter*                               OtherCharacter;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.DroppedItemActorComponent.AllowInteractDelegate
-struct UDroppedItemActorComponent_AllowInteractDelegate_Params
-{
-	class ATslCharacter*                               OtherCharacter;                                           // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.AttachableItem.GetAttachmentSlotID
-struct UAttachableItem_GetAttachmentSlotID_Params
-{
-	struct FName                                       WeaponTag;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	EWeaponAttachmentSlotID                            ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.AttachableItem.GetAttachmentData
-struct UAttachableItem_GetAttachmentData_Params
-{
-	struct FName                                       WeaponTag;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FWeaponAttachmentData                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function TslGame.HealItem.GetHealLimit
-struct UHealItem_GetHealLimit_Params
-{
-	class ATslCharacter*                               TslCharacter;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.SkinItem.CheckSkin
-struct USkinItem_CheckSkin_Params
-{
-	TScriptInterface<class USkinnableInterface>        SkinnableInterface;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.SkinItem.ApplySkin
-struct USkinItem_ApplySkin_Params
-{
-	TScriptInterface<class USkinnableInterface>        SkinnableInterface;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.EquipableItem.UnequipBy
-struct UEquipableItem_UnequipBy_Params
-{
-	class ATslCharacter*                               Character;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.EquipableItem.EquipBy
-struct UEquipableItem_EquipBy_Params
-{
-	class ATslCharacter*                               Character;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FEquipPosition                              Position;                                                 // (Parm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.EquipableItem.CanEquipTo
-struct UEquipableItem_CanEquipTo_Params
-{
-	class ATslCharacter*                               Character;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.CustomEquipableItem.GetOffset_Thrown
-struct UCustomEquipableItem_GetOffset_Thrown_Params
-{
-	struct FTransform                                  ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.CustomEquipableItem.GetOffset_SideArm
-struct UCustomEquipableItem_GetOffset_SideArm_Params
-{
-	struct FTransform                                  ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.CustomEquipableItem.GetOffset_Secondary
-struct UCustomEquipableItem_GetOffset_Secondary_Params
-{
-	struct FTransform                                  ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.CustomEquipableItem.GetOffset_Primary
-struct UCustomEquipableItem_GetOffset_Primary_Params
-{
-	struct FTransform                                  ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.CustomEquipableItem.GetOffset_Melee
-struct UCustomEquipableItem_GetOffset_Melee_Params
-{
-	struct FTransform                                  ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.CustomEquipableItem.GetItemLevel
-struct UCustomEquipableItem_GetItemLevel_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.ThrowableItem.GetEquippedWeapon
-struct UThrowableItem_GetEquippedWeapon_Params
-{
-	class ATslWeapon*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.ThrowableItem.GetDefaultWeaponObject
-struct UThrowableItem_GetDefaultWeaponObject_Params
-{
-	class ATslWeapon*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.SkinnableInterface.HasSkin
-struct USkinnableInterface_HasSkin_Params
-{
-	struct FSkinData                                   InSkinData;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.SkinnableInterface.ClearSkin
-struct USkinnableInterface_ClearSkin_Params
-{
+	struct FWeaponPPSettings                           ReturnValue;                                              // (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm)
 };
 
 // Function TslGame.TslWeapon.Weapon_AttachShoulder
@@ -2567,11 +2755,25 @@ struct ATslWeapon_Weapon_AttachHand_Params
 {
 };
 
+// Function TslGame.TslWeapon.UpdateAttachmentAssets
+struct ATslWeapon_UpdateAttachmentAssets_Params
+{
+	bool                                               bSameAssetReload;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function TslGame.TslWeapon.SimulatePhysicalBodyHit
 struct ATslWeapon_SimulatePhysicalBodyHit_Params
 {
 	struct FHitResult                                  Impact;                                                   // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
 	struct FVector                                     ShotDirection;                                            // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+};
+
+// Function TslGame.TslWeapon.SetWeaponMeshHidden
+struct ATslWeapon_SetWeaponMeshHidden_Params
+{
+	bool                                               Hidden;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bCastShadow;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bCastHiddenShadow;                                        // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslWeapon.ServerLogFireWeapon
@@ -2596,9 +2798,15 @@ struct ATslWeapon_OnRep_AttachedItemClasses_Params
 	TArray<class UClass*>                              OldVal;                                                   // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
 };
 
+// Function TslGame.TslWeapon.OnAttachmentStaticMeshLoaded
+struct ATslWeapon_OnAttachmentStaticMeshLoaded_Params
+{
+};
+
 // Function TslGame.TslWeapon.OnAnimationNotify
 struct ATslWeapon_OnAnimationNotify_Params
 {
+	class USkeletalMeshComponent*                      MeshComp;                                                 // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 	struct FName                                       NotifyName;                                               // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 };
 
@@ -2625,6 +2833,12 @@ struct ATslWeapon_GetWeaponReadyDuration_Params
 struct ATslWeapon_GetWeaponMesh_Params
 {
 	class USkeletalMeshComponent*                      ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+};
+
+// Function TslGame.TslWeapon.GetWeaponItem
+struct ATslWeapon_GetWeaponItem_Params
+{
+	class UEquipableItem*                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.TslWeapon.GetWeaponGripTypeLeft
@@ -2669,7 +2883,7 @@ struct ATslWeapon_GetWeaponAttachmentPoint_Params
 struct ATslWeapon_GetWeaponAttachmentData_Params
 {
 	EWeaponAttachmentSlotID                            SlotID;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FWeaponAttachmentData                       ReturnValue;                                              // (ConstParm, Parm, OutParm, ReturnParm)
+	struct FWeaponAttachmentData                       ReturnValue;                                              // (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm)
 };
 
 // Function TslGame.TslWeapon.GetWeaponAttachmentAssetDatas
@@ -2740,6 +2954,12 @@ struct ATslWeapon_GetDoGripPose_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function TslGame.TslWeapon.GetAttachedStaticComponentMap
+struct ATslWeapon_GetAttachedStaticComponentMap_Params
+{
+	TMap<EWeaponAttachmentSlotID, class UAsyncStaticMeshComponent*> ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
 // Function TslGame.TslWeapon.GetAttachedMesh
 struct ATslWeapon_GetAttachedMesh_Params
 {
@@ -2781,330 +3001,6 @@ struct ATslWeapon_AttachWeaponToMesh_Params
 {
 };
 
-// Function TslGame.WeaponItem.SetFiringMode
-struct UWeaponItem_SetFiringMode_Params
-{
-	EFiringMode                                        fMode;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.WeaponItem.IsAttachable
-struct UWeaponItem_IsAttachable_Params
-{
-	class UAttachableItem*                             Item;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.WeaponItem.HasAttachmentSlot
-struct UWeaponItem_HasAttachmentSlot_Params
-{
-	EWeaponAttachmentSlotID                            SlotID;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.WeaponItem.GetFiringMode
-struct UWeaponItem_GetFiringMode_Params
-{
-	EFiringMode                                        ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.WeaponItem.GetEquippedWeapon
-struct UWeaponItem_GetEquippedWeapon_Params
-{
-	class ATslWeapon*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.WeaponItem.GetDefaultWeaponObject
-struct UWeaponItem_GetDefaultWeaponObject_Params
-{
-	class ATslWeapon*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.WeaponItem.GetAttachedItem
-struct UWeaponItem_GetAttachedItem_Params
-{
-	EWeaponAttachmentSlotID                            SlotID;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	class UAttachableItem*                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.WeaponItem.GetAttachableItemCount
-struct UWeaponItem_GetAttachableItemCount_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.WeaponItem.GetAllAttachedItems
-struct UWeaponItem_GetAllAttachedItems_Params
-{
-	TArray<class UAttachableItem*>                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function TslGame.WeaponItem.DetachItem
-struct UWeaponItem_DetachItem_Params
-{
-	EWeaponAttachmentSlotID                            SlotID;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	class UAttachableItem*                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.WeaponItem.AttachItem
-struct UWeaponItem_AttachItem_Params
-{
-	class UAttachableItem*                             Item;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.ItemSpawnProcessor.ProcessSpawnItem
-struct UItemSpawnProcessor_ProcessSpawnItem_Params
-{
-	class UItemSpotGroupComponent*                     Spawner;                                                  // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-};
-
-// Function TslGame.ItemSpawnProcessor.ProcessGroup
-struct UItemSpawnProcessor_ProcessGroup_Params
-{
-	class UItemSpotGroupComponent*                     SpotGroup;                                                // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	TArray<class UItemSpotComponent*>                  Spots;                                                    // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-};
-
-// Function TslGame.ItemSpawnProcessor.CheckItemGroup
-struct UItemSpawnProcessor_CheckItemGroup_Params
-{
-	class UItemSpotGroupComponent*                     SpotGroup;                                                // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.ItemStudio.UpdateComponentToWorld
-struct AItemStudio_UpdateComponentToWorld_Params
-{
-	class UMeshComponent*                              Mesh;                                                     // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-};
-
-// Function TslGame.ItemStudio.SetTextureRenderTarget
-struct AItemStudio_SetTextureRenderTarget_Params
-{
-	class UTextureRenderTarget2D*                      NewTextureTarget;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.ItemStudio.SetItem
-struct AItemStudio_SetItem_Params
-{
-	class UItem*                                       Item;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.ItemStudio.AddYaw
-struct AItemStudio_AddYaw_Params
-{
-	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.ItemToolTipWidget.UpdateVicinityOrInventorySlotItemToolTip
-struct UItemToolTipWidget_UpdateVicinityOrInventorySlotItemToolTip_Params
-{
-	class UEquipableItem*                              EquipableItem;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	class UEquipableItem*                              EquipmentSlotItem;                                        // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.ItemToolTipWidget.UpdateToolTipBySlotInterface
-struct UItemToolTipWidget_UpdateToolTipBySlotInterface_Params
-{
-	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	TScriptInterface<class USlotContainerInterface>    Container;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.ItemToolTipWidget.UpdateSlotInfo
-struct UItemToolTipWidget_UpdateSlotInfo_Params
-{
-	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
-};
-
-// Function TslGame.ItemToolTipWidget.UpdateEquipmentSlotItemToolTip
-struct UItemToolTipWidget_UpdateEquipmentSlotItemToolTip_Params
-{
-	class UEquipableItem*                              EquipableItem;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.LobbyWidget.GameStateChanging
-struct ULobbyWidget_GameStateChanging_Params
-{
-	struct FName                                       NewState;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       OldState;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.MatchPreparer.TimerGameStartCountDown
-struct UMatchPreparer_TimerGameStartCountDown_Params
-{
-};
-
-// Function TslGame.AirborneMatchPreparer.AllowDealDamage
-struct UAirborneMatchPreparer_AllowDealDamage_Params
-{
-};
-
-// Function TslGame.ModeController.SendSystemMessageToAll
-struct AModeController_SendSystemMessageToAll_Params
-{
-	ESystemMessageType                                 MessageType;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FText                                       Message;                                                  // (Parm)
-	float                                              MessageDuration;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.ModeController.IsPlayInEditor
-struct AModeController_IsPlayInEditor_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.ModeController.HandleServerAdminBlueprint
-struct AModeController_HandleServerAdminBlueprint_Params
-{
-	struct FString                                     AdminCommand;                                             // (Parm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.ModeController.GetGameState
-struct AModeController_GetGameState_Params
-{
-	class ATslGameState*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.ModeController.GetGameMode
-struct AModeController_GetGameMode_Params
-{
-	class ATslGameMode*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.ModeController.CanDealDamage
-struct AModeController_CanDealDamage_Params
-{
-	class ATslPlayerState*                             DamageInstigator;                                         // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	class ATslPlayerState*                             DamagedPlayer;                                            // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.BattleRoyaleModeController.SetNextGasInBlackboard
-struct ABattleRoyaleModeController_SetNextGasInBlackboard_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.BattleRoyaleModeController.InitRadius
-struct ABattleRoyaleModeController_InitRadius_Params
-{
-};
-
-// Function TslGame.BattleRoyaleModeController.GetPoisonGasDamagePerSecond
-struct ABattleRoyaleModeController_GetPoisonGasDamagePerSecond_Params
-{
-	float                                              CharaterToCenterDistance;                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              SafetyZoneRadius;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              PoisonGasWarningRadius;                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.BattleRoyaleModeController.GetMaxPhaseCount
-struct ABattleRoyaleModeController_GetMaxPhaseCount_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.CarePackageController.SpawnAircraftCarePackageCustom
-struct ACarePackageController_SpawnAircraftCarePackageCustom_Params
-{
-	struct FVector                                     DropLocation;                                             // (Parm, IsPlainOldData)
-	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.CarePackageController.SpawnAircraftCarePackage
-struct ACarePackageController_SpawnAircraftCarePackage_Params
-{
-	bool                                               CopyIntersectionInfo;                                     // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.CarePackageController.SetNextCarePackageInBlackboard
-struct ACarePackageController_SetNextCarePackageInBlackboard_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.CarePackageController.InitCarePackageSetting
-struct ACarePackageController_InitCarePackageSetting_Params
-{
-};
-
-// Function TslGame.CarePackageController.GetSpawnInterval
-struct ACarePackageController_GetSpawnInterval_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.RedZoneController.SpawnBombProjectile
-struct ARedZoneController_SpawnBombProjectile_Params
-{
-};
-
-// Function TslGame.RedZoneController.SetNextRedZoneInBlackboard
-struct ARedZoneController_SetNextRedZoneInBlackboard_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.RedZoneController.OnBombingStart
-struct ARedZoneController_OnBombingStart_Params
-{
-	struct FVector                                     RedZonePosition;                                          // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
-};
-
-// Function TslGame.RedZoneController.InitRedZoneSetting
-struct ARedZoneController_InitRedZoneSetting_Params
-{
-};
-
-// Function TslGame.RedZoneController.GetRandomBombingInterval
-struct ARedZoneController_GetRandomBombingInterval_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.MutableCharacter.UpdateAppearence
-struct AMutableCharacter_UpdateAppearence_Params
-{
-};
-
-// Function TslGame.MutableCharacter.OnRep_InstanceDescriptor
-struct AMutableCharacter_OnRep_InstanceDescriptor_Params
-{
-};
-
-// Function TslGame.MutableCharacter.GetGender
-struct AMutableCharacter_GetGender_Params
-{
-	EGender                                            ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.LobbyCharacter.GetSlotId
-struct ALobbyCharacter_GetSlotId_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.LobbyCharacter.GetNickName
-struct ALobbyCharacter_GetNickName_Params
-{
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function TslGame.LobbyCharacter.GetNetId
-struct ALobbyCharacter_GetNetId_Params
-{
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function TslGame.TslVaultingHelper.GetActorAttachScene
-struct ATslVaultingHelper_GetActorAttachScene_Params
-{
-	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
 // Function TslGame.TslWeapon_Gun.WeaponCycleDone
 struct ATslWeapon_Gun_WeaponCycleDone_Params
 {
@@ -3142,7 +3038,7 @@ struct ATslWeapon_Gun_SetSpawnBulletFromBarrel_Params
 // Function TslGame.TslWeapon_Gun.SetFiringMode
 struct ATslWeapon_Gun_SetFiringMode_Params
 {
-	EFiringMode                                        FiringMode;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	EFiringMode                                        firingMode;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslWeapon_Gun.ServerStopReload
@@ -3249,6 +3145,7 @@ struct ATslWeapon_Gun_OnAttachmentScopeLoaded_Params
 // Function TslGame.TslWeapon_Gun.OnAnimationNotify
 struct ATslWeapon_Gun_OnAnimationNotify_Params
 {
+	class USkeletalMeshComponent*                      MeshComp;                                                 // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 	struct FName                                       NotifyName;                                               // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 };
 
@@ -3259,6 +3156,12 @@ struct ATslWeapon_Gun_ManualFireCycleFinished_Params
 
 // Function TslGame.TslWeapon_Gun.IsWeaponCycleInProgress
 struct ATslWeapon_Gun_IsWeaponCycleInProgress_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslWeapon_Gun.IsWeaponCycleAnimActive
+struct ATslWeapon_Gun_IsWeaponCycleAnimActive_Params
 {
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
@@ -3284,7 +3187,7 @@ struct ATslWeapon_Gun_GetWeaponTacticalReload_Params
 // Function TslGame.TslWeapon_Gun.GetWeaponPostprocessSettings
 struct ATslWeapon_Gun_GetWeaponPostprocessSettings_Params
 {
-	struct FWeaponPPSettings                           ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+	struct FWeaponPPSettings                           ReturnValue;                                              // (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm)
 };
 
 // Function TslGame.TslWeapon_Gun.GetWeaponOrScopePostprocessSettings
@@ -3547,7 +3450,7 @@ struct ATslWeapon_Gun_ClientSimulateWeaponFire_Params
 // Function TslGame.TslWeapon_Gun.ClientSetFiringMode
 struct ATslWeapon_Gun_ClientSetFiringMode_Params
 {
-	EFiringMode                                        FiringMode;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	EFiringMode                                        firingMode;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslWeapon_Gun.ClientNotifyStopReloadByOne
@@ -3620,6 +3523,44 @@ struct ATslWeapon_Gun_AnimCall_FireWeaponCycle_Params
 // Function TslGame.TslWeapon_Gun.AnimCall_FireWeapon
 struct ATslWeapon_Gun_AnimCall_FireWeapon_Params
 {
+};
+
+// Function TslGame.InteractionInterface.GetInteractiveObjectName
+struct UInteractionInterface_GetInteractiveObjectName_Params
+{
+	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function TslGame.InteractionInterface.GetInteractionVerb
+struct UInteractionInterface_GetInteractionVerb_Params
+{
+	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function TslGame.InteractionInterface.AllowInteractBy
+struct UInteractionInterface_AllowInteractBy_Params
+{
+	class ATslCharacter*                               Character;                                                // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.InteractionComponent.GetInteractiveObjectName
+struct UInteractionComponent_GetInteractiveObjectName_Params
+{
+	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function TslGame.InteractionComponent.GetInteractionVerb
+struct UInteractionComponent_GetInteractionVerb_Params
+{
+	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function TslGame.InteractionComponent.AllowInteractBy
+struct UInteractionComponent_AllowInteractBy_Params
+{
+	class ATslCharacter*                               Character;                                                // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.VehicleSeatActor.OnRep_Rider
@@ -3796,6 +3737,12 @@ struct AWeaponProcessor_GetWeaponThrowable_Params
 	class ATslWeapon_Throwable*                        ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function TslGame.WeaponProcessor.GetWeaponProjectile
+struct AWeaponProcessor_GetWeaponProjectile_Params
+{
+	class ATslWeapon_Gun_Projectile*                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.WeaponProcessor.GetWeaponIndex
 struct AWeaponProcessor_GetWeaponIndex_Params
 {
@@ -3858,6 +3805,13 @@ struct AWeaponProcessor_ClientForceRemoveWeapon_Params
 	int                                                WeaponIndex;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function TslGame.HackReporterComponent.ServerOnWallHackDetected
+struct UHackReporterComponent_ServerOnWallHackDetected_Params
+{
+	class ATslCharacter*                               Victim;                                                   // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Distance;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function TslGame.VaultingData.GetVaultAnimation
 struct UVaultingData_GetVaultAnimation_Params
 {
@@ -3884,6 +3838,85 @@ struct UVaultingData_GetAnimationCurve_Params
 	class UCurveFloat*                                 ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function TslGame.TslEmoteComponent.Server_EmotePlay
+struct UTslEmoteComponent_Server_EmotePlay_Params
+{
+	struct FName                                       EmoteName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bIsRNG;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       SectionName;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslEmoteComponent.SendSystemMessageEmoteUnavailable
+struct UTslEmoteComponent_SendSystemMessageEmoteUnavailable_Params
+{
+};
+
+// Function TslGame.TslEmoteComponent.SendSystemMessageEmoteBlocked
+struct UTslEmoteComponent_SendSystemMessageEmoteBlocked_Params
+{
+};
+
+// Function TslGame.TslEmoteComponent.GetEmoteTextureByName
+struct UTslEmoteComponent_GetEmoteTextureByName_Params
+{
+	struct FName                                       EmoteName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	class UTexture2D*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslEmoteComponent.GetEmoteNames
+struct UTslEmoteComponent_GetEmoteNames_Params
+{
+	TArray<struct FName>                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function TslGame.TslEmoteComponent.GetEmoteMontageByName
+struct UTslEmoteComponent_GetEmoteMontageByName_Params
+{
+	struct FName                                       EmoteName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	class UAnimMontage*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslEmoteComponent.GetEmoteMaterialByName
+struct UTslEmoteComponent_GetEmoteMaterialByName_Params
+{
+	struct FName                                       EmoteName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	class UMaterialInterface*                          ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslEmoteComponent.GetEmoteLocalizedName
+struct UTslEmoteComponent_GetEmoteLocalizedName_Params
+{
+	struct FName                                       EmoteName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function TslGame.TslEmoteComponent.GetEmoteDataTable
+struct UTslEmoteComponent_GetEmoteDataTable_Params
+{
+	class UDataTable*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslEmoteComponent.Emote_TryToPlay
+struct UTslEmoteComponent_Emote_TryToPlay_Params
+{
+	struct FName                                       EmoteName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bIsLobby;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslEmoteComponent.Client_EmotePlay
+struct UTslEmoteComponent_Client_EmotePlay_Params
+{
+	struct FName                                       EmoteName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bIsRNG;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       SectionName;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslEmoteComponent.CanOpenEmoteWheel
+struct UTslEmoteComponent_CanOpenEmoteWheel_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslCharacter.UpdateWeaponAttachPoint
 struct ATslCharacter_UpdateWeaponAttachPoint_Params
 {
@@ -3893,6 +3926,18 @@ struct ATslCharacter_UpdateWeaponAttachPoint_Params
 struct ATslCharacter_UnBindCallbackToHUD_Params
 {
 	class ATslPlayerController*                        InController;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.TryClearWeaponSkin
+struct ATslCharacter_TryClearWeaponSkin_Params
+{
+	int                                                SlotIndex;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.TryApplyWeaponSkin
+struct ATslCharacter_TryApplyWeaponSkin_Params
+{
+	int                                                SlotIndex;                                                // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslCharacter.ToggleInvincibility
@@ -3930,6 +3975,17 @@ struct ATslCharacter_TickOptimization_IsOverMinimumDistance_Params
 
 // Function TslGame.TslCharacter.TickOptimization_Eval
 struct ATslCharacter_TickOptimization_Eval_Params
+{
+};
+
+// Function TslGame.TslCharacter.TestWeaponSkinApplyByItemReference
+struct ATslCharacter_TestWeaponSkinApplyByItemReference_Params
+{
+	struct FString                                     Reference;                                                // (Parm, ZeroConstructor)
+};
+
+// Function TslGame.TslCharacter.TestSkinLoad
+struct ATslCharacter_TestSkinLoad_Params
 {
 };
 
@@ -4075,6 +4131,12 @@ struct ATslCharacter_SetJumpStartLocationAndFallheight_Params
 	float                                              FallHeight;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function TslGame.TslCharacter.SetDebugCameraLock
+struct ATslCharacter_SetDebugCameraLock_Params
+{
+	bool                                               InLock;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function TslGame.TslCharacter.SetCustomDepth
 struct ATslCharacter_SetCustomDepth_Params
 {
@@ -4184,10 +4246,9 @@ struct ATslCharacter_SetAccessorySlot_Params
 	EAccessorySlot                                     Slot;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function TslGame.TslCharacter.ServerSetVariableZoomLevel
-struct ATslCharacter_ServerSetVariableZoomLevel_Params
+// Function TslGame.TslCharacter.ServerTestSkinLoad
+struct ATslCharacter_ServerTestSkinLoad_Params
 {
-	int                                                ZoomLevel;                                                // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslCharacter.ServerSetTargeting
@@ -4247,6 +4308,12 @@ struct ATslCharacter_ServerSetGunDirectionSway_Params
 	struct FRotator                                    InGunDirectionSway;                                       // (Parm, IsPlainOldData)
 };
 
+// Function TslGame.TslCharacter.ServerSetCurrentWeaponZoomLevel
+struct ATslCharacter_ServerSetCurrentWeaponZoomLevel_Params
+{
+	unsigned char                                      ZoomLevel;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function TslGame.TslCharacter.ServerSetAimOffsets
 struct ATslCharacter_ServerSetAimOffsets_Params
 {
@@ -4264,7 +4331,8 @@ struct ATslCharacter_Server_UnarmedHitNotify_Params
 {
 	struct FHitResult                                  Hit;                                                      // (Parm, IsPlainOldData)
 	TEnumAsByte<EPunchDamageType>                      PunchDamageType;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	TArray<float>                                      AimSpeeds;                                                // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
+	struct FVector                                     Location;                                                 // (ConstParm, Parm, ReferenceParm, IsPlainOldData)
+	int                                                checksum;                                                 // (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 	uint32_t                                           HitSeq;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
@@ -4332,7 +4400,6 @@ struct ATslCharacter_Server_PlayUnarmedAttack_Params
 struct ATslCharacter_Server_CastStartNotify_Params
 {
 	class UObject*                                     CastObject;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              CastTime;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslCharacter.Server_CastFinishNotify
@@ -4367,6 +4434,11 @@ struct ATslCharacter_ResetParachute_Params
 {
 };
 
+// Function TslGame.TslCharacter.RemoveParachute
+struct ATslCharacter_RemoveParachute_Params
+{
+};
+
 // Function TslGame.TslCharacter.RemoveCrosshair
 struct ATslCharacter_RemoveCrosshair_Params
 {
@@ -4381,9 +4453,8 @@ struct ATslCharacter_ReevaluaeTargetingState_Params
 struct ATslCharacter_PunchStart_Params
 {
 	TEnumAsByte<EPunchDamageType>                      PunchDamageType;                                          // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
-	float                                              PunchDistance;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              PunchRadius;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	TArray<float>                                      InAimSpeeds;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	struct FVector                                     Location;                                                 // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+	int                                                checksumValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslCharacter.ProcessRevive
@@ -4396,6 +4467,11 @@ struct ATslCharacter_ProcessRevive_Params
 struct ATslCharacter_ProcessDBNO_Params
 {
 	float                                              GroggyHealthPercent;                                      // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.PrintHasSkinItem
+struct ATslCharacter_PrintHasSkinItem_Params
+{
 };
 
 // Function TslGame.TslCharacter.PrepareParachute
@@ -4424,6 +4500,12 @@ struct ATslCharacter_OnWeaponChanged_Params
 {
 };
 
+// Function TslGame.TslCharacter.OnWeapon_Slot
+struct ATslCharacter_OnWeapon_Slot_Params
+{
+	EAccessorySlot                                     Slot;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function TslGame.TslCharacter.OnWeapon_6
 struct ATslCharacter_OnWeapon_6_Params
 {
@@ -4449,6 +4531,12 @@ struct ATslCharacter_OnWeapon_2_Params
 {
 };
 
+// Function TslGame.TslCharacter.OnUnarmPadInput
+struct ATslCharacter_OnUnarmPadInput_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslCharacter.OnUnarmPad
 struct ATslCharacter_OnUnarmPad_Params
 {
@@ -4459,9 +4547,55 @@ struct ATslCharacter_OnUnarm_Params
 {
 };
 
+// Function TslGame.TslCharacter.OnToggleThrowModePad
+struct ATslCharacter_OnToggleThrowModePad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnToggleThrowMode
+struct ATslCharacter_OnToggleThrowMode_Params
+{
+};
+
+// Function TslGame.TslCharacter.OnToggleSprintingAutoPad
+struct ATslCharacter_OnToggleSprintingAutoPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnTogglePronePad
+struct ATslCharacter_OnTogglePronePad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnToggleProne
+struct ATslCharacter_OnToggleProne_Params
+{
+};
+
+// Function TslGame.TslCharacter.OnToggleFiringModePad
+struct ATslCharacter_OnToggleFiringModePad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnToggleCrouchPad
+struct ATslCharacter_OnToggleCrouchPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnToggleCrouch
+struct ATslCharacter_OnToggleCrouch_Params
+{
+};
+
 // Function TslGame.TslCharacter.OnThrowWeaponPad
 struct ATslCharacter_OnThrowWeaponPad_Params
 {
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.TslCharacter.OnTest_SetupWeapon
@@ -4474,13 +4608,72 @@ struct ATslCharacter_OnTest_InspectObject_Params
 {
 };
 
+// Function TslGame.TslCharacter.OnStopTargetingPad
+struct ATslCharacter_OnStopTargetingPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslCharacter.OnStopTargeting
 struct ATslCharacter_OnStopTargeting_Params
 {
 };
 
+// Function TslGame.TslCharacter.OnStopScopeAdjustmentModifierPad
+struct ATslCharacter_OnStopScopeAdjustmentModifierPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnStopHoldBreathPad
+struct ATslCharacter_OnStopHoldBreathPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnStopFirePad
+struct ATslCharacter_OnStopFirePad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslCharacter.OnStopFire
 struct ATslCharacter_OnStopFire_Params
+{
+};
+
+// Function TslGame.TslCharacter.OnStopAimPad
+struct ATslCharacter_OnStopAimPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnStopADSPad
+struct ATslCharacter_OnStopADSPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnStartTargetingPad
+struct ATslCharacter_OnStartTargetingPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnStartScopeAdjustmentModifierPad
+struct ATslCharacter_OnStartScopeAdjustmentModifierPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnStartJumpOrVaultPad
+struct ATslCharacter_OnStartJumpOrVaultPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnStartJumpOrVault
+struct ATslCharacter_OnStartJumpOrVault_Params
 {
 };
 
@@ -4490,19 +4683,61 @@ struct ATslCharacter_OnStartInteractBy_Params
 	class ATslCharacter*                               OtherCharacter;                                           // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function TslGame.TslCharacter.OnStartHoldBreathPad
+struct ATslCharacter_OnStartHoldBreathPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnStartFirePad
+struct ATslCharacter_OnStartFirePad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnStartFire
+struct ATslCharacter_OnStartFire_Params
+{
+};
+
+// Function TslGame.TslCharacter.OnStartCookingThrowablePad
+struct ATslCharacter_OnStartCookingThrowablePad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnStartAimPad
+struct ATslCharacter_OnStartAimPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnStartADSPad
+struct ATslCharacter_OnStartADSPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnSprintPad
+struct ATslCharacter_OnSprintPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslCharacter.OnShowDynamicCrosshair
 struct ATslCharacter_OnShowDynamicCrosshair_Params
 {
 	bool                                               bShow;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function TslGame.TslCharacter.OnRep_WeaponProcessor
-struct ATslCharacter_OnRep_WeaponProcessor_Params
+// Function TslGame.TslCharacter.OnResetZeroingPad
+struct ATslCharacter_OnResetZeroingPad_Params
 {
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function TslGame.TslCharacter.OnRep_VariableZoomLevel
-struct ATslCharacter_OnRep_VariableZoomLevel_Params
+// Function TslGame.TslCharacter.OnRep_WeaponProcessor
+struct ATslCharacter_OnRep_WeaponProcessor_Params
 {
 };
 
@@ -4613,6 +4848,11 @@ struct ATslCharacter_OnRep_GroggyHealth_Params
 	float                                              LastGroggyHealth;                                         // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function TslGame.TslCharacter.OnRep_CurrentWeaponZoomLevel
+struct ATslCharacter_OnRep_CurrentWeaponZoomLevel_Params
+{
+};
+
 // Function TslGame.TslCharacter.OnRep_CharacterState
 struct ATslCharacter_OnRep_CharacterState_Params
 {
@@ -4640,14 +4880,34 @@ struct ATslCharacter_OnRep_AimOffsets_Params
 	struct FVector_NetQuantizeNormal                   PrevAimOffsets;                                           // (Parm)
 };
 
-// Function TslGame.TslCharacter.OnReloadGamepad
-struct ATslCharacter_OnReloadGamepad_Params
+// Function TslGame.TslCharacter.OnReloadPad
+struct ATslCharacter_OnReloadPad_Params
 {
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function TslGame.TslCharacter.OnMeleeWeaponPad
-struct ATslCharacter_OnMeleeWeaponPad_Params
+// Function TslGame.TslCharacter.OnPeekRightPad
+struct ATslCharacter_OnPeekRightPad_Params
 {
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnPeekLeftPad
+struct ATslCharacter_OnPeekLeftPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnNextMainWeaponPad
+struct ATslCharacter_OnNextMainWeaponPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.OnMeleeOrSideWeaponPad
+struct ATslCharacter_OnMeleeOrSideWeaponPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.TslCharacter.OnInvulnerable
@@ -4661,14 +4921,41 @@ struct ATslCharacter_OnInteractBy_Params
 	class ATslCharacter*                               OtherCharacter;                                           // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function TslGame.TslCharacter.OnIncreaseZeroingPad
+struct ATslCharacter_OnIncreaseZeroingPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslCharacter.OnIncreaseMaxFlyAccerleration
 struct ATslCharacter_OnIncreaseMaxFlyAccerleration_Params
+{
+};
+
+// Function TslGame.TslCharacter.OnHoldBreathReleased
+struct ATslCharacter_OnHoldBreathReleased_Params
+{
+};
+
+// Function TslGame.TslCharacter.OnHoldBreathPressed
+struct ATslCharacter_OnHoldBreathPressed_Params
 {
 };
 
 // Function TslGame.TslCharacter.OnFreeMoveMode
 struct ATslCharacter_OnFreeMoveMode_Params
 {
+};
+
+// Function TslGame.TslCharacter.OnEquippedItemUpdated
+struct ATslCharacter_OnEquippedItemUpdated_Params
+{
+};
+
+// Function TslGame.TslCharacter.OnDecreaseZeroingPad
+struct ATslCharacter_OnDecreaseZeroingPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.TslCharacter.OnDecreaseMaxFlyAccerleration
@@ -4696,6 +4983,12 @@ struct ATslCharacter_OnBlockingWidgetOpened_Params
 	class UWidget*                                     Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 };
 
+// Function TslGame.TslCharacter.OnArmPadInput
+struct ATslCharacter_OnArmPadInput_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslCharacter.NotHaveThrowItemNotifyMessage
 struct ATslCharacter_NotHaveThrowItemNotifyMessage_Params
 {
@@ -4721,7 +5014,7 @@ struct ATslCharacter_NativeOnWeaponChanged_Params
 // Function TslGame.TslCharacter.LocalMagazineDrop
 struct ATslCharacter_LocalMagazineDrop_Params
 {
-	struct FVector                                     InitialVelocity;                                          // (Parm, IsPlainOldData)
+	class USkeletalMeshComponent*                      PawnMesh;                                                 // (ConstParm, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 };
 
 // Function TslGame.TslCharacter.LocalHandleVault_CP
@@ -4913,6 +5206,12 @@ struct ATslCharacter_IsParachuting_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function TslGame.TslCharacter.IsParachuteStuck
+struct ATslCharacter_IsParachuteStuck_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslCharacter.IsMoving
 struct ATslCharacter_IsMoving_Params
 {
@@ -4934,11 +5233,19 @@ struct ATslCharacter_IsMeleeAttacking_Params
 // Function TslGame.TslCharacter.IsMagazineHandAttached
 struct ATslCharacter_IsMagazineHandAttached_Params
 {
+	class USkeletalMeshComponent*                      PawnMesh;                                                 // (ConstParm, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.TslCharacter.IsMagazineGunAttached
 struct ATslCharacter_IsMagazineGunAttached_Params
+{
+	class USkeletalMeshComponent*                      WeapMesh;                                                 // (ConstParm, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.IsLookingThroughScope
+struct ATslCharacter_IsLookingThroughScope_Params
 {
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
@@ -5069,8 +5376,20 @@ struct ATslCharacter_IsDying_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function TslGame.TslCharacter.IsDebugCameraLocked
+struct ATslCharacter_IsDebugCameraLocked_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslCharacter.IsCycleInProgress
 struct ATslCharacter_IsCycleInProgress_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.IsCycleAnimActive
+struct ATslCharacter_IsCycleAnimActive_Params
 {
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
@@ -5141,6 +5460,20 @@ struct ATslCharacter_HasWeapon_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function TslGame.TslCharacter.HasSkinForTag
+struct ATslCharacter_HasSkinForTag_Params
+{
+	struct FName                                       Tag;                                                      // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.HasSameSkin
+struct ATslCharacter_HasSameSkin_Params
+{
+	class USkinItem*                                   TargetSkinItem;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslCharacter.HasAnimatableObject
 struct ATslCharacter_HasAnimatableObject_Params
 {
@@ -5188,6 +5521,12 @@ struct ATslCharacter_GetWeaponThrowable_Params
 struct ATslCharacter_GetWeaponReloadPlayRate_Params
 {
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.GetWeaponProjectile
+struct ATslCharacter_GetWeaponProjectile_Params
+{
+	class ATslWeapon_Gun_Projectile*                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.TslCharacter.GetWeaponProcessor
@@ -5407,6 +5746,12 @@ struct ATslCharacter_GetSpeedKmPerHour2D_Params
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function TslGame.TslCharacter.GetSpectatedCount
+struct ATslCharacter_GetSpectatedCount_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslCharacter.GetShortPlayerName
 struct ATslCharacter_GetShortPlayerName_Params
 {
@@ -5604,12 +5949,14 @@ struct ATslCharacter_GetCurrentSway_Params
 // Function TslGame.TslCharacter.GetCurrentMagazineMesh
 struct ATslCharacter_GetCurrentMagazineMesh_Params
 {
+	class USkeletalMeshComponent*                      WeapMesh;                                                 // (ConstParm, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 	class UStaticMesh*                                 ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.TslCharacter.GetCurrentMagazineLocation
 struct ATslCharacter_GetCurrentMagazineLocation_Params
 {
+	class USkeletalMeshComponent*                      WeapMesh;                                                 // (ConstParm, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 	struct FTransform                                  ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
 };
 
@@ -5719,6 +6066,12 @@ struct ATslCharacter_GetADSSocketOffset_Params
 struct ATslCharacter_GetActorCanInteract_Params
 {
 	class AActor*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslCharacter.GetActiveTslPlayerController
+struct ATslCharacter_GetActiveTslPlayerController_Params
+{
+	class ATslPlayerController*                        ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.TslCharacter.GetActiveCamera
@@ -5904,16 +6257,6 @@ struct ATslCharacter_CanSwim_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function TslGame.TslCharacter.Camera_AimoffsetFix_TppToFpp
-struct ATslCharacter_Camera_AimoffsetFix_TppToFpp_Params
-{
-};
-
-// Function TslGame.TslCharacter.Camera_AimoffsetFix_FppToTpp
-struct ATslCharacter_Camera_AimoffsetFix_FppToTpp_Params
-{
-};
-
 // Function TslGame.TslCharacter.BindCallbackToHUD
 struct ATslCharacter_BindCallbackToHUD_Params
 {
@@ -5929,12 +6272,14 @@ struct ATslCharacter_ApplyRagdollPhysicsForce_Params
 struct ATslCharacter_Anim_MagazineShow_Params
 {
 	bool                                               bShow;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	class USkeletalMeshComponent*                      PawnMesh;                                                 // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 };
 
 // Function TslGame.TslCharacter.Anim_MagazineHandAttach
 struct ATslCharacter_Anim_MagazineHandAttach_Params
 {
 	bool                                               bAttach;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	class USkeletalMeshComponent*                      PawnMesh;                                                 // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 };
 
 // Function TslGame.TslCharacter.Anim_IsMagazineVisible
@@ -5969,6 +6314,653 @@ struct ATslCharacter_AdminFreeMoveMode_Params
 struct ATslCharacter_AddBuffMoveSpeedFactor_Params
 {
 	float                                              MoveSpeedFactor;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.ModeController.SendSystemMessageToAll
+struct AModeController_SendSystemMessageToAll_Params
+{
+	ESystemMessageType                                 MessageType;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FText                                       Message;                                                  // (Parm)
+	float                                              MessageDuration;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.ModeController.IsPlayInEditor
+struct AModeController_IsPlayInEditor_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.ModeController.HandleServerAdminBlueprint
+struct AModeController_HandleServerAdminBlueprint_Params
+{
+	struct FString                                     AdminCommand;                                             // (Parm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.ModeController.GetGameState
+struct AModeController_GetGameState_Params
+{
+	class ATslGameState*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.ModeController.GetGameMode
+struct AModeController_GetGameMode_Params
+{
+	class ATslGameMode*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.ModeController.CanDealDamage
+struct AModeController_CanDealDamage_Params
+{
+	class ATslPlayerState*                             DamageInstigator;                                         // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	class ATslPlayerState*                             DamagedPlayer;                                            // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.BattleRoyaleModeController.UpdateGamePhase
+struct ABattleRoyaleModeController_UpdateGamePhase_Params
+{
+};
+
+// Function TslGame.BattleRoyaleModeController.SetNextGasInBlackboard
+struct ABattleRoyaleModeController_SetNextGasInBlackboard_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.BattleRoyaleModeController.LastCircleAlgorithm
+struct ABattleRoyaleModeController_LastCircleAlgorithm_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.BattleRoyaleModeController.InitRadius
+struct ABattleRoyaleModeController_InitRadius_Params
+{
+};
+
+// Function TslGame.BattleRoyaleModeController.GetPoisonGasDamagePerSecond
+struct ABattleRoyaleModeController_GetPoisonGasDamagePerSecond_Params
+{
+	float                                              CharaterToCenterDistance;                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              SafetyZoneRadius;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              PoisonGasWarningRadius;                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.BattleRoyaleModeController.GetMaxPhaseCount
+struct ABattleRoyaleModeController_GetMaxPhaseCount_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.AircraftCarePackage.IsPlayInEditor
+struct AAircraftCarePackage_IsPlayInEditor_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslGameMode.SendSystemMessageToAll
+struct ATslGameMode_SendSystemMessageToAll_Params
+{
+	ESystemMessageType                                 MessageType;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FText                                       Message;                                                  // (Parm)
+	float                                              MessageDuration;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslGameMode.OnUpdateGamePhase
+struct ATslGameMode_OnUpdateGamePhase_Params
+{
+	int                                                PhaseIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bIsRelease;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslGameMode.NotifyRestrictingPlayAreaToAll
+struct ATslGameMode_NotifyRestrictingPlayAreaToAll_Params
+{
+};
+
+// Function TslGame.TslGameMode.NotifyNextGasInToAll
+struct ATslGameMode_NotifyNextGasInToAll_Params
+{
+	struct FVector                                     PoisonGasWarningPosition;                                 // (Parm, IsPlainOldData)
+	float                                              PoisonGasWarningRadius;                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslGameMode.IsPreventFinishMatch
+struct ATslGameMode_IsPreventFinishMatch_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslGameMode.IsPlayInEditor
+struct ATslGameMode_IsPlayInEditor_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslGameMode.GetVivoxManager
+struct ATslGameMode_GetVivoxManager_Params
+{
+	class UVivoxManager*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslGameMode.GetThingSpawnProcessor
+struct ATslGameMode_GetThingSpawnProcessor_Params
+{
+	class UThingSpawnProcessor*                        ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslGameMode.GetLobbyLink
+struct ATslGameMode_GetLobbyLink_Params
+{
+	class ULobbyLink*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslGameMode.GetItemSpawnProcessor
+struct ATslGameMode_GetItemSpawnProcessor_Params
+{
+	class UItemSpawnProcessor*                         ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslGameMode.GetInProgressElapsedTimeSec
+struct ATslGameMode_GetInProgressElapsedTimeSec_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslGameMode.GetAllPawns
+struct ATslGameMode_GetAllPawns_Params
+{
+	TArray<class APawn*>                               OutPawns;                                                 // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function TslGame.TslGameMode.FinishMatch
+struct ATslGameMode_FinishMatch_Params
+{
+};
+
+// Function TslGame.TslGameMode.FindCharacterByPlayerState
+struct ATslGameMode_FindCharacterByPlayerState_Params
+{
+	class APlayerState*                                State;                                                    // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	class ATslCharacter*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslGameMode.CanDealDamage
+struct ATslGameMode_CanDealDamage_Params
+{
+	class ATslPlayerState*                             DamageInstigator;                                         // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	class ATslPlayerState*                             DamagedPlayer;                                            // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslGameMode.BroadcastGameModeEvent
+struct ATslGameMode_BroadcastGameModeEvent_Params
+{
+	struct FName                                       EventName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     Parameter;                                                // (Parm, ZeroConstructor)
+};
+
+// Function TslGame.TslGameMode.BenchmarkFinished
+struct ATslGameMode_BenchmarkFinished_Params
+{
+};
+
+// Function TslGame.HighlightSession.RecordRemainEvents
+struct UHighlightSession_RecordRemainEvents_Params
+{
+};
+
+// Function TslGame.HighlightSession.MatchEnded
+struct UHighlightSession_MatchEnded_Params
+{
+};
+
+// Function TslGame.HighlightSession.KillOtherPlayer
+struct UHighlightSession_KillOtherPlayer_Params
+{
+	bool                                               bGroggy;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.HighlightSession.Die
+struct UHighlightSession_Die_Params
+{
+	bool                                               bGroggy;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.HighlightSession.DeathCamFinished
+struct UHighlightSession_DeathCamFinished_Params
+{
+	float                                              DeathCamRunningTime;                                      // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.DroppedItemActorComponent.OnInteractDelegate
+struct UDroppedItemActorComponent_OnInteractDelegate_Params
+{
+	class ATslCharacter*                               OtherCharacter;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.DroppedItemActorComponent.AllowInteractDelegate
+struct UDroppedItemActorComponent_AllowInteractDelegate_Params
+{
+	class ATslCharacter*                               OtherCharacter;                                           // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.AttachableItem.GetAttachmentSlotID
+struct UAttachableItem_GetAttachmentSlotID_Params
+{
+	struct FName                                       WeaponTag;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	EWeaponAttachmentSlotID                            ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.AttachableItem.GetAttachmentData
+struct UAttachableItem_GetAttachmentData_Params
+{
+	struct FName                                       WeaponTag;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FWeaponAttachmentData                       ReturnValue;                                              // (ConstParm, Parm, OutParm, ReturnParm, ReferenceParm)
+};
+
+// Function TslGame.HealItem.GetHealLimit
+struct UHealItem_GetHealLimit_Params
+{
+	class ATslCharacter*                               TslCharacter;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.EquipableItem.UnequipBy
+struct UEquipableItem_UnequipBy_Params
+{
+	class ATslCharacter*                               Character;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.EquipableItem.EquipBy
+struct UEquipableItem_EquipBy_Params
+{
+	class ATslCharacter*                               Character;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FEquipPosition                              Position;                                                 // (Parm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.EquipableItem.CanEquipTo
+struct UEquipableItem_CanEquipTo_Params
+{
+	class ATslCharacter*                               Character;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.ThrowableItem.GetEquippedWeapon
+struct UThrowableItem_GetEquippedWeapon_Params
+{
+	class ATslWeapon*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.ThrowableItem.GetDefaultWeaponObject
+struct UThrowableItem_GetDefaultWeaponObject_Params
+{
+	class ATslWeapon*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.WeaponItem.SetFiringMode
+struct UWeaponItem_SetFiringMode_Params
+{
+	EFiringMode                                        fMode;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.WeaponItem.IsAttachable
+struct UWeaponItem_IsAttachable_Params
+{
+	class UAttachableItem*                             Item;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.WeaponItem.HasAttachmentSlot
+struct UWeaponItem_HasAttachmentSlot_Params
+{
+	EWeaponAttachmentSlotID                            SlotID;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.WeaponItem.GetFiringMode
+struct UWeaponItem_GetFiringMode_Params
+{
+	EFiringMode                                        ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.WeaponItem.GetEquippedWeapon
+struct UWeaponItem_GetEquippedWeapon_Params
+{
+	class ATslWeapon*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.WeaponItem.GetDefaultWeaponObject
+struct UWeaponItem_GetDefaultWeaponObject_Params
+{
+	class ATslWeapon*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.WeaponItem.GetAttachedItem
+struct UWeaponItem_GetAttachedItem_Params
+{
+	EWeaponAttachmentSlotID                            SlotID;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	class UAttachableItem*                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.WeaponItem.GetAttachableItemCount
+struct UWeaponItem_GetAttachableItemCount_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.WeaponItem.GetAllAttachedItems
+struct UWeaponItem_GetAllAttachedItems_Params
+{
+	TArray<class UAttachableItem*>                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function TslGame.WeaponItem.DetachItem
+struct UWeaponItem_DetachItem_Params
+{
+	EWeaponAttachmentSlotID                            SlotID;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	class UAttachableItem*                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.WeaponItem.AttachItem
+struct UWeaponItem_AttachItem_Params
+{
+	class UAttachableItem*                             Item;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.CustomEquipableItem.GetOffset_Thrown
+struct UCustomEquipableItem_GetOffset_Thrown_Params
+{
+	struct FTransform                                  ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.CustomEquipableItem.GetOffset_SideArm
+struct UCustomEquipableItem_GetOffset_SideArm_Params
+{
+	struct FTransform                                  ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.CustomEquipableItem.GetOffset_Secondary
+struct UCustomEquipableItem_GetOffset_Secondary_Params
+{
+	struct FTransform                                  ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.CustomEquipableItem.GetOffset_Primary
+struct UCustomEquipableItem_GetOffset_Primary_Params
+{
+	struct FTransform                                  ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.CustomEquipableItem.GetOffset_Melee
+struct UCustomEquipableItem_GetOffset_Melee_Params
+{
+	struct FTransform                                  ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.CustomEquipableItem.GetItemLevel
+struct UCustomEquipableItem_GetItemLevel_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.ItemSpawnProcessor.ProcessSpawnItem
+struct UItemSpawnProcessor_ProcessSpawnItem_Params
+{
+	class UItemSpotGroupComponent*                     Spawner;                                                  // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+};
+
+// Function TslGame.ItemSpawnProcessor.ProcessGroup
+struct UItemSpawnProcessor_ProcessGroup_Params
+{
+	class UItemSpotGroupComponent*                     SpotGroup;                                                // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	TArray<class UItemSpotComponent*>                  Spots;                                                    // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+};
+
+// Function TslGame.ItemSpawnProcessor.CheckItemGroup
+struct UItemSpawnProcessor_CheckItemGroup_Params
+{
+	class UItemSpotGroupComponent*                     SpotGroup;                                                // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.ItemToolTipWidget.UpdateVicinityOrInventorySlotItemToolTip
+struct UItemToolTipWidget_UpdateVicinityOrInventorySlotItemToolTip_Params
+{
+	class UEquipableItem*                              EquipableItem;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	class UEquipableItem*                              EquipmentSlotItem;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.ItemToolTipWidget.UpdateToolTipBySlotInterface
+struct UItemToolTipWidget_UpdateToolTipBySlotInterface_Params
+{
+	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	TScriptInterface<class USlotContainerInterface>    Container;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.ItemToolTipWidget.UpdateSlotInfo
+struct UItemToolTipWidget_UpdateSlotInfo_Params
+{
+	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+};
+
+// Function TslGame.ItemToolTipWidget.UpdateEquipmentSlotItemToolTip
+struct UItemToolTipWidget_UpdateEquipmentSlotItemToolTip_Params
+{
+	class UEquipableItem*                              EquipableItem;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.LobbyWidget.GameStateChanging
+struct ULobbyWidget_GameStateChanging_Params
+{
+	struct FName                                       NewState;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       OldState;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.MatchPreparer.TimerGameStartCountDown
+struct UMatchPreparer_TimerGameStartCountDown_Params
+{
+};
+
+// Function TslGame.AirborneMatchPreparer.AllowDealDamage
+struct UAirborneMatchPreparer_AllowDealDamage_Params
+{
+};
+
+// Function TslGame.CarePackageController.SpawnAircraftCarePackageCustom
+struct ACarePackageController_SpawnAircraftCarePackageCustom_Params
+{
+	struct FVector                                     DropLocation;                                             // (Parm, IsPlainOldData)
+	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.CarePackageController.SpawnAircraftCarePackage
+struct ACarePackageController_SpawnAircraftCarePackage_Params
+{
+	bool                                               CopyIntersectionInfo;                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.CarePackageController.SetNextCarePackageInBlackboard
+struct ACarePackageController_SetNextCarePackageInBlackboard_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.CarePackageController.InitCarePackageSetting
+struct ACarePackageController_InitCarePackageSetting_Params
+{
+};
+
+// Function TslGame.CarePackageController.GetSpawnInterval
+struct ACarePackageController_GetSpawnInterval_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.RedZoneController.SpawnBombProjectile
+struct ARedZoneController_SpawnBombProjectile_Params
+{
+};
+
+// Function TslGame.RedZoneController.SetNextRedZoneInBlackboard
+struct ARedZoneController_SetNextRedZoneInBlackboard_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.RedZoneController.OnBombingStart
+struct ARedZoneController_OnBombingStart_Params
+{
+	struct FVector                                     RedZonePosition;                                          // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+};
+
+// Function TslGame.RedZoneController.InitRedZoneSetting
+struct ARedZoneController_InitRedZoneSetting_Params
+{
+};
+
+// Function TslGame.RedZoneController.GetRandomBombingInterval
+struct ARedZoneController_GetRandomBombingInterval_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.LobbyCharacter.IsInCustomizationScene
+struct ALobbyCharacter_IsInCustomizationScene_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.LobbyCharacter.GetSlotId
+struct ALobbyCharacter_GetSlotId_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.LobbyCharacter.GetNickName
+struct ALobbyCharacter_GetNickName_Params
+{
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function TslGame.LobbyCharacter.GetNetId
+struct ALobbyCharacter_GetNetId_Params
+{
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function TslGame.TslUserWidget.TransferUserFocusThroughReply
+struct UTslUserWidget_TransferUserFocusThroughReply_Params
+{
+	struct FFocusEvent                                 AcceptedFocusEvent;                                       // (ConstParm, Parm, OutParm, ReferenceParm)
+	struct FEventReply                                 Reply;                                                    // (Parm, OutParm, ReferenceParm)
+	class UWidget*                                     FocusWidget;                                              // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	bool                                               bInAllUsers;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FEventReply                                 ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function TslGame.TslUserWidget.StopListeningForAllInputAxises
+struct UTslUserWidget_StopListeningForAllInputAxises_Params
+{
+};
+
+// Function TslGame.TslUserWidget.NavigateUserFocus
+struct UTslUserWidget_NavigateUserFocus_Params
+{
+	class ULocalPlayer*                                Player;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	class UWidget*                                     Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslUserWidget.ListenForInputAxis
+struct UTslUserWidget_ListenForInputAxis_Params
+{
+	struct FName                                       AxisName;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Scale;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bConsume;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FScriptDelegate                             Callback;                                                 // (Parm, ZeroConstructor)
+};
+
+// Function TslGame.TslUserWidget.IsReplaying
+struct UTslUserWidget_IsReplaying_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslUserWidget.GetRawKeyValue
+struct UTslUserWidget_GetRawKeyValue_Params
+{
+	struct FKey                                        InKey;                                                    // (Parm)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslUserWidget.GetDemoPlayerState
+struct UTslUserWidget_GetDemoPlayerState_Params
+{
+	bool                                               IsForMatchResult;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	class ATslPlayerState*                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslUserWidget.GetCachedViewTargetTslCharacter
+struct UTslUserWidget_GetCachedViewTargetTslCharacter_Params
+{
+	class ATslCharacter*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslUserWidget.GetCachedGameState
+struct UTslUserWidget_GetCachedGameState_Params
+{
+	class ATslGameState*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslUserWidget.GetCachedCharacter
+struct UTslUserWidget_GetCachedCharacter_Params
+{
+	class ATslCharacter*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslUserWidget.ContainUserFocus
+struct UTslUserWidget_ContainUserFocus_Params
+{
+	class ULocalPlayer*                                Player;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	class UWidget*                                     Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslUserWidget.ContainOwnerUserFocus
+struct UTslUserWidget_ContainOwnerUserFocus_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslUserWidget.ClearUserFocus
+struct UTslUserWidget_ClearUserFocus_Params
+{
+	class ULocalPlayer*                                Player;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.UmgBaseWidget.IsMouseOn
+struct UUmgBaseWidget_IsMouseOn_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.UmgBaseWidget.HandleMainPrepass
+struct UUmgBaseWidget_HandleMainPrepass_Params
+{
+	class UWidget*                                     Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+};
+
+// Function TslGame.UmgBaseWidget.CheckWantRequestRender
+struct UUmgBaseWidget_CheckWantRequestRender_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.ObserverTagWidget.UpdateWeaponIcon_Imp
@@ -6459,6 +7451,19 @@ struct UParachuteVehicleMovement_GetForwardInput_Params
 struct UParachuteVehicleMovement_GetClientRotation_Params
 {
 	struct FRotator                                    ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.SkinHelperComponent.ServerTestWeaponSkinApplyByItemReference
+struct USkinHelperComponent_ServerTestWeaponSkinApplyByItemReference_Params
+{
+	struct FString                                     Reference;                                                // (Parm, ZeroConstructor)
+};
+
+// Function TslGame.SkinHelperComponent.Server_DoUpdateSkinItem
+struct USkinHelperComponent_Server_DoUpdateSkinItem_Params
+{
+	class UBaseWeaponItem*                             WeaponItem;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	class USkinItem*                                   SkinItem;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.StanceComponent.ServerForceInitStance
@@ -7047,12 +8052,6 @@ struct ATslAIController_FindClosestEnemy_Params
 {
 };
 
-// Function TslGame.AircraftCarePackage.IsPlayInEditor
-struct AAircraftCarePackage_IsPlayInEditor_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function TslGame.TransportAircraftVehicle.OnRide
 struct ATransportAircraftVehicle_OnRide_Params
 {
@@ -7161,6 +8160,50 @@ struct ATslWheeledVehicle_OnVehicleEjected_Params
 {
 };
 
+// Function TslGame.TslWheeledVehicle.OnStopHandbrakePad
+struct ATslWheeledVehicle_OnStopHandbrakePad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslWheeledVehicle.OnStopHandbrake
+struct ATslWheeledVehicle_OnStopHandbrake_Params
+{
+};
+
+// Function TslGame.TslWheeledVehicle.OnStopBoostingPad
+struct ATslWheeledVehicle_OnStopBoostingPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslWheeledVehicle.OnStopBoosting
+struct ATslWheeledVehicle_OnStopBoosting_Params
+{
+};
+
+// Function TslGame.TslWheeledVehicle.OnStartHandbrakePad
+struct ATslWheeledVehicle_OnStartHandbrakePad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslWheeledVehicle.OnStartHandbrake
+struct ATslWheeledVehicle_OnStartHandbrake_Params
+{
+};
+
+// Function TslGame.TslWheeledVehicle.OnStartBoostingPad
+struct ATslWheeledVehicle_OnStartBoostingPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslWheeledVehicle.OnStartBoosting
+struct ATslWheeledVehicle_OnStartBoosting_Params
+{
+};
+
 // Function TslGame.TslWheeledVehicle.OnRide
 struct ATslWheeledVehicle_OnRide_Params
 {
@@ -7201,6 +8244,12 @@ struct ATslWheeledVehicle_OnBreak_Params
 struct ATslWheeledVehicle_OnBlockingWidgetOpened_Params
 {
 	class UWidget*                                     Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+};
+
+// Function TslGame.TslWheeledVehicle.NotifyHandbrake
+struct ATslWheeledVehicle_NotifyHandbrake_Params
+{
+	bool                                               bPressed;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslWheeledVehicle.MulticastCharacterHitEffects
@@ -7304,6 +8353,28 @@ struct ATslWheeledVehicle_ActivationTriggerBeginOverlap_Params
 struct ATslFloatingVehicle_UnBindCallbackToHUD_Params
 {
 	class ATslPlayerController*                        InController;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslFloatingVehicle.OnStopBoostingPad
+struct ATslFloatingVehicle_OnStopBoostingPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslFloatingVehicle.OnStopBoosting
+struct ATslFloatingVehicle_OnStopBoosting_Params
+{
+};
+
+// Function TslGame.TslFloatingVehicle.OnStartBoostingPad
+struct ATslFloatingVehicle_OnStartBoostingPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslFloatingVehicle.OnStartBoosting
+struct ATslFloatingVehicle_OnStartBoosting_Params
+{
 };
 
 // Function TslGame.TslFloatingVehicle.OnRide
@@ -8055,6 +9126,12 @@ struct ATslHUD_NotifyDropSlotOnOtherContainer_Params
 	TScriptInterface<class USlotContainerInterface>    OtherContainer;                                           // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function TslGame.TslHUD.IsInitCaptureWorld
+struct ATslHUD_IsInitCaptureWorld_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslHUD.IsGameEnded
 struct ATslHUD_IsGameEnded_Params
 {
@@ -8093,6 +9170,12 @@ struct ATslHUD_GetHealAmount_Params
 struct UTslSettings_SetCharacterStudioRenderTarget_Params
 {
 	class UTextureRenderTarget2D*                      rt;                                                       // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslSettings.IsWarMode
+struct UTslSettings_IsWarMode_Params
+{
+	bool                                               ReturnValue;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.TslSettings.IsUsingGappLobby
@@ -8336,6 +9419,11 @@ struct UTslGameInstance_Pause_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function TslGame.TslGameInstance.OnSteamNetworkDisconnectedTimeExpired
+struct UTslGameInstance_OnSteamNetworkDisconnectedTimeExpired_Params
+{
+};
+
 // Function TslGame.TslGameInstance.OnPressedPopupConfirmInvite
 struct UTslGameInstance_OnPressedPopupConfirmInvite_Params
 {
@@ -8409,6 +9497,14 @@ struct UTslGameInstance_GotoTimelineDoneDelegate__DelegateSignature_Params
 // Function TslGame.TslGameInstance.GotoReplayList
 struct UTslGameInstance_GotoReplayList_Params
 {
+};
+
+// Function TslGame.TslGameInstance.GetUnderFpsCount
+struct UTslGameInstance_GetUnderFpsCount_Params
+{
+	int                                                Fps;                                                      // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                DuringSeconds;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.TslGameInstance.GetStartParameterStringValue
@@ -8670,6 +9766,47 @@ struct ALobbyHUD_TestLobbyCamera_Init_Params
 {
 };
 
+// Function TslGame.LobbyHUD.Test_UpdateLobbyCharacter
+struct ALobbyHUD_Test_UpdateLobbyCharacter_Params
+{
+	uint32_t                                           SlotIndex;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.LobbyHUD.Test_RemoveLobbyItem
+struct ALobbyHUD_Test_RemoveLobbyItem_Params
+{
+	struct FString                                     ItemId;                                                   // (Parm, ZeroConstructor)
+};
+
+// Function TslGame.LobbyHUD.Test_RemoveAllLobbyItem
+struct ALobbyHUD_Test_RemoveAllLobbyItem_Params
+{
+};
+
+// Function TslGame.LobbyHUD.Test_PrintWeaponItem
+struct ALobbyHUD_Test_PrintWeaponItem_Params
+{
+	uint32_t                                           SlotIndex;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.LobbyHUD.Test_PrintSkinItem
+struct ALobbyHUD_Test_PrintSkinItem_Params
+{
+	uint32_t                                           SlotIndex;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.LobbyHUD.Test_ForceLodLevel
+struct ALobbyHUD_Test_ForceLodLevel_Params
+{
+	int                                                ForceLodLevel;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.LobbyHUD.Test_AddLobbyItem
+struct ALobbyHUD_Test_AddLobbyItem_Params
+{
+	struct FString                                     ItemId;                                                   // (Parm, ZeroConstructor)
+};
+
 // Function TslGame.LobbyHUD.TeleportCameraTo
 struct ALobbyHUD_TeleportCameraTo_Params
 {
@@ -8704,6 +9841,14 @@ struct ALobbyHUD_StartCameraTransitionFromTo_Params
 	ELobbyCameraStates                                 InToCameraState;                                          // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function TslGame.LobbyHUD.ShowViewMode
+struct ALobbyHUD_ShowViewMode_Params
+{
+	uint32_t                                           ViewModeCategory;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     TargetId;                                                 // (Parm, ZeroConstructor)
+	struct FString                                     SkinItemId;                                               // (Parm, ZeroConstructor)
+};
+
 // Function TslGame.LobbyHUD.SetWidgetForBinding
 struct ALobbyHUD_SetWidgetForBinding_Params
 {
@@ -8721,6 +9866,12 @@ struct ALobbyHUD_SetLobbyCharacterHiddenInGame_Params
 // Function TslGame.LobbyHUD.RequestSystemMenu
 struct ALobbyHUD_RequestSystemMenu_Params
 {
+};
+
+// Function TslGame.LobbyHUD.OnViewModeStudioSpawnCallback
+struct ALobbyHUD_OnViewModeStudioSpawnCallback_Params
+{
+	class AActor*                                      ViewModeStudio;                                           // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.LobbyHUD.OnReplaySummary
@@ -8778,6 +9929,11 @@ struct ALobbyHUD_InitFadeInOutEffect_Params
 
 // Function TslGame.LobbyHUD.InitCameraTransition
 struct ALobbyHUD_InitCameraTransition_Params
+{
+};
+
+// Function TslGame.LobbyHUD.HideViewMode
+struct ALobbyHUD_HideViewMode_Params
 {
 };
 
@@ -8865,6 +10021,13 @@ struct ALobbyHUD_CacheLobbyCamarasFromLevel_Params
 {
 };
 
+// Function TslGame.LobbyHUD.AddLobbyViewModeAngle
+struct ALobbyHUD_AddLobbyViewModeAngle_Params
+{
+	uint32_t                                           ViewModeCategory;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              AngleInDegree;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function TslGame.LobbyHUD.AddLobbyCharacterAngle
 struct ALobbyHUD_AddLobbyCharacterAngle_Params
 {
@@ -8946,6 +10109,11 @@ struct UTslCheatManager_ToggleVisibilityOfDestructibleComponents_Params
 {
 };
 
+// Function TslGame.TslCheatManager.ToggleParticleManager
+struct UTslCheatManager_ToggleParticleManager_Params
+{
+};
+
 // Function TslGame.TslCheatManager.ToggleMatchTimer
 struct UTslCheatManager_ToggleMatchTimer_Params
 {
@@ -8972,9 +10140,33 @@ struct UTslCheatManager_TestVoiceAccessToken_Params
 {
 };
 
+// Function TslGame.TslCheatManager.TestTriggerAchievement
+struct UTslCheatManager_TestTriggerAchievement_Params
+{
+	struct FString                                     ID;                                                       // (Parm, ZeroConstructor)
+	int                                                Num;                                                      // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslCheatManager.TestResetAchievementAll
+struct UTslCheatManager_TestResetAchievementAll_Params
+{
+};
+
+// Function TslGame.TslCheatManager.TestResetAchievement
+struct UTslCheatManager_TestResetAchievement_Params
+{
+	struct FString                                     ID;                                                       // (Parm, ZeroConstructor)
+};
+
 // Function TslGame.TslCheatManager.SpawnBot
 struct UTslCheatManager_SpawnBot_Params
 {
+};
+
+// Function TslGame.TslCheatManager.ShowLoadingScreen
+struct UTslCheatManager_ShowLoadingScreen_Params
+{
+	bool                                               OnOff;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslCheatManager.SetVehicleRepRotCorrection
@@ -9037,6 +10229,12 @@ struct UTslCheatManager_MoveVehicleOnClient_Params
 	float                                              Z;                                                        // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function TslGame.TslCheatManager.MapStatAnalyzer
+struct UTslCheatManager_MapStatAnalyzer_Params
+{
+	struct FString                                     Argument;                                                 // (Parm, ZeroConstructor)
+};
+
 // Function TslGame.TslCheatManager.LookAt
 struct UTslCheatManager_LookAt_Params
 {
@@ -9045,8 +10243,18 @@ struct UTslCheatManager_LookAt_Params
 	float                                              Roll;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function TslGame.TslCheatManager.ListCharacters
+struct UTslCheatManager_ListCharacters_Params
+{
+};
+
 // Function TslGame.TslCheatManager.InsertCrashMeCommand
 struct UTslCheatManager_InsertCrashMeCommand_Params
+{
+};
+
+// Function TslGame.TslCheatManager.ForceSetBaseNull
+struct UTslCheatManager_ForceSetBaseNull_Params
 {
 };
 
@@ -9063,6 +10271,12 @@ struct UTslCheatManager_DumpVoiceDevices_Params
 // Function TslGame.TslCheatManager.DumpReplicatedItems
 struct UTslCheatManager_DumpReplicatedItems_Params
 {
+};
+
+// Function TslGame.TslCheatManager.DumpParticleManager
+struct UTslCheatManager_DumpParticleManager_Params
+{
+	int                                                Detail;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslCheatManager.DumpDestructibleComponents
@@ -9114,6 +10328,12 @@ struct UTslCheatManager_ChangeTeam_Params
 	int                                                NewTeamNumber;                                            // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function TslGame.TslCheatManager.BugItNoScreenshot
+struct UTslCheatManager_BugItNoScreenshot_Params
+{
+	struct FString                                     Description;                                              // (Parm, ZeroConstructor)
+};
+
 // Function TslGame.TslCheatManager.ActivatePakOrderingMode
 struct UTslCheatManager_ActivatePakOrderingMode_Params
 {
@@ -9161,6 +10381,22 @@ struct ATslDoor_ClientTakeDamage_Params
 	struct FVector_NetQuantize                         HitLocation;                                              // (ConstParm, Parm, ReferenceParm)
 	float                                              DamageRadius;                                             // (Parm, ZeroConstructor, IsPlainOldData)
 	float                                              Impulse;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslEquippedWeaponsProxy.UpdateEquippedWeapons
+struct UTslEquippedWeaponsProxy_UpdateEquippedWeapons_Params
+{
+};
+
+// Function TslGame.TslEquippedWeaponsProxy.UpdateArmedWeapons
+struct UTslEquippedWeaponsProxy_UpdateArmedWeapons_Params
+{
+};
+
+// Function TslGame.TslEquippedWeaponsProxy.UpdateAccessoryAttachmentSlot
+struct UTslEquippedWeaponsProxy_UpdateAccessoryAttachmentSlot_Params
+{
+	EAccessorySlot                                     Slot;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslExplosionEffect.OnParticleCollide
@@ -9345,100 +10581,6 @@ struct UTslFocusableWidgetInterface_Down_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function TslGame.TslGameMode.SendSystemMessageToAll
-struct ATslGameMode_SendSystemMessageToAll_Params
-{
-	ESystemMessageType                                 MessageType;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FText                                       Message;                                                  // (Parm)
-	float                                              MessageDuration;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.TslGameMode.NotifyRestrictingPlayAreaToAll
-struct ATslGameMode_NotifyRestrictingPlayAreaToAll_Params
-{
-};
-
-// Function TslGame.TslGameMode.NotifyNextGasInToAll
-struct ATslGameMode_NotifyNextGasInToAll_Params
-{
-	struct FVector                                     PoisonGasWarningPosition;                                 // (Parm, IsPlainOldData)
-	float                                              PoisonGasWarningRadius;                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.TslGameMode.IsPreventFinishMatch
-struct ATslGameMode_IsPreventFinishMatch_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslGameMode.IsPlayInEditor
-struct ATslGameMode_IsPlayInEditor_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslGameMode.GetVivoxManager
-struct ATslGameMode_GetVivoxManager_Params
-{
-	class UVivoxManager*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslGameMode.GetThingSpawnProcessor
-struct ATslGameMode_GetThingSpawnProcessor_Params
-{
-	class UThingSpawnProcessor*                        ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslGameMode.GetLobbyLink
-struct ATslGameMode_GetLobbyLink_Params
-{
-	class ULobbyLink*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslGameMode.GetItemSpawnProcessor
-struct ATslGameMode_GetItemSpawnProcessor_Params
-{
-	class UItemSpawnProcessor*                         ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslGameMode.GetAllPawns
-struct ATslGameMode_GetAllPawns_Params
-{
-	TArray<class APawn*>                               OutPawns;                                                 // (Parm, OutParm, ZeroConstructor)
-};
-
-// Function TslGame.TslGameMode.FinishMatch
-struct ATslGameMode_FinishMatch_Params
-{
-};
-
-// Function TslGame.TslGameMode.FindCharacterByPlayerState
-struct ATslGameMode_FindCharacterByPlayerState_Params
-{
-	class APlayerState*                                State;                                                    // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	class ATslCharacter*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslGameMode.CanDealDamage
-struct ATslGameMode_CanDealDamage_Params
-{
-	class ATslPlayerState*                             DamageInstigator;                                         // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	class ATslPlayerState*                             DamagedPlayer;                                            // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslGameMode.BroadcastGameModeEvent
-struct ATslGameMode_BroadcastGameModeEvent_Params
-{
-	struct FName                                       EventName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     Parameter;                                                // (Parm, ZeroConstructor)
-};
-
-// Function TslGame.TslGameMode.BenchmarkFinished
-struct ATslGameMode_BenchmarkFinished_Params
-{
-};
-
 // Function TslGame.TslGameOption.WheelAxisNameToWheelActionName
 struct UTslGameOption_WheelAxisNameToWheelActionName_Params
 {
@@ -9576,6 +10718,12 @@ struct UTslGameOption_SetMotionBlur_Params
 	bool                                               bEnabled;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function TslGame.TslGameOption.SetMinimapColorType
+struct UTslGameOption_SetMinimapColorType_Params
+{
+	EMinimapColorType                                  InType;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function TslGame.TslGameOption.SetMasterSoundVolume
 struct UTslGameOption_SetMasterSoundVolume_Params
 {
@@ -9632,6 +10780,12 @@ struct UTslGameOption_SetGamePadSensitivity_Params
 {
 	struct FName                                       InGamePadSensitiveName;                                   // (Parm, ZeroConstructor, IsPlainOldData)
 	float                                              InGamePadSensitivity;                                     // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslGameOption.SetGamepadPresetType
+struct UTslGameOption_SetGamepadPresetType_Params
+{
+	EGamepadPresets                                    InGamepadPreset;                                          // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslGameOption.SetGamePadDeadZone
@@ -9830,6 +10984,12 @@ struct UTslGameOption_IsVoiceInputMute_Params
 
 // Function TslGame.TslGameOption.IsUISoundMute
 struct UTslGameOption_IsUISoundMute_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslGameOption.IsScorpio
+struct UTslGameOption_IsScorpio_Params
 {
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
@@ -10125,6 +11285,12 @@ struct UTslGameOption_GetMiniMapTypes_Params
 	TArray<struct FUiType>                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
 };
 
+// Function TslGame.TslGameOption.GetMinimapColorType
+struct UTslGameOption_GetMinimapColorType_Params
+{
+	EMinimapColorType                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslGameOption.GetMasterSoundVolume
 struct UTslGameOption_GetMasterSoundVolume_Params
 {
@@ -10155,6 +11321,18 @@ struct UTslGameOption_GetGamePadSensitivity_Params
 {
 	struct FName                                       InGamePadSensitiveName;                                   // (Parm, ZeroConstructor, IsPlainOldData)
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslGameOption.GetGamepadPresetType
+struct UTslGameOption_GetGamepadPresetType_Params
+{
+	EGamepadPresets                                    ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslGameOption.GetGamepadKeyPresetDatas
+struct UTslGameOption_GetGamepadKeyPresetDatas_Params
+{
+	TArray<struct FTslGamepadKeyPreset>                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
 };
 
 // Function TslGame.TslGameOption.GetGamePadDeadZone
@@ -10198,6 +11376,12 @@ struct UTslGameOption_GetDefaultInputModeSetting_Params
 {
 	EInputModeSettingActions                           eAction;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
 	ETslInputModes                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslGameOption.GetDefaultGamepadPreset
+struct UTslGameOption_GetDefaultGamepadPreset_Params
+{
+	EGamepadPresets                                    ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.TslGameOption.GetDefaultCultureName
@@ -10365,6 +11549,11 @@ struct UTslGameOption_CultureNames_Params
 	TArray<struct FString>                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
 };
 
+// Function TslGame.TslGameOption.ClearAllGamepadKeyBinding
+struct UTslGameOption_ClearAllGamepadKeyBinding_Params
+{
+};
+
 // Function TslGame.TslGameOption.CastTslInputModeFromName
 struct UTslGameOption_CastTslInputModeFromName_Params
 {
@@ -10388,6 +11577,11 @@ struct UTslGameOption_ApplyGamePadSensitivity_Params
 {
 };
 
+// Function TslGame.TslGameOption.ApplyGamepadKeyPresetDatas
+struct UTslGameOption_ApplyGamepadKeyPresetDatas_Params
+{
+};
+
 // Function TslGame.TslGameOption.ApplyGamePadDeadZone
 struct UTslGameOption_ApplyGamePadDeadZone_Params
 {
@@ -10404,6 +11598,17 @@ struct ATslGameState_UpdateWorldTimeSecondsDelta_Params
 	float                                              DeltaSeconds;                                             // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function TslGame.TslGameState.UpdateMatchResultUI
+struct ATslGameState_UpdateMatchResultUI_Params
+{
+	class UTslUserWidget*                              Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+};
+
+// Function TslGame.TslGameState.UpdateGoalScoreWidget
+struct ATslGameState_UpdateGoalScoreWidget_Params
+{
+};
+
 // Function TslGame.TslGameState.ShowPlayerStateList
 struct ATslGameState_ShowPlayerStateList_Params
 {
@@ -10415,8 +11620,38 @@ struct ATslGameState_OnStartGasRelease_Params
 	bool                                               InbIsGasRelease;                                          // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function TslGame.TslGameState.OnRep_TimeLimitTick
+struct ATslGameState_OnRep_TimeLimitTick_Params
+{
+};
+
+// Function TslGame.TslGameState.OnRep_TeamScores
+struct ATslGameState_OnRep_TeamScores_Params
+{
+};
+
+// Function TslGame.TslGameState.OnRep_TeamInfos
+struct ATslGameState_OnRep_TeamInfos_Params
+{
+};
+
+// Function TslGame.TslGameState.OnRep_RemainingTime
+struct ATslGameState_OnRep_RemainingTime_Params
+{
+};
+
+// Function TslGame.TslGameState.OnRep_NumJoinPlayers
+struct ATslGameState_OnRep_NumJoinPlayers_Params
+{
+};
+
 // Function TslGame.TslGameState.OnRep_NumAlivePlayers
 struct ATslGameState_OnRep_NumAlivePlayers_Params
+{
+};
+
+// Function TslGame.TslGameState.OnRep_NextRespawnTimeTick
+struct ATslGameState_OnRep_NextRespawnTimeTick_Params
 {
 };
 
@@ -10430,10 +11665,47 @@ struct ATslGameState_OnRep_MatchId_Params
 {
 };
 
+// Function TslGame.TslGameState.OnRep_GoalScore
+struct ATslGameState_OnRep_GoalScore_Params
+{
+};
+
 // Function TslGame.TslGameState.OnRep_GasRelease
 struct ATslGameState_OnRep_GasRelease_Params
 {
 	bool                                               bLastIsGasRelease;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslGameState.OnRep_bIsWarMode
+struct ATslGameState_OnRep_bIsWarMode_Params
+{
+};
+
+// Function TslGame.TslGameState.OnAlram60Seconds
+struct ATslGameState_OnAlram60Seconds_Params
+{
+};
+
+// Function TslGame.TslGameState.OnAlram30Seconds
+struct ATslGameState_OnAlram30Seconds_Params
+{
+};
+
+// Function TslGame.TslGameState.OnAlram10Seconds
+struct ATslGameState_OnAlram10Seconds_Params
+{
+};
+
+// Function TslGame.TslGameState.IsTimeUp
+struct ATslGameState_IsTimeUp_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.TslGameState.IsReachedGoalScore
+struct ATslGameState_IsReachedGoalScore_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.TslGameState.IsMatchInProgressBP
@@ -10515,9 +11787,21 @@ struct UTslHornComponent_OnPostDriverLeave_Params
 {
 };
 
+// Function TslGame.TslHornComponent.OnHornKeyUpPad
+struct UTslHornComponent_OnHornKeyUpPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslHornComponent.OnHornKeyUp
 struct UTslHornComponent_OnHornKeyUp_Params
 {
+};
+
+// Function TslGame.TslHornComponent.OnHornKeyDownPad
+struct UTslHornComponent_OnHornKeyDownPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.TslHornComponent.OnHornKeyDown
@@ -10673,63 +11957,40 @@ struct ATslModularBuilding_AddAttachmentToTable_Params
 	class UStaticMeshComponent*                        Attachment;                                               // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 };
 
-// Function TslGame.TslParticle.SetParticleParameter
-struct ATslParticle_SetParticleParameter_Params
+// Function TslGame.TslParticleEmitter.OnParticleSystemFinished
+struct ATslParticleEmitter_OnParticleSystemFinished_Params
 {
-	struct FString                                     Name;                                                     // (Parm, ZeroConstructor)
-	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bEnableRTPC;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	class UParticleSystemComponent*                    FinishedComponent;                                        // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 };
 
-// Function TslGame.TslParticle.OnParticleFinish
-struct ATslParticle_OnParticleFinish_Params
+// Function TslGame.TslPawnInputBindingComponent.OnUseHealItemPad
+struct UTslPawnInputBindingComponent_OnUseHealItemPad_Params
 {
-	class UParticleSystemComponent*                    PSystem;                                                  // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function TslGame.TslParticle.OnParticleCollide
-struct ATslParticle_OnParticleCollide_Params
+// Function TslGame.TslPawnInputBindingComponent.OnSelectNextHealItemPad
+struct UTslPawnInputBindingComponent_OnSelectNextHealItemPad_Params
 {
-	struct FName                                       EventName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              EmitterTime;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                ParticleTime;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     Location;                                                 // (Parm, IsPlainOldData)
-	struct FVector                                     Velocity;                                                 // (Parm, IsPlainOldData)
-	struct FVector                                     Direction;                                                // (Parm, IsPlainOldData)
-	struct FVector                                     Normal;                                                   // (Parm, IsPlainOldData)
-	struct FName                                       BoneName;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	class UPhysicalMaterial*                           PhysMat;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function TslGame.TslParticle.OnParameterUpdated
-struct ATslParticle_OnParameterUpdated_Params
+// Function TslGame.TslPawnInputBindingComponent.OnMoveVehicleSeatPad
+struct UTslPawnInputBindingComponent_OnMoveVehicleSeatPad_Params
 {
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function TslGame.TslParticle.GetParticleParamter
-struct ATslParticle_GetParticleParamter_Params
+// Function TslGame.TslPawnInputBindingComponent.OnMoveToDriverSeatPad
+struct UTslPawnInputBindingComponent_OnMoveToDriverSeatPad_Params
 {
-	struct FString                                     Name;                                                     // (Parm, ZeroConstructor)
-	float                                              DefaultValue;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function TslGame.TslParticle.GetEmitterGlobalSpawnRateScale
-struct ATslParticle_GetEmitterGlobalSpawnRateScale_Params
+// Function TslGame.TslPawnInputBindingComponent.OnInteractInVehiclePad
+struct UTslPawnInputBindingComponent_OnInteractInVehiclePad_Params
 {
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslParticle.ForceSpawn
-struct ATslParticle_ForceSpawn_Params
-{
-	int                                                emitterIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     InLocation;                                               // (ConstParm, Parm, IsPlainOldData)
-};
-
-// Function TslGame.TslParticle.AttachToParent
-struct ATslParticle_AttachToParent_Params
-{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.TslPawnInputBindingComponent.NotifyOwnerUnPossessed
@@ -10754,6 +12015,18 @@ struct UTslPawnInputBindingComponent_MoveVehicleDriverSeat_Gamepad_Params
 {
 };
 
+// Function TslGame.TslPlayerState.SPing
+struct ATslPlayerState_SPing_Params
+{
+	TArray<unsigned char>                              Data;                                                     // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
+};
+
+// Function TslGame.TslPlayerState.SetEmoteBitArray
+struct ATslPlayerState_SetEmoteBitArray_Params
+{
+	struct FEmoteBitArray                              InBitArray;                                               // (Parm)
+};
+
 // Function TslGame.TslPlayerState.OnRep_ReportToken
 struct ATslPlayerState_OnRep_ReportToken_Params
 {
@@ -10764,6 +12037,11 @@ struct ATslPlayerState_OnRep_ReportToken_Params
 struct ATslPlayerState_OnRep_Ranking_Params
 {
 	int                                                OldRanking;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslPlayerState.OnRep_PlayerStatisticsForOwner
+struct ATslPlayerState_OnRep_PlayerStatisticsForOwner_Params
+{
 };
 
 // Function TslGame.TslPlayerState.OnRep_PlayerStatistics
@@ -10805,6 +12083,9 @@ struct ATslPlayerState_IsInAircraft_Params
 struct ATslPlayerState_InformAboutKill_Params
 {
 	EDamageReason                                      DamageReason;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      DamageCauser;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	class UDamageType*                                 DamageType;                                               // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Distance;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslPlayerState.GetTotalScore
@@ -10873,10 +12154,26 @@ struct ATslPlayerState_GetKills_Params
 	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function TslGame.TslPlayerState.ClientUpdateRankingOnlineEvent
-struct ATslPlayerState_ClientUpdateRankingOnlineEvent_Params
+// Function TslGame.TslPlayerState.GetEmoteBitArray
+struct ATslPlayerState_GetEmoteBitArray_Params
 {
-	int                                                InRanking;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FEmoteBitArray                              ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function TslGame.TslPlayerState.CPing
+struct ATslPlayerState_CPing_Params
+{
+	TArray<unsigned char>                              Data;                                                     // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
+};
+
+// Function TslGame.TslPlayerState.ClientInformFirstKill
+struct ATslPlayerState_ClientInformFirstKill_Params
+{
+};
+
+// Function TslGame.TslPlayerState.ClientInformAssist
+struct ATslPlayerState_ClientInformAssist_Params
+{
 };
 
 // Function TslGame.TslPlayerState.BroadcastDeath
@@ -10993,6 +12290,7 @@ struct ATslWeapon_Throwable_OnRep_ThrowableState_Params
 // Function TslGame.TslWeapon_Throwable.OnAnimationNotify
 struct ATslWeapon_Throwable_OnAnimationNotify_Params
 {
+	class USkeletalMeshComponent*                      MeshComp;                                                 // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 	struct FName                                       NotifyName;                                               // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 };
 
@@ -11085,6 +12383,12 @@ struct ATslProjectile_ExplodeBP_Params
 // Function TslGame.TslProjectile.CheckVelocityForStart
 struct ATslProjectile_CheckVelocityForStart_Params
 {
+};
+
+// Function TslGame.TslProjectile_Flare.SetAkAttenuationScaling_BP
+struct ATslProjectile_Flare_SetAkAttenuationScaling_BP_Params
+{
+	float                                              InAttScale;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslProjectile_Flare.Server_SpawnCarePackageCustom
@@ -11201,6 +12505,12 @@ struct ATslSpectatorPawn_RestoreTargetCharacter_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function TslGame.TslSpectatorPawn.PrevSpectatorCameraPad
+struct ATslSpectatorPawn_PrevSpectatorCameraPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslSpectatorPawn.OnViewTargetUpdate
 struct ATslSpectatorPawn_OnViewTargetUpdate_Params
 {
@@ -11307,6 +12617,12 @@ struct ATslSpectatorPawn_OnGotoTimelineDone_Params
 {
 };
 
+// Function TslGame.TslSpectatorPawn.NextSpectatorCameraPad
+struct ATslSpectatorPawn_NextSpectatorCameraPad_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TslSpectatorPawn.IsObserverTagWeaponShow
 struct ATslSpectatorPawn_IsObserverTagWeaponShow_Params
 {
@@ -11379,106 +12695,14 @@ struct UTslThrowableTrajectoryViewComponent_AttachToThrowable_Params
 	class ATslWeapon_Throwable*                        ThrowableIn;                                              // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function TslGame.TslUserWidget.TransferUserFocusThroughReply
-struct UTslUserWidget_TransferUserFocusThroughReply_Params
-{
-	struct FFocusEvent                                 AcceptedFocusEvent;                                       // (ConstParm, Parm, OutParm, ReferenceParm)
-	struct FEventReply                                 Reply;                                                    // (Parm, OutParm, ReferenceParm)
-	class UWidget*                                     FocusWidget;                                              // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	bool                                               bInAllUsers;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FEventReply                                 ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function TslGame.TslUserWidget.StopListeningForAllInputAxises
-struct UTslUserWidget_StopListeningForAllInputAxises_Params
+// Function TslGame.TslEmoteWheelWidget.StartShow
+struct UTslEmoteWheelWidget_StartShow_Params
 {
 };
 
-// Function TslGame.TslUserWidget.NavigateUserFocus
-struct UTslUserWidget_NavigateUserFocus_Params
+// Function TslGame.TslEmoteWheelWidget.StartHide
+struct UTslEmoteWheelWidget_StartHide_Params
 {
-	class ULocalPlayer*                                Player;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	class UWidget*                                     Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslUserWidget.ListenForInputAxis
-struct UTslUserWidget_ListenForInputAxis_Params
-{
-	struct FName                                       AxisName;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              Scale;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bConsume;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FScriptDelegate                             Callback;                                                 // (Parm, ZeroConstructor)
-};
-
-// Function TslGame.TslUserWidget.IsReplaying
-struct UTslUserWidget_IsReplaying_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslUserWidget.GetRawKeyValue
-struct UTslUserWidget_GetRawKeyValue_Params
-{
-	struct FKey                                        InKey;                                                    // (Parm)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslUserWidget.GetDemoPlayerState
-struct UTslUserWidget_GetDemoPlayerState_Params
-{
-	bool                                               IsForMatchResult;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	class ATslPlayerState*                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslUserWidget.GetCachedViewTargetTslCharacter
-struct UTslUserWidget_GetCachedViewTargetTslCharacter_Params
-{
-	class ATslCharacter*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslUserWidget.GetCachedGameState
-struct UTslUserWidget_GetCachedGameState_Params
-{
-	class ATslGameState*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslUserWidget.GetCachedCharacter
-struct UTslUserWidget_GetCachedCharacter_Params
-{
-	class ATslCharacter*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslUserWidget.ContainUserFocus
-struct UTslUserWidget_ContainUserFocus_Params
-{
-	class ULocalPlayer*                                Player;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	class UWidget*                                     Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslUserWidget.ContainOwnerUserFocus
-struct UTslUserWidget_ContainOwnerUserFocus_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.TslUserWidget.ClearUserFocus
-struct UTslUserWidget_ClearUserFocus_Params
-{
-	class ULocalPlayer*                                Player;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.UmgBaseWidget.IsMouseOn
-struct UUmgBaseWidget_IsMouseOn_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function TslGame.UmgBaseWidget.HandleMainPrepass
-struct UUmgBaseWidget_HandleMainPrepass_Params
-{
-	class UWidget*                                     Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 };
 
 // Function TslGame.TslXboxTeamManageWidget.ToggleVoiceChat
@@ -11518,6 +12742,7 @@ struct UTslXboxTeamManageWidget_GetTeamManageInfoWidgetByMemberNum_Params
 // Function TslGame.BluezoneGpsBaseWidget.UpdateBluezoneGpsWidget
 struct UBluezoneGpsBaseWidget_UpdateBluezoneGpsWidget_Params
 {
+	class UWidget*                                     Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 };
 
 // Function TslGame.BluezoneGpsBaseWidget.OnNotifyNextGasIn
@@ -11607,6 +12832,12 @@ struct ULifeGaugeTemplateBaseWidget_OnDestoryHealEffect_Params
 struct ULifeGaugeTemplateBaseWidget_OnDestoryDamageEffect_Params
 {
 	class ULifeGaugeEffectBaseWidget*                  DamageEffect;                                             // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+};
+
+// Function TslGame.LifeGaugeTemplateBaseWidget.HasEffect
+struct ULifeGaugeTemplateBaseWidget_HasEffect_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.MapCarePackageItemIconBaseWidget.OnButtonDown
@@ -11705,6 +12936,11 @@ struct UMapGridWidget_OnMapCarePackageItemIconClicked_Params
 
 // Function TslGame.MapGridWidget.OnGotoTimelineDone
 struct UMapGridWidget_OnGotoTimelineDone_Params
+{
+};
+
+// Function TslGame.MapGridWidget.OnGameUserSettingApplied
+struct UMapGridWidget_OnGameUserSettingApplied_Params
 {
 };
 
@@ -11818,6 +13054,24 @@ struct UMapGridWidget_AddCenter_UC_Params
 	struct FVector2D                                   Offset_UC;                                                // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
 };
 
+// Function TslGame.MinimapCanvasWidget.IsBluezoneGpsReset
+struct UMinimapCanvasWidget_IsBluezoneGpsReset_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.ParachuteVehicleWidget.OnUpdateParachuteVehicle
+struct UParachuteVehicleWidget_OnUpdateParachuteVehicle_Params
+{
+	class AParachuteVehicle*                           SavedParachuteVehicle;                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.ParachuteVehicleWidget.GetSavedParachuteVehicle
+struct UParachuteVehicleWidget_GetSavedParachuteVehicle_Params
+{
+	class AParachuteVehicle*                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.TeamMarkWidget.InitializeTeamMarkGrid
 struct UTeamMarkWidget_InitializeTeamMarkGrid_Params
 {
@@ -11875,6 +13129,17 @@ struct UTslAdaptiveCrosshairWidget_HandleGameUserSettingApplied_Params
 // Function TslGame.TslAdaptiveCrosshairWidget.DecideAdaptiveCrosshairColor
 struct UTslAdaptiveCrosshairWidget_DecideAdaptiveCrosshairColor_Params
 {
+};
+
+// Function TslGame.TslAlivePlayerInfoWidget.OnMatchStarted
+struct UTslAlivePlayerInfoWidget_OnMatchStarted_Params
+{
+};
+
+// Function TslGame.TslAlivePlayerInfoWidget.OnAliveCountChanged
+struct UTslAlivePlayerInfoWidget_OnAliveCountChanged_Params
+{
+	int                                                InKillCount;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslBaseOptionWidget.OnReset
@@ -12032,13 +13297,47 @@ struct UTslConfirmationDialogWidget_OnButtonClick_Params
 	EPopupButtonID                                     ButtonID;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function TslGame.TslHealItemSelectorWidget.OnTapAction
-struct UTslHealItemSelectorWidget_OnTapAction_Params
+// Function TslGame.TslConsoleGuideWidget.SetActiveWidget
+struct UTslConsoleGuideWidget_SetActiveWidget_Params
+{
+	int                                                WidgetIndex;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	EGuideKeyType                                      GuideKeyType;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslConsoleGuideWidget.RefreshWidgetSelectState
+struct UTslConsoleGuideWidget_RefreshWidgetSelectState_Params
+{
+	class AEquipment*                                  Equipment;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	class UItem*                                       TargetItem;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                FocusIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                SelfPutIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslConsoleGuideWidget.RefreshWidgetAmountControl
+struct UTslConsoleGuideWidget_RefreshWidgetAmountControl_Params
 {
 };
 
-// Function TslGame.TslHealItemSelectorWidget.OnHoldAction
-struct UTslHealItemSelectorWidget_OnHoldAction_Params
+// Function TslGame.TslConsoleGuideWidget.RefreshWidget
+struct UTslConsoleGuideWidget_RefreshWidget_Params
+{
+	class AEquipment*                                  Equipment;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	class UItem*                                       TargetItem;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                FocusIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.TslGamepadHudWidget.RuntimeInit_Implementation
+struct UTslGamepadHudWidget_RuntimeInit_Implementation_Params
+{
+};
+
+// Function TslGame.TslHealItemSelectorWidget.OnUseHealItem
+struct UTslHealItemSelectorWidget_OnUseHealItem_Params
+{
+};
+
+// Function TslGame.TslHealItemSelectorWidget.OnSelectNextHealItem
+struct UTslHealItemSelectorWidget_OnSelectNextHealItem_Params
 {
 };
 
@@ -12050,7 +13349,6 @@ struct UTslHealItemSelectorWidget_OnHideWidget_Params
 // Function TslGame.TslHealItemSelectorWidget.NotifyHealItemSelectorInput
 struct UTslHealItemSelectorWidget_NotifyHealItemSelectorInput_Params
 {
-	bool                                               bPressed;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function TslGame.TslInventoryCapacityWidget.GetInventoryCached
@@ -12841,6 +14139,13 @@ struct ATslWeapon_Gun_Projectile_SimulateFire_BP_Params
 {
 };
 
+// Function TslGame.TslWeapon_Gun_Projectile.Server_FireProjectile
+struct ATslWeapon_Gun_Projectile_Server_FireProjectile_Params
+{
+	struct FVector                                     InLocation;                                               // (Parm, IsPlainOldData)
+	struct FRotator                                    InRotation;                                               // (Parm, IsPlainOldData)
+};
+
 // Function TslGame.TslWeapon_Trajectory.SimulateUnderwaterTrail
 struct ATslWeapon_Trajectory_SimulateUnderwaterTrail_Params
 {
@@ -12889,8 +14194,9 @@ struct ATslWeapon_Trajectory_ServerWallCheckTest_Params
 struct ATslWeapon_Trajectory_ServerNotifyHit_Params
 {
 	struct FVector                                     ClientImpactLocation;                                     // (ConstParm, Parm, ReferenceParm, IsPlainOldData)
+	unsigned char                                      bCallerCheck;                                             // (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+	unsigned char                                      r0;                                                       // (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 	struct FVector                                     RelativeImpact;                                           // (ConstParm, Parm, ReferenceParm, IsPlainOldData)
-	float                                              HandOffsetValue;                                          // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FHitResult                                  Impact;                                                   // (ConstParm, Parm, ReferenceParm, IsPlainOldData)
 	TArray<uint32_t>                                   Checksums;                                                // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
 	struct FVector_NetQuantize                         Origin;                                                   // (ConstParm, Parm, ReferenceParm)
@@ -12902,6 +14208,9 @@ struct ATslWeapon_Trajectory_ServerNotifyHit_Params
 	uint32_t                                           HitSeq;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FVector                                     RelLocation;                                              // (ConstParm, Parm, IsPlainOldData)
 	float                                              SpeedLoss;                                                // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     OD;                                                       // (ConstParm, Parm, ReferenceParm, IsPlainOldData)
+	float                                              TS;                                                       // (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+	struct FVector                                     IV;                                                       // (ConstParm, Parm, ReferenceParm, IsPlainOldData)
 };
 
 // Function TslGame.TslWeapon_Trajectory.ServerNotifyCrack
@@ -12926,13 +14235,6 @@ struct ATslWeapon_Trajectory_ServerLogBodyPenetration_Params
 	int                                                AttackId;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FName                                       DamageZone;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 	float                                              DamageDiff;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function TslGame.TslWeapon_Trajectory.ServerChecksumTest
-struct ATslWeapon_Trajectory_ServerChecksumTest_Params
-{
-	struct FVector                                     Location;                                                 // (ConstParm, Parm, ReferenceParm, IsPlainOldData)
-	TArray<uint32_t>                                   ClientChecksums;                                          // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
 };
 
 // Function TslGame.TslWeapon_Trajectory.OnRep_WeaponSpread
@@ -13006,10 +14308,11 @@ struct ATslWeapon_Trajectory_ClientWallCheckFail_Params
 // Function TslGame.TslWeapon_Melee.ServerNotifyHit
 struct ATslWeapon_Melee_ServerNotifyHit_Params
 {
-	TArray<float>                                      AimSpeeds;                                                // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
 	TArray<struct FHitResult>                          Impacts;                                                  // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
 	struct FAttackId                                   AttackId;                                                 // (Parm)
 	uint32_t                                           HitSeq;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     Location;                                                 // (ConstParm, Parm, ReferenceParm, IsPlainOldData)
+	int                                                checksum;                                                 // (ConstParm, Parm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 };
 
 // Function TslGame.TslWeapon_Melee.ServerAttack
@@ -13028,6 +14331,7 @@ struct ATslWeapon_Melee_OnMontageEnded_Params
 // Function TslGame.TslWeapon_Melee.OnAnimationNotify
 struct ATslWeapon_Melee_OnAnimationNotify_Params
 {
+	class USkeletalMeshComponent*                      MeshComp;                                                 // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 	struct FName                                       NotifyName;                                               // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 };
 
@@ -13197,6 +14501,18 @@ struct UUiHelperFunctions_SetTslBlur_Params
 	float                                              BlurLevel;                                                // (Parm, ZeroConstructor, IsPlainOldData)
 	float                                              DepthBlurBlackPoint;                                      // (Parm, ZeroConstructor, IsPlainOldData)
 	float                                              DepthBlurWhitePoint;                                      // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.UiHelperFunctions.ProcessSelfPutMode
+struct UUiHelperFunctions_ProcessSelfPutMode_Params
+{
+	class UUserWidget*                                 Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	TScriptInterface<class USlotInterface>             Slot;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	TScriptInterface<class USlotContainerInterface>    SlotContainer;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                SelectIndex;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	TArray<int>                                        EnableSelfPutIndexList;                                   // (Parm, OutParm, ZeroConstructor)
+	EWeaponAttachmentSlotID                            AttachmentSlotID;                                         // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function TslGame.UiHelperFunctions.IsWarning
@@ -13463,6 +14779,13 @@ struct UUiHelperFunctions_GetSortedReplicateCharactersBySpectatorPawnDistance_Pa
 
 // Function TslGame.UiHelperFunctions.GetSortedReplicateCharactersByLastHitTime
 struct UUiHelperFunctions_GetSortedReplicateCharactersByLastHitTime_Params
+{
+	class UUserWidget*                                 Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	TArray<class ATslCharacter*>                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function TslGame.UiHelperFunctions.GetSortedCharactersByMemberNumber
+struct UUiHelperFunctions_GetSortedCharactersByMemberNumber_Params
 {
 	class UUserWidget*                                 Widget;                                                   // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 	TArray<class ATslCharacter*>                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
@@ -13782,6 +15105,144 @@ struct ATslMotoSeatActor_HandleFlipAndKickstand_Params
 {
 };
 
+// Function TslGame.ViewModeStudio.SetViewModeAbleActor
+struct AViewModeStudio_SetViewModeAbleActor_Params
+{
+	class AActor*                                      Actor;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.ViewModeStudio.SetTextureRenderTarget
+struct AViewModeStudio_SetTextureRenderTarget_Params
+{
+	class UTextureRenderTarget2D*                      NewTextureTarget;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.ViewModeStudio.AddYaw
+struct AViewModeStudio_AddYaw_Params
+{
+	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.ViewModeStudio.AddViewSlaveLocation
+struct AViewModeStudio_AddViewSlaveLocation_Params
+{
+	float                                              Duration;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.ViewModeStudio.AddViewDistance
+struct AViewModeStudio_AddViewDistance_Params
+{
+	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.ViewModeStudio.AddRoll
+struct AViewModeStudio_AddRoll_Params
+{
+	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.ViewModeStudio.AddPitch
+struct AViewModeStudio_AddPitch_Params
+{
+	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.CharacterStudio.Update
+struct ACharacterStudio_Update_Params
+{
+};
+
+// Function TslGame.CharacterStudio.SetSceneCaptureMaterial
+struct ACharacterStudio_SetSceneCaptureMaterial_Params
+{
+	class UMaterialInstanceDynamic*                    Mid;                                                      // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.CharacterStudio.SetCharacter
+struct ACharacterStudio_SetCharacter_Params
+{
+	class ATslCharacter*                               Character;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.CharacterStudio.IsUsingDynamicResolution
+struct ACharacterStudio_IsUsingDynamicResolution_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.CharacterStudio.IsCharacterValid
+struct ACharacterStudio_IsCharacterValid_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.CharacterStudio.GetSceneCaptureMaterial
+struct ACharacterStudio_GetSceneCaptureMaterial_Params
+{
+	class UMaterialInstanceDynamic*                    ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.CharacterStudio.GetCharacter
+struct ACharacterStudio_GetCharacter_Params
+{
+	class ATslCharacter*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.ItemStudio.UpdateComponentToWorld
+struct AItemStudio_UpdateComponentToWorld_Params
+{
+	class UMeshComponent*                              Mesh;                                                     // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+};
+
+// Function TslGame.ItemStudio.SetItem
+struct AItemStudio_SetItem_Params
+{
+	class UItem*                                       Item;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TslGame.WeaponStudio.UpdateWeaponMesh
+struct AWeaponStudio_UpdateWeaponMesh_Params
+{
+};
+
+// Function TslGame.WeaponStudio.UpdateSkin
+struct AWeaponStudio_UpdateSkin_Params
+{
+};
+
+// Function TslGame.WeaponStudio.UpdateAttachment
+struct AWeaponStudio_UpdateAttachment_Params
+{
+};
+
+// Function TslGame.WeaponStudio.OnUpdateSkin
+struct AWeaponStudio_OnUpdateSkin_Params
+{
+};
+
+// Function TslGame.WeaponStudio.OnUpdateAttachment
+struct AWeaponStudio_OnUpdateAttachment_Params
+{
+};
+
+// Function TslGame.WeaponStudio.GetWeaonMesh
+struct AWeaponStudio_GetWeaonMesh_Params
+{
+	class UMeshComponent*                              ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+};
+
+// Function TslGame.WeaponStudio.GetCachedWeaponItem
+struct AWeaponStudio_GetCachedWeaponItem_Params
+{
+	class UBaseWeaponItem*                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function TslGame.WeaponStudio.GetCachedTslWeapon
+struct AWeaponStudio_GetCachedTslWeapon_Params
+{
+	class ATslWeapon_Gun*                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function TslGame.VivoxBaseComponent.UpdatePosition
 struct UVivoxBaseComponent_UpdatePosition_Params
 {
@@ -14036,6 +15497,11 @@ struct UWeaponAnimInfoComponent_GetAccessorySlot_Params
 {
 	EAccessorySlot                                     Slot;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
 	class UTslAccessoryComponent*                      ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+};
+
+// Function TslGame.WeaponClone.UpdateSkinData
+struct UWeaponClone_UpdateSkinData_Params
+{
 };
 
 // Function TslGame.WeaponClone.Update

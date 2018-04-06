@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -434,6 +434,192 @@ bool UItemListWidget_Gamepad_C::Up()
 }
 
 
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.GetFocusSlotOffsetByIndexAndInnerFocus
+// (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)
+// Parameters:
+// int                            Index                          (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bIsUpper                       (Parm, ZeroConstructor, IsPlainOldData)
+// int                            InnerFocusIndex                (Parm, ZeroConstructor, IsPlainOldData)
+// float                          OutOffset                      (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+
+void UItemListWidget_Gamepad_C::GetFocusSlotOffsetByIndexAndInnerFocus(int Index, bool bIsUpper, int InnerFocusIndex, float* OutOffset)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.GetFocusSlotOffsetByIndexAndInnerFocus");
+
+	UItemListWidget_Gamepad_C_GetFocusSlotOffsetByIndexAndInnerFocus_Params params;
+	params.Index = Index;
+	params.bIsUpper = bIsUpper;
+	params.InnerFocusIndex = InnerFocusIndex;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (OutOffset != nullptr)
+		*OutOffset = params.OutOffset;
+}
+
+
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.GetFocusSlotOffsetByIndex
+// (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)
+// Parameters:
+// int                            Index                          (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bIsUpper                       (Parm, ZeroConstructor, IsPlainOldData)
+// float                          OutOffset                      (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+
+void UItemListWidget_Gamepad_C::GetFocusSlotOffsetByIndex(int Index, bool bIsUpper, float* OutOffset)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.GetFocusSlotOffsetByIndex");
+
+	UItemListWidget_Gamepad_C_GetFocusSlotOffsetByIndex_Params params;
+	params.Index = Index;
+	params.bIsUpper = bIsUpper;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (OutOffset != nullptr)
+		*OutOffset = params.OutOffset;
+}
+
+
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.On_Bottom_Prepass_1
+// (Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class UWidget*                 BoundWidget                    (Parm, ZeroConstructor, IsPlainOldData)
+
+void UItemListWidget_Gamepad_C::On_Bottom_Prepass_1(class UWidget* BoundWidget)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.On_Bottom_Prepass_1");
+
+	UItemListWidget_Gamepad_C_On_Bottom_Prepass_1_Params params;
+	params.BoundWidget = BoundWidget;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.On_Top_Prepass_1
+// (Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class UWidget*                 BoundWidget                    (Parm, ZeroConstructor, IsPlainOldData)
+
+void UItemListWidget_Gamepad_C::On_Top_Prepass_1(class UWidget* BoundWidget)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.On_Top_Prepass_1");
+
+	UItemListWidget_Gamepad_C_On_Top_Prepass_1_Params params;
+	params.BoundWidget = BoundWidget;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.GetFocusSlotOffset
+// (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)
+// Parameters:
+// bool                           bIsUpper                       (Parm, ZeroConstructor, IsPlainOldData)
+// float                          OutOffset                      (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+
+void UItemListWidget_Gamepad_C::GetFocusSlotOffset(bool bIsUpper, float* OutOffset)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.GetFocusSlotOffset");
+
+	UItemListWidget_Gamepad_C_GetFocusSlotOffset_Params params;
+	params.bIsUpper = bIsUpper;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (OutOffset != nullptr)
+		*OutOffset = params.OutOffset;
+}
+
+
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnQuickScrollingDown
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void UItemListWidget_Gamepad_C::OnQuickScrollingDown()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnQuickScrollingDown");
+
+	UItemListWidget_Gamepad_C_OnQuickScrollingDown_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnQuickScrollingUp
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void UItemListWidget_Gamepad_C::OnQuickScrollingUp()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnQuickScrollingUp");
+
+	UItemListWidget_Gamepad_C_OnQuickScrollingUp_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.SpawnItemSlots
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void UItemListWidget_Gamepad_C::SpawnItemSlots()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.SpawnItemSlots");
+
+	UItemListWidget_Gamepad_C_SpawnItemSlots_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.ProcessScroll
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void UItemListWidget_Gamepad_C::ProcessScroll()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.ProcessScroll");
+
+	UItemListWidget_Gamepad_C_ProcessScroll_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.Gamepad_FinalizeWidget
 // (Public, BlueprintCallable, BlueprintEvent)
 
@@ -485,14 +671,14 @@ void UItemListWidget_Gamepad_C::OnWidgetMoveUp()
 }
 
 
-// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotMoveDownReleased
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotScrollDownReleased
 // (Public, BlueprintCallable, BlueprintEvent)
 
-void UItemListWidget_Gamepad_C::OnSlotMoveDownReleased()
+void UItemListWidget_Gamepad_C::OnSlotScrollDownReleased()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotMoveDownReleased");
+	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotScrollDownReleased");
 
-	UItemListWidget_Gamepad_C_OnSlotMoveDownReleased_Params params;
+	UItemListWidget_Gamepad_C_OnSlotScrollDownReleased_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -502,14 +688,14 @@ void UItemListWidget_Gamepad_C::OnSlotMoveDownReleased()
 }
 
 
-// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotMoveDownPressed
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotScrollDownPressed
 // (Public, BlueprintCallable, BlueprintEvent)
 
-void UItemListWidget_Gamepad_C::OnSlotMoveDownPressed()
+void UItemListWidget_Gamepad_C::OnSlotScrollDownPressed()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotMoveDownPressed");
+	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotScrollDownPressed");
 
-	UItemListWidget_Gamepad_C_OnSlotMoveDownPressed_Params params;
+	UItemListWidget_Gamepad_C_OnSlotScrollDownPressed_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -519,14 +705,14 @@ void UItemListWidget_Gamepad_C::OnSlotMoveDownPressed()
 }
 
 
-// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotMoveUpReleased
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotScrollUpReleased
 // (Public, BlueprintCallable, BlueprintEvent)
 
-void UItemListWidget_Gamepad_C::OnSlotMoveUpReleased()
+void UItemListWidget_Gamepad_C::OnSlotScrollUpReleased()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotMoveUpReleased");
+	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotScrollUpReleased");
 
-	UItemListWidget_Gamepad_C_OnSlotMoveUpReleased_Params params;
+	UItemListWidget_Gamepad_C_OnSlotScrollUpReleased_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -536,14 +722,14 @@ void UItemListWidget_Gamepad_C::OnSlotMoveUpReleased()
 }
 
 
-// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotMoveUpPressed
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotScrollUpPressed
 // (Public, BlueprintCallable, BlueprintEvent)
 
-void UItemListWidget_Gamepad_C::OnSlotMoveUpPressed()
+void UItemListWidget_Gamepad_C::OnSlotScrollUpPressed()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotMoveUpPressed");
+	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotScrollUpPressed");
 
-	UItemListWidget_Gamepad_C_OnSlotMoveUpPressed_Params params;
+	UItemListWidget_Gamepad_C_OnSlotScrollUpPressed_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -685,12 +871,15 @@ void UItemListWidget_Gamepad_C::On_FocusColor_Prepass_1(class UWidget* BoundWidg
 
 // Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.UpdateOffset_XBoxOne_Up
 // (Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// float                          AdditionalOffset               (Parm, ZeroConstructor, IsPlainOldData)
 
-void UItemListWidget_Gamepad_C::UpdateOffset_XBoxOne_Up()
+void UItemListWidget_Gamepad_C::UpdateOffset_XBoxOne_Up(float AdditionalOffset)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.UpdateOffset_XBoxOne_Up");
 
 	UItemListWidget_Gamepad_C_UpdateOffset_XBoxOne_Up_Params params;
+	params.AdditionalOffset = AdditionalOffset;
 
 	auto flags = fn->FunctionFlags;
 
@@ -702,12 +891,15 @@ void UItemListWidget_Gamepad_C::UpdateOffset_XBoxOne_Up()
 
 // Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.UpdateOffset_XBoxOne_Down
 // (Public, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// float                          AdditionalOffset               (Parm, ZeroConstructor, IsPlainOldData)
 
-void UItemListWidget_Gamepad_C::UpdateOffset_XBoxOne_Down()
+void UItemListWidget_Gamepad_C::UpdateOffset_XBoxOne_Down(float AdditionalOffset)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.UpdateOffset_XBoxOne_Down");
 
 	UItemListWidget_Gamepad_C_UpdateOffset_XBoxOne_Down_Params params;
+	params.AdditionalOffset = AdditionalOffset;
 
 	auto flags = fn->FunctionFlags;
 
@@ -912,7 +1104,7 @@ struct FText UItemListWidget_Gamepad_C::GetWeightText()
 
 
 // Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.RefreshList
-// (Public, BlueprintCallable, BlueprintEvent)
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 
 void UItemListWidget_Gamepad_C::RefreshList()
 {
@@ -1111,26 +1303,6 @@ void UItemListWidget_Gamepad_C::OnRefreshFocus()
 	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnRefreshFocus");
 
 	UItemListWidget_Gamepad_C_OnRefreshFocus_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnAddScroll
-// (BlueprintCallable, BlueprintEvent)
-// Parameters:
-// float                          Scale                          (Parm, ZeroConstructor, IsPlainOldData)
-
-void UItemListWidget_Gamepad_C::OnAddScroll(float Scale)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnAddScroll");
-
-	UItemListWidget_Gamepad_C_OnAddScroll_Params params;
-	params.Scale = Scale;
 
 	auto flags = fn->FunctionFlags;
 

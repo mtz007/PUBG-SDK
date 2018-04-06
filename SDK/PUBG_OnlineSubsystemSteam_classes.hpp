@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,12 +13,10 @@ namespace Classes
 //---------------------------------------------------------------------------
 
 // Class OnlineSubsystemSteam.SteamNetConnection
-// 0x0008 (0x33688 - 0x33680)
+// 0x0000 (0x65690 - 0x65690)
 class USteamNetConnection : public UIpConnection
 {
 public:
-	bool                                               bIsPassthrough;                                           // 0x33680(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x33681(0x0007) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{

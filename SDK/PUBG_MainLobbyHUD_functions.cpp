@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -359,7 +359,7 @@ void UMainLobbyHUD_C::OnKey_SystemMenuOrEscape()
 
 
 // Function MainLobbyHUD.MainLobbyHUD_C.InitializeHUD
-// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+// (Public, BlueprintCallable, BlueprintEvent)
 
 void UMainLobbyHUD_C::InitializeHUD()
 {
@@ -437,6 +437,28 @@ void UMainLobbyHUD_C::ShowWebPopup(const struct FWebPopupParam& Param)
 
 	UMainLobbyHUD_C_ShowWebPopup_Params params;
 	params.Param = Param;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function MainLobbyHUD.MainLobbyHUD_C.Tick
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+// Parameters:
+// struct FGeometry*              MyGeometry                     (Parm, IsPlainOldData)
+// float*                         InDeltaTime                    (Parm, ZeroConstructor, IsPlainOldData)
+
+void UMainLobbyHUD_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function MainLobbyHUD.MainLobbyHUD_C.Tick");
+
+	UMainLobbyHUD_C_Tick_Params params;
+	params.MyGeometry = MyGeometry;
+	params.InDeltaTime = InDeltaTime;
 
 	auto flags = fn->FunctionFlags;
 

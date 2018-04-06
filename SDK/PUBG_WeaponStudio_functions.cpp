@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,14 +12,52 @@ namespace Classes
 //Functions
 //---------------------------------------------------------------------------
 
-// Function WeaponStudio.WeaponStudio_C.OnLoad_Test
+// Function WeaponStudio.WeaponStudio_C.OnUpdateSkinBp
 // (Public, BlueprintCallable, BlueprintEvent)
 
-void AWeaponStudio_C::OnLoad_Test()
+void AWeaponStudio_C::OnUpdateSkinBp()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponStudio.WeaponStudio_C.OnLoad_Test");
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponStudio.WeaponStudio_C.OnUpdateSkinBp");
 
-	AWeaponStudio_C_OnLoad_Test_Params params;
+	AWeaponStudio_C_OnUpdateSkinBp_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function WeaponStudio.WeaponStudio_C.GetWeaonMesh
+// (Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent, Const)
+// Parameters:
+// class UMeshComponent*          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class UMeshComponent* AWeaponStudio_C::GetWeaonMesh()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponStudio.WeaponStudio_C.GetWeaonMesh");
+
+	AWeaponStudio_C_GetWeaonMesh_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function WeaponStudio.WeaponStudio_C.InitializeAttachmentMap
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void AWeaponStudio_C::InitializeAttachmentMap()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponStudio.WeaponStudio_C.InitializeAttachmentMap");
+
+	AWeaponStudio_C_InitializeAttachmentMap_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -46,14 +84,14 @@ void AWeaponStudio_C::OnAttachmentLoad()
 }
 
 
-// Function WeaponStudio.WeaponStudio_C.UpdateAttachment
+// Function WeaponStudio.WeaponStudio_C.OnUpdateAttachmentBp
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 
-void AWeaponStudio_C::UpdateAttachment()
+void AWeaponStudio_C::OnUpdateAttachmentBp()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponStudio.WeaponStudio_C.UpdateAttachment");
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponStudio.WeaponStudio_C.OnUpdateAttachmentBp");
 
-	AWeaponStudio_C_UpdateAttachment_Params params;
+	AWeaponStudio_C_OnUpdateAttachmentBp_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -80,17 +118,14 @@ void AWeaponStudio_C::UserConstructionScript()
 }
 
 
-// Function WeaponStudio.WeaponStudio_C.SetItem
-// (Event, Public, BlueprintCallable, BlueprintEvent)
-// Parameters:
-// class UItem**                  Item                           (Parm, ZeroConstructor, IsPlainOldData)
+// Function WeaponStudio.WeaponStudio_C.ReceiveBeginPlay
+// (Event, Protected, BlueprintEvent)
 
-void AWeaponStudio_C::SetItem(class UItem** Item)
+void AWeaponStudio_C::ReceiveBeginPlay()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponStudio.WeaponStudio_C.SetItem");
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponStudio.WeaponStudio_C.ReceiveBeginPlay");
 
-	AWeaponStudio_C_SetItem_Params params;
-	params.Item = Item;
+	AWeaponStudio_C_ReceiveBeginPlay_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -100,14 +135,48 @@ void AWeaponStudio_C::SetItem(class UItem** Item)
 }
 
 
-// Function WeaponStudio.WeaponStudio_C.ReceiveBeginPlay
-// (Event, Protected, BlueprintEvent)
+// Function WeaponStudio.WeaponStudio_C.UpdateWeaponMesh
+// (Event, Public, BlueprintEvent)
 
-void AWeaponStudio_C::ReceiveBeginPlay()
+void AWeaponStudio_C::UpdateWeaponMesh()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WeaponStudio.WeaponStudio_C.ReceiveBeginPlay");
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponStudio.WeaponStudio_C.UpdateWeaponMesh");
 
-	AWeaponStudio_C_ReceiveBeginPlay_Params params;
+	AWeaponStudio_C_UpdateWeaponMesh_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function WeaponStudio.WeaponStudio_C.OnUpdateAttachment
+// (Event, Public, BlueprintEvent)
+
+void AWeaponStudio_C::OnUpdateAttachment()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponStudio.WeaponStudio_C.OnUpdateAttachment");
+
+	AWeaponStudio_C_OnUpdateAttachment_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function WeaponStudio.WeaponStudio_C.OnUpdateSkin
+// (Event, Public, BlueprintEvent)
+
+void AWeaponStudio_C::OnUpdateSkin()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function WeaponStudio.WeaponStudio_C.OnUpdateSkin");
+
+	AWeaponStudio_C_OnUpdateSkin_Params params;
 
 	auto flags = fn->FunctionFlags;
 

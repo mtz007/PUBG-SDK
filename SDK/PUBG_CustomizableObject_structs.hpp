@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -21,7 +21,8 @@ enum class EMutableParameterType : uint8_t
 	EMutableParameterType__Float   = 3,
 	EMutableParameterType__Color   = 4,
 	EMutableParameterType__Projector = 5,
-	EMutableParameterType__EMutableParameterType_MAX = 6
+	EMutableParameterType__Texture = 6,
+	EMutableParameterType__EMutableParameterType_MAX = 7
 };
 
 
@@ -67,6 +68,14 @@ struct FCustomizableObjectFloatParameterValue
 	unsigned char                                      UnknownData00[0x4];                                       // 0x0014(0x0004) MISSED OFFSET
 };
 
+// ScriptStruct CustomizableObject.CustomizableObjectTextureParameterValue
+// 0x0018
+struct FCustomizableObjectTextureParameterValue
+{
+	struct FString                                     ParameterName;                                            // 0x0000(0x0010) (Edit, ZeroConstructor, EditConst)
+	uint64_t                                           ParameterValue;                                           // 0x0010(0x0008) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
+};
+
 // ScriptStruct CustomizableObject.CustomizableObjectVectorParameterValue
 // 0x0020
 struct FCustomizableObjectVectorParameterValue
@@ -95,22 +104,20 @@ struct FCustomizableObjectProjectorParameterValue
 };
 
 // ScriptStruct CustomizableObject.GeneratedTexture
-// 0x0028
+// 0x0020
 struct FGeneratedTexture
 {
 	int                                                ID;                                                       // 0x0000(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
 	struct FString                                     Name;                                                     // 0x0008(0x0010) (Edit, ZeroConstructor)
 	class UTexture2D*                                  Texture;                                                  // 0x0018(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0020(0x0008) MISSED OFFSET
 };
 
 // ScriptStruct CustomizableObject.GeneratedMaterial
-// 0x0020
+// 0x0010
 struct FGeneratedMaterial
 {
-	struct FString                                     Name;                                                     // 0x0000(0x0010) (Edit, ZeroConstructor, EditConst)
-	TArray<struct FGeneratedTexture>                   Textures;                                                 // 0x0010(0x0010) (Edit, ZeroConstructor, EditConst)
+	TArray<struct FGeneratedTexture>                   Textures;                                                 // 0x0000(0x0010) (Edit, ZeroConstructor, EditConst)
 };
 
 // ScriptStruct CustomizableObject.GeneratedMesh
@@ -120,6 +127,13 @@ struct FGeneratedMesh
 	int                                                ID;                                                       // 0x0000(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
 	class UStaticMesh*                                 Mesh;                                                     // 0x0008(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+};
+
+// ScriptStruct CustomizableObject.ParameterDecorations
+// 0x0010
+struct FParameterDecorations
+{
+	TArray<class UTexture2D*>                          Images;                                                   // 0x0000(0x0010) (ZeroConstructor, Transient)
 };
 
 // ScriptStruct CustomizableObject.MutableModelImageProperties

@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -133,6 +133,12 @@ struct UInventoryWidget_Gamepad_C_Right_Params
 struct UInventoryWidget_Gamepad_C_Up_Params
 {
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.RefreshToolTip
+struct UInventoryWidget_Gamepad_C_RefreshToolTip_Params
+{
+	TScriptInterface<class USlotInterface>             Item;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.OnBPressed
@@ -300,6 +306,16 @@ struct UInventoryWidget_Gamepad_C_BndEvt__Vicinity_K2Node_ComponentBoundEvent_36
 	TScriptInterface<class USlotContainerInterface>    SlotContainer;                                            // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Construct
+struct UInventoryWidget_Gamepad_C_Construct_Params
+{
+};
+
+// Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Destruct
+struct UInventoryWidget_Gamepad_C_Destruct_Params
+{
+};
+
 // Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.BndEvt__Weapon_K2Node_ComponentBoundEvent_15_OnAttachmentFocused__DelegateSignature
 struct UInventoryWidget_Gamepad_C_BndEvt__Weapon_K2Node_ComponentBoundEvent_15_OnAttachmentFocused__DelegateSignature_Params
 {
@@ -328,16 +344,6 @@ struct UInventoryWidget_Gamepad_C_BndEvt__SelfPutHelperWidget_K2Node_ComponentBo
 	bool                                               bStart;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Construct
-struct UInventoryWidget_Gamepad_C_Construct_Params
-{
-};
-
-// Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Destruct
-struct UInventoryWidget_Gamepad_C_Destruct_Params
-{
-};
-
 // Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Custom Event_1
 struct UInventoryWidget_Gamepad_C_Custom_Event_1_Params
 {
@@ -350,6 +356,11 @@ struct UInventoryWidget_Gamepad_C_Custom_Event_2_Params
 
 // Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Custom Event_3
 struct UInventoryWidget_Gamepad_C_Custom_Event_3_Params
+{
+};
+
+// Function InventoryWidget_Gamepad.InventoryWidget_Gamepad_C.Custom Event_4
+struct UInventoryWidget_Gamepad_C_Custom_Event_4_Params
 {
 };
 

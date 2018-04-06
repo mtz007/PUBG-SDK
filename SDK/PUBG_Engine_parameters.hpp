@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -2647,6 +2647,12 @@ struct APlayerController_ServerVerifyViewTarget_Params
 {
 };
 
+// Function Engine.PlayerController.ServerUpdateMultipleLevelsVisibility
+struct APlayerController_ServerUpdateMultipleLevelsVisibility_Params
+{
+	TArray<struct FUpdateLevelVisibilityLevelInfo>     LevelVisibilities;                                        // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
+};
+
 // Function Engine.PlayerController.ServerUpdateLevelVisibility
 struct APlayerController_ServerUpdateLevelVisibility_Params
 {
@@ -2996,6 +3002,12 @@ struct APlayerController_ClientVoiceHandshakeComplete_Params
 {
 };
 
+// Function Engine.PlayerController.ClientUpdateMultipleLevelsStreamingStatus
+struct APlayerController_ClientUpdateMultipleLevelsStreamingStatus_Params
+{
+	TArray<struct FUpdateLevelStreamingLevelStatus>    LevelStatuses;                                            // (ConstParm, Parm, ZeroConstructor, ReferenceParm)
+};
+
 // Function Engine.PlayerController.ClientUpdateLevelStreamingStatus
 struct APlayerController_ClientUpdateLevelStreamingStatus_Params
 {
@@ -3003,7 +3015,7 @@ struct APlayerController_ClientUpdateLevelStreamingStatus_Params
 	bool                                               bNewShouldBeLoaded;                                       // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               bNewShouldBeVisible;                                      // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               bNewShouldBlockOnLoad;                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                LodIndex;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                LODIndex;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Engine.PlayerController.ClientUnmutePlayer
@@ -3545,6 +3557,92 @@ struct ACharacter_SetReplicateMovement_Params
 	bool                                               bInReplicateMovement;                                     // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function Engine.Character.ServerMoveOld
+struct ACharacter_ServerMoveOld_Params
+{
+	float                                              OldTimeStamp;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector_NetQuantize10                       OldAccel;                                                 // (Parm)
+	unsigned char                                      OldMoveFlags;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.Character.ServerMoveNoBase
+struct ACharacter_ServerMoveNoBase_Params
+{
+	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector_NetQuantize10                       InAccel;                                                  // (Parm)
+	struct FVector_NetQuantize100                      ClientLoc;                                                // (Parm)
+	unsigned char                                      CompressedMoveFlags;                                      // (Parm, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      ClientRoll;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           View;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      ClientMovementMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.Character.ServerMoveDualNoBase
+struct ACharacter_ServerMoveDualNoBase_Params
+{
+	float                                              TimeStamp0;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector_NetQuantize10                       InAccel0;                                                 // (Parm)
+	unsigned char                                      PendingFlags;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           View0;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector_NetQuantize10                       InAccel;                                                  // (Parm)
+	struct FVector_NetQuantize100                      ClientLoc;                                                // (Parm)
+	unsigned char                                      NewFlags;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      ClientRoll;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           View;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      ClientMovementMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.Character.ServerMoveDualHybridRootMotion
+struct ACharacter_ServerMoveDualHybridRootMotion_Params
+{
+	float                                              TimeStamp0;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector_NetQuantize10                       InAccel0;                                                 // (Parm)
+	unsigned char                                      PendingFlags;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           View0;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector_NetQuantize10                       InAccel;                                                  // (Parm)
+	struct FVector_NetQuantize100                      ClientLoc;                                                // (Parm)
+	unsigned char                                      NewFlags;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      ClientRoll;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           View;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	class UPrimitiveComponent*                         ClientMovementBase;                                       // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FName                                       ClientBaseBoneName;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      ClientMovementMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.Character.ServerMoveDual
+struct ACharacter_ServerMoveDual_Params
+{
+	float                                              TimeStamp0;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector_NetQuantize10                       InAccel0;                                                 // (Parm)
+	unsigned char                                      PendingFlags;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           View0;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector_NetQuantize10                       InAccel;                                                  // (Parm)
+	struct FVector_NetQuantize100                      ClientLoc;                                                // (Parm)
+	unsigned char                                      NewFlags;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      ClientRoll;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           View;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	class UPrimitiveComponent*                         ClientMovementBase;                                       // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FName                                       ClientBaseBoneName;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      ClientMovementMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.Character.ServerMove
+struct ACharacter_ServerMove_Params
+{
+	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector_NetQuantize10                       InAccel;                                                  // (Parm)
+	struct FVector_NetQuantize100                      ClientLoc;                                                // (Parm)
+	unsigned char                                      CompressedMoveFlags;                                      // (Parm, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      ClientRoll;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           View;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	class UPrimitiveComponent*                         ClientMovementBase;                                       // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FName                                       ClientBaseBoneName;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      ClientMovementMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function Engine.Character.PlayAnimMontage
 struct ACharacter_PlayAnimMontage_Params
 {
@@ -3565,11 +3663,6 @@ struct ACharacter_OnWalkingOffLedge_Params
 
 // Function Engine.Character.OnRep_RootMotion
 struct ACharacter_OnRep_RootMotion_Params
-{
-};
-
-// Function Engine.Character.OnRep_ReplicatedMovementMode
-struct ACharacter_OnRep_ReplicatedMovementMode_Params
 {
 };
 
@@ -3662,22 +3755,10 @@ struct ACharacter_IsJumpProvidingForce_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Engine.Character.GetMesh
-struct ACharacter_GetMesh_Params
-{
-	class USkeletalMeshComponent*                      ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
-};
-
 // Function Engine.Character.GetCurrentMontage
 struct ACharacter_GetCurrentMontage_Params
 {
 	class UAnimMontage*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.Character.GetCapsuleComponent
-struct ACharacter_GetCapsuleComponent_Params
-{
-	class UCapsuleComponent*                           ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
 };
 
 // Function Engine.Character.GetBaseTranslationOffset
@@ -3704,6 +3785,18 @@ struct ACharacter_Crouch_Params
 	bool                                               bClientSimulation;                                        // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function Engine.Character.ClientVeryShortAdjustPosition
+struct ACharacter_ClientVeryShortAdjustPosition_Params
+{
+	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     NewLoc;                                                   // (Parm, IsPlainOldData)
+	class UPrimitiveComponent*                         NewBase;                                                  // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FName                                       NewBaseBoneName;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bHasBase;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bBaseRelativePosition;                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      ServerMovementMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function Engine.Character.ClientCheatWalk
 struct ACharacter_ClientCheatWalk_Params
 {
@@ -3717,6 +3810,57 @@ struct ACharacter_ClientCheatGhost_Params
 // Function Engine.Character.ClientCheatFly
 struct ACharacter_ClientCheatFly_Params
 {
+};
+
+// Function Engine.Character.ClientAdjustRootMotionSourcePosition
+struct ACharacter_ClientAdjustRootMotionSourcePosition_Params
+{
+	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FRootMotionSourceGroup                      ServerRootMotion;                                         // (Parm)
+	bool                                               bHasAnimRootMotion;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ServerMontageTrackPosition;                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     ServerLoc;                                                // (Parm, IsPlainOldData)
+	struct FVector_NetQuantizeNormal                   ServerRotation;                                           // (Parm)
+	float                                              ServerVelZ;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	class UPrimitiveComponent*                         ServerBase;                                               // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FName                                       ServerBoneName;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bHasBase;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bBaseRelativePosition;                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      ServerMovementMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.Character.ClientAdjustRootMotionPosition
+struct ACharacter_ClientAdjustRootMotionPosition_Params
+{
+	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ServerMontageTrackPosition;                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     ServerLoc;                                                // (Parm, IsPlainOldData)
+	struct FVector_NetQuantizeNormal                   ServerRotation;                                           // (Parm)
+	float                                              ServerVelZ;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	class UPrimitiveComponent*                         ServerBase;                                               // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FName                                       ServerBoneName;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bHasBase;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bBaseRelativePosition;                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      ServerMovementMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.Character.ClientAdjustPosition
+struct ACharacter_ClientAdjustPosition_Params
+{
+	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     NewLoc;                                                   // (Parm, IsPlainOldData)
+	struct FVector                                     NewVel;                                                   // (Parm, IsPlainOldData)
+	class UPrimitiveComponent*                         NewBase;                                                  // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FName                                       NewBaseBoneName;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bHasBase;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bBaseRelativePosition;                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      ServerMovementMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.Character.ClientAckGoodMove
+struct ACharacter_ClientAckGoodMove_Params
+{
+	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Engine.Character.CanJumpInternal
@@ -3736,6 +3880,262 @@ struct ACharacter_CacheInitialMeshOffset_Params
 {
 	struct FVector                                     MeshRelativeLocation;                                     // (Parm, IsPlainOldData)
 	struct FRotator                                    MeshRelativeRotation;                                     // (Parm, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.StartPlay
+struct AGameModeBase_StartPlay_Params
+{
+};
+
+// Function Engine.GameModeBase.SpawnDefaultPawnFor
+struct AGameModeBase_SpawnDefaultPawnFor_Params
+{
+	class AController*                                 NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      StartSpot;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	class APawn*                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.SpawnDefaultPawnAtTransform
+struct AGameModeBase_SpawnDefaultPawnAtTransform_Params
+{
+	class AController*                                 NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FTransform                                  SpawnTransform;                                           // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+	class APawn*                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.ShouldReset
+struct AGameModeBase_ShouldReset_Params
+{
+	class AActor*                                      ActorToReset;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.ReturnToMainMenuHost
+struct AGameModeBase_ReturnToMainMenuHost_Params
+{
+};
+
+// Function Engine.GameModeBase.RestartPlayerAtTransform
+struct AGameModeBase_RestartPlayerAtTransform_Params
+{
+	class AController*                                 NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FTransform                                  SpawnTransform;                                           // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.RestartPlayerAtPlayerStart
+struct AGameModeBase_RestartPlayerAtPlayerStart_Params
+{
+	class AController*                                 NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      StartSpot;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.RestartPlayer
+struct AGameModeBase_RestartPlayer_Params
+{
+	class AController*                                 NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.ResetLevel
+struct AGameModeBase_ResetLevel_Params
+{
+};
+
+// Function Engine.GameModeBase.PlayerCanRestart
+struct AGameModeBase_PlayerCanRestart_Params
+{
+	class APlayerController*                           Player;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.MustSpectate
+struct AGameModeBase_MustSpectate_Params
+{
+	class APlayerController*                           NewPlayerController;                                      // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.K2_PostLogin
+struct AGameModeBase_K2_PostLogin_Params
+{
+	class APlayerController*                           NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.K2_OnSwapPlayerControllers
+struct AGameModeBase_K2_OnSwapPlayerControllers_Params
+{
+	class APlayerController*                           OldPC;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	class APlayerController*                           NewPC;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.K2_OnRestartPlayer
+struct AGameModeBase_K2_OnRestartPlayer_Params
+{
+	class AController*                                 NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.K2_OnLogout
+struct AGameModeBase_K2_OnLogout_Params
+{
+	class AController*                                 ExitingController;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.K2_OnChangeName
+struct AGameModeBase_K2_OnChangeName_Params
+{
+	class AController*                                 Other;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     NewName;                                                  // (Parm, ZeroConstructor)
+	bool                                               bNameChange;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.K2_FindPlayerStart
+struct AGameModeBase_K2_FindPlayerStart_Params
+{
+	class AController*                                 Player;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     IncomingName;                                             // (Parm, ZeroConstructor)
+	class AActor*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.InitStartSpot
+struct AGameModeBase_InitStartSpot_Params
+{
+	class AActor*                                      StartSpot;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	class AController*                                 NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.InitializeHUDForPlayer
+struct AGameModeBase_InitializeHUDForPlayer_Params
+{
+	class APlayerController*                           NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.HasMatchStarted
+struct AGameModeBase_HasMatchStarted_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.HandleStartingNewPlayer
+struct AGameModeBase_HandleStartingNewPlayer_Params
+{
+	class APlayerController*                           NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.GetNumSpectators
+struct AGameModeBase_GetNumSpectators_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.GetNumPlayers
+struct AGameModeBase_GetNumPlayers_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.GetDefaultPawnClassForController
+struct AGameModeBase_GetDefaultPawnClassForController_Params
+{
+	class AController*                                 InController;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.FindPlayerStart
+struct AGameModeBase_FindPlayerStart_Params
+{
+	class AController*                                 Player;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     IncomingName;                                             // (Parm, ZeroConstructor)
+	class AActor*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.ChoosePlayerStart
+struct AGameModeBase_ChoosePlayerStart_Params
+{
+	class AController*                                 Player;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.ChangeName
+struct AGameModeBase_ChangeName_Params
+{
+	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     NewName;                                                  // (Parm, ZeroConstructor)
+	bool                                               bNameChange;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameModeBase.CanSpectate
+struct AGameModeBase_CanSpectate_Params
+{
+	class APlayerController*                           Viewer;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	class APlayerState*                                ViewTarget;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameMode.StartMatch
+struct AGameMode_StartMatch_Params
+{
+};
+
+// Function Engine.GameMode.SetBandwidthLimit
+struct AGameMode_SetBandwidthLimit_Params
+{
+	float                                              AsyncIOBandwidthLimit;                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameMode.Say
+struct AGameMode_Say_Params
+{
+	struct FString                                     Msg;                                                      // (Parm, ZeroConstructor)
+};
+
+// Function Engine.GameMode.RestartGame
+struct AGameMode_RestartGame_Params
+{
+};
+
+// Function Engine.GameMode.ReadyToStartMatch
+struct AGameMode_ReadyToStartMatch_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameMode.ReadyToEndMatch
+struct AGameMode_ReadyToEndMatch_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameMode.K2_OnSetMatchState
+struct AGameMode_K2_OnSetMatchState_Params
+{
+	struct FName                                       NewState;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameMode.IsMatchInProgress
+struct AGameMode_IsMatchInProgress_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameMode.HasMatchEnded
+struct AGameMode_HasMatchEnded_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameMode.GetMatchState
+struct AGameMode_GetMatchState_Params
+{
+	struct FName                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameMode.EndMatch
+struct AGameMode_EndMatch_Params
+{
+};
+
+// Function Engine.GameMode.AbortMatch
+struct AGameMode_AbortMatch_Params
+{
 };
 
 // Function Engine.MovementComponent.StopMovementImmediately
@@ -4034,64 +4434,6 @@ struct UCharacterMovementComponent_SetAvoidanceEnabled_Params
 	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function Engine.CharacterMovementComponent.ServerMoveOld
-struct UCharacterMovementComponent_ServerMoveOld_Params
-{
-	float                                              OldTimeStamp;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector_NetQuantize10                       OldAccel;                                                 // (Parm)
-	unsigned char                                      OldMoveFlags;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.CharacterMovementComponent.ServerMoveDualHybridRootMotion
-struct UCharacterMovementComponent_ServerMoveDualHybridRootMotion_Params
-{
-	float                                              TimeStamp0;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector_NetQuantize10                       InAccel0;                                                 // (Parm)
-	unsigned char                                      PendingFlags;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           View0;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector_NetQuantize10                       InAccel;                                                  // (Parm)
-	struct FVector_NetQuantize100                      ClientLoc;                                                // (Parm)
-	unsigned char                                      NewFlags;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      ClientRoll;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           View;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-	class UPrimitiveComponent*                         ClientMovementBase;                                       // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FName                                       ClientBaseBoneName;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      ClientMovementMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.CharacterMovementComponent.ServerMoveDual
-struct UCharacterMovementComponent_ServerMoveDual_Params
-{
-	float                                              TimeStamp0;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector_NetQuantize10                       InAccel0;                                                 // (Parm)
-	unsigned char                                      PendingFlags;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           View0;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector_NetQuantize10                       InAccel;                                                  // (Parm)
-	struct FVector_NetQuantize100                      ClientLoc;                                                // (Parm)
-	unsigned char                                      NewFlags;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      ClientRoll;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           View;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-	class UPrimitiveComponent*                         ClientMovementBase;                                       // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FName                                       ClientBaseBoneName;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      ClientMovementMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.CharacterMovementComponent.ServerMove
-struct UCharacterMovementComponent_ServerMove_Params
-{
-	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector_NetQuantize10                       InAccel;                                                  // (Parm)
-	struct FVector_NetQuantize100                      ClientLoc;                                                // (Parm)
-	unsigned char                                      CompressedMoveFlags;                                      // (Parm, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      ClientRoll;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           View;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-	class UPrimitiveComponent*                         ClientMovementBase;                                       // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FName                                       ClientBaseBoneName;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      ClientMovementMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function Engine.CharacterMovementComponent.K2_GetWalkableFloorZ
 struct UCharacterMovementComponent_K2_GetWalkableFloorZ_Params
 {
@@ -4209,69 +4551,6 @@ struct UCharacterMovementComponent_GetAnalogInputModifier_Params
 // Function Engine.CharacterMovementComponent.DisableMovement
 struct UCharacterMovementComponent_DisableMovement_Params
 {
-};
-
-// Function Engine.CharacterMovementComponent.ClientVeryShortAdjustPosition
-struct UCharacterMovementComponent_ClientVeryShortAdjustPosition_Params
-{
-	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     NewLoc;                                                   // (Parm, IsPlainOldData)
-	class UPrimitiveComponent*                         NewBase;                                                  // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FName                                       NewBaseBoneName;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bHasBase;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bBaseRelativePosition;                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      ServerMovementMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.CharacterMovementComponent.ClientAdjustRootMotionSourcePosition
-struct UCharacterMovementComponent_ClientAdjustRootMotionSourcePosition_Params
-{
-	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FRootMotionSourceGroup                      ServerRootMotion;                                         // (Parm)
-	bool                                               bHasAnimRootMotion;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ServerMontageTrackPosition;                               // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     ServerLoc;                                                // (Parm, IsPlainOldData)
-	struct FVector_NetQuantizeNormal                   ServerRotation;                                           // (Parm)
-	float                                              ServerVelZ;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	class UPrimitiveComponent*                         ServerBase;                                               // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FName                                       ServerBoneName;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bHasBase;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bBaseRelativePosition;                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      ServerMovementMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.CharacterMovementComponent.ClientAdjustRootMotionPosition
-struct UCharacterMovementComponent_ClientAdjustRootMotionPosition_Params
-{
-	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ServerMontageTrackPosition;                               // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     ServerLoc;                                                // (Parm, IsPlainOldData)
-	struct FVector_NetQuantizeNormal                   ServerRotation;                                           // (Parm)
-	float                                              ServerVelZ;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	class UPrimitiveComponent*                         ServerBase;                                               // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FName                                       ServerBoneName;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bHasBase;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bBaseRelativePosition;                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      ServerMovementMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.CharacterMovementComponent.ClientAdjustPosition
-struct UCharacterMovementComponent_ClientAdjustPosition_Params
-{
-	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     NewLoc;                                                   // (Parm, IsPlainOldData)
-	struct FVector                                     NewVel;                                                   // (Parm, IsPlainOldData)
-	class UPrimitiveComponent*                         NewBase;                                                  // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FName                                       NewBaseBoneName;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bHasBase;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bBaseRelativePosition;                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      ServerMovementMode;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.CharacterMovementComponent.ClientAckGoodMove
-struct UCharacterMovementComponent_ClientAckGoodMove_Params
-{
-	float                                              Timestamp;                                                // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Engine.CharacterMovementComponent.ClearAccumulatedForces
@@ -5218,14 +5497,14 @@ struct USkinnedMeshComponent_TransformFromBoneSpace_Params
 // Function Engine.SkinnedMeshComponent.SetVertexColorOverride_LinearColor
 struct USkinnedMeshComponent_SetVertexColorOverride_LinearColor_Params
 {
-	int                                                LodIndex;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                LODIndex;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 	TArray<struct FLinearColor>                        VertexColors;                                             // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
 };
 
 // Function Engine.SkinnedMeshComponent.SetSkinWeightOverride
 struct USkinnedMeshComponent_SetSkinWeightOverride_Params
 {
-	int                                                LodIndex;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                LODIndex;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 	TArray<struct FSkelMeshSkinWeightInfo>             SkinWeights;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
 };
 
@@ -5340,13 +5619,13 @@ struct USkinnedMeshComponent_FindClosestBone_K2_Params
 // Function Engine.SkinnedMeshComponent.ClearVertexColorOverride
 struct USkinnedMeshComponent_ClearVertexColorOverride_Params
 {
-	int                                                LodIndex;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                LODIndex;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Engine.SkinnedMeshComponent.ClearSkinWeightOverride
 struct USkinnedMeshComponent_ClearSkinWeightOverride_Params
 {
-	int                                                LodIndex;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                LODIndex;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Engine.SkinnedMeshComponent.BoneIsChildOf
@@ -5386,262 +5665,6 @@ struct UDestructibleComponent_ApplyDamage_Params
 	struct FVector                                     HitLocation;                                              // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
 	struct FVector                                     ImpulseDir;                                               // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
 	float                                              ImpulseStrength;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.StartPlay
-struct AGameModeBase_StartPlay_Params
-{
-};
-
-// Function Engine.GameModeBase.SpawnDefaultPawnFor
-struct AGameModeBase_SpawnDefaultPawnFor_Params
-{
-	class AController*                                 NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	class AActor*                                      StartSpot;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	class APawn*                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.SpawnDefaultPawnAtTransform
-struct AGameModeBase_SpawnDefaultPawnAtTransform_Params
-{
-	class AController*                                 NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FTransform                                  SpawnTransform;                                           // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
-	class APawn*                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.ShouldReset
-struct AGameModeBase_ShouldReset_Params
-{
-	class AActor*                                      ActorToReset;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.ReturnToMainMenuHost
-struct AGameModeBase_ReturnToMainMenuHost_Params
-{
-};
-
-// Function Engine.GameModeBase.RestartPlayerAtTransform
-struct AGameModeBase_RestartPlayerAtTransform_Params
-{
-	class AController*                                 NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FTransform                                  SpawnTransform;                                           // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.RestartPlayerAtPlayerStart
-struct AGameModeBase_RestartPlayerAtPlayerStart_Params
-{
-	class AController*                                 NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	class AActor*                                      StartSpot;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.RestartPlayer
-struct AGameModeBase_RestartPlayer_Params
-{
-	class AController*                                 NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.ResetLevel
-struct AGameModeBase_ResetLevel_Params
-{
-};
-
-// Function Engine.GameModeBase.PlayerCanRestart
-struct AGameModeBase_PlayerCanRestart_Params
-{
-	class APlayerController*                           Player;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.MustSpectate
-struct AGameModeBase_MustSpectate_Params
-{
-	class APlayerController*                           NewPlayerController;                                      // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.K2_PostLogin
-struct AGameModeBase_K2_PostLogin_Params
-{
-	class APlayerController*                           NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.K2_OnSwapPlayerControllers
-struct AGameModeBase_K2_OnSwapPlayerControllers_Params
-{
-	class APlayerController*                           OldPC;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	class APlayerController*                           NewPC;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.K2_OnRestartPlayer
-struct AGameModeBase_K2_OnRestartPlayer_Params
-{
-	class AController*                                 NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.K2_OnLogout
-struct AGameModeBase_K2_OnLogout_Params
-{
-	class AController*                                 ExitingController;                                        // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.K2_OnChangeName
-struct AGameModeBase_K2_OnChangeName_Params
-{
-	class AController*                                 Other;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     NewName;                                                  // (Parm, ZeroConstructor)
-	bool                                               bNameChange;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.K2_FindPlayerStart
-struct AGameModeBase_K2_FindPlayerStart_Params
-{
-	class AController*                                 Player;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     IncomingName;                                             // (Parm, ZeroConstructor)
-	class AActor*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.InitStartSpot
-struct AGameModeBase_InitStartSpot_Params
-{
-	class AActor*                                      StartSpot;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	class AController*                                 NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.InitializeHUDForPlayer
-struct AGameModeBase_InitializeHUDForPlayer_Params
-{
-	class APlayerController*                           NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.HasMatchStarted
-struct AGameModeBase_HasMatchStarted_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.HandleStartingNewPlayer
-struct AGameModeBase_HandleStartingNewPlayer_Params
-{
-	class APlayerController*                           NewPlayer;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.GetNumSpectators
-struct AGameModeBase_GetNumSpectators_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.GetNumPlayers
-struct AGameModeBase_GetNumPlayers_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.GetDefaultPawnClassForController
-struct AGameModeBase_GetDefaultPawnClassForController_Params
-{
-	class AController*                                 InController;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.FindPlayerStart
-struct AGameModeBase_FindPlayerStart_Params
-{
-	class AController*                                 Player;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     IncomingName;                                             // (Parm, ZeroConstructor)
-	class AActor*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.ChoosePlayerStart
-struct AGameModeBase_ChoosePlayerStart_Params
-{
-	class AController*                                 Player;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	class AActor*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.ChangeName
-struct AGameModeBase_ChangeName_Params
-{
-	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     NewName;                                                  // (Parm, ZeroConstructor)
-	bool                                               bNameChange;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameModeBase.CanSpectate
-struct AGameModeBase_CanSpectate_Params
-{
-	class APlayerController*                           Viewer;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	class APlayerState*                                ViewTarget;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameMode.StartMatch
-struct AGameMode_StartMatch_Params
-{
-};
-
-// Function Engine.GameMode.SetBandwidthLimit
-struct AGameMode_SetBandwidthLimit_Params
-{
-	float                                              AsyncIOBandwidthLimit;                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameMode.Say
-struct AGameMode_Say_Params
-{
-	struct FString                                     Msg;                                                      // (Parm, ZeroConstructor)
-};
-
-// Function Engine.GameMode.RestartGame
-struct AGameMode_RestartGame_Params
-{
-};
-
-// Function Engine.GameMode.ReadyToStartMatch
-struct AGameMode_ReadyToStartMatch_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameMode.ReadyToEndMatch
-struct AGameMode_ReadyToEndMatch_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameMode.K2_OnSetMatchState
-struct AGameMode_K2_OnSetMatchState_Params
-{
-	struct FName                                       NewState;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameMode.IsMatchInProgress
-struct AGameMode_IsMatchInProgress_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameMode.HasMatchEnded
-struct AGameMode_HasMatchEnded_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameMode.GetMatchState
-struct AGameMode_GetMatchState_Params
-{
-	struct FName                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameMode.EndMatch
-struct AGameMode_EndMatch_Params
-{
-};
-
-// Function Engine.GameMode.AbortMatch
-struct AGameMode_AbortMatch_Params
-{
 };
 
 // Function Engine.GameUserSettings.ValidateSettings
@@ -14859,7 +14882,7 @@ struct UKismetMathLibrary_RandomFloat_Params
 // Function Engine.KismetMathLibrary.RandomBoolWithWeightFromStream
 struct UKismetMathLibrary_RandomBoolWithWeightFromStream_Params
 {
-	float                                              Weight;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              weight;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FRandomStream                               RandomStream;                                             // (ConstParm, Parm, OutParm, ReferenceParm)
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
@@ -14867,7 +14890,7 @@ struct UKismetMathLibrary_RandomBoolWithWeightFromStream_Params
 // Function Engine.KismetMathLibrary.RandomBoolWithWeight
 struct UKismetMathLibrary_RandomBoolWithWeight_Params
 {
-	float                                              Weight;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              weight;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 

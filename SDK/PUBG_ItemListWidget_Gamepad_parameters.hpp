@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -135,6 +135,62 @@ struct UItemListWidget_Gamepad_C_Up_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.GetFocusSlotOffsetByIndexAndInnerFocus
+struct UItemListWidget_Gamepad_C_GetFocusSlotOffsetByIndexAndInnerFocus_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bIsUpper;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                InnerFocusIndex;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              OutOffset;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.GetFocusSlotOffsetByIndex
+struct UItemListWidget_Gamepad_C_GetFocusSlotOffsetByIndex_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bIsUpper;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              OutOffset;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.On_Bottom_Prepass_1
+struct UItemListWidget_Gamepad_C_On_Bottom_Prepass_1_Params
+{
+	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.On_Top_Prepass_1
+struct UItemListWidget_Gamepad_C_On_Top_Prepass_1_Params
+{
+	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.GetFocusSlotOffset
+struct UItemListWidget_Gamepad_C_GetFocusSlotOffset_Params
+{
+	bool                                               bIsUpper;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              OutOffset;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnQuickScrollingDown
+struct UItemListWidget_Gamepad_C_OnQuickScrollingDown_Params
+{
+};
+
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnQuickScrollingUp
+struct UItemListWidget_Gamepad_C_OnQuickScrollingUp_Params
+{
+};
+
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.SpawnItemSlots
+struct UItemListWidget_Gamepad_C_SpawnItemSlots_Params
+{
+};
+
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.ProcessScroll
+struct UItemListWidget_Gamepad_C_ProcessScroll_Params
+{
+};
+
 // Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.Gamepad_FinalizeWidget
 struct UItemListWidget_Gamepad_C_Gamepad_FinalizeWidget_Params
 {
@@ -150,23 +206,23 @@ struct UItemListWidget_Gamepad_C_OnWidgetMoveUp_Params
 {
 };
 
-// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotMoveDownReleased
-struct UItemListWidget_Gamepad_C_OnSlotMoveDownReleased_Params
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotScrollDownReleased
+struct UItemListWidget_Gamepad_C_OnSlotScrollDownReleased_Params
 {
 };
 
-// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotMoveDownPressed
-struct UItemListWidget_Gamepad_C_OnSlotMoveDownPressed_Params
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotScrollDownPressed
+struct UItemListWidget_Gamepad_C_OnSlotScrollDownPressed_Params
 {
 };
 
-// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotMoveUpReleased
-struct UItemListWidget_Gamepad_C_OnSlotMoveUpReleased_Params
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotScrollUpReleased
+struct UItemListWidget_Gamepad_C_OnSlotScrollUpReleased_Params
 {
 };
 
-// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotMoveUpPressed
-struct UItemListWidget_Gamepad_C_OnSlotMoveUpPressed_Params
+// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotScrollUpPressed
+struct UItemListWidget_Gamepad_C_OnSlotScrollUpPressed_Params
 {
 };
 
@@ -211,11 +267,13 @@ struct UItemListWidget_Gamepad_C_On_FocusColor_Prepass_1_Params
 // Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.UpdateOffset_XBoxOne_Up
 struct UItemListWidget_Gamepad_C_UpdateOffset_XBoxOne_Up_Params
 {
+	float                                              AdditionalOffset;                                         // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.UpdateOffset_XBoxOne_Down
 struct UItemListWidget_Gamepad_C_UpdateOffset_XBoxOne_Down_Params
 {
+	float                                              AdditionalOffset;                                         // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.GetSelectWidget
@@ -338,12 +396,6 @@ struct UItemListWidget_Gamepad_C_CustomEvent_1_Params
 // Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnRefreshFocus
 struct UItemListWidget_Gamepad_C_OnRefreshFocus_Params
 {
-};
-
-// Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnAddScroll
-struct UItemListWidget_Gamepad_C_OnAddScroll_Params
-{
-	float                                              Scale;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ItemListWidget_Gamepad.ItemListWidget_Gamepad_C.OnSlotScrollMoving

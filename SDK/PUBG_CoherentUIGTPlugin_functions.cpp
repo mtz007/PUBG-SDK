@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -312,14 +312,14 @@ void UCoherentUIGTJSEvent::AddStructArg(class UStructProperty* Arg)
 // Function CoherentUIGTPlugin.CoherentUIGTJSEvent.AddString
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// struct FString                 str                            (Parm, ZeroConstructor)
+// struct FString                 Str                            (Parm, ZeroConstructor)
 
-void UCoherentUIGTJSEvent::AddString(const struct FString& str)
+void UCoherentUIGTJSEvent::AddString(const struct FString& Str)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function CoherentUIGTPlugin.CoherentUIGTJSEvent.AddString");
 
 	UCoherentUIGTJSEvent_AddString_Params params;
-	params.str = str;
+	params.Str = Str;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;

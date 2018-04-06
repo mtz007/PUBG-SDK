@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -276,11 +276,11 @@ public:
 
 
 // Class OnlineSubsystemUtils.IpConnection
-// 0x0020 (0x33680 - 0x33660)
+// 0x0020 (0x65690 - 0x65670)
 class UIpConnection : public UNetConnection
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x33660(0x0020) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x20];                                      // 0x65670(0x0020) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -413,15 +413,15 @@ public:
 
 
 // Class OnlineSubsystemUtils.OnlineBeacon
-// 0x0028 (0x03D8 - 0x03B0)
+// 0x0030 (0x03F0 - 0x03C0)
 class AOnlineBeacon : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x03B0(0x0008) MISSED OFFSET
-	float                                              BeaconConnectionInitialTimeout;                           // 0x03B8(0x0004) (ZeroConstructor, Config, IsPlainOldData)
-	float                                              BeaconConnectionTimeout;                                  // 0x03BC(0x0004) (ZeroConstructor, Config, IsPlainOldData)
-	class UNetDriver*                                  NetDriver;                                                // 0x03C0(0x0008) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x10];                                      // 0x03C8(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x03C0(0x0008) MISSED OFFSET
+	float                                              BeaconConnectionInitialTimeout;                           // 0x03C8(0x0004) (ZeroConstructor, Config, IsPlainOldData)
+	float                                              BeaconConnectionTimeout;                                  // 0x03CC(0x0004) (ZeroConstructor, Config, IsPlainOldData)
+	class UNetDriver*                                  NetDriver;                                                // 0x03D0(0x0008) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x18];                                      // 0x03D8(0x0018) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -433,14 +433,13 @@ public:
 
 
 // Class OnlineSubsystemUtils.OnlineBeaconClient
-// 0x0088 (0x0460 - 0x03D8)
+// 0x0080 (0x0470 - 0x03F0)
 class AOnlineBeaconClient : public AOnlineBeacon
 {
 public:
-	class AOnlineBeaconHostObject*                     BeaconOwner;                                              // 0x03D8(0x0008) (ZeroConstructor, IsPlainOldData)
-	class UNetConnection*                              BeaconConnection;                                         // 0x03E0(0x0008) (ZeroConstructor, IsPlainOldData)
-	EBeaconConnectionState                             ConnectionState;                                          // 0x03E8(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x77];                                      // 0x03E9(0x0077) MISSED OFFSET
+	class UNetConnection*                              BeaconConnection;                                         // 0x03F0(0x0008) (ZeroConstructor, IsPlainOldData)
+	EBeaconConnectionState                             ConnectionState;                                          // 0x03F8(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x77];                                      // 0x03F9(0x0077) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -479,17 +478,17 @@ public:
 
 
 // Class OnlineSubsystemUtils.PartyBeaconClient
-// 0x0130 (0x0590 - 0x0460)
+// 0x0130 (0x05A0 - 0x0470)
 class APartyBeaconClient : public AOnlineBeaconClient
 {
 public:
-	unsigned char                                      UnknownData00[0xC0];                                      // 0x0460(0x00C0) MISSED OFFSET
-	struct FString                                     DestSessionId;                                            // 0x0520(0x0010) (ZeroConstructor)
-	struct FPartyReservation                           PendingReservation;                                       // 0x0530(0x0030)
-	EClientRequestType                                 RequestType;                                              // 0x0560(0x0001) (ZeroConstructor, IsPlainOldData)
-	bool                                               bPendingReservationSent;                                  // 0x0561(0x0001) (ZeroConstructor, IsPlainOldData)
-	bool                                               bCancelReservation;                                       // 0x0562(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x2D];                                      // 0x0563(0x002D) MISSED OFFSET
+	unsigned char                                      UnknownData00[0xC0];                                      // 0x0470(0x00C0) MISSED OFFSET
+	struct FString                                     DestSessionId;                                            // 0x0530(0x0010) (ZeroConstructor)
+	struct FPartyReservation                           PendingReservation;                                       // 0x0540(0x0030)
+	EClientRequestType                                 RequestType;                                              // 0x0570(0x0001) (ZeroConstructor, IsPlainOldData)
+	bool                                               bPendingReservationSent;                                  // 0x0571(0x0001) (ZeroConstructor, IsPlainOldData)
+	bool                                               bCancelReservation;                                       // 0x0572(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x2D];                                      // 0x0573(0x002D) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -509,7 +508,7 @@ public:
 
 
 // Class OnlineSubsystemUtils.TestBeaconClient
-// 0x0000 (0x0460 - 0x0460)
+// 0x0000 (0x0470 - 0x0470)
 class ATestBeaconClient : public AOnlineBeaconClient
 {
 public:
@@ -527,14 +526,12 @@ public:
 
 
 // Class OnlineSubsystemUtils.OnlineBeaconHost
-// 0x00B8 (0x0490 - 0x03D8)
+// 0x00B0 (0x04A0 - 0x03F0)
 class AOnlineBeaconHost : public AOnlineBeacon
 {
 public:
-	int                                                ListenPort;                                               // 0x03D8(0x0004) (ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x03DC(0x0004) MISSED OFFSET
-	TArray<class AOnlineBeaconClient*>                 ClientActors;                                             // 0x03E0(0x0010) (ZeroConstructor)
-	unsigned char                                      UnknownData01[0xA0];                                      // 0x03F0(0x00A0) MISSED OFFSET
+	TArray<class AOnlineBeaconClient*>                 ClientActors;                                             // 0x03F0(0x0010) (ZeroConstructor)
+	unsigned char                                      UnknownData00[0xA0];                                      // 0x0400(0x00A0) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -546,13 +543,14 @@ public:
 
 
 // Class OnlineSubsystemUtils.OnlineBeaconHostObject
-// 0x0028 (0x03D8 - 0x03B0)
+// 0x0030 (0x03F0 - 0x03C0)
 class AOnlineBeaconHostObject : public AActor
 {
 public:
-	struct FString                                     BeaconTypeName;                                           // 0x03B0(0x0010) (ZeroConstructor, Transient)
-	class UClass*                                      ClientBeaconActorClass;                                   // 0x03C0(0x0008) (ZeroConstructor, IsPlainOldData)
-	TArray<class AOnlineBeaconClient*>                 ClientActors;                                             // 0x03C8(0x0010) (ZeroConstructor)
+	struct FString                                     BeaconTypeName;                                           // 0x03C0(0x0010) (ZeroConstructor, Transient)
+	class UClass*                                      ClientBeaconActorClass;                                   // 0x03D0(0x0008) (ZeroConstructor, IsPlainOldData)
+	TArray<class AOnlineBeaconClient*>                 ClientActors;                                             // 0x03D8(0x0010) (ZeroConstructor)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x03E8(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -564,17 +562,16 @@ public:
 
 
 // Class OnlineSubsystemUtils.PartyBeaconHost
-// 0x0158 (0x0530 - 0x03D8)
+// 0x0150 (0x0540 - 0x03F0)
 class APartyBeaconHost : public AOnlineBeaconHostObject
 {
 public:
-	class UPartyBeaconState*                           State;                                                    // 0x03D8(0x0008) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x140];                                     // 0x03E0(0x0140) MISSED OFFSET
-	bool                                               bLogoutOnSessionTimeout;                                  // 0x0520(0x0001) (ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x0521(0x0003) MISSED OFFSET
-	float                                              SessionTimeoutSecs;                                       // 0x0524(0x0004) (ZeroConstructor, Transient, Config, IsPlainOldData)
-	float                                              TravelSessionTimeoutSecs;                                 // 0x0528(0x0004) (ZeroConstructor, Transient, Config, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x4];                                       // 0x052C(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x140];                                     // 0x03F0(0x0140) MISSED OFFSET
+	bool                                               bLogoutOnSessionTimeout;                                  // 0x0530(0x0001) (ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0531(0x0003) MISSED OFFSET
+	float                                              SessionTimeoutSecs;                                       // 0x0534(0x0004) (ZeroConstructor, Transient, Config, IsPlainOldData)
+	float                                              TravelSessionTimeoutSecs;                                 // 0x0538(0x0004) (ZeroConstructor, Transient, Config, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x4];                                       // 0x053C(0x0004) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -586,7 +583,7 @@ public:
 
 
 // Class OnlineSubsystemUtils.TestBeaconHost
-// 0x0000 (0x03D8 - 0x03D8)
+// 0x0000 (0x03F0 - 0x03F0)
 class ATestBeaconHost : public AOnlineBeaconHostObject
 {
 public:

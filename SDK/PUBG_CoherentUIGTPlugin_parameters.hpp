@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -100,7 +100,7 @@ struct UCoherentUIGTJSEvent_AddStructArg_Params
 // Function CoherentUIGTPlugin.CoherentUIGTJSEvent.AddString
 struct UCoherentUIGTJSEvent_AddString_Params
 {
-	struct FString                                     str;                                                      // (Parm, ZeroConstructor)
+	struct FString                                     Str;                                                      // (Parm, ZeroConstructor)
 };
 
 // Function CoherentUIGTPlugin.CoherentUIGTJSEvent.AddObject

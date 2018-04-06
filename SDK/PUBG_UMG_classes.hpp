@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -663,22 +663,22 @@ public:
 
 
 // Class UMG.WidgetBlueprintGeneratedClass
-// 0x0070 (0x03C8 - 0x0358)
+// 0x0070 (0x0418 - 0x03A8)
 class UWidgetBlueprintGeneratedClass : public UBlueprintGeneratedClass
 {
 public:
-	class UWidgetTree*                                 WidgetTree;                                               // 0x0358(0x0008) (ZeroConstructor, IsPlainOldData)
-	bool                                               bAllowTemplate;                                           // 0x0360(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0361(0x0007) MISSED OFFSET
-	TArray<struct FDelegateRuntimeBinding>             Bindings;                                                 // 0x0368(0x0010) (ZeroConstructor)
-	TArray<class UWidgetAnimation*>                    Animations;                                               // 0x0378(0x0010) (ExportObject, ZeroConstructor)
-	TArray<struct FName>                               NamedSlots;                                               // 0x0388(0x0010) (ZeroConstructor)
-	bool                                               bValidTemplate;                                           // 0x0398(0x0001) (ZeroConstructor, IsPlainOldData)
-	bool                                               bTemplateInitialized;                                     // 0x0399(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
-	bool                                               bCookedTemplate;                                          // 0x039A(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x5];                                       // 0x039B(0x0005) MISSED OFFSET
-	TAssetPtr<class UUserWidget>                       TemplateAsset;                                            // 0x03A0(0x0020) (ExportObject, InstancedReference)
-	class UUserWidget*                                 Template;                                                 // 0x03C0(0x0008) (ExportObject, ZeroConstructor, Transient, InstancedReference, IsPlainOldData)
+	class UWidgetTree*                                 WidgetTree;                                               // 0x03A8(0x0008) (ZeroConstructor, IsPlainOldData)
+	bool                                               bAllowTemplate;                                           // 0x03B0(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x03B1(0x0007) MISSED OFFSET
+	TArray<struct FDelegateRuntimeBinding>             Bindings;                                                 // 0x03B8(0x0010) (ZeroConstructor)
+	TArray<class UWidgetAnimation*>                    Animations;                                               // 0x03C8(0x0010) (ExportObject, ZeroConstructor)
+	TArray<struct FName>                               NamedSlots;                                               // 0x03D8(0x0010) (ZeroConstructor)
+	bool                                               bValidTemplate;                                           // 0x03E8(0x0001) (ZeroConstructor, IsPlainOldData)
+	bool                                               bTemplateInitialized;                                     // 0x03E9(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
+	bool                                               bCookedTemplate;                                          // 0x03EA(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x5];                                       // 0x03EB(0x0005) MISSED OFFSET
+	TAssetPtr<class UUserWidget>                       TemplateAsset;                                            // 0x03F0(0x0020) (ExportObject, InstancedReference)
+	class UUserWidget*                                 Template;                                                 // 0x0410(0x0008) (ExportObject, ZeroConstructor, Transient, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -1770,15 +1770,18 @@ public:
 
 
 // Class UMG.RetainerBox
-// 0x0028 (0x0168 - 0x0140)
+// 0x0030 (0x0170 - 0x0140)
 class URetainerBox : public UContentWidget
 {
 public:
-	int                                                Phase;                                                    // 0x0140(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                PhaseCount;                                               // 0x0144(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	class UMaterialInterface*                          EffectMaterial;                                           // 0x0148(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	struct FName                                       TextureParameter;                                         // 0x0150(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0158(0x0010) MISSED OFFSET
+	bool                                               RenderOnPhase;                                            // 0x0140(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0141(0x0003) MISSED OFFSET
+	int                                                Phase;                                                    // 0x0144(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                PhaseCount;                                               // 0x0148(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x014C(0x0004) MISSED OFFSET
+	class UMaterialInterface*                          EffectMaterial;                                           // 0x0150(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	struct FName                                       TextureParameter;                                         // 0x0158(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x10];                                      // 0x0160(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -1789,6 +1792,7 @@ public:
 
 	void SetTextureParameter(const struct FName& TextureParameter);
 	void SetEffectMaterial(class UMaterialInterface* EffectMaterial);
+	void RequestRender();
 	class UMaterialInstanceDynamic* GetEffectMaterial();
 };
 

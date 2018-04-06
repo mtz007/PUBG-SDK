@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -163,7 +163,7 @@ struct FMovieSceneSkeletalAnimationParams
 	unsigned char                                      bReverse : 1;                                             // 0x0014(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0015(0x0003) MISSED OFFSET
 	struct FName                                       SlotName;                                                 // 0x0018(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	struct FRichCurve                                  Weight;                                                   // 0x0020(0x0070) (Edit)
+	struct FRichCurve                                  weight;                                                   // 0x0020(0x0070) (Edit)
 };
 
 // ScriptStruct MovieSceneTracks.MovieScene3DTransformKeyStruct

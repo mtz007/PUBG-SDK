@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -14,29 +14,13 @@ namespace Classes
 //Parameters
 //---------------------------------------------------------------------------
 
-// Function HudMain.HudMain_C.OnNotifyUnArmed
-struct UHudMain_C_OnNotifyUnArmed_Params
-{
-	bool                                               bIsUnarmed;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function HudMain.HudMain_C.OnNotifyVehicleLeave
-struct UHudMain_C_OnNotifyVehicleLeave_Params
+// Function HudMain.HudMain_C.OnKey_EmoteWheelReleased
+struct UHudMain_C_OnKey_EmoteWheelReleased_Params
 {
 };
 
-// Function HudMain.HudMain_C.OnNotifyVehicleRide
-struct UHudMain_C_OnNotifyVehicleRide_Params
-{
-};
-
-// Function HudMain.HudMain_C.OnNotifyReloaded
-struct UHudMain_C_OnNotifyReloaded_Params
-{
-};
-
-// Function HudMain.HudMain_C.OnNotifyReloadingNeed
-struct UHudMain_C_OnNotifyReloadingNeed_Params
+// Function HudMain.HudMain_C.OnKey_EmoteWheelPressed
+struct UHudMain_C_OnKey_EmoteWheelPressed_Params
 {
 };
 
@@ -86,22 +70,10 @@ struct UHudMain_C_SetObserverSpectatingDown_Params
 {
 };
 
-// Function HudMain.HudMain_C.On_HideOnObserverSpectating_Prepass_1
-struct UHudMain_C_On_HideOnObserverSpectating_Prepass_1_Params
-{
-	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function HudMain.HudMain_C.ShouldShowReplayMenu
 struct UHudMain_C_ShouldShowReplayMenu_Params
 {
 	bool                                               bShow;                                                    // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function HudMain.HudMain_C.OnPrepass_3
-struct UHudMain_C_OnPrepass_3_Params
-{
-	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function HudMain.HudMain_C.BindEventForShowReplayTimeline
@@ -140,12 +112,6 @@ struct UHudMain_C_OnToggleOption_Params
 {
 };
 
-// Function HudMain.HudMain_C.On_Name_Prepass_1
-struct UHudMain_C_On_Name_Prepass_1_Params
-{
-	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function HudMain.HudMain_C.UpdateReplayTimeline
 struct UHudMain_C_UpdateReplayTimeline_Params
 {
@@ -181,41 +147,10 @@ struct UHudMain_C_OnShowCarePackageItemList_Params
 {
 };
 
-// Function HudMain.HudMain_C.GetMiniMapType
-struct UHudMain_C_GetMiniMapType_Params
-{
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      MiniMapype;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function HudMain.HudMain_C.On_BlueZoneGpsWidget_RoundType_Prepass_1
-struct UHudMain_C_On_BlueZoneGpsWidget_RoundType_Prepass_1_Params
-{
-	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function HudMain.HudMain_C.IsShowMapOrInventory
 struct UHudMain_C_IsShowMapOrInventory_Params
 {
 	bool                                               bIsShow;                                                  // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function HudMain.HudMain_C.Get_Spectating_Text_1
-struct UHudMain_C_Get_Spectating_Text_1_Params
-{
-	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function HudMain.HudMain_C.OnPrepass_2
-struct UHudMain_C_OnPrepass_2_Params
-{
-	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function HudMain.HudMain_C.On_CharacterCanvas_Prepass_1
-struct UHudMain_C_On_CharacterCanvas_Prepass_1_Params
-{
-	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function HudMain.HudMain_C.OnTogglePlayerList
@@ -223,64 +158,10 @@ struct UHudMain_C_OnTogglePlayerList_Params
 {
 };
 
-// Function HudMain.HudMain_C.Get_KeyInfo_Text_1
-struct UHudMain_C_Get_KeyInfo_Text_1_Params
-{
-	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function HudMain.HudMain_C.On_SpectatingKeyInfo_Prepass_1
-struct UHudMain_C_On_SpectatingKeyInfo_Prepass_1_Params
-{
-	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function HudMain.HudMain_C.IsCharacterAlive
 struct UHudMain_C_IsCharacterAlive_Params
 {
 	bool                                               IsAlive;                                                  // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function HudMain.HudMain_C.On_InventoryShowHiddenCanvas_Prepass_1
-struct UHudMain_C_On_InventoryShowHiddenCanvas_Prepass_1_Params
-{
-	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function HudMain.HudMain_C.Get_TextBlock_1_Text_1
-struct UHudMain_C_Get_TextBlock_1_Text_1_Params
-{
-	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function HudMain.HudMain_C.On_OnlySpectating_Prepass_1
-struct UHudMain_C_On_OnlySpectating_Prepass_1_Params
-{
-	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function HudMain.HudMain_C.OnPrepass_1
-struct UHudMain_C_OnPrepass_1_Params
-{
-	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function HudMain.HudMain_C.OnPrepass_VisibilityOnMatchState
-struct UHudMain_C_OnPrepass_VisibilityOnMatchState_Params
-{
-	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function HudMain.HudMain_C.On_BaseCanvas_Prepass_1
-struct UHudMain_C_On_BaseCanvas_Prepass_1_Params
-{
-	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function HudMain.HudMain_C.GetBoostRatio
-struct UHudMain_C_GetBoostRatio_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function HudMain.HudMain_C.OnNitifyHit
@@ -290,64 +171,9 @@ struct UHudMain_C_OnNitifyHit_Params
 	EDamageTypeCategory                                DamageTypeCategory;                                       // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function HudMain.HudMain_C.Get_ParachuteText_Visibility_1
-struct UHudMain_C_Get_ParachuteText_Visibility_1_Params
-{
-	ESlateVisibility                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function HudMain.HudMain_C.Get_VisibilityOnMatchState
-struct UHudMain_C_Get_VisibilityOnMatchState_Params
-{
-	ESlateVisibility                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function HudMain.HudMain_C.OnDisplaySystemMessage
-struct UHudMain_C_OnDisplaySystemMessage_Params
-{
-	ESystemMessageType                                 MessageType;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FText                                       Message;                                                  // (Parm)
-};
-
-// Function HudMain.HudMain_C.OnDisplayKilledMessage
-struct UHudMain_C_OnDisplayKilledMessage_Params
-{
-	struct FDeathMessage                               DeathMessage;                                             // (Parm)
-};
-
-// Function HudMain.HudMain_C.OnButtonClick
-struct UHudMain_C_OnButtonClick_Params
-{
-	struct FString                                     ButotnName;                                               // (Parm, ZeroConstructor)
-};
-
-// Function HudMain.HudMain_C.Get_HealthBar_FillColorAndOpacity_1
-struct UHudMain_C_Get_HealthBar_FillColorAndOpacity_1_Params
-{
-	struct FLinearColor                                ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
 // Function HudMain.HudMain_C.OnKey_SystemMenuOrEscape
 struct UHudMain_C_OnKey_SystemMenuOrEscape_Params
 {
-};
-
-// Function HudMain.HudMain_C.Get_Vehicle_Health_Ratio
-struct UHudMain_C_Get_Vehicle_Health_Ratio_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function HudMain.HudMain_C.GetFillColorAndOpacity_1
-struct UHudMain_C_GetFillColorAndOpacity_1_Params
-{
-	struct FLinearColor                                ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function HudMain.HudMain_C.Get_DebugInformation_Text_1
-struct UHudMain_C_Get_DebugInformation_Text_1_Params
-{
-	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
 };
 
 // Function HudMain.HudMain_C.OnToggleMap
@@ -355,55 +181,13 @@ struct UHudMain_C_OnToggleMap_Params
 {
 };
 
-// Function HudMain.HudMain_C.Get_PlayerCoordinate_Text_1
-struct UHudMain_C_Get_PlayerCoordinate_Text_1_Params
-{
-	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function HudMain.HudMain_C.Get_NumPlayersLeft_Text_1
-struct UHudMain_C_Get_NumPlayersLeft_Text_1_Params
-{
-	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function HudMain.HudMain_C.Get_Health_Text_1
-struct UHudMain_C_Get_Health_Text_1_Params
-{
-	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function HudMain.HudMain_C.Get_HealthMax_Text_1
-struct UHudMain_C_Get_HealthMax_Text_1_Params
-{
-	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function HudMain.HudMain_C.GetHpRatio
-struct UHudMain_C_GetHpRatio_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function HudMain.HudMain_C.OnPossessPawnChange
 struct UHudMain_C_OnPossessPawnChange_Params
 {
 };
 
-// Function HudMain.HudMain_C.Construct
-struct UHudMain_C_Construct_Params
-{
-};
-
-// Function HudMain.HudMain_C.OnShowWidget
-struct UHudMain_C_OnShowWidget_Params
-{
-	struct FString                                     WidgetName;                                               // (Parm, ZeroConstructor)
-	bool                                               bShow;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function HudMain.HudMain_C.HideMapForReplay
-struct UHudMain_C_HideMapForReplay_Params
+// Function HudMain.HudMain_C.CreateCheckReplayTimer
+struct UHudMain_C_CreateCheckReplayTimer_Params
 {
 };
 
@@ -412,8 +196,13 @@ struct UHudMain_C_CheckReplayTimer_Params
 {
 };
 
-// Function HudMain.HudMain_C.CreateCheckReplayTimer
-struct UHudMain_C_CreateCheckReplayTimer_Params
+// Function HudMain.HudMain_C.HideMapForReplay
+struct UHudMain_C_HideMapForReplay_Params
+{
+};
+
+// Function HudMain.HudMain_C.Construct
+struct UHudMain_C_Construct_Params
 {
 };
 

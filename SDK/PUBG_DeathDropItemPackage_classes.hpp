@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,11 +13,11 @@ namespace Classes
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass DeathDropItemPackage.DeathDropItemPackage_C
-// 0x0008 (0x0530 - 0x0528)
+// 0x0008 (0x0558 - 0x0550)
 class ADeathDropItemPackage_C : public AFloorSnapItemPackage
 {
 public:
-	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x0528(0x0008) (Transient, DuplicateTransient)
+	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x0550(0x0008) (Transient, DuplicateTransient)
 
 	static UClass* StaticClass()
 	{

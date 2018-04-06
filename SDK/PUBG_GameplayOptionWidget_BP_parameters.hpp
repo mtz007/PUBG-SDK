@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,12 @@ namespace Classes
 //---------------------------------------------------------------------------
 //Parameters
 //---------------------------------------------------------------------------
+
+// Function GameplayOptionWidget_BP.GameplayOptionWidget_BP_C.Get_PrelodingMap_bIsEnabled_1
+struct UGameplayOptionWidget_BP_C_Get_PrelodingMap_bIsEnabled_1_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
 
 // Function GameplayOptionWidget_BP.GameplayOptionWidget_BP_C.Get_ClientReplay_Visibility
 struct UGameplayOptionWidget_BP_C_Get_ClientReplay_Visibility_Params

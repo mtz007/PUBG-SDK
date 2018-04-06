@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,28 @@ namespace Classes
 //---------------------------------------------------------------------------
 //Functions
 //---------------------------------------------------------------------------
+
+// Function NewLobbySystemMenuWidget.NewLobbySystemMenuWidget_C.GetPlatformText
+// (Public, HasOutParms, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// struct FString                 retString                      (Parm, OutParm, ZeroConstructor)
+
+void UNewLobbySystemMenuWidget_C::GetPlatformText(struct FString* retString)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function NewLobbySystemMenuWidget.NewLobbySystemMenuWidget_C.GetPlatformText");
+
+	UNewLobbySystemMenuWidget_C_GetPlatformText_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (retString != nullptr)
+		*retString = params.retString;
+}
+
 
 // Function NewLobbySystemMenuWidget.NewLobbySystemMenuWidget_C.Get_PUBGVersionText_Text_1
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)

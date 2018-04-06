@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -149,6 +149,13 @@ struct UItemToolTipWidget_Bp_C_UpdateVicinityOrInventorySlotItemToolTip_Params
 {
 	class UEquipableItem**                             EquipableItem;                                            // (Parm, ZeroConstructor, IsPlainOldData)
 	class UEquipableItem**                             EquipmentSlotItem;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function ItemToolTipWidget_Bp.ItemToolTipWidget_Bp_C.Tick
+struct UItemToolTipWidget_Bp_C_Tick_Params
+{
+	struct FGeometry*                                  MyGeometry;                                               // (Parm, IsPlainOldData)
+	float*                                             InDeltaTime;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function ItemToolTipWidget_Bp.ItemToolTipWidget_Bp_C.ExecuteUbergraph_ItemToolTipWidget_Bp

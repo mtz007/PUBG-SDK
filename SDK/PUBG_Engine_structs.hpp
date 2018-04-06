@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -4586,6 +4586,15 @@ struct FViewTargetTransitionParams
 	unsigned char                                      UnknownData01[0x3];                                       // 0x000D(0x0003) MISSED OFFSET
 };
 
+// ScriptStruct Engine.UpdateLevelVisibilityLevelInfo
+// 0x0010
+struct FUpdateLevelVisibilityLevelInfo
+{
+	struct FName                                       PackageName;                                              // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bIsVisible : 1;                                           // 0x0008(0x0001)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0009(0x0007) MISSED OFFSET
+};
+
 // ScriptStruct Engine.UniqueNetIdRepl
 // 0x0017 (0x0018 - 0x0001)
 struct FUniqueNetIdRepl : public FUniqueNetIdWrapper
@@ -4601,6 +4610,18 @@ struct FLatentActionInfo
 	int                                                UUID;                                                     // 0x0004(0x0004) (ZeroConstructor, IsPlainOldData)
 	struct FName                                       ExecutionFunction;                                        // 0x0008(0x0008) (ZeroConstructor, IsPlainOldData)
 	class UObject*                                     CallbackTarget;                                           // 0x0010(0x0008) (ZeroConstructor, IsPlainOldData)
+};
+
+// ScriptStruct Engine.UpdateLevelStreamingLevelStatus
+// 0x0010
+struct FUpdateLevelStreamingLevelStatus
+{
+	struct FName                                       PackageName;                                              // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
+	int                                                LODIndex;                                                 // 0x0008(0x0004) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bNewShouldBeLoaded : 1;                                   // 0x000C(0x0001)
+	unsigned char                                      bNewShouldBeVisible : 1;                                  // 0x000C(0x0001)
+	unsigned char                                      bNewShouldBlockOnLoad : 1;                                // 0x000C(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x000D(0x0003) MISSED OFFSET
 };
 
 // ScriptStruct Engine.BasedMovementInfo
@@ -4847,7 +4868,7 @@ struct FMarkerSyncAnimPosition
 // 0x0010
 struct FWeightedBlendable
 {
-	float                                              Weight;                                                   // 0x0000(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              weight;                                                   // 0x0000(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
 	class UObject*                                     Object;                                                   // 0x0008(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };
@@ -8065,17 +8086,28 @@ struct FFunctionExpressionOutput
 };
 
 // ScriptStruct Engine.TerrainLayer
-// 0x0130
+// 0x00F8
 struct FTerrainLayer
 {
 	struct FString                                     LayerName;                                                // 0x0000(0x0010) (Edit, ZeroConstructor)
-	struct FExpressionInput                            DiffuseTexture;                                           // 0x0010(0x0038) (Edit)
-	struct FExpressionInput                            NormalTexture;                                            // 0x0048(0x0038) (Edit)
-	struct FExpressionInput                            RoughnessTexture;                                         // 0x0080(0x0038) (Edit)
-	struct FExpressionInput                            UV;                                                       // 0x00B8(0x0038) (Edit)
-	struct FExpressionInput                            Weight;                                                   // 0x00F0(0x0038) (Edit)
-	ETextureChannel                                    RoughnessTextureChannel;                                  // 0x0128(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0129(0x0007) MISSED OFFSET
+	struct FExpressionInput                            weight;                                                   // 0x0010(0x0038)
+	struct FExpressionInput                            UV;                                                       // 0x0048(0x0038)
+	struct FExpressionInput                            DiffuseTexture;                                           // 0x0080(0x0038)
+	struct FExpressionInput                            NormalTexture;                                            // 0x00B8(0x0038)
+	ETextureChannel                                    RoughnessTextureChannel;                                  // 0x00F0(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x00F1(0x0007) MISSED OFFSET
+};
+
+// ScriptStruct Engine.TerrainLayerDesert
+// 0x0128
+struct FTerrainLayerDesert
+{
+	struct FString                                     LayerName;                                                // 0x0000(0x0010) (Edit, ZeroConstructor)
+	struct FExpressionInput                            weight;                                                   // 0x0010(0x0038)
+	struct FExpressionInput                            UV;                                                       // 0x0048(0x0038)
+	struct FExpressionInput                            DiffuseTexture;                                           // 0x0080(0x0038)
+	struct FExpressionInput                            NormalTexture;                                            // 0x00B8(0x0038)
+	struct FExpressionInput                            Specular;                                                 // 0x00F0(0x0038)
 };
 
 // ScriptStruct Engine.MaterialInput
@@ -8482,7 +8514,7 @@ struct FRigTransformConstraint
 	TEnumAsByte<EConstraintTransform>                  TranformType;                                             // 0x0000(0x0001) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x7];                                       // 0x0001(0x0007) MISSED OFFSET
 	struct FName                                       ParentSpace;                                              // 0x0008(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              Weight;                                                   // 0x0010(0x0004) (ZeroConstructor, IsPlainOldData)
+	float                                              weight;                                                   // 0x0010(0x0004) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x4];                                       // 0x0014(0x0004) MISSED OFFSET
 };
 
@@ -8780,7 +8812,7 @@ struct FModulatorContinuousParams
 // 0x000C
 struct FMeshSectionInfoExt
 {
-	int                                                LodIndex;                                                 // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
+	int                                                LODIndex;                                                 // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
 	int                                                SectionIndex;                                             // 0x0004(0x0004) (ZeroConstructor, IsPlainOldData)
 	bool                                               bOverrideIndoorOutdoorMask;                               // 0x0008(0x0001) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      IndoorOutdoorMask;                                        // 0x0009(0x0001) (ZeroConstructor, IsPlainOldData)
@@ -9620,7 +9652,7 @@ struct FPerBoneBlendWeights
 struct FSkeletalMeshClothBuildParams
 {
 	struct FString                                     AssetName;                                                // 0x0000(0x0010) (Edit, ZeroConstructor)
-	int                                                LodIndex;                                                 // 0x0010(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                LODIndex;                                                 // 0x0010(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	int                                                SourceSection;                                            // 0x0014(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	bool                                               bRemoveFromMesh;                                          // 0x0018(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x7];                                       // 0x0019(0x0007) MISSED OFFSET
@@ -10016,7 +10048,7 @@ struct FSlotEvaluationPose
 {
 	TEnumAsByte<EAdditiveAnimationType>                AdditiveType;                                             // 0x0000(0x0001) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0001(0x0003) MISSED OFFSET
-	float                                              Weight;                                                   // 0x0004(0x0004) (ZeroConstructor, IsPlainOldData)
+	float                                              weight;                                                   // 0x0004(0x0004) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x38];                                      // 0x0008(0x0038) MISSED OFFSET
 };
 
@@ -10351,7 +10383,7 @@ struct FLevelStreamingStatus
 	unsigned char                                      bShouldBeLoaded : 1;                                      // 0x0008(0x0001)
 	unsigned char                                      bShouldBeVisible : 1;                                     // 0x0008(0x0001)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0009(0x0003) MISSED OFFSET
-	uint32_t                                           LodIndex;                                                 // 0x000C(0x0004) (ZeroConstructor, IsPlainOldData)
+	uint32_t                                           LODIndex;                                                 // 0x000C(0x0004) (ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct Engine.NamedNetDriver

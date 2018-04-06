@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -8863,6 +8863,27 @@ void APlayerController::ServerVerifyViewTarget()
 }
 
 
+// Function Engine.PlayerController.ServerUpdateMultipleLevelsVisibility
+// (Final, Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
+// Parameters:
+// TArray<struct FUpdateLevelVisibilityLevelInfo> LevelVisibilities              (ConstParm, Parm, ZeroConstructor, ReferenceParm)
+
+void APlayerController::ServerUpdateMultipleLevelsVisibility(TArray<struct FUpdateLevelVisibilityLevelInfo> LevelVisibilities)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.PlayerController.ServerUpdateMultipleLevelsVisibility");
+
+	APlayerController_ServerUpdateMultipleLevelsVisibility_Params params;
+	params.LevelVisibilities = LevelVisibilities;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function Engine.PlayerController.ServerUpdateLevelVisibility
 // (Final, Net, NetReliable, Native, Event, Public, NetServer, NetValidate)
 // Parameters:
@@ -10059,6 +10080,27 @@ void APlayerController::ClientVoiceHandshakeComplete()
 }
 
 
+// Function Engine.PlayerController.ClientUpdateMultipleLevelsStreamingStatus
+// (Net, NetReliable, Native, Event, Public, NetClient)
+// Parameters:
+// TArray<struct FUpdateLevelStreamingLevelStatus> LevelStatuses                  (ConstParm, Parm, ZeroConstructor, ReferenceParm)
+
+void APlayerController::ClientUpdateMultipleLevelsStreamingStatus(TArray<struct FUpdateLevelStreamingLevelStatus> LevelStatuses)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.PlayerController.ClientUpdateMultipleLevelsStreamingStatus");
+
+	APlayerController_ClientUpdateMultipleLevelsStreamingStatus_Params params;
+	params.LevelStatuses = LevelStatuses;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function Engine.PlayerController.ClientUpdateLevelStreamingStatus
 // (Net, NetReliable, Native, Event, Public, NetClient)
 // Parameters:
@@ -10066,9 +10108,9 @@ void APlayerController::ClientVoiceHandshakeComplete()
 // bool                           bNewShouldBeLoaded             (Parm, ZeroConstructor, IsPlainOldData)
 // bool                           bNewShouldBeVisible            (Parm, ZeroConstructor, IsPlainOldData)
 // bool                           bNewShouldBlockOnLoad          (Parm, ZeroConstructor, IsPlainOldData)
-// int                            LodIndex                       (Parm, ZeroConstructor, IsPlainOldData)
+// int                            LODIndex                       (Parm, ZeroConstructor, IsPlainOldData)
 
-void APlayerController::ClientUpdateLevelStreamingStatus(const struct FName& PackageName, bool bNewShouldBeLoaded, bool bNewShouldBeVisible, bool bNewShouldBlockOnLoad, int LodIndex)
+void APlayerController::ClientUpdateLevelStreamingStatus(const struct FName& PackageName, bool bNewShouldBeLoaded, bool bNewShouldBeVisible, bool bNewShouldBlockOnLoad, int LODIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Engine.PlayerController.ClientUpdateLevelStreamingStatus");
 
@@ -10077,7 +10119,7 @@ void APlayerController::ClientUpdateLevelStreamingStatus(const struct FName& Pac
 	params.bNewShouldBeLoaded = bNewShouldBeLoaded;
 	params.bNewShouldBeVisible = bNewShouldBeVisible;
 	params.bNewShouldBlockOnLoad = bNewShouldBlockOnLoad;
-	params.LodIndex = LodIndex;
+	params.LODIndex = LODIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -11901,6 +11943,232 @@ void ACharacter::SetReplicateMovement(bool bInReplicateMovement)
 }
 
 
+// Function Engine.Character.ServerMoveOld
+// (Net, Native, Event, Public, NetServer, NetValidate)
+// Parameters:
+// float                          OldTimeStamp                   (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector_NetQuantize10   OldAccel                       (Parm)
+// unsigned char                  OldMoveFlags                   (Parm, ZeroConstructor, IsPlainOldData)
+
+void ACharacter::ServerMoveOld(float OldTimeStamp, const struct FVector_NetQuantize10& OldAccel, unsigned char OldMoveFlags)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.ServerMoveOld");
+
+	ACharacter_ServerMoveOld_Params params;
+	params.OldTimeStamp = OldTimeStamp;
+	params.OldAccel = OldAccel;
+	params.OldMoveFlags = OldMoveFlags;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.Character.ServerMoveNoBase
+// (Net, Native, Event, Public, NetServer, NetValidate)
+// Parameters:
+// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector_NetQuantize10   InAccel                        (Parm)
+// struct FVector_NetQuantize100  ClientLoc                      (Parm)
+// unsigned char                  CompressedMoveFlags            (Parm, ZeroConstructor, IsPlainOldData)
+// unsigned char                  ClientRoll                     (Parm, ZeroConstructor, IsPlainOldData)
+// uint32_t                       View                           (Parm, ZeroConstructor, IsPlainOldData)
+// unsigned char                  ClientMovementMode             (Parm, ZeroConstructor, IsPlainOldData)
+
+void ACharacter::ServerMoveNoBase(float Timestamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, unsigned char CompressedMoveFlags, unsigned char ClientRoll, uint32_t View, unsigned char ClientMovementMode)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.ServerMoveNoBase");
+
+	ACharacter_ServerMoveNoBase_Params params;
+	params.Timestamp = Timestamp;
+	params.InAccel = InAccel;
+	params.ClientLoc = ClientLoc;
+	params.CompressedMoveFlags = CompressedMoveFlags;
+	params.ClientRoll = ClientRoll;
+	params.View = View;
+	params.ClientMovementMode = ClientMovementMode;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.Character.ServerMoveDualNoBase
+// (Net, Native, Event, Public, NetServer, NetValidate)
+// Parameters:
+// float                          TimeStamp0                     (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector_NetQuantize10   InAccel0                       (Parm)
+// unsigned char                  PendingFlags                   (Parm, ZeroConstructor, IsPlainOldData)
+// uint32_t                       View0                          (Parm, ZeroConstructor, IsPlainOldData)
+// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector_NetQuantize10   InAccel                        (Parm)
+// struct FVector_NetQuantize100  ClientLoc                      (Parm)
+// unsigned char                  NewFlags                       (Parm, ZeroConstructor, IsPlainOldData)
+// unsigned char                  ClientRoll                     (Parm, ZeroConstructor, IsPlainOldData)
+// uint32_t                       View                           (Parm, ZeroConstructor, IsPlainOldData)
+// unsigned char                  ClientMovementMode             (Parm, ZeroConstructor, IsPlainOldData)
+
+void ACharacter::ServerMoveDualNoBase(float TimeStamp0, const struct FVector_NetQuantize10& InAccel0, unsigned char PendingFlags, uint32_t View0, float Timestamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, unsigned char NewFlags, unsigned char ClientRoll, uint32_t View, unsigned char ClientMovementMode)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.ServerMoveDualNoBase");
+
+	ACharacter_ServerMoveDualNoBase_Params params;
+	params.TimeStamp0 = TimeStamp0;
+	params.InAccel0 = InAccel0;
+	params.PendingFlags = PendingFlags;
+	params.View0 = View0;
+	params.Timestamp = Timestamp;
+	params.InAccel = InAccel;
+	params.ClientLoc = ClientLoc;
+	params.NewFlags = NewFlags;
+	params.ClientRoll = ClientRoll;
+	params.View = View;
+	params.ClientMovementMode = ClientMovementMode;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.Character.ServerMoveDualHybridRootMotion
+// (Net, Native, Event, Public, NetServer, NetValidate)
+// Parameters:
+// float                          TimeStamp0                     (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector_NetQuantize10   InAccel0                       (Parm)
+// unsigned char                  PendingFlags                   (Parm, ZeroConstructor, IsPlainOldData)
+// uint32_t                       View0                          (Parm, ZeroConstructor, IsPlainOldData)
+// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector_NetQuantize10   InAccel                        (Parm)
+// struct FVector_NetQuantize100  ClientLoc                      (Parm)
+// unsigned char                  NewFlags                       (Parm, ZeroConstructor, IsPlainOldData)
+// unsigned char                  ClientRoll                     (Parm, ZeroConstructor, IsPlainOldData)
+// uint32_t                       View                           (Parm, ZeroConstructor, IsPlainOldData)
+// class UPrimitiveComponent*     ClientMovementBase             (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// struct FName                   ClientBaseBoneName             (Parm, ZeroConstructor, IsPlainOldData)
+// unsigned char                  ClientMovementMode             (Parm, ZeroConstructor, IsPlainOldData)
+
+void ACharacter::ServerMoveDualHybridRootMotion(float TimeStamp0, const struct FVector_NetQuantize10& InAccel0, unsigned char PendingFlags, uint32_t View0, float Timestamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, unsigned char NewFlags, unsigned char ClientRoll, uint32_t View, class UPrimitiveComponent* ClientMovementBase, const struct FName& ClientBaseBoneName, unsigned char ClientMovementMode)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.ServerMoveDualHybridRootMotion");
+
+	ACharacter_ServerMoveDualHybridRootMotion_Params params;
+	params.TimeStamp0 = TimeStamp0;
+	params.InAccel0 = InAccel0;
+	params.PendingFlags = PendingFlags;
+	params.View0 = View0;
+	params.Timestamp = Timestamp;
+	params.InAccel = InAccel;
+	params.ClientLoc = ClientLoc;
+	params.NewFlags = NewFlags;
+	params.ClientRoll = ClientRoll;
+	params.View = View;
+	params.ClientMovementBase = ClientMovementBase;
+	params.ClientBaseBoneName = ClientBaseBoneName;
+	params.ClientMovementMode = ClientMovementMode;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.Character.ServerMoveDual
+// (Net, Native, Event, Public, NetServer, NetValidate)
+// Parameters:
+// float                          TimeStamp0                     (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector_NetQuantize10   InAccel0                       (Parm)
+// unsigned char                  PendingFlags                   (Parm, ZeroConstructor, IsPlainOldData)
+// uint32_t                       View0                          (Parm, ZeroConstructor, IsPlainOldData)
+// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector_NetQuantize10   InAccel                        (Parm)
+// struct FVector_NetQuantize100  ClientLoc                      (Parm)
+// unsigned char                  NewFlags                       (Parm, ZeroConstructor, IsPlainOldData)
+// unsigned char                  ClientRoll                     (Parm, ZeroConstructor, IsPlainOldData)
+// uint32_t                       View                           (Parm, ZeroConstructor, IsPlainOldData)
+// class UPrimitiveComponent*     ClientMovementBase             (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// struct FName                   ClientBaseBoneName             (Parm, ZeroConstructor, IsPlainOldData)
+// unsigned char                  ClientMovementMode             (Parm, ZeroConstructor, IsPlainOldData)
+
+void ACharacter::ServerMoveDual(float TimeStamp0, const struct FVector_NetQuantize10& InAccel0, unsigned char PendingFlags, uint32_t View0, float Timestamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, unsigned char NewFlags, unsigned char ClientRoll, uint32_t View, class UPrimitiveComponent* ClientMovementBase, const struct FName& ClientBaseBoneName, unsigned char ClientMovementMode)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.ServerMoveDual");
+
+	ACharacter_ServerMoveDual_Params params;
+	params.TimeStamp0 = TimeStamp0;
+	params.InAccel0 = InAccel0;
+	params.PendingFlags = PendingFlags;
+	params.View0 = View0;
+	params.Timestamp = Timestamp;
+	params.InAccel = InAccel;
+	params.ClientLoc = ClientLoc;
+	params.NewFlags = NewFlags;
+	params.ClientRoll = ClientRoll;
+	params.View = View;
+	params.ClientMovementBase = ClientMovementBase;
+	params.ClientBaseBoneName = ClientBaseBoneName;
+	params.ClientMovementMode = ClientMovementMode;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.Character.ServerMove
+// (Net, Native, Event, Public, NetServer, NetValidate)
+// Parameters:
+// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector_NetQuantize10   InAccel                        (Parm)
+// struct FVector_NetQuantize100  ClientLoc                      (Parm)
+// unsigned char                  CompressedMoveFlags            (Parm, ZeroConstructor, IsPlainOldData)
+// unsigned char                  ClientRoll                     (Parm, ZeroConstructor, IsPlainOldData)
+// uint32_t                       View                           (Parm, ZeroConstructor, IsPlainOldData)
+// class UPrimitiveComponent*     ClientMovementBase             (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// struct FName                   ClientBaseBoneName             (Parm, ZeroConstructor, IsPlainOldData)
+// unsigned char                  ClientMovementMode             (Parm, ZeroConstructor, IsPlainOldData)
+
+void ACharacter::ServerMove(float Timestamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, unsigned char CompressedMoveFlags, unsigned char ClientRoll, uint32_t View, class UPrimitiveComponent* ClientMovementBase, const struct FName& ClientBaseBoneName, unsigned char ClientMovementMode)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.ServerMove");
+
+	ACharacter_ServerMove_Params params;
+	params.Timestamp = Timestamp;
+	params.InAccel = InAccel;
+	params.ClientLoc = ClientLoc;
+	params.CompressedMoveFlags = CompressedMoveFlags;
+	params.ClientRoll = ClientRoll;
+	params.View = View;
+	params.ClientMovementBase = ClientMovementBase;
+	params.ClientBaseBoneName = ClientBaseBoneName;
+	params.ClientMovementMode = ClientMovementMode;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function Engine.Character.PlayAnimMontage
 // (Native, Public, BlueprintCallable)
 // Parameters:
@@ -11964,24 +12232,6 @@ void ACharacter::OnRep_RootMotion()
 	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.OnRep_RootMotion");
 
 	ACharacter_OnRep_RootMotion_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.Character.OnRep_ReplicatedMovementMode
-// (Native, Public)
-
-void ACharacter::OnRep_ReplicatedMovementMode()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.OnRep_ReplicatedMovementMode");
-
-	ACharacter_OnRep_ReplicatedMovementMode_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12289,28 +12539,6 @@ bool ACharacter::IsJumpProvidingForce()
 }
 
 
-// Function Engine.Character.GetMesh
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class USkeletalMeshComponent*  ReturnValue                    (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
-
-class USkeletalMeshComponent* ACharacter::GetMesh()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.GetMesh");
-
-	ACharacter_GetMesh_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
 // Function Engine.Character.GetCurrentMontage
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -12321,28 +12549,6 @@ class UAnimMontage* ACharacter::GetCurrentMontage()
 	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.GetCurrentMontage");
 
 	ACharacter_GetCurrentMontage_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.Character.GetCapsuleComponent
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class UCapsuleComponent*       ReturnValue                    (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
-
-class UCapsuleComponent* ACharacter::GetCapsuleComponent()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.GetCapsuleComponent");
-
-	ACharacter_GetCapsuleComponent_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12442,6 +12648,39 @@ void ACharacter::Crouch(bool bClientSimulation)
 }
 
 
+// Function Engine.Character.ClientVeryShortAdjustPosition
+// (Net, Native, Event, Public, HasDefaults, NetClient)
+// Parameters:
+// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector                 NewLoc                         (Parm, IsPlainOldData)
+// class UPrimitiveComponent*     NewBase                        (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// struct FName                   NewBaseBoneName                (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bHasBase                       (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bBaseRelativePosition          (Parm, ZeroConstructor, IsPlainOldData)
+// unsigned char                  ServerMovementMode             (Parm, ZeroConstructor, IsPlainOldData)
+
+void ACharacter::ClientVeryShortAdjustPosition(float Timestamp, const struct FVector& NewLoc, class UPrimitiveComponent* NewBase, const struct FName& NewBaseBoneName, bool bHasBase, bool bBaseRelativePosition, unsigned char ServerMovementMode)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.ClientVeryShortAdjustPosition");
+
+	ACharacter_ClientVeryShortAdjustPosition_Params params;
+	params.Timestamp = Timestamp;
+	params.NewLoc = NewLoc;
+	params.NewBase = NewBase;
+	params.NewBaseBoneName = NewBaseBoneName;
+	params.bHasBase = bHasBase;
+	params.bBaseRelativePosition = bBaseRelativePosition;
+	params.ServerMovementMode = ServerMovementMode;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function Engine.Character.ClientCheatWalk
 // (Net, NetReliable, Native, Event, Public, NetClient)
 
@@ -12486,6 +12725,144 @@ void ACharacter::ClientCheatFly()
 	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.ClientCheatFly");
 
 	ACharacter_ClientCheatFly_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.Character.ClientAdjustRootMotionSourcePosition
+// (Net, Native, Event, Public, HasDefaults, NetClient)
+// Parameters:
+// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
+// struct FRootMotionSourceGroup  ServerRootMotion               (Parm)
+// bool                           bHasAnimRootMotion             (Parm, ZeroConstructor, IsPlainOldData)
+// float                          ServerMontageTrackPosition     (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector                 ServerLoc                      (Parm, IsPlainOldData)
+// struct FVector_NetQuantizeNormal ServerRotation                 (Parm)
+// float                          ServerVelZ                     (Parm, ZeroConstructor, IsPlainOldData)
+// class UPrimitiveComponent*     ServerBase                     (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// struct FName                   ServerBoneName                 (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bHasBase                       (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bBaseRelativePosition          (Parm, ZeroConstructor, IsPlainOldData)
+// unsigned char                  ServerMovementMode             (Parm, ZeroConstructor, IsPlainOldData)
+
+void ACharacter::ClientAdjustRootMotionSourcePosition(float Timestamp, const struct FRootMotionSourceGroup& ServerRootMotion, bool bHasAnimRootMotion, float ServerMontageTrackPosition, const struct FVector& ServerLoc, const struct FVector_NetQuantizeNormal& ServerRotation, float ServerVelZ, class UPrimitiveComponent* ServerBase, const struct FName& ServerBoneName, bool bHasBase, bool bBaseRelativePosition, unsigned char ServerMovementMode)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.ClientAdjustRootMotionSourcePosition");
+
+	ACharacter_ClientAdjustRootMotionSourcePosition_Params params;
+	params.Timestamp = Timestamp;
+	params.ServerRootMotion = ServerRootMotion;
+	params.bHasAnimRootMotion = bHasAnimRootMotion;
+	params.ServerMontageTrackPosition = ServerMontageTrackPosition;
+	params.ServerLoc = ServerLoc;
+	params.ServerRotation = ServerRotation;
+	params.ServerVelZ = ServerVelZ;
+	params.ServerBase = ServerBase;
+	params.ServerBoneName = ServerBoneName;
+	params.bHasBase = bHasBase;
+	params.bBaseRelativePosition = bBaseRelativePosition;
+	params.ServerMovementMode = ServerMovementMode;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.Character.ClientAdjustRootMotionPosition
+// (Net, Native, Event, Public, HasDefaults, NetClient)
+// Parameters:
+// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
+// float                          ServerMontageTrackPosition     (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector                 ServerLoc                      (Parm, IsPlainOldData)
+// struct FVector_NetQuantizeNormal ServerRotation                 (Parm)
+// float                          ServerVelZ                     (Parm, ZeroConstructor, IsPlainOldData)
+// class UPrimitiveComponent*     ServerBase                     (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// struct FName                   ServerBoneName                 (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bHasBase                       (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bBaseRelativePosition          (Parm, ZeroConstructor, IsPlainOldData)
+// unsigned char                  ServerMovementMode             (Parm, ZeroConstructor, IsPlainOldData)
+
+void ACharacter::ClientAdjustRootMotionPosition(float Timestamp, float ServerMontageTrackPosition, const struct FVector& ServerLoc, const struct FVector_NetQuantizeNormal& ServerRotation, float ServerVelZ, class UPrimitiveComponent* ServerBase, const struct FName& ServerBoneName, bool bHasBase, bool bBaseRelativePosition, unsigned char ServerMovementMode)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.ClientAdjustRootMotionPosition");
+
+	ACharacter_ClientAdjustRootMotionPosition_Params params;
+	params.Timestamp = Timestamp;
+	params.ServerMontageTrackPosition = ServerMontageTrackPosition;
+	params.ServerLoc = ServerLoc;
+	params.ServerRotation = ServerRotation;
+	params.ServerVelZ = ServerVelZ;
+	params.ServerBase = ServerBase;
+	params.ServerBoneName = ServerBoneName;
+	params.bHasBase = bHasBase;
+	params.bBaseRelativePosition = bBaseRelativePosition;
+	params.ServerMovementMode = ServerMovementMode;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.Character.ClientAdjustPosition
+// (Net, Native, Event, Public, HasDefaults, NetClient)
+// Parameters:
+// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector                 NewLoc                         (Parm, IsPlainOldData)
+// struct FVector                 NewVel                         (Parm, IsPlainOldData)
+// class UPrimitiveComponent*     NewBase                        (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// struct FName                   NewBaseBoneName                (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bHasBase                       (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bBaseRelativePosition          (Parm, ZeroConstructor, IsPlainOldData)
+// unsigned char                  ServerMovementMode             (Parm, ZeroConstructor, IsPlainOldData)
+
+void ACharacter::ClientAdjustPosition(float Timestamp, const struct FVector& NewLoc, const struct FVector& NewVel, class UPrimitiveComponent* NewBase, const struct FName& NewBaseBoneName, bool bHasBase, bool bBaseRelativePosition, unsigned char ServerMovementMode)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.ClientAdjustPosition");
+
+	ACharacter_ClientAdjustPosition_Params params;
+	params.Timestamp = Timestamp;
+	params.NewLoc = NewLoc;
+	params.NewVel = NewVel;
+	params.NewBase = NewBase;
+	params.NewBaseBoneName = NewBaseBoneName;
+	params.bHasBase = bHasBase;
+	params.bBaseRelativePosition = bBaseRelativePosition;
+	params.ServerMovementMode = ServerMovementMode;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.Character.ClientAckGoodMove
+// (Net, Native, Event, Public, NetClient)
+// Parameters:
+// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
+
+void ACharacter::ClientAckGoodMove(float Timestamp)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.Character.ClientAckGoodMove");
+
+	ACharacter_ClientAckGoodMove_Params params;
+	params.Timestamp = Timestamp;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12553,6 +12930,883 @@ void ACharacter::CacheInitialMeshOffset(const struct FVector& MeshRelativeLocati
 	ACharacter_CacheInitialMeshOffset_Params params;
 	params.MeshRelativeLocation = MeshRelativeLocation;
 	params.MeshRelativeRotation = MeshRelativeRotation;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameModeBase.StartPlay
+// (Native, Public, BlueprintCallable)
+
+void AGameModeBase::StartPlay()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.StartPlay");
+
+	AGameModeBase_StartPlay_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameModeBase.SpawnDefaultPawnFor
+// (Native, Event, Public, BlueprintEvent)
+// Parameters:
+// class AController*             NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  StartSpot                      (Parm, ZeroConstructor, IsPlainOldData)
+// class APawn*                   ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class APawn* AGameModeBase::SpawnDefaultPawnFor(class AController* NewPlayer, class AActor* StartSpot)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.SpawnDefaultPawnFor");
+
+	AGameModeBase_SpawnDefaultPawnFor_Params params;
+	params.NewPlayer = NewPlayer;
+	params.StartSpot = StartSpot;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameModeBase.SpawnDefaultPawnAtTransform
+// (Native, Event, Public, HasOutParms, HasDefaults, BlueprintEvent)
+// Parameters:
+// class AController*             NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
+// struct FTransform              SpawnTransform                 (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+// class APawn*                   ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class APawn* AGameModeBase::SpawnDefaultPawnAtTransform(class AController* NewPlayer, const struct FTransform& SpawnTransform)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.SpawnDefaultPawnAtTransform");
+
+	AGameModeBase_SpawnDefaultPawnAtTransform_Params params;
+	params.NewPlayer = NewPlayer;
+	params.SpawnTransform = SpawnTransform;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameModeBase.ShouldReset
+// (Native, Event, Public, BlueprintEvent)
+// Parameters:
+// class AActor*                  ActorToReset                   (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool AGameModeBase::ShouldReset(class AActor* ActorToReset)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.ShouldReset");
+
+	AGameModeBase_ShouldReset_Params params;
+	params.ActorToReset = ActorToReset;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameModeBase.ReturnToMainMenuHost
+// (Native, Public, BlueprintCallable)
+
+void AGameModeBase::ReturnToMainMenuHost()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.ReturnToMainMenuHost");
+
+	AGameModeBase_ReturnToMainMenuHost_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameModeBase.RestartPlayerAtTransform
+// (Native, Public, HasOutParms, HasDefaults, BlueprintCallable)
+// Parameters:
+// class AController*             NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
+// struct FTransform              SpawnTransform                 (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+
+void AGameModeBase::RestartPlayerAtTransform(class AController* NewPlayer, const struct FTransform& SpawnTransform)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.RestartPlayerAtTransform");
+
+	AGameModeBase_RestartPlayerAtTransform_Params params;
+	params.NewPlayer = NewPlayer;
+	params.SpawnTransform = SpawnTransform;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameModeBase.RestartPlayerAtPlayerStart
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// class AController*             NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  StartSpot                      (Parm, ZeroConstructor, IsPlainOldData)
+
+void AGameModeBase::RestartPlayerAtPlayerStart(class AController* NewPlayer, class AActor* StartSpot)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.RestartPlayerAtPlayerStart");
+
+	AGameModeBase_RestartPlayerAtPlayerStart_Params params;
+	params.NewPlayer = NewPlayer;
+	params.StartSpot = StartSpot;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameModeBase.RestartPlayer
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// class AController*             NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
+
+void AGameModeBase::RestartPlayer(class AController* NewPlayer)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.RestartPlayer");
+
+	AGameModeBase_RestartPlayer_Params params;
+	params.NewPlayer = NewPlayer;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameModeBase.ResetLevel
+// (Native, Public, BlueprintCallable)
+
+void AGameModeBase::ResetLevel()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.ResetLevel");
+
+	AGameModeBase_ResetLevel_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameModeBase.PlayerCanRestart
+// (Native, Event, Public, BlueprintEvent)
+// Parameters:
+// class APlayerController*       Player                         (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool AGameModeBase::PlayerCanRestart(class APlayerController* Player)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.PlayerCanRestart");
+
+	AGameModeBase_PlayerCanRestart_Params params;
+	params.Player = Player;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameModeBase.MustSpectate
+// (Native, Event, Public, BlueprintEvent, Const)
+// Parameters:
+// class APlayerController*       NewPlayerController            (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool AGameModeBase::MustSpectate(class APlayerController* NewPlayerController)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.MustSpectate");
+
+	AGameModeBase_MustSpectate_Params params;
+	params.NewPlayerController = NewPlayerController;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameModeBase.K2_PostLogin
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// class APlayerController*       NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
+
+void AGameModeBase::K2_PostLogin(class APlayerController* NewPlayer)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.K2_PostLogin");
+
+	AGameModeBase_K2_PostLogin_Params params;
+	params.NewPlayer = NewPlayer;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameModeBase.K2_OnSwapPlayerControllers
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// class APlayerController*       OldPC                          (Parm, ZeroConstructor, IsPlainOldData)
+// class APlayerController*       NewPC                          (Parm, ZeroConstructor, IsPlainOldData)
+
+void AGameModeBase::K2_OnSwapPlayerControllers(class APlayerController* OldPC, class APlayerController* NewPC)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.K2_OnSwapPlayerControllers");
+
+	AGameModeBase_K2_OnSwapPlayerControllers_Params params;
+	params.OldPC = OldPC;
+	params.NewPC = NewPC;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameModeBase.K2_OnRestartPlayer
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// class AController*             NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
+
+void AGameModeBase::K2_OnRestartPlayer(class AController* NewPlayer)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.K2_OnRestartPlayer");
+
+	AGameModeBase_K2_OnRestartPlayer_Params params;
+	params.NewPlayer = NewPlayer;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameModeBase.K2_OnLogout
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// class AController*             ExitingController              (Parm, ZeroConstructor, IsPlainOldData)
+
+void AGameModeBase::K2_OnLogout(class AController* ExitingController)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.K2_OnLogout");
+
+	AGameModeBase_K2_OnLogout_Params params;
+	params.ExitingController = ExitingController;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameModeBase.K2_OnChangeName
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// class AController*             Other                          (Parm, ZeroConstructor, IsPlainOldData)
+// struct FString                 NewName                        (Parm, ZeroConstructor)
+// bool                           bNameChange                    (Parm, ZeroConstructor, IsPlainOldData)
+
+void AGameModeBase::K2_OnChangeName(class AController* Other, const struct FString& NewName, bool bNameChange)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.K2_OnChangeName");
+
+	AGameModeBase_K2_OnChangeName_Params params;
+	params.Other = Other;
+	params.NewName = NewName;
+	params.bNameChange = bNameChange;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameModeBase.K2_FindPlayerStart
+// (Final, Native, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class AController*             Player                         (Parm, ZeroConstructor, IsPlainOldData)
+// struct FString                 IncomingName                   (Parm, ZeroConstructor)
+// class AActor*                  ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class AActor* AGameModeBase::K2_FindPlayerStart(class AController* Player, const struct FString& IncomingName)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.K2_FindPlayerStart");
+
+	AGameModeBase_K2_FindPlayerStart_Params params;
+	params.Player = Player;
+	params.IncomingName = IncomingName;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameModeBase.InitStartSpot
+// (Native, Event, Public, BlueprintEvent)
+// Parameters:
+// class AActor*                  StartSpot                      (Parm, ZeroConstructor, IsPlainOldData)
+// class AController*             NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
+
+void AGameModeBase::InitStartSpot(class AActor* StartSpot, class AController* NewPlayer)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.InitStartSpot");
+
+	AGameModeBase_InitStartSpot_Params params;
+	params.StartSpot = StartSpot;
+	params.NewPlayer = NewPlayer;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameModeBase.InitializeHUDForPlayer
+// (Native, Event, Protected, BlueprintEvent)
+// Parameters:
+// class APlayerController*       NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
+
+void AGameModeBase::InitializeHUDForPlayer(class APlayerController* NewPlayer)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.InitializeHUDForPlayer");
+
+	AGameModeBase_InitializeHUDForPlayer_Params params;
+	params.NewPlayer = NewPlayer;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameModeBase.HasMatchStarted
+// (Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool AGameModeBase::HasMatchStarted()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.HasMatchStarted");
+
+	AGameModeBase_HasMatchStarted_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameModeBase.HandleStartingNewPlayer
+// (Native, Event, Public, BlueprintEvent)
+// Parameters:
+// class APlayerController*       NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
+
+void AGameModeBase::HandleStartingNewPlayer(class APlayerController* NewPlayer)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.HandleStartingNewPlayer");
+
+	AGameModeBase_HandleStartingNewPlayer_Params params;
+	params.NewPlayer = NewPlayer;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameModeBase.GetNumSpectators
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+int AGameModeBase::GetNumSpectators()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.GetNumSpectators");
+
+	AGameModeBase_GetNumSpectators_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameModeBase.GetNumPlayers
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+int AGameModeBase::GetNumPlayers()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.GetNumPlayers");
+
+	AGameModeBase_GetNumPlayers_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameModeBase.GetDefaultPawnClassForController
+// (Native, Event, Public, BlueprintEvent)
+// Parameters:
+// class AController*             InController                   (Parm, ZeroConstructor, IsPlainOldData)
+// class UClass*                  ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class UClass* AGameModeBase::GetDefaultPawnClassForController(class AController* InController)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.GetDefaultPawnClassForController");
+
+	AGameModeBase_GetDefaultPawnClassForController_Params params;
+	params.InController = InController;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameModeBase.FindPlayerStart
+// (Native, Event, Public, BlueprintEvent)
+// Parameters:
+// class AController*             Player                         (Parm, ZeroConstructor, IsPlainOldData)
+// struct FString                 IncomingName                   (Parm, ZeroConstructor)
+// class AActor*                  ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class AActor* AGameModeBase::FindPlayerStart(class AController* Player, const struct FString& IncomingName)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.FindPlayerStart");
+
+	AGameModeBase_FindPlayerStart_Params params;
+	params.Player = Player;
+	params.IncomingName = IncomingName;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameModeBase.ChoosePlayerStart
+// (Native, Event, Public, BlueprintEvent)
+// Parameters:
+// class AController*             Player                         (Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class AActor* AGameModeBase::ChoosePlayerStart(class AController* Player)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.ChoosePlayerStart");
+
+	AGameModeBase_ChoosePlayerStart_Params params;
+	params.Player = Player;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameModeBase.ChangeName
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// class AController*             Controller                     (Parm, ZeroConstructor, IsPlainOldData)
+// struct FString                 NewName                        (Parm, ZeroConstructor)
+// bool                           bNameChange                    (Parm, ZeroConstructor, IsPlainOldData)
+
+void AGameModeBase::ChangeName(class AController* Controller, const struct FString& NewName, bool bNameChange)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.ChangeName");
+
+	AGameModeBase_ChangeName_Params params;
+	params.Controller = Controller;
+	params.NewName = NewName;
+	params.bNameChange = bNameChange;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameModeBase.CanSpectate
+// (Native, Event, Public, BlueprintEvent)
+// Parameters:
+// class APlayerController*       Viewer                         (Parm, ZeroConstructor, IsPlainOldData)
+// class APlayerState*            ViewTarget                     (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool AGameModeBase::CanSpectate(class APlayerController* Viewer, class APlayerState* ViewTarget)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.CanSpectate");
+
+	AGameModeBase_CanSpectate_Params params;
+	params.Viewer = Viewer;
+	params.ViewTarget = ViewTarget;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameMode.StartMatch
+// (Native, Public, BlueprintCallable)
+
+void AGameMode::StartMatch()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.StartMatch");
+
+	AGameMode_StartMatch_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameMode.SetBandwidthLimit
+// (Exec, Native, Public)
+// Parameters:
+// float                          AsyncIOBandwidthLimit          (Parm, ZeroConstructor, IsPlainOldData)
+
+void AGameMode::SetBandwidthLimit(float AsyncIOBandwidthLimit)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.SetBandwidthLimit");
+
+	AGameMode_SetBandwidthLimit_Params params;
+	params.AsyncIOBandwidthLimit = AsyncIOBandwidthLimit;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameMode.Say
+// (Exec, Native, Public, BlueprintCallable)
+// Parameters:
+// struct FString                 Msg                            (Parm, ZeroConstructor)
+
+void AGameMode::Say(const struct FString& Msg)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.Say");
+
+	AGameMode_Say_Params params;
+	params.Msg = Msg;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameMode.RestartGame
+// (Native, Public, BlueprintCallable)
+
+void AGameMode::RestartGame()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.RestartGame");
+
+	AGameMode_RestartGame_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameMode.ReadyToStartMatch
+// (Native, Event, Protected, BlueprintEvent)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool AGameMode::ReadyToStartMatch()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.ReadyToStartMatch");
+
+	AGameMode_ReadyToStartMatch_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameMode.ReadyToEndMatch
+// (Native, Event, Protected, BlueprintEvent)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool AGameMode::ReadyToEndMatch()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.ReadyToEndMatch");
+
+	AGameMode_ReadyToEndMatch_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameMode.K2_OnSetMatchState
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// struct FName                   NewState                       (Parm, ZeroConstructor, IsPlainOldData)
+
+void AGameMode::K2_OnSetMatchState(const struct FName& NewState)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.K2_OnSetMatchState");
+
+	AGameMode_K2_OnSetMatchState_Params params;
+	params.NewState = NewState;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameMode.IsMatchInProgress
+// (Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool AGameMode::IsMatchInProgress()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.IsMatchInProgress");
+
+	AGameMode_IsMatchInProgress_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameMode.HasMatchEnded
+// (Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool AGameMode::HasMatchEnded()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.HasMatchEnded");
+
+	AGameMode_HasMatchEnded_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameMode.GetMatchState
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// struct FName                   ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+struct FName AGameMode::GetMatchState()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.GetMatchState");
+
+	AGameMode_GetMatchState_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function Engine.GameMode.EndMatch
+// (Native, Public, BlueprintCallable)
+
+void AGameMode::EndMatch()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.EndMatch");
+
+	AGameMode_EndMatch_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function Engine.GameMode.AbortMatch
+// (Native, Public, BlueprintCallable)
+
+void AGameMode::AbortMatch()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.AbortMatch");
+
+	AGameMode_AbortMatch_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13609,158 +14863,6 @@ void UCharacterMovementComponent::SetAvoidanceEnabled(bool bEnable)
 }
 
 
-// Function Engine.CharacterMovementComponent.ServerMoveOld
-// (Net, Native, Event, Public, NetServer, NetValidate)
-// Parameters:
-// float                          OldTimeStamp                   (Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector_NetQuantize10   OldAccel                       (Parm)
-// unsigned char                  OldMoveFlags                   (Parm, ZeroConstructor, IsPlainOldData)
-
-void UCharacterMovementComponent::ServerMoveOld(float OldTimeStamp, const struct FVector_NetQuantize10& OldAccel, unsigned char OldMoveFlags)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.CharacterMovementComponent.ServerMoveOld");
-
-	UCharacterMovementComponent_ServerMoveOld_Params params;
-	params.OldTimeStamp = OldTimeStamp;
-	params.OldAccel = OldAccel;
-	params.OldMoveFlags = OldMoveFlags;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.CharacterMovementComponent.ServerMoveDualHybridRootMotion
-// (Net, Native, Event, Public, NetServer, NetValidate)
-// Parameters:
-// float                          TimeStamp0                     (Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector_NetQuantize10   InAccel0                       (Parm)
-// unsigned char                  PendingFlags                   (Parm, ZeroConstructor, IsPlainOldData)
-// uint32_t                       View0                          (Parm, ZeroConstructor, IsPlainOldData)
-// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector_NetQuantize10   InAccel                        (Parm)
-// struct FVector_NetQuantize100  ClientLoc                      (Parm)
-// unsigned char                  NewFlags                       (Parm, ZeroConstructor, IsPlainOldData)
-// unsigned char                  ClientRoll                     (Parm, ZeroConstructor, IsPlainOldData)
-// uint32_t                       View                           (Parm, ZeroConstructor, IsPlainOldData)
-// class UPrimitiveComponent*     ClientMovementBase             (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-// struct FName                   ClientBaseBoneName             (Parm, ZeroConstructor, IsPlainOldData)
-// unsigned char                  ClientMovementMode             (Parm, ZeroConstructor, IsPlainOldData)
-
-void UCharacterMovementComponent::ServerMoveDualHybridRootMotion(float TimeStamp0, const struct FVector_NetQuantize10& InAccel0, unsigned char PendingFlags, uint32_t View0, float Timestamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, unsigned char NewFlags, unsigned char ClientRoll, uint32_t View, class UPrimitiveComponent* ClientMovementBase, const struct FName& ClientBaseBoneName, unsigned char ClientMovementMode)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.CharacterMovementComponent.ServerMoveDualHybridRootMotion");
-
-	UCharacterMovementComponent_ServerMoveDualHybridRootMotion_Params params;
-	params.TimeStamp0 = TimeStamp0;
-	params.InAccel0 = InAccel0;
-	params.PendingFlags = PendingFlags;
-	params.View0 = View0;
-	params.Timestamp = Timestamp;
-	params.InAccel = InAccel;
-	params.ClientLoc = ClientLoc;
-	params.NewFlags = NewFlags;
-	params.ClientRoll = ClientRoll;
-	params.View = View;
-	params.ClientMovementBase = ClientMovementBase;
-	params.ClientBaseBoneName = ClientBaseBoneName;
-	params.ClientMovementMode = ClientMovementMode;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.CharacterMovementComponent.ServerMoveDual
-// (Net, Native, Event, Public, NetServer, NetValidate)
-// Parameters:
-// float                          TimeStamp0                     (Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector_NetQuantize10   InAccel0                       (Parm)
-// unsigned char                  PendingFlags                   (Parm, ZeroConstructor, IsPlainOldData)
-// uint32_t                       View0                          (Parm, ZeroConstructor, IsPlainOldData)
-// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector_NetQuantize10   InAccel                        (Parm)
-// struct FVector_NetQuantize100  ClientLoc                      (Parm)
-// unsigned char                  NewFlags                       (Parm, ZeroConstructor, IsPlainOldData)
-// unsigned char                  ClientRoll                     (Parm, ZeroConstructor, IsPlainOldData)
-// uint32_t                       View                           (Parm, ZeroConstructor, IsPlainOldData)
-// class UPrimitiveComponent*     ClientMovementBase             (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-// struct FName                   ClientBaseBoneName             (Parm, ZeroConstructor, IsPlainOldData)
-// unsigned char                  ClientMovementMode             (Parm, ZeroConstructor, IsPlainOldData)
-
-void UCharacterMovementComponent::ServerMoveDual(float TimeStamp0, const struct FVector_NetQuantize10& InAccel0, unsigned char PendingFlags, uint32_t View0, float Timestamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, unsigned char NewFlags, unsigned char ClientRoll, uint32_t View, class UPrimitiveComponent* ClientMovementBase, const struct FName& ClientBaseBoneName, unsigned char ClientMovementMode)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.CharacterMovementComponent.ServerMoveDual");
-
-	UCharacterMovementComponent_ServerMoveDual_Params params;
-	params.TimeStamp0 = TimeStamp0;
-	params.InAccel0 = InAccel0;
-	params.PendingFlags = PendingFlags;
-	params.View0 = View0;
-	params.Timestamp = Timestamp;
-	params.InAccel = InAccel;
-	params.ClientLoc = ClientLoc;
-	params.NewFlags = NewFlags;
-	params.ClientRoll = ClientRoll;
-	params.View = View;
-	params.ClientMovementBase = ClientMovementBase;
-	params.ClientBaseBoneName = ClientBaseBoneName;
-	params.ClientMovementMode = ClientMovementMode;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.CharacterMovementComponent.ServerMove
-// (Net, Native, Event, Public, NetServer, NetValidate)
-// Parameters:
-// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector_NetQuantize10   InAccel                        (Parm)
-// struct FVector_NetQuantize100  ClientLoc                      (Parm)
-// unsigned char                  CompressedMoveFlags            (Parm, ZeroConstructor, IsPlainOldData)
-// unsigned char                  ClientRoll                     (Parm, ZeroConstructor, IsPlainOldData)
-// uint32_t                       View                           (Parm, ZeroConstructor, IsPlainOldData)
-// class UPrimitiveComponent*     ClientMovementBase             (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-// struct FName                   ClientBaseBoneName             (Parm, ZeroConstructor, IsPlainOldData)
-// unsigned char                  ClientMovementMode             (Parm, ZeroConstructor, IsPlainOldData)
-
-void UCharacterMovementComponent::ServerMove(float Timestamp, const struct FVector_NetQuantize10& InAccel, const struct FVector_NetQuantize100& ClientLoc, unsigned char CompressedMoveFlags, unsigned char ClientRoll, uint32_t View, class UPrimitiveComponent* ClientMovementBase, const struct FName& ClientBaseBoneName, unsigned char ClientMovementMode)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.CharacterMovementComponent.ServerMove");
-
-	UCharacterMovementComponent_ServerMove_Params params;
-	params.Timestamp = Timestamp;
-	params.InAccel = InAccel;
-	params.ClientLoc = ClientLoc;
-	params.CompressedMoveFlags = CompressedMoveFlags;
-	params.ClientRoll = ClientRoll;
-	params.View = View;
-	params.ClientMovementBase = ClientMovementBase;
-	params.ClientBaseBoneName = ClientBaseBoneName;
-	params.ClientMovementMode = ClientMovementMode;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function Engine.CharacterMovementComponent.K2_GetWalkableFloorZ
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
 // Parameters:
@@ -14179,177 +15281,6 @@ void UCharacterMovementComponent::DisableMovement()
 	static auto fn = UObject::FindObject<UFunction>("Function Engine.CharacterMovementComponent.DisableMovement");
 
 	UCharacterMovementComponent_DisableMovement_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.CharacterMovementComponent.ClientVeryShortAdjustPosition
-// (Net, Native, Event, Public, HasDefaults, NetClient)
-// Parameters:
-// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector                 NewLoc                         (Parm, IsPlainOldData)
-// class UPrimitiveComponent*     NewBase                        (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-// struct FName                   NewBaseBoneName                (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bHasBase                       (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bBaseRelativePosition          (Parm, ZeroConstructor, IsPlainOldData)
-// unsigned char                  ServerMovementMode             (Parm, ZeroConstructor, IsPlainOldData)
-
-void UCharacterMovementComponent::ClientVeryShortAdjustPosition(float Timestamp, const struct FVector& NewLoc, class UPrimitiveComponent* NewBase, const struct FName& NewBaseBoneName, bool bHasBase, bool bBaseRelativePosition, unsigned char ServerMovementMode)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.CharacterMovementComponent.ClientVeryShortAdjustPosition");
-
-	UCharacterMovementComponent_ClientVeryShortAdjustPosition_Params params;
-	params.Timestamp = Timestamp;
-	params.NewLoc = NewLoc;
-	params.NewBase = NewBase;
-	params.NewBaseBoneName = NewBaseBoneName;
-	params.bHasBase = bHasBase;
-	params.bBaseRelativePosition = bBaseRelativePosition;
-	params.ServerMovementMode = ServerMovementMode;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.CharacterMovementComponent.ClientAdjustRootMotionSourcePosition
-// (Net, Native, Event, Public, HasDefaults, NetClient)
-// Parameters:
-// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
-// struct FRootMotionSourceGroup  ServerRootMotion               (Parm)
-// bool                           bHasAnimRootMotion             (Parm, ZeroConstructor, IsPlainOldData)
-// float                          ServerMontageTrackPosition     (Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector                 ServerLoc                      (Parm, IsPlainOldData)
-// struct FVector_NetQuantizeNormal ServerRotation                 (Parm)
-// float                          ServerVelZ                     (Parm, ZeroConstructor, IsPlainOldData)
-// class UPrimitiveComponent*     ServerBase                     (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-// struct FName                   ServerBoneName                 (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bHasBase                       (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bBaseRelativePosition          (Parm, ZeroConstructor, IsPlainOldData)
-// unsigned char                  ServerMovementMode             (Parm, ZeroConstructor, IsPlainOldData)
-
-void UCharacterMovementComponent::ClientAdjustRootMotionSourcePosition(float Timestamp, const struct FRootMotionSourceGroup& ServerRootMotion, bool bHasAnimRootMotion, float ServerMontageTrackPosition, const struct FVector& ServerLoc, const struct FVector_NetQuantizeNormal& ServerRotation, float ServerVelZ, class UPrimitiveComponent* ServerBase, const struct FName& ServerBoneName, bool bHasBase, bool bBaseRelativePosition, unsigned char ServerMovementMode)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.CharacterMovementComponent.ClientAdjustRootMotionSourcePosition");
-
-	UCharacterMovementComponent_ClientAdjustRootMotionSourcePosition_Params params;
-	params.Timestamp = Timestamp;
-	params.ServerRootMotion = ServerRootMotion;
-	params.bHasAnimRootMotion = bHasAnimRootMotion;
-	params.ServerMontageTrackPosition = ServerMontageTrackPosition;
-	params.ServerLoc = ServerLoc;
-	params.ServerRotation = ServerRotation;
-	params.ServerVelZ = ServerVelZ;
-	params.ServerBase = ServerBase;
-	params.ServerBoneName = ServerBoneName;
-	params.bHasBase = bHasBase;
-	params.bBaseRelativePosition = bBaseRelativePosition;
-	params.ServerMovementMode = ServerMovementMode;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.CharacterMovementComponent.ClientAdjustRootMotionPosition
-// (Net, Native, Event, Public, HasDefaults, NetClient)
-// Parameters:
-// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
-// float                          ServerMontageTrackPosition     (Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector                 ServerLoc                      (Parm, IsPlainOldData)
-// struct FVector_NetQuantizeNormal ServerRotation                 (Parm)
-// float                          ServerVelZ                     (Parm, ZeroConstructor, IsPlainOldData)
-// class UPrimitiveComponent*     ServerBase                     (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-// struct FName                   ServerBoneName                 (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bHasBase                       (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bBaseRelativePosition          (Parm, ZeroConstructor, IsPlainOldData)
-// unsigned char                  ServerMovementMode             (Parm, ZeroConstructor, IsPlainOldData)
-
-void UCharacterMovementComponent::ClientAdjustRootMotionPosition(float Timestamp, float ServerMontageTrackPosition, const struct FVector& ServerLoc, const struct FVector_NetQuantizeNormal& ServerRotation, float ServerVelZ, class UPrimitiveComponent* ServerBase, const struct FName& ServerBoneName, bool bHasBase, bool bBaseRelativePosition, unsigned char ServerMovementMode)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.CharacterMovementComponent.ClientAdjustRootMotionPosition");
-
-	UCharacterMovementComponent_ClientAdjustRootMotionPosition_Params params;
-	params.Timestamp = Timestamp;
-	params.ServerMontageTrackPosition = ServerMontageTrackPosition;
-	params.ServerLoc = ServerLoc;
-	params.ServerRotation = ServerRotation;
-	params.ServerVelZ = ServerVelZ;
-	params.ServerBase = ServerBase;
-	params.ServerBoneName = ServerBoneName;
-	params.bHasBase = bHasBase;
-	params.bBaseRelativePosition = bBaseRelativePosition;
-	params.ServerMovementMode = ServerMovementMode;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.CharacterMovementComponent.ClientAdjustPosition
-// (Net, Native, Event, Public, HasDefaults, NetClient)
-// Parameters:
-// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector                 NewLoc                         (Parm, IsPlainOldData)
-// struct FVector                 NewVel                         (Parm, IsPlainOldData)
-// class UPrimitiveComponent*     NewBase                        (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-// struct FName                   NewBaseBoneName                (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bHasBase                       (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bBaseRelativePosition          (Parm, ZeroConstructor, IsPlainOldData)
-// unsigned char                  ServerMovementMode             (Parm, ZeroConstructor, IsPlainOldData)
-
-void UCharacterMovementComponent::ClientAdjustPosition(float Timestamp, const struct FVector& NewLoc, const struct FVector& NewVel, class UPrimitiveComponent* NewBase, const struct FName& NewBaseBoneName, bool bHasBase, bool bBaseRelativePosition, unsigned char ServerMovementMode)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.CharacterMovementComponent.ClientAdjustPosition");
-
-	UCharacterMovementComponent_ClientAdjustPosition_Params params;
-	params.Timestamp = Timestamp;
-	params.NewLoc = NewLoc;
-	params.NewVel = NewVel;
-	params.NewBase = NewBase;
-	params.NewBaseBoneName = NewBaseBoneName;
-	params.bHasBase = bHasBase;
-	params.bBaseRelativePosition = bBaseRelativePosition;
-	params.ServerMovementMode = ServerMovementMode;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.CharacterMovementComponent.ClientAckGoodMove
-// (Net, Native, Event, Public, NetClient)
-// Parameters:
-// float                          Timestamp                      (Parm, ZeroConstructor, IsPlainOldData)
-
-void UCharacterMovementComponent::ClientAckGoodMove(float Timestamp)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.CharacterMovementComponent.ClientAckGoodMove");
-
-	UCharacterMovementComponent_ClientAckGoodMove_Params params;
-	params.Timestamp = Timestamp;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -17553,15 +18484,15 @@ void USkinnedMeshComponent::TransformFromBoneSpace(const struct FName& BoneName,
 // Function Engine.SkinnedMeshComponent.SetVertexColorOverride_LinearColor
 // (Final, Native, Public, HasOutParms, BlueprintCallable)
 // Parameters:
-// int                            LodIndex                       (Parm, ZeroConstructor, IsPlainOldData)
+// int                            LODIndex                       (Parm, ZeroConstructor, IsPlainOldData)
 // TArray<struct FLinearColor>    VertexColors                   (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
 
-void USkinnedMeshComponent::SetVertexColorOverride_LinearColor(int LodIndex, TArray<struct FLinearColor> VertexColors)
+void USkinnedMeshComponent::SetVertexColorOverride_LinearColor(int LODIndex, TArray<struct FLinearColor> VertexColors)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Engine.SkinnedMeshComponent.SetVertexColorOverride_LinearColor");
 
 	USkinnedMeshComponent_SetVertexColorOverride_LinearColor_Params params;
-	params.LodIndex = LodIndex;
+	params.LODIndex = LODIndex;
 	params.VertexColors = VertexColors;
 
 	auto flags = fn->FunctionFlags;
@@ -17576,15 +18507,15 @@ void USkinnedMeshComponent::SetVertexColorOverride_LinearColor(int LodIndex, TAr
 // Function Engine.SkinnedMeshComponent.SetSkinWeightOverride
 // (Final, Native, Public, HasOutParms, BlueprintCallable)
 // Parameters:
-// int                            LodIndex                       (Parm, ZeroConstructor, IsPlainOldData)
+// int                            LODIndex                       (Parm, ZeroConstructor, IsPlainOldData)
 // TArray<struct FSkelMeshSkinWeightInfo> SkinWeights                    (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
 
-void USkinnedMeshComponent::SetSkinWeightOverride(int LodIndex, TArray<struct FSkelMeshSkinWeightInfo> SkinWeights)
+void USkinnedMeshComponent::SetSkinWeightOverride(int LODIndex, TArray<struct FSkelMeshSkinWeightInfo> SkinWeights)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Engine.SkinnedMeshComponent.SetSkinWeightOverride");
 
 	USkinnedMeshComponent_SetSkinWeightOverride_Params params;
-	params.LodIndex = LodIndex;
+	params.LODIndex = LODIndex;
 	params.SkinWeights = SkinWeights;
 
 	auto flags = fn->FunctionFlags;
@@ -17968,14 +18899,14 @@ struct FName USkinnedMeshComponent::FindClosestBone_K2(const struct FVector& Tes
 // Function Engine.SkinnedMeshComponent.ClearVertexColorOverride
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// int                            LodIndex                       (Parm, ZeroConstructor, IsPlainOldData)
+// int                            LODIndex                       (Parm, ZeroConstructor, IsPlainOldData)
 
-void USkinnedMeshComponent::ClearVertexColorOverride(int LodIndex)
+void USkinnedMeshComponent::ClearVertexColorOverride(int LODIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Engine.SkinnedMeshComponent.ClearVertexColorOverride");
 
 	USkinnedMeshComponent_ClearVertexColorOverride_Params params;
-	params.LodIndex = LodIndex;
+	params.LODIndex = LODIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -17989,14 +18920,14 @@ void USkinnedMeshComponent::ClearVertexColorOverride(int LodIndex)
 // Function Engine.SkinnedMeshComponent.ClearSkinWeightOverride
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// int                            LodIndex                       (Parm, ZeroConstructor, IsPlainOldData)
+// int                            LODIndex                       (Parm, ZeroConstructor, IsPlainOldData)
 
-void USkinnedMeshComponent::ClearSkinWeightOverride(int LodIndex)
+void USkinnedMeshComponent::ClearSkinWeightOverride(int LODIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Engine.SkinnedMeshComponent.ClearSkinWeightOverride");
 
 	USkinnedMeshComponent_ClearSkinWeightOverride_Params params;
-	params.LodIndex = LodIndex;
+	params.LODIndex = LODIndex;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -18122,883 +19053,6 @@ void UDestructibleComponent::ApplyDamage(float DamageAmount, const struct FVecto
 	params.HitLocation = HitLocation;
 	params.ImpulseDir = ImpulseDir;
 	params.ImpulseStrength = ImpulseStrength;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameModeBase.StartPlay
-// (Native, Public, BlueprintCallable)
-
-void AGameModeBase::StartPlay()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.StartPlay");
-
-	AGameModeBase_StartPlay_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameModeBase.SpawnDefaultPawnFor
-// (Native, Event, Public, BlueprintEvent)
-// Parameters:
-// class AController*             NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
-// class AActor*                  StartSpot                      (Parm, ZeroConstructor, IsPlainOldData)
-// class APawn*                   ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class APawn* AGameModeBase::SpawnDefaultPawnFor(class AController* NewPlayer, class AActor* StartSpot)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.SpawnDefaultPawnFor");
-
-	AGameModeBase_SpawnDefaultPawnFor_Params params;
-	params.NewPlayer = NewPlayer;
-	params.StartSpot = StartSpot;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameModeBase.SpawnDefaultPawnAtTransform
-// (Native, Event, Public, HasOutParms, HasDefaults, BlueprintEvent)
-// Parameters:
-// class AController*             NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
-// struct FTransform              SpawnTransform                 (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
-// class APawn*                   ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class APawn* AGameModeBase::SpawnDefaultPawnAtTransform(class AController* NewPlayer, const struct FTransform& SpawnTransform)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.SpawnDefaultPawnAtTransform");
-
-	AGameModeBase_SpawnDefaultPawnAtTransform_Params params;
-	params.NewPlayer = NewPlayer;
-	params.SpawnTransform = SpawnTransform;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameModeBase.ShouldReset
-// (Native, Event, Public, BlueprintEvent)
-// Parameters:
-// class AActor*                  ActorToReset                   (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool AGameModeBase::ShouldReset(class AActor* ActorToReset)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.ShouldReset");
-
-	AGameModeBase_ShouldReset_Params params;
-	params.ActorToReset = ActorToReset;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameModeBase.ReturnToMainMenuHost
-// (Native, Public, BlueprintCallable)
-
-void AGameModeBase::ReturnToMainMenuHost()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.ReturnToMainMenuHost");
-
-	AGameModeBase_ReturnToMainMenuHost_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameModeBase.RestartPlayerAtTransform
-// (Native, Public, HasOutParms, HasDefaults, BlueprintCallable)
-// Parameters:
-// class AController*             NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
-// struct FTransform              SpawnTransform                 (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
-
-void AGameModeBase::RestartPlayerAtTransform(class AController* NewPlayer, const struct FTransform& SpawnTransform)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.RestartPlayerAtTransform");
-
-	AGameModeBase_RestartPlayerAtTransform_Params params;
-	params.NewPlayer = NewPlayer;
-	params.SpawnTransform = SpawnTransform;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameModeBase.RestartPlayerAtPlayerStart
-// (Native, Public, BlueprintCallable)
-// Parameters:
-// class AController*             NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
-// class AActor*                  StartSpot                      (Parm, ZeroConstructor, IsPlainOldData)
-
-void AGameModeBase::RestartPlayerAtPlayerStart(class AController* NewPlayer, class AActor* StartSpot)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.RestartPlayerAtPlayerStart");
-
-	AGameModeBase_RestartPlayerAtPlayerStart_Params params;
-	params.NewPlayer = NewPlayer;
-	params.StartSpot = StartSpot;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameModeBase.RestartPlayer
-// (Native, Public, BlueprintCallable)
-// Parameters:
-// class AController*             NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
-
-void AGameModeBase::RestartPlayer(class AController* NewPlayer)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.RestartPlayer");
-
-	AGameModeBase_RestartPlayer_Params params;
-	params.NewPlayer = NewPlayer;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameModeBase.ResetLevel
-// (Native, Public, BlueprintCallable)
-
-void AGameModeBase::ResetLevel()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.ResetLevel");
-
-	AGameModeBase_ResetLevel_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameModeBase.PlayerCanRestart
-// (Native, Event, Public, BlueprintEvent)
-// Parameters:
-// class APlayerController*       Player                         (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool AGameModeBase::PlayerCanRestart(class APlayerController* Player)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.PlayerCanRestart");
-
-	AGameModeBase_PlayerCanRestart_Params params;
-	params.Player = Player;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameModeBase.MustSpectate
-// (Native, Event, Public, BlueprintEvent, Const)
-// Parameters:
-// class APlayerController*       NewPlayerController            (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool AGameModeBase::MustSpectate(class APlayerController* NewPlayerController)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.MustSpectate");
-
-	AGameModeBase_MustSpectate_Params params;
-	params.NewPlayerController = NewPlayerController;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameModeBase.K2_PostLogin
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// class APlayerController*       NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
-
-void AGameModeBase::K2_PostLogin(class APlayerController* NewPlayer)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.K2_PostLogin");
-
-	AGameModeBase_K2_PostLogin_Params params;
-	params.NewPlayer = NewPlayer;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameModeBase.K2_OnSwapPlayerControllers
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class APlayerController*       OldPC                          (Parm, ZeroConstructor, IsPlainOldData)
-// class APlayerController*       NewPC                          (Parm, ZeroConstructor, IsPlainOldData)
-
-void AGameModeBase::K2_OnSwapPlayerControllers(class APlayerController* OldPC, class APlayerController* NewPC)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.K2_OnSwapPlayerControllers");
-
-	AGameModeBase_K2_OnSwapPlayerControllers_Params params;
-	params.OldPC = OldPC;
-	params.NewPC = NewPC;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameModeBase.K2_OnRestartPlayer
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// class AController*             NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
-
-void AGameModeBase::K2_OnRestartPlayer(class AController* NewPlayer)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.K2_OnRestartPlayer");
-
-	AGameModeBase_K2_OnRestartPlayer_Params params;
-	params.NewPlayer = NewPlayer;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameModeBase.K2_OnLogout
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// class AController*             ExitingController              (Parm, ZeroConstructor, IsPlainOldData)
-
-void AGameModeBase::K2_OnLogout(class AController* ExitingController)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.K2_OnLogout");
-
-	AGameModeBase_K2_OnLogout_Params params;
-	params.ExitingController = ExitingController;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameModeBase.K2_OnChangeName
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// class AController*             Other                          (Parm, ZeroConstructor, IsPlainOldData)
-// struct FString                 NewName                        (Parm, ZeroConstructor)
-// bool                           bNameChange                    (Parm, ZeroConstructor, IsPlainOldData)
-
-void AGameModeBase::K2_OnChangeName(class AController* Other, const struct FString& NewName, bool bNameChange)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.K2_OnChangeName");
-
-	AGameModeBase_K2_OnChangeName_Params params;
-	params.Other = Other;
-	params.NewName = NewName;
-	params.bNameChange = bNameChange;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameModeBase.K2_FindPlayerStart
-// (Final, Native, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class AController*             Player                         (Parm, ZeroConstructor, IsPlainOldData)
-// struct FString                 IncomingName                   (Parm, ZeroConstructor)
-// class AActor*                  ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class AActor* AGameModeBase::K2_FindPlayerStart(class AController* Player, const struct FString& IncomingName)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.K2_FindPlayerStart");
-
-	AGameModeBase_K2_FindPlayerStart_Params params;
-	params.Player = Player;
-	params.IncomingName = IncomingName;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameModeBase.InitStartSpot
-// (Native, Event, Public, BlueprintEvent)
-// Parameters:
-// class AActor*                  StartSpot                      (Parm, ZeroConstructor, IsPlainOldData)
-// class AController*             NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
-
-void AGameModeBase::InitStartSpot(class AActor* StartSpot, class AController* NewPlayer)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.InitStartSpot");
-
-	AGameModeBase_InitStartSpot_Params params;
-	params.StartSpot = StartSpot;
-	params.NewPlayer = NewPlayer;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameModeBase.InitializeHUDForPlayer
-// (Native, Event, Protected, BlueprintEvent)
-// Parameters:
-// class APlayerController*       NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
-
-void AGameModeBase::InitializeHUDForPlayer(class APlayerController* NewPlayer)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.InitializeHUDForPlayer");
-
-	AGameModeBase_InitializeHUDForPlayer_Params params;
-	params.NewPlayer = NewPlayer;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameModeBase.HasMatchStarted
-// (Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool AGameModeBase::HasMatchStarted()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.HasMatchStarted");
-
-	AGameModeBase_HasMatchStarted_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameModeBase.HandleStartingNewPlayer
-// (Native, Event, Public, BlueprintEvent)
-// Parameters:
-// class APlayerController*       NewPlayer                      (Parm, ZeroConstructor, IsPlainOldData)
-
-void AGameModeBase::HandleStartingNewPlayer(class APlayerController* NewPlayer)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.HandleStartingNewPlayer");
-
-	AGameModeBase_HandleStartingNewPlayer_Params params;
-	params.NewPlayer = NewPlayer;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameModeBase.GetNumSpectators
-// (Native, Public, BlueprintCallable)
-// Parameters:
-// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-int AGameModeBase::GetNumSpectators()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.GetNumSpectators");
-
-	AGameModeBase_GetNumSpectators_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameModeBase.GetNumPlayers
-// (Native, Public, BlueprintCallable)
-// Parameters:
-// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-int AGameModeBase::GetNumPlayers()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.GetNumPlayers");
-
-	AGameModeBase_GetNumPlayers_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameModeBase.GetDefaultPawnClassForController
-// (Native, Event, Public, BlueprintEvent)
-// Parameters:
-// class AController*             InController                   (Parm, ZeroConstructor, IsPlainOldData)
-// class UClass*                  ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class UClass* AGameModeBase::GetDefaultPawnClassForController(class AController* InController)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.GetDefaultPawnClassForController");
-
-	AGameModeBase_GetDefaultPawnClassForController_Params params;
-	params.InController = InController;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameModeBase.FindPlayerStart
-// (Native, Event, Public, BlueprintEvent)
-// Parameters:
-// class AController*             Player                         (Parm, ZeroConstructor, IsPlainOldData)
-// struct FString                 IncomingName                   (Parm, ZeroConstructor)
-// class AActor*                  ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class AActor* AGameModeBase::FindPlayerStart(class AController* Player, const struct FString& IncomingName)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.FindPlayerStart");
-
-	AGameModeBase_FindPlayerStart_Params params;
-	params.Player = Player;
-	params.IncomingName = IncomingName;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameModeBase.ChoosePlayerStart
-// (Native, Event, Public, BlueprintEvent)
-// Parameters:
-// class AController*             Player                         (Parm, ZeroConstructor, IsPlainOldData)
-// class AActor*                  ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class AActor* AGameModeBase::ChoosePlayerStart(class AController* Player)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.ChoosePlayerStart");
-
-	AGameModeBase_ChoosePlayerStart_Params params;
-	params.Player = Player;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameModeBase.ChangeName
-// (Native, Public, BlueprintCallable)
-// Parameters:
-// class AController*             Controller                     (Parm, ZeroConstructor, IsPlainOldData)
-// struct FString                 NewName                        (Parm, ZeroConstructor)
-// bool                           bNameChange                    (Parm, ZeroConstructor, IsPlainOldData)
-
-void AGameModeBase::ChangeName(class AController* Controller, const struct FString& NewName, bool bNameChange)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.ChangeName");
-
-	AGameModeBase_ChangeName_Params params;
-	params.Controller = Controller;
-	params.NewName = NewName;
-	params.bNameChange = bNameChange;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameModeBase.CanSpectate
-// (Native, Event, Public, BlueprintEvent)
-// Parameters:
-// class APlayerController*       Viewer                         (Parm, ZeroConstructor, IsPlainOldData)
-// class APlayerState*            ViewTarget                     (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool AGameModeBase::CanSpectate(class APlayerController* Viewer, class APlayerState* ViewTarget)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameModeBase.CanSpectate");
-
-	AGameModeBase_CanSpectate_Params params;
-	params.Viewer = Viewer;
-	params.ViewTarget = ViewTarget;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameMode.StartMatch
-// (Native, Public, BlueprintCallable)
-
-void AGameMode::StartMatch()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.StartMatch");
-
-	AGameMode_StartMatch_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameMode.SetBandwidthLimit
-// (Exec, Native, Public)
-// Parameters:
-// float                          AsyncIOBandwidthLimit          (Parm, ZeroConstructor, IsPlainOldData)
-
-void AGameMode::SetBandwidthLimit(float AsyncIOBandwidthLimit)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.SetBandwidthLimit");
-
-	AGameMode_SetBandwidthLimit_Params params;
-	params.AsyncIOBandwidthLimit = AsyncIOBandwidthLimit;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameMode.Say
-// (Exec, Native, Public, BlueprintCallable)
-// Parameters:
-// struct FString                 Msg                            (Parm, ZeroConstructor)
-
-void AGameMode::Say(const struct FString& Msg)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.Say");
-
-	AGameMode_Say_Params params;
-	params.Msg = Msg;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameMode.RestartGame
-// (Native, Public, BlueprintCallable)
-
-void AGameMode::RestartGame()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.RestartGame");
-
-	AGameMode_RestartGame_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameMode.ReadyToStartMatch
-// (Native, Event, Protected, BlueprintEvent)
-// Parameters:
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool AGameMode::ReadyToStartMatch()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.ReadyToStartMatch");
-
-	AGameMode_ReadyToStartMatch_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameMode.ReadyToEndMatch
-// (Native, Event, Protected, BlueprintEvent)
-// Parameters:
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool AGameMode::ReadyToEndMatch()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.ReadyToEndMatch");
-
-	AGameMode_ReadyToEndMatch_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameMode.K2_OnSetMatchState
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// struct FName                   NewState                       (Parm, ZeroConstructor, IsPlainOldData)
-
-void AGameMode::K2_OnSetMatchState(const struct FName& NewState)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.K2_OnSetMatchState");
-
-	AGameMode_K2_OnSetMatchState_Params params;
-	params.NewState = NewState;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameMode.IsMatchInProgress
-// (Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool AGameMode::IsMatchInProgress()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.IsMatchInProgress");
-
-	AGameMode_IsMatchInProgress_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameMode.HasMatchEnded
-// (Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool AGameMode::HasMatchEnded()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.HasMatchEnded");
-
-	AGameMode_HasMatchEnded_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameMode.GetMatchState
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// struct FName                   ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-struct FName AGameMode::GetMatchState()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.GetMatchState");
-
-	AGameMode_GetMatchState_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function Engine.GameMode.EndMatch
-// (Native, Public, BlueprintCallable)
-
-void AGameMode::EndMatch()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.EndMatch");
-
-	AGameMode_EndMatch_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function Engine.GameMode.AbortMatch
-// (Native, Public, BlueprintCallable)
-
-void AGameMode::AbortMatch()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function Engine.GameMode.AbortMatch");
-
-	AGameMode_AbortMatch_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -49312,16 +49366,16 @@ float UKismetMathLibrary::STATIC_RandomFloat()
 // Function Engine.KismetMathLibrary.RandomBoolWithWeightFromStream
 // (Final, Native, Static, Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintPure)
 // Parameters:
-// float                          Weight                         (Parm, ZeroConstructor, IsPlainOldData)
+// float                          weight                         (Parm, ZeroConstructor, IsPlainOldData)
 // struct FRandomStream           RandomStream                   (ConstParm, Parm, OutParm, ReferenceParm)
 // bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 
-bool UKismetMathLibrary::STATIC_RandomBoolWithWeightFromStream(float Weight, const struct FRandomStream& RandomStream)
+bool UKismetMathLibrary::STATIC_RandomBoolWithWeightFromStream(float weight, const struct FRandomStream& RandomStream)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Engine.KismetMathLibrary.RandomBoolWithWeightFromStream");
 
 	UKismetMathLibrary_RandomBoolWithWeightFromStream_Params params;
-	params.Weight = Weight;
+	params.weight = weight;
 	params.RandomStream = RandomStream;
 
 	auto flags = fn->FunctionFlags;
@@ -49338,15 +49392,15 @@ bool UKismetMathLibrary::STATIC_RandomBoolWithWeightFromStream(float Weight, con
 // Function Engine.KismetMathLibrary.RandomBoolWithWeight
 // (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
 // Parameters:
-// float                          Weight                         (Parm, ZeroConstructor, IsPlainOldData)
+// float                          weight                         (Parm, ZeroConstructor, IsPlainOldData)
 // bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 
-bool UKismetMathLibrary::STATIC_RandomBoolWithWeight(float Weight)
+bool UKismetMathLibrary::STATIC_RandomBoolWithWeight(float weight)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Engine.KismetMathLibrary.RandomBoolWithWeight");
 
 	UKismetMathLibrary_RandomBoolWithWeight_Params params;
-	params.Weight = Weight;
+	params.weight = weight;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;

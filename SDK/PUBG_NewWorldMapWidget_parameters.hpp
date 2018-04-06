@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -354,12 +354,6 @@ struct UNewWorldMapWidget_C_Construct_Params
 // Function NewWorldMapWidget.NewWorldMapWidget_C.Destruct
 struct UNewWorldMapWidget_C_Destruct_Params
 {
-};
-
-// Function NewWorldMapWidget.NewWorldMapWidget_C.OnInputAxis
-struct UNewWorldMapWidget_C_OnInputAxis_Params
-{
-	float*                                             Scale;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function NewWorldMapWidget.NewWorldMapWidget_C.ExecuteUbergraph_NewWorldMapWidget

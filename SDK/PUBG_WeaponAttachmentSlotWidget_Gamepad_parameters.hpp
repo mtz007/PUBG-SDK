@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -24,6 +24,30 @@ struct UWeaponAttachmentSlotWidget_Gamepad_C_GetSlotItem_Params
 struct UWeaponAttachmentSlotWidget_Gamepad_C_GetSlotContainer_Params
 {
 	TScriptInterface<class USlotContainerInterface>    SlotContainer;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.CanHandleInput
+struct UWeaponAttachmentSlotWidget_Gamepad_C_CanHandleInput_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.GetBackgroundState
+struct UWeaponAttachmentSlotWidget_Gamepad_C_GetBackgroundState_Params
+{
+	float                                              State;                                                    // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.IsSlotSelected_Bp
+struct UWeaponAttachmentSlotWidget_Gamepad_C_IsSlotSelected_Bp_Params
+{
+	bool                                               res;                                                      // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.IsSlotSubOn_Bp
+struct UWeaponAttachmentSlotWidget_Gamepad_C_IsSlotSubOn_Bp_Params
+{
+	bool                                               SubOn;                                                    // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.InputY
@@ -81,21 +105,6 @@ struct UWeaponAttachmentSlotWidget_Gamepad_C_SetFocus_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.OnDrop
-struct UWeaponAttachmentSlotWidget_Gamepad_C_OnDrop_Params
-{
-	struct FGeometry*                                  MyGeometry;                                               // (Parm, IsPlainOldData)
-	struct FPointerEvent*                              PointerEvent;                                             // (Parm)
-	class UDragDropOperation**                         Operation;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.GetOptoins
-struct UWeaponAttachmentSlotWidget_Gamepad_C_GetOptoins_Params
-{
-	struct FString                                     Options;                                                  // (Parm, OutParm, ZeroConstructor)
-};
-
 // Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.GetDragDroppingAttachableItem
 struct UWeaponAttachmentSlotWidget_Gamepad_C_GetDragDroppingAttachableItem_Params
 {
@@ -138,18 +147,6 @@ struct UWeaponAttachmentSlotWidget_Gamepad_C_IsSlotOn_Bp_Params
 	bool                                               IsOn;                                                     // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.IsOhterSlotMouseOver
-struct UWeaponAttachmentSlotWidget_Gamepad_C_IsOhterSlotMouseOver_Params
-{
-	bool                                               IsOver;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.IsAttachable
-struct UWeaponAttachmentSlotWidget_Gamepad_C_IsAttachable_Params
-{
-	bool                                               IsAttachable;                                             // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.GetAttachmentItem
 struct UWeaponAttachmentSlotWidget_Gamepad_C_GetAttachmentItem_Params
 {
@@ -166,22 +163,6 @@ struct UWeaponAttachmentSlotWidget_Gamepad_C_HasAttachmentSlot_Params
 struct UWeaponAttachmentSlotWidget_Gamepad_C_MainPrepass_1_Params
 {
 	class UWidget*                                     BoundWidget;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.OnDragDetected
-struct UWeaponAttachmentSlotWidget_Gamepad_C_OnDragDetected_Params
-{
-	struct FGeometry*                                  MyGeometry;                                               // (Parm, IsPlainOldData)
-	struct FPointerEvent*                              PointerEvent;                                             // (ConstParm, Parm, OutParm, ReferenceParm)
-	class UDragDropOperation*                          Operation;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.OnMouseButtonDown
-struct UWeaponAttachmentSlotWidget_Gamepad_C_OnMouseButtonDown_Params
-{
-	struct FGeometry*                                  MyGeometry;                                               // (Parm, IsPlainOldData)
-	struct FPointerEvent*                              MouseEvent;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
-	struct FEventReply                                 ReturnValue;                                              // (Parm, OutParm, ReturnParm)
 };
 
 // Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.GetSlotVisibility
@@ -202,34 +183,6 @@ struct UWeaponAttachmentSlotWidget_Gamepad_C_GetAttachmentNameText_Params
 	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
 };
 
-// Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.OnDragEnter
-struct UWeaponAttachmentSlotWidget_Gamepad_C_OnDragEnter_Params
-{
-	struct FGeometry*                                  MyGeometry;                                               // (Parm, IsPlainOldData)
-	struct FPointerEvent*                              PointerEvent;                                             // (Parm)
-	class UDragDropOperation**                         Operation;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.OnDragLeave
-struct UWeaponAttachmentSlotWidget_Gamepad_C_OnDragLeave_Params
-{
-	struct FPointerEvent*                              PointerEvent;                                             // (Parm)
-	class UDragDropOperation**                         Operation;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.OnMouseEnter
-struct UWeaponAttachmentSlotWidget_Gamepad_C_OnMouseEnter_Params
-{
-	struct FGeometry*                                  MyGeometry;                                               // (Parm, IsPlainOldData)
-	struct FPointerEvent*                              MouseEvent;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
-};
-
-// Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.OnMouseLeave
-struct UWeaponAttachmentSlotWidget_Gamepad_C_OnMouseLeave_Params
-{
-	struct FPointerEvent*                              MouseEvent;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
-};
-
 // Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.Construct
 struct UWeaponAttachmentSlotWidget_Gamepad_C_Construct_Params
 {
@@ -247,13 +200,6 @@ struct UWeaponAttachmentSlotWidget_Gamepad_C_OnAttachmentFocused__DelegateSignat
 	EWeaponAttachmentSlotID                            AttachmentSlotID;                                         // (Parm, ZeroConstructor, IsPlainOldData)
 	TScriptInterface<class USlotInterface>             SlotInterface;                                            // (Parm, ZeroConstructor, IsPlainOldData)
 	TScriptInterface<class USlotContainerInterface>    SlotContainerInterface;                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function WeaponAttachmentSlotWidget_Gamepad.WeaponAttachmentSlotWidget_Gamepad_C.OnWidgetMove__DelegateSignature
-struct UWeaponAttachmentSlotWidget_Gamepad_C_OnWidgetMove__DelegateSignature_Params
-{
-	class UUserWidget*                                 Widget;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ActionName;                                               // (Parm, ZeroConstructor)
 };
 
 }

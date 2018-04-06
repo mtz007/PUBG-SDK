@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace Classes
 //---------------------------------------------------------------------------
 
 // AnimBlueprintGeneratedClass CharProxy_AnimBP.CharProxy_AnimBP_C
-// 0x3951 (0x3CC9 - 0x0378)
+// 0x3B6C (0x3EE4 - 0x0378)
 class UCharProxy_AnimBP_C : public UAnimInstance
 {
 public:
@@ -104,37 +104,45 @@ public:
 	struct FAnimNode_ConvertComponentToLocalSpace      AnimGraphNode_ComponentToLocalSpace_C5CD9ED54ED82C595A0FE5993B0D51A7;// 0x38E8(0x0048)
 	struct FAnimNode_ConvertLocalToComponentSpace      AnimGraphNode_LocalToComponentSpace_0E4D3D22478115959F38A99EB1EFED42;// 0x3930(0x0048)
 	struct FAnimNode_AnimDynamics                      AnimGraphNode_AnimDynamics_5AC0BDB14D2A3D1267886E90B77FE3C8;// 0x3978(0x0280)
-	EAnimWeaponType                                    AnimWeaponType;                                           // 0x3BF8(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x7];                                       // 0x3BF9(0x0007) MISSED OFFSET
-	class UBlendSpaceBase*                             GripBlendSpace;                                           // 0x3C00(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              Yaw;                                                      // 0x3C08(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              Pitch;                                                    // 0x3C0C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              Aimstate;                                                 // 0x3C10(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              BlendTime;                                                // 0x3C14(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	struct FVector                                     PistolOffset;                                             // 0x3C18(0x000C) (Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData)
-	float                                              GripType;                                                 // 0x3C24(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              BlinkAlpha;                                               // 0x3C28(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	EWeaponClass                                       WeaponClassEnum;                                          // 0x3C2C(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x3];                                       // 0x3C2D(0x0003) MISSED OFFSET
-	float                                              LH_GripIndex;                                             // 0x3C30(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData04[0x4];                                       // 0x3C34(0x0004) MISSED OFFSET
-	class UBlendSpaceBase*                             LH_GripBS;                                                // 0x3C38(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	int                                                Position;                                                 // 0x3C40(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData05[0x4];                                       // 0x3C44(0x0004) MISSED OFFSET
-	class ALobbyCharacter*                             LobbyCharacterRerefence;                                  // 0x3C48(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
-	bool                                               IsLobbyReady;                                             // 0x3C50(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData06[0x7];                                       // 0x3C51(0x0007) MISSED OFFSET
-	TArray<class UAnimSequence*>                       AnimNotReady;                                             // 0x3C58(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
-	TArray<class UAnimSequence*>                       AnimReady;                                                // 0x3C68(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
-	TArray<class UAnimSequence*>                       AnimNotReadyToReady;                                      // 0x3C78(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
-	TArray<class UAnimSequence*>                       AnimReadyToNotReady;                                      // 0x3C88(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
-	struct FVector                                     Wind;                                                     // 0x3C98(0x000C) (Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData)
-	struct FVector                                     InitialWind;                                              // 0x3CA4(0x000C) (Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData)
-	class UCurveFloat*                                 Curve;                                                    // 0x3CB0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	ELobbyCameraStates                                 CameraState;                                              // 0x3CB8(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData07[0x7];                                       // 0x3CB9(0x0007) MISSED OFFSET
-	class ALobbyHUD*                                   LobbyHUDRef;                                              // 0x3CC0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
-	bool                                               bIsLobbyCharacterValid;                                   // 0x3CC8(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FAnimNode_Slot                              AnimGraphNode_Slot_94ABE67F4516A799040B0EBD3744C81F;      // 0x3BF8(0x0060)
+	struct FAnimNode_Slot                              AnimGraphNode_Slot_47A4FA404C56C9B356AEA2B6A2DF4B9D;      // 0x3C58(0x0060)
+	struct FAnimNode_ModifyBone                        AnimGraphNode_ModifyBone_138D096848F6627DCB3C9496E0576FF0;// 0x3CB8(0x00B8)
+	struct FAnimNode_ConvertLocalToComponentSpace      AnimGraphNode_LocalToComponentSpace_B60838F74D3948F45299BAA39E5A42CA;// 0x3D70(0x0048)
+	struct FAnimNode_ConvertComponentToLocalSpace      AnimGraphNode_ComponentToLocalSpace_0AAD8A9C4B28F64A540A3FA5A66A33DD;// 0x3DB8(0x0048)
+	EAnimWeaponType                                    AnimWeaponType;                                           // 0x3E00(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x7];                                       // 0x3E01(0x0007) MISSED OFFSET
+	class UBlendSpaceBase*                             GripBlendSpace;                                           // 0x3E08(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              Yaw;                                                      // 0x3E10(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              Pitch;                                                    // 0x3E14(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              Aimstate;                                                 // 0x3E18(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              BlendTime;                                                // 0x3E1C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FVector                                     PistolOffset;                                             // 0x3E20(0x000C) (Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData)
+	float                                              GripType;                                                 // 0x3E2C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              BlinkAlpha;                                               // 0x3E30(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	EWeaponClass                                       WeaponClassEnum;                                          // 0x3E34(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x3];                                       // 0x3E35(0x0003) MISSED OFFSET
+	float                                              LH_GripIndex;                                             // 0x3E38(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData04[0x4];                                       // 0x3E3C(0x0004) MISSED OFFSET
+	class UBlendSpaceBase*                             LH_GripBS;                                                // 0x3E40(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	int                                                Position;                                                 // 0x3E48(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData05[0x4];                                       // 0x3E4C(0x0004) MISSED OFFSET
+	class ALobbyCharacter*                             LobbyCharacterRerefence;                                  // 0x3E50(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
+	bool                                               IsLobbyReady;                                             // 0x3E58(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData06[0x7];                                       // 0x3E59(0x0007) MISSED OFFSET
+	TArray<class UAnimSequence*>                       AnimNotReady;                                             // 0x3E60(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	TArray<class UAnimSequence*>                       AnimReady;                                                // 0x3E70(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	TArray<class UAnimSequence*>                       AnimNotReadyToReady;                                      // 0x3E80(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	TArray<class UAnimSequence*>                       AnimReadyToNotReady;                                      // 0x3E90(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	struct FVector                                     Wind;                                                     // 0x3EA0(0x000C) (Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData)
+	struct FVector                                     InitialWind;                                              // 0x3EAC(0x000C) (Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData)
+	class UCurveFloat*                                 Curve;                                                    // 0x3EB8(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	ELobbyCameraStates                                 CameraState;                                              // 0x3EC0(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData07[0x7];                                       // 0x3EC1(0x0007) MISSED OFFSET
+	class ALobbyHUD*                                   LobbyHUDRef;                                              // 0x3EC8(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bShowLobbyAnimation;                                      // 0x3ED0(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData08[0x3];                                       // 0x3ED1(0x0003) MISSED OFFSET
+	float                                              NewVar_1;                                                 // 0x3ED4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FVector                                     AxisFix;                                                  // 0x3ED8(0x000C) (Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -147,15 +155,15 @@ public:
 	void UpdateBlink();
 	void GetAnimWeaponIKLeft(struct FTransform* IKLeft);
 	void GetAnimWeaponType(EAnimWeaponType* AnimWeaponType);
+	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_03098CEB4560DEA557CDB4A432C2B741();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_SequencePlayer_D493424D42CF2DC582D781A0C47C3BFC();
-	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_1B9B424241FB104B11A537B7349DA4C7();
+	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_3DA5C7214658D193C32CA1B3EDEC5B06();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_3EA0D8134E453388078DF7956E1EE968();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_SequencePlayer_A1A21FA3437F9F7B351CEDAEB541E857();
-	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_B4789EB84B94BAF324DEDE8E04D6F50B();
+	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_1B9B424241FB104B11A537B7349DA4C7();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_22F0D7B94E96A178C615A99283D38A74();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_SequencePlayer_9F588AE94089767D8A9EA6AA0DBA117A();
-	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_5C591DE54F0AB6A9C9ADEEB4FDDC4C62();
-	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TwoWayBlend_F55B74BC41101BEBCB2E1FB32E00F62E();
+	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_B4789EB84B94BAF324DEDE8E04D6F50B();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByBool_DE260CEA407C68776D9118B2960C17E9();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_AnimDynamics_FC292CB34C9D970E666EF9B7433D62D3();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_AnimDynamics_631C88D546201C974F742CB8806E8F09();
@@ -163,9 +171,11 @@ public:
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_AnimDynamics_5991C3C04B715B36A0D33080B66FBECE();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_AnimDynamics_01099A7D4A5ABA33AFBA468333D3C0E6();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_AnimDynamics_5AC0BDB14D2A3D1267886E90B77FE3C8();
+	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_ModifyBone_138D096848F6627DCB3C9496E0576FF0();
+	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_5C591DE54F0AB6A9C9ADEEB4FDDC4C62();
+	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TwoWayBlend_F55B74BC41101BEBCB2E1FB32E00F62E();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendSpacePlayer_50CC758845EBAE09DFE0FFA151BC45A3();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_341CAEF947395CE8613E1AA1A1B0CEB9();
-	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_TransitionResult_3DA5C7214658D193C32CA1B3EDEC5B06();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_ModifyBone_D9BD57E94786BDB98B1024BAA5B2A680();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_ModifyBone_60F7F60D46063AC788F6DAA1F7DDBE0D();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_044C21FF45F8C9135ED72E90A1317ACF();
@@ -173,11 +183,10 @@ public:
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_LayeredBoneBlend_C2F30D7E4BD89239D23E298DD1729B77();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_CopyBone_94E5E49E48018345AB9C488D9EB44172();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_Fabrik_50E1CCC144ED9B7CFB3C1890CBA2E662();
-	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_7DD4DF2E4EE51B857C8F8BBA6ADD08B0();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_SequencePlayer_7913876244FB5B565F3A1995825A2839();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_8C6BE6834B8224190077FA9A0125327F();
+	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_7DD4DF2E4EE51B857C8F8BBA6ADD08B0();
 	void BlueprintUpdateAnimation(float* DeltaTimeX);
-	void EvaluateGraphExposedInputs_ExecuteUbergraph_CharProxy_AnimBP_AnimGraphNode_BlendListByEnum_03098CEB4560DEA557CDB4A432C2B741();
 	void BlueprintInitializeAnimation();
 	void OnReady_Event_1(bool bReady);
 	void ExecuteUbergraph_CharProxy_AnimBP(int EntryPoint);

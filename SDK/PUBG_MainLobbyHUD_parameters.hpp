@@ -1,6 +1,6 @@
 #pragma once
 
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -141,6 +141,13 @@ struct UMainLobbyHUD_C_BndEvt__Button_Quit_K2Node_ComponentBoundEvent_229_OnButt
 struct UMainLobbyHUD_C_ShowWebPopup_Params
 {
 	struct FWebPopupParam                              Param;                                                    // (ConstParm, Parm, OutParm, ReferenceParm)
+};
+
+// Function MainLobbyHUD.MainLobbyHUD_C.Tick
+struct UMainLobbyHUD_C_Tick_Params
+{
+	struct FGeometry*                                  MyGeometry;                                               // (Parm, IsPlainOldData)
+	float*                                             InDeltaTime;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function MainLobbyHUD.MainLobbyHUD_C.Construct

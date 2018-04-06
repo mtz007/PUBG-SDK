@@ -1,4 +1,4 @@
-// PLAYERUNKNOWN'S BATTLEGROUNDS (3.6.13.14) SDK
+// PLAYERUNKNOWN'S BATTLEGROUNDS (3.7.27.18) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -54,6 +54,43 @@ void AGunImpact_Arrow_C::ReceiveBeginPlay()
 	static auto fn = UObject::FindObject<UFunction>("Function GunImpact_Arrow.GunImpact_Arrow_C.ReceiveBeginPlay");
 
 	AGunImpact_Arrow_C_ReceiveBeginPlay_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function GunImpact_Arrow.GunImpact_Arrow_C.WakeUp_BP
+// (Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// struct FTransform*             InitialTransform               (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+
+void AGunImpact_Arrow_C::WakeUp_BP(struct FTransform* InitialTransform)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function GunImpact_Arrow.GunImpact_Arrow_C.WakeUp_BP");
+
+	AGunImpact_Arrow_C_WakeUp_BP_Params params;
+	params.InitialTransform = InitialTransform;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function GunImpact_Arrow.GunImpact_Arrow_C.PutToSleep_BP
+// (Event, Public, BlueprintCallable, BlueprintEvent)
+
+void AGunImpact_Arrow_C::PutToSleep_BP()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function GunImpact_Arrow.GunImpact_Arrow_C.PutToSleep_BP");
+
+	AGunImpact_Arrow_C_PutToSleep_BP_Params params;
 
 	auto flags = fn->FunctionFlags;
 
